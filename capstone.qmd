@@ -1,9 +1,9 @@
 ---
-title: "Capstone Project"
-subtitle: Subtitle
+title: "United States' Health Quality"
+subtitle: Does a Perfect Health Insurance Model Exist?
 authors:
-  - Bob
-  - Jane
+  - Frances Romero
+  - Haleigh Schwartz
 title-block-banner: true
 format: 
   html:
@@ -18,3 +18,4 @@ format:
 {{< include _04_data.qmd >}}
 {{< include _05_results.qmd >}}
 {{< include _06_conclusions.qmd >}}
+{{< include _07_workscited.qmd >}}
