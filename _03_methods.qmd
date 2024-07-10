@@ -14,7 +14,7 @@ Finally, we edited the state and question fields to replicate the way that data 
 ### CHRR: Collection and Cleaning
 Similar to KFF, we downloaded data for each state from 2022-2017 (not including 2020) from CHRR. We chose the “20xx County Health Release National Data” links for each year. This data included metrics such as life expectancy, death rate, years of potential loss rate, food environment index, percentage of physically inactive adults, percentage of excessive drinking, PCP ratio, and much more.²
 
-County Health Rankings and Roadmaps (CHRR) data was downloaded from the years 2017-2022 (exluding the missing 2020 year). Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States. 
+County Health Rankings and Roadmaps (CHRR) data was downloaded from the years 2017-2022 (excluding the missing 2020 year). Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States. 
 
 First, we cleaned up the columns. We reviewed the documentation and renamed any potentially confusing column names. For example, "#_Medicare_Enrollees" became "no_female_medicare_enrollees" to avoid mistakenly believeing the first column included both genders in its count. We dropped columns that would not be of help to us, such as the "95% CI - Low" and "95% CI - High" columns, as our dataset did not describe how these confidence intervals were found. We replaced all spaces with an underscore.
 
