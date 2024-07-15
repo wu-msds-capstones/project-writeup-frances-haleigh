@@ -18,7 +18,7 @@ County Health Rankings and Roadmaps (CHRR) data was downloaded from the years 20
 
 First, we cleaned up the columns. We reviewed the documentation and renamed any potentially confusing column names. For example, "#_Medicare_Enrollees" became "no_female_medicare_enrollees" to avoid mistakenly believeing the first column included both genders in its count. We dropped columns that would not be of help to us, such as the "95% CI - Low" and "95% CI - High" columns, as our dataset did not describe how these confidence intervals were found. We replaced all spaces with an underscore.
 
-Second, we joined the two CSVs for each year to have one CSV per year and added a "Year" column to help with merging later. Then we found the mean for each column for each state.
+Second, we joined the two CSVs for each year to have one CSV per year and added a "Year" column to help with merging later.
 
 Finally, we reformatted the CSVs to match that of the KFF data, where our original columns became the "question" column and the values filled in a new "values" column. Again, we used text parsing such as "grepl" and "gsub" to fill in our newly created "demographic," "measure", "group", "secondary_demographic", and "secondary_group" columns. For example, if our question was "mean_%_Children_in_Poverty_(white)", our "demographic", "group", "secondary_demographic", and "secondary_group" columns became "Race/Ethnicity", "White", "Age", and "0-17", respectively.
 
