@@ -90,6 +90,36 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<p>We gathered data from two public sources: KFF (an independent source for health policy research, polling, and news)⁶ and County Health Rankings and Roadmaps (CHRR).² Data was downloaded as CSVs and then cleaned using R. A detailed description of our data cleaning along with our data organizational structure (Entity Relationship Diagram) are in the data section below.</p>
+</section>
+<section id="data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="data-analysis">Data Analysis</h2>
+<section id="statistical-thinking" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-thinking">Statistical Thinking</h3>
+<p>We used statistics (such as Pearson’s R correlation) and modeling (regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy, quality of life, and mortality rates.³ We compared proportions across states to account for differences in population.</p>
+</section>
+<section id="data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualization">Data Visualization</h3>
+<p>We used data visualization as part of both our exploratory data analysis and in our final outcome. We created a map of the United States to determine if there is a spatial relationship between our variables and quality of health.</p>
+</section>
+<section id="data-engineering" class="level3">
+<h3 class="anchored" data-anchor-id="data-engineering">Data Engineering</h3>
+<p>We stored our data into a relational database and accessed it with Postgresql (through Railway). A detailed description for how this was done is in the data section below.</p>
+</section>
+<section id="machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
+<p>We created a simple application where the user can enter their health insurance status, demographics, and current health status to discover their predicted life expectancy and health outcomes (using common metrics such as HALY, DALY, and QALY).⁷</p>
+</section>
+<section id="data-ethics" class="level3">
+<h3 class="anchored" data-anchor-id="data-ethics">Data Ethics</h3>
+<p>We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented.</p>
+</section>
+</section>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
 <section id="data-ingestion" class="level2">
 <h2 class="anchored" data-anchor-id="data-ingestion">Data Ingestion</h2>
 <p>We gathered data from two sources: KFF (an independent source for health policy research, polling, and news)⁶ and County Health Rankings and Roadmaps (CHRR).²</p>
@@ -105,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Similar to KFF, we downloaded data for each state from 2022-2017 (not including 2020) from CHRR. We chose the “20xx County Health Release National Data” links for each year. This data included metrics such as life expectancy, death rate, years of potential loss rate, food environment index, percentage of physically inactive adults, percentage of excessive drinking, PCP ratio, and much more.²</p>
 <p>County Health Rankings and Roadmaps (CHRR) data was downloaded from the years 2017-2022 (excluding the missing 2020 year). Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States.</p>
 <p>First, we cleaned up the columns. We reviewed the documentation and renamed any potentially confusing column names. For example, “#_Medicare_Enrollees” became “no_female_medicare_enrollees” to avoid mistakenly believeing the first column included both genders in its count. We dropped columns that would not be of help to us, such as the “95% CI - Low” and “95% CI - High” columns, as our dataset did not describe how these confidence intervals were found. We replaced all spaces with an underscore.</p>
-<p>Second, we joined the two CSVs for each year to have one CSV per year and added a “Year” column to help with merging later. Then we found the mean for each column for each state.</p>
+<p>Second, we joined the two CSVs for each year to have one CSV per year and added a “Year” column to help with merging later.</p>
 <p>Finally, we reformatted the CSVs to match that of the KFF data, where our original columns became the “question” column and the values filled in a new “values” column. Again, we used text parsing such as “grepl” and “gsub” to fill in our newly created “demographic,” “measure”, “group”, “secondary_demographic”, and “secondary_group” columns. For example, if our question was “mean_%<em>Children_in_Poverty</em>(white)”, our “demographic”, “group”, “secondary_demographic”, and “secondary_group” columns became “Race/Ethnicity”, “White”, “Age”, and “0-17”, respectively.</p>
 <p>Since the questions and potential answers collected by CHRR data varied each year, we made sure that our cleaning code was modified for each year to both accomodate the changes in the data and match identical answers from previous years. As an example, the only races that were listed as options in the 2017 data were “White”, “Black”, “Hispanic”, and “Asian”. However, by the 2022 data collection, the options had expanded to include “American Indian/Alaskan Native”, “Native Hawaiian/Other Pacific Islander”, and “Other/Multiple Races.” In 2022, “Black” was changed to “African American,” so we changed it back to “Black” to both match the earlier CHRR data and the KFF data.</p>
 </section>
@@ -120,32 +150,6 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="data-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="data-analysis">Data Analysis</h2>
-<section id="statistical-thinking" class="level3">
-<h3 class="anchored" data-anchor-id="statistical-thinking">Statistical Thinking</h3>
-<p>We used statistics (such as Pearson’s R correlation) and modeling (regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy, quality of life, and mortality rates.³ We compared proportions across states to account for differences in population.</p>
-</section>
-<section id="data-visualization" class="level3">
-<h3 class="anchored" data-anchor-id="data-visualization">Data Visualization</h3>
-<p>We used data visualization as part of both our exploratory data analysis and in our final outcome. We created a map of the United States to determine if there is a spatial relationship between our variables and quality of health.</p>
-</section>
-<section id="data-engineering" class="level3">
-<h3 class="anchored" data-anchor-id="data-engineering">Data Engineering</h3>
-<p>We stored our data into a relational database and accessed it with Postgresql. See above for a detailed description for how this was done.</p>
-</section>
-<section id="machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
-<p>We created a simple application where the user can enter their health insurance status, demographics, and current health status to discover their predicted life expectancy and health outcomes (using common metrics such as HALY, DALY, and QALY).⁷</p>
-</section>
-<section id="data-ethics" class="level3">
-<h3 class="anchored" data-anchor-id="data-ethics">Data Ethics</h3>
-<p>We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented.</p>
-</section>
-</section>
-</section>
-<section id="data" class="level1">
-<h1>Data</h1>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
