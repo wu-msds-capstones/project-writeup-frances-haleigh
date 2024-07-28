@@ -1,19 +1,19 @@
 # Methods
 ## Sources
-We gathered data from two public sources: KFF (an independent source for health policy research, polling, and news)⁶ and County Health Rankings and Roadmaps (CHRR).² Data was downloaded as CSVs and then cleaned using R. A detailed description of our data cleaning along with our data organizational structure (Entity Relationship Diagram) are in the data section below.
+We gathered data from two public sources: KFF (an independent source for health policy research, polling, and news)⁶ and County Health Rankings and Roadmaps (CHRR).² Data was downloaded as CSVs and then cleaned using R. A detailed description of our data cleaning along with our data organizational structure (Entity Relationship Diagram) are in the data section above.
 
 ## Data Analysis
 ### Statistical Thinking
-We used statistics (such as Pearson's R correlation) and modeling (regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy, quality of life, and mortality rates.³ We compared proportions across states to account for differences in population.
+We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy, quality of life, and mortality rates.³ We compared proportions across states to account for differences in population.
 
 ### Data Visualization
-We used data visualization as part of both our exploratory data analysis and in our final outcome. We created a map of the United States to determine if there is a spatial relationship between our variables and quality of health. 
+We used data visualization as part of both our exploratory data analysis and in our final outcome. We created maps of the United States to determine if there is a spatial relationship between our variables and quality of health. Various other visualizations were displayed from our statistical analysis and machine learning product, such as Kaplan-Meier curves, graphs of K-Best's top features, confusion matrices, and K-Means and/or Gaussian Mixture Model scatterplots, where appropriate.  
 
 ### Data Engineering
-We stored our data into a relational database and accessed it with Postgresql (through Railway). A detailed description for how this was done is in the data section below. 
+We stored our data into a relational database and accessed it with Postgresql (through Railway). We accessed our data in both R and Python using the RPostgreSQL and sqlalchemy libraries, respectively. A detailed description for how this was done is in the data section below. 
 
 ### Machine Learning
-We created a simple application where the user can enter their health insurance status, demographics, and current health status to discover their predicted life expectancy and health outcomes (using common metrics such as HALY, DALY, and QALY).⁷
+We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicting metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. 
 
 ### Data Ethics
 We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented. 

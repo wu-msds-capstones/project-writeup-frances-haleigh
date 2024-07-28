@@ -1,5 +1,5 @@
 # Introduction
-Our capstone project aims to investigate the impact of public health insurance on the health status of individuals, focusing on the accessibility of preventative care and its correlation with overall health outcomes. We intend to explore which demographics and states are most affected by limited access to preventative care, and how state health expenditures relate to the health status of their populations. By examining these factors, we aim to contribute to the understanding of how health insurance models can be optimized to improve public health in the United States.
+Our capstone project investigated the impact of public health insurance on the health status of individuals, focusing on the accessibility of preventative care and its correlation with overall health outcomes. We explored which demographics and states are most affected by limited access to preventative care and how state health expenditures related to the health status of their populations. By examining these factors, we aimed to contribute to the understanding of how health insurance models can be optimized to improve public health in the United States.
 
 
 
