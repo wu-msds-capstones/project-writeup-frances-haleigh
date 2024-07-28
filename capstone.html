@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Our capstone project aims to investigate the impact of public health insurance on the health status of individuals, focusing on the accessibility of preventative care and its correlation with overall health outcomes. We intend to explore which demographics and states are most affected by limited access to preventative care, and how state health expenditures relate to the health status of their populations. By examining these factors, we aim to contribute to the understanding of how health insurance models can be optimized to improve public health in the United States.</p>
+<p>Our capstone project investigated the impact of public health insurance on the health status of individuals, focusing on the accessibility of preventative care and its correlation with overall health outcomes. We explored which demographics and states are most affected by limited access to preventative care and how state health expenditures related to the health status of their populations. By examining these factors, we aimed to contribute to the understanding of how health insurance models can be optimized to improve public health in the United States.</p>
 </section>
 <section id="background" class="level1">
 <h1>Background</h1>
@@ -89,36 +89,6 @@ ul.task-list li input[type="checkbox"] {
 </blockquote>
 <p>Since we can expect access to preventative care to be limited for those on public health insurance in the United States and know preventative care improves health outcomes, we hypothesize that reduced access to preventative care for those on public health insurance explains the apparent paradox mentioned above.</p>
 </section>
-<section id="methods" class="level1">
-<h1>Methods</h1>
-<section id="sources" class="level2">
-<h2 class="anchored" data-anchor-id="sources">Sources</h2>
-<p>We gathered data from two public sources: KFF (an independent source for health policy research, polling, and news)⁶ and County Health Rankings and Roadmaps (CHRR).² Data was downloaded as CSVs and then cleaned using R. A detailed description of our data cleaning along with our data organizational structure (Entity Relationship Diagram) are in the data section below.</p>
-</section>
-<section id="data-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="data-analysis">Data Analysis</h2>
-<section id="statistical-thinking" class="level3">
-<h3 class="anchored" data-anchor-id="statistical-thinking">Statistical Thinking</h3>
-<p>We used statistics (such as Pearson’s R correlation) and modeling (regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy, quality of life, and mortality rates.³ We compared proportions across states to account for differences in population.</p>
-</section>
-<section id="data-visualization" class="level3">
-<h3 class="anchored" data-anchor-id="data-visualization">Data Visualization</h3>
-<p>We used data visualization as part of both our exploratory data analysis and in our final outcome. We created a map of the United States to determine if there is a spatial relationship between our variables and quality of health.</p>
-</section>
-<section id="data-engineering" class="level3">
-<h3 class="anchored" data-anchor-id="data-engineering">Data Engineering</h3>
-<p>We stored our data into a relational database and accessed it with Postgresql (through Railway). A detailed description for how this was done is in the data section below.</p>
-</section>
-<section id="machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
-<p>We created a simple application where the user can enter their health insurance status, demographics, and current health status to discover their predicted life expectancy and health outcomes (using common metrics such as HALY, DALY, and QALY).⁷</p>
-</section>
-<section id="data-ethics" class="level3">
-<h3 class="anchored" data-anchor-id="data-ethics">Data Ethics</h3>
-<p>We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented.</p>
-</section>
-</section>
-</section>
 <section id="data" class="level1">
 <h1>Data</h1>
 <section id="data-ingestion" class="level2">
@@ -126,14 +96,14 @@ ul.task-list li input[type="checkbox"] {
 <p>We gathered data from two sources: KFF (an independent source for health policy research, polling, and news)⁶ and County Health Rankings and Roadmaps (CHRR).²</p>
 <section id="kff-collection-and-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="kff-collection-and-cleaning">KFF: Collection and Cleaning</h3>
-<p>We generated a custom report from data available on KFF, downloading a large variety of data from 2022-2017 (not including 2020) for each state in the US. Variables we will investigate from this dataset include percentage of population on Medicare, percentage of adults who smoke, healthcare expenditure, median annual household income, cervical cancer incidence rate, and many more potentially relevant factors.⁶</p>
+<p>We generated a custom report from data available on KFF, downloading a large variety of data from 2022-2017 (not including 2020) for each state in the US. Variables we investigated from this dataset included percentage of population on Medicare, percentage of adults who smoke, healthcare expenditure, median annual household income, cervical cancer incidence rate, and many more potentially relevant factors.⁶</p>
 <p>KFF data for each state was downloaded as CSVs. We chose the most recent dates for all of the different health and insurance related questions, from between 2017-2022. The CSVs originally had a question, state, and value field. We used text parsing to create a column called demographic and a column called group. This allowed us to parse out demographics like age, race/ethnicity, poverty level and create groups within each of those.</p>
 <p>We also created fields called “year” and “measure”, and parsed out the years and measurements from the question field. Some questions had multiple demographics, so we created a secondary demographic field and a secondary group field. These are not ranked.</p>
-<p>Finally, we edited the state and question fields to replicate the way that data from our CHFF dataset was formatted. This allowed us to merge the two datasets.</p>
+<p>Finally, we added a “county” column (which we filled with all NA) and edited the state and question fields to replicate the way that data from our CHFF dataset was formatted. This allowed us to merge the two datasets.</p>
 </section>
 <section id="chrr-collection-and-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="chrr-collection-and-cleaning">CHRR: Collection and Cleaning</h3>
-<p>Similar to KFF, we downloaded data for each state from 2022-2017 (not including 2020) from CHRR. We chose the “20xx County Health Release National Data” links for each year. This data included metrics such as life expectancy, death rate, years of potential loss rate, food environment index, percentage of physically inactive adults, percentage of excessive drinking, PCP ratio, and much more.²</p>
+<p>Similar to KFF, we downloaded data for each state from 2022-2017 (not including 2020) from CHRR. We chose the “20xx County Health Release National Data” links for each year. This data included metrics such as life expectancy, death rate, years of potential loss rate, food environment index, percentage of physically inactive adults, percentage of excessive drinking, Primary Care Provider (PCP) ratio, and much more.²</p>
 <p>County Health Rankings and Roadmaps (CHRR) data was downloaded from the years 2017-2022 (excluding the missing 2020 year). Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States.</p>
 <p>First, we cleaned up the columns. We reviewed the documentation and renamed any potentially confusing column names. For example, “#_Medicare_Enrollees” became “no_female_medicare_enrollees” to avoid mistakenly believeing the first column included both genders in its count. We dropped columns that would not be of help to us, such as the “95% CI - Low” and “95% CI - High” columns, as our dataset did not describe how these confidence intervals were found. We replaced all spaces with an underscore.</p>
 <p>Second, we joined the two CSVs for each year to have one CSV per year and added a “Year” column to help with merging later.</p>
@@ -143,13 +113,43 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-organization" class="level2">
 <h2 class="anchored" data-anchor-id="data-organization">Data Organization</h2>
-<p>Data was combined and normalized to third normal form. The id’s were primary keys for each table except for compiled_table, where “state_id,” “year_id,” and “question_id” were used as a compound primary key. We used the same foreign key for “group” and “secondary_group” and another separate foreign key for both “type” and “secondary_type.” All columns had a NOT NULL constraint except for unit_type from the unit table, and unit_id, secondary_group_id, and secondary_type_id from compiled_table.</p>
+<p>Data was combined and normalized to third normal form. The ids were primary keys for each table except for question_responses, where “state_id,” “year_id,” and “question_id” were used as a compound primary key. We used the same foreign key for “group” and “secondary_group” and another separate foreign key for both “type” and “secondary_type.” All columns had a NOT NULL constraint except for unit_type from the unit table, and unit_id, secondary_group_id, and secondary_type_id from question_responses.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./capstone_erd.png" class="img-fluid figure-img"></p>
 <figcaption>ERD.</figcaption>
 </figure>
 </div>
+</section>
+</section>
+<section id="methods" class="level1">
+<h1>Methods</h1>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<p>We gathered data from two public sources: KFF (an independent source for health policy research, polling, and news)⁶ and County Health Rankings and Roadmaps (CHRR).² Data was downloaded as CSVs and then cleaned using R. A detailed description of our data cleaning along with our data organizational structure (Entity Relationship Diagram) are in the data section above.</p>
+</section>
+<section id="data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="data-analysis">Data Analysis</h2>
+<section id="statistical-thinking" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-thinking">Statistical Thinking</h3>
+<p>We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy, quality of life, and mortality rates.³ We compared proportions across states to account for differences in population.</p>
+</section>
+<section id="data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualization">Data Visualization</h3>
+<p>We used data visualization as part of both our exploratory data analysis and in our final outcome. We created maps of the United States to determine if there is a spatial relationship between our variables and quality of health. Various other visualizations were displayed from our statistical analysis and machine learning product, such as Kaplan-Meier curves, graphs of K-Best’s top features, confusion matrices, and K-Means and/or Gaussian Mixture Model scatterplots, where appropriate.</p>
+</section>
+<section id="data-engineering" class="level3">
+<h3 class="anchored" data-anchor-id="data-engineering">Data Engineering</h3>
+<p>We stored our data into a relational database and accessed it with Postgresql (through Railway). We accessed our data in both R and Python using the RPostgreSQL and sqlalchemy libraries, respectively. A detailed description for how this was done is in the data section below.</p>
+</section>
+<section id="machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
+<p>We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicting metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid.</p>
+</section>
+<section id="data-ethics" class="level3">
+<h3 class="anchored" data-anchor-id="data-ethics">Data Ethics</h3>
+<p>We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented.</p>
+</section>
 </section>
 </section>
 <section id="results" class="level1">
