@@ -1,7 +1,4 @@
 # Methods
-## Sources
-We gathered data from two public sources: KFF (an independent source for health policy research, polling, and news)⁶ and County Health Rankings and Roadmaps (CHRR).² Data was downloaded as CSVs and then cleaned using R. A detailed description of our data cleaning along with our data organizational structure (Entity Relationship Diagram) are in the data section above.
-
 ## Data Analysis
 ### Statistical Thinking
 We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy, quality of life, and mortality rates.³ We compared proportions across states to account for differences in population.
