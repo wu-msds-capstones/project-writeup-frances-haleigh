@@ -1,1 +1,15 @@
 # Results
+In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.3 In the following sections, we modeled each of these by a list of variables representing access to care (Supplemental Table 1A). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population. 
+
+We first plotted each of these by preventative healthcare measures to explore the trends. We then used this information to create a linear model. We selected the significantly correlated preventative healthcare measures for each to reduce the model.
+
+### Life Expectancy
+Fig 1: Median Life Expectancy by State. 
+![ERD.](images/life_expectancy_by_state.png)
+
+Figure 1 demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in figure 2. 
+
+Figure 2: Map of State Significance for Life Expectancy.
+![ERD.](images/life_expectancy_significanct_state.png)
+
+For preventative healthcare measures, we found that primary care physician rate or ratio were both positively correlated with life expectancy. Percentage of food insecurity was negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of access to broadband internet was also positively correlated with life expectancy. We were a bit by the two different segregation estimates in figure 3 so we dug a bit deeper. In particular, we were concerned that the residential segregation index was positively correlated with life expectancy but the opposite relationship was found for the segregation index (which is what we expected to see). We realized that our residential segregation index had a lot of missing values and when plotting it against life expectancy we didn’t see any visible trend. To improve this model, we would remove this predictor, since there are too many missing values and we are likely overfitting our model here. 
