@@ -13,3 +13,16 @@ Figure 2: Map of State Significance for Life Expectancy.
 ![ERD.](images/life_expectancy_significanct_state.png)
 
 For preventative healthcare measures, we found that primary care physician rate or ratio were both positively correlated with life expectancy. Percentage of food insecurity was negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of access to broadband internet was also positively correlated with life expectancy. We were a bit by the two different segregation estimates in figure 3 so we dug a bit deeper. In particular, we were concerned that the residential segregation index was positively correlated with life expectancy but the opposite relationship was found for the segregation index (which is what we expected to see). We realized that our residential segregation index had a lot of missing values and when plotting it against life expectancy we didn’t see any visible trend. To improve this model, we would remove this predictor, since there are too many missing values and we are likely overfitting our model here. 
+
+Figure 3: Life Expectancy Linear Model Coefficients.
+![ERD.](images/life_expectanct_lm_coef.png)
+
+To better understand the survival (life expectancy) of different groups for each of these variables, we decided to create some Kaplan-Meier Curves. We did this by breaking up the data for each variable into quantiles. For example, the percentage of food insecure people would be broken up into 4 groups from least to most food insecure. We then conducted a log rank test to compare between quantiles to see if the groups were significantly different from each other. Figure 4 shows life expectancy based on the percentage of food insecurity. Food insecurity was broken up into 4 quantiles. Figure 5 shows the results of the log rank test which are significant p = <2e-16. For quantiles 1 and 2 (less food insecurity), we observed less death than we expected to, but for quantiles 3 and 4 (more food insecurity), we observed more death than we expected to. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.
+
+ Figure 4: Kaplan-Meier Curve for Life Expectancy and Percentage of Food Insecurity.  
+ ![ERD.](images/KM_food.png)
+
+ Figure 5: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity. 
+  ![ERD.](images/log_rank_food.png)
+
+Kaplan-Meier Curves for life expectancy were made with the following variables: primary care physician rate and ratio, percentage of food insecurity, segregation index, and percentage of broadband internet access. Log rank tests were performed, and all of the results were significant. To explore the curves and log rank test results, please explore our gallery below:
