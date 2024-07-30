@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -409,18 +409,40 @@ ul.task-list li input[type="checkbox"] {
 <h1>Supplemental Data</h1>
 <section id="supplemental-tables" class="level2">
 <h2 class="anchored" data-anchor-id="supplemental-tables">Supplemental Tables</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><embed src="./Figures/access_to_care_total.csv" class="img-fluid"></p>
-<figcaption>S.Table 1A: CSV containing all variables used to represent access to care</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><embed src="./Figures/all_columns_list.csv" class="img-fluid"></p>
-<figcaption>S.Table 1B: CSV containing all variables used to assess weight contribution to new variable</figcaption>
-</figure>
-</div>
+<section id="s.table-1a-csv-containing-all-variables-used-to-assess-access-to-care" class="level3">
+<h3 class="anchored" data-anchor-id="s.table-1a-csv-containing-all-variables-used-to-assess-access-to-care">S.Table 1A: CSV containing all variables used to assess access to care</h3>
+<button id="download-button" class="btn btn-danger">
+<i class="fa fa-save"></i> Download S.Table 1A
+</button>
+<script>
+  document.getElementById('download-button').addEventListener('click', function() {
+    const csvFilePath = './Figures/access_to_care_total.csv'; // Update the path to your CSV file
+    const link = document.createElement('a');
+    link.href = csvFilePath;
+    link.download = 'access_to_care_total.csv'; // The name of the file to be downloaded
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+</script>
+</section>
+<section id="s.table-1b-csv-containing-all-variables-used-to-assess-weight-contribution-to-new-variable" class="level3">
+<h3 class="anchored" data-anchor-id="s.table-1b-csv-containing-all-variables-used-to-assess-weight-contribution-to-new-variable">S.Table 1B: CSV containing all variables used to assess weight contribution to new variable</h3>
+<button id="download-button2" class="btn btn-danger">
+<i class="fa fa-save"></i> Download S.Table 1B
+</button>
+<script>
+  document.getElementById('download-button2').addEventListener('click', function() {
+    const csvFilePath = './Figures/all_columns_list.csv'; // Update the path to your CSV file
+    const link = document.createElement('a');
+    link.href = csvFilePath;
+    link.download = 'all_columns_list.csv'; // The name of the file to be downloaded
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+</script>
+</section>
 </section>
 <section id="supplemental-figures" class="level2">
 <h2 class="anchored" data-anchor-id="supplemental-figures">Supplemental Figures</h2>
