@@ -29,3 +29,37 @@ Kaplan-Meier Curves for life expectancy were made with the following variables: 
 
 ```{embed}
 images/gallery.html
+```
+
+### Infant Mortality
+Figure 6: Median Infant Mortality Rate by State. 
+![ERD.](images/median_infant_mortality_by_state.png)
+
+Figure 6 shows that there is a difference between median infant mortality rates between states. Because of this, we included state in our linear model to determine which states were significantly correlated with infant mortality. 
+
+Figure 7: Significance of State for Infant Mortality. 
+![ERD.](images/significance_state_infant_mortality.png)
+
+Figure 7 shows which states were positively or negatively correlated with infant mortality. Note, this map has negative significance in green since that would mean less infant mortality. In this case, Maryland and Mississippi have significantly higher rates of infant mortality.
+
+In terms of preventative healthcare measures that were significantly correlated with infant mortality (figure 8), we found that median household income, broadband internet access were negatively and significantly correlated with infant mortality. That is, as income and access to internet increased, infant mortality rates decreased. We came across the same issue with segregation here (residential segregation not having enough data points to be meaningful). The segregation index coefficient shows that as segregation increases, infant mortality rates increase as well. 
+
+Figure 8:  Infant Mortality Linear Model Coefficients.
+![ERD.](images/infant_mortality_lm_coef.png)
+
+### Age Adjusted Death Rate
+Figure 9: Median Mortality Rate by State.
+![ERD.](images/median_mortality_rate_by_state.png)
+
+Age adjusted death rate (mortality rate) appeared to vary across states as is seen in figure 9. We chose to keep state in our linear model because of this. Figure 10 shows which states were significantly correlated with mortality rate. Negative correlation is in green (AZ) showing a significantly lower death rate in Arizona. Positive correlation is in red, showing significantly higher death rates.
+
+Figure 10: Significance of State for Age Adjusted Death Rate (Mortality Rate). 
+![ERD.](images/significance_state_death_rate_map.png)
+
+Preventative healthcare measures that were significantly correlated with mortality rate are shown in figure 11. As food insecurity, segregation (excluding residential segregation), school segregation, increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.
+
+ As income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trend for white Americans. The trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well. 
+
+
+Figure 11: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients.
+![ERD.](images/death_rate_lm_coef.png)
