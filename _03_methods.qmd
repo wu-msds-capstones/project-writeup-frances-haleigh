@@ -1,7 +1,9 @@
 # Methods
 ## Data Analysis
 ### Statistical Thinking
-We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy, quality of life, and mortality rates.³ We compared proportions across states to account for differences in population.
+We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy and mortality rates.³ We compared proportions across states to account for differences in population.
+
+In our linear models created in R, we first took the natural logarithm of income-related data due to both its skewed distribution and disproportionate scale (in comparison to the rest of our data). 
 
 ### Data Visualization
 We used data visualization as part of both our exploratory data analysis and in our final outcome. We created maps of the United States to determine if there is a spatial relationship between our variables and quality of health. Various other visualizations were displayed from our statistical analysis and machine learning product, such as Kaplan-Meier curves, graphs of K-Best's top features, confusion matrices, and K-Means and/or Gaussian Mixture Model scatterplots, where appropriate.  
@@ -10,10 +12,30 @@ We used data visualization as part of both our exploratory data analysis and in 
 We stored our data into a relational database and accessed it with Postgresql (through Railway). We accessed our data in both R and Python using the RPostgreSQL and sqlalchemy libraries, respectively. A detailed description for how this was done is in the data section below. 
 
 ### Machine Learning
-We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicting metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. 
+We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. 
+
+For the first type of model, predicting health by access to care, our basic outline was as follows:
+Create our desired dataframe by reading in data from our remote database and joining where necessary.
+Preprocess:
+Drop NAs while optimizing data frame size via trial and error.
+Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.
+Use KMeans to find the top 10 features from each model. Combine these variables with significant variables from the linear regression models completed in R.
+Continue preprocessing with the reduced dataset (using only variables from step 3) 
+Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable.
+In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. 
+For life expectancy, we dropped outliers first (ages below 60 and above 90, see supplemental Figure1A).
+Train/test split dataset
+Create model
+Use LogisticRegression, RandomForestClassifier, GradientBoostingClassifier, CategoricalNaiveBayes, and Ensemble. Find which model performs the best.
+Hyperparameterize the model that works best from step 5a.
+Cross validate finalized model
+Test on testing data to find true accuracy
+Confusion matrix to see what went wrong
+
+For our models that predicted prevalence of a specific disease, we used the mean prevalence across states rather than across counties. We did this because the covariates for those models were only available by state. 
 
 ### Data Ethics
-We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented. 
+We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented.  
 
 
 
