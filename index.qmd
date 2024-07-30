@@ -5,14 +5,6 @@ authors:
   - Frances Romero
   - Haleigh Schwartz
 title-block-banner: true
-format: 
-  html:
-    theme:
-      light: lightly
-      dark: darkly
-with:
-  target: gh-pages
-  path: capstone.qmd
 ---
 
 {{< include _01_intro.qmd >}}
