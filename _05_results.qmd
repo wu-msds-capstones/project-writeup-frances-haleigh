@@ -26,3 +26,5 @@ To better understand the survival (life expectancy) of different groups for each
   ![ERD.](images/log_rank_food.png)
 
 Kaplan-Meier Curves for life expectancy were made with the following variables: primary care physician rate and ratio, percentage of food insecurity, segregation index, and percentage of broadband internet access. Log rank tests were performed, and all of the results were significant. To explore the curves and log rank test results, please explore our gallery below:
+
+include_html("images/gallery.html")
