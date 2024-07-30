@@ -19,3 +19,4 @@ format:
 {{< include _05_results.qmd >}}
 {{< include _06_conclusions.qmd >}}
 {{< include _07_workscited.qmd >}}
+{{< include _08_supplemental.qmd >}}

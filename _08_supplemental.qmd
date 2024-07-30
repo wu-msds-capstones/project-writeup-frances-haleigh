@@ -1,0 +1,27 @@
+# Supplemental Data
+
+## Supplemental Tables
+
+![S.Table 1A: CSV containing all variables used to represent access to care](./Figures/access_to_care_total.csv)
+
+![S.Table 1B: CSV containing all variables used to assess weight contribution to new variable](./Figures/all_columns_list.csv)
+
+![S.Figure 1A: KBest Features for Life Expectancy](./Figures/kbest_life_exp.png)
+
+![S.Figure 1B: KBest Features for Infant Mortality Rate](./Figures/kbest_inf_mor.png)
+
+![S.Figure 1C: KBest Features for Death Rate](./Figures/kbest_mortality.png)
+
+![S.Figure 1D: Distribution of Life Expectancy Quartiles](./Figures/life_expectancy_bins.png)
+
+![S.Figure 1E: Confusion Matrix for Life Expectancy Model](./Figures/conf_matrix_life_exp.png)
+
+![S.Figure 1F: Confusion Matrix for Death Rate Model](./Figures/conf_matrix_mortality.png)
+
+![S.Figure 1G: Variance Explained by each Principle Component in the Life Expectancy Model](./Figures/variance_life_exp.png)
+
+![S.Figure 1H: Variance Explained by each Principle Component in the Infant Mortality Model](./Figures/variance_inf_mor.png)
+
+![S.Figure 1I: Variance Explained by each Principle Component in the Death Rate Model](./Figures/variance_mortality.png)
+
+![S.Figure 1J: Explained Variance by Eigenvalue for Entire Dataset](./Figures/total_eigenvalue.png)

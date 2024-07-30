@@ -12,27 +12,39 @@ We used data visualization as part of both our exploratory data analysis and in 
 We stored our data into a relational database and accessed it with Postgresql (through Railway). We accessed our data in both R and Python using the RPostgreSQL and sqlalchemy libraries, respectively. A detailed description for how this was done is in the data section below. 
 
 ### Machine Learning
-We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. 
+We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. Finally, we created a new variable that represented overall health quality. 
 
 For the first type of model, predicting health by access to care, our basic outline was as follows:
-Create our desired dataframe by reading in data from our remote database and joining where necessary.
-Preprocess:
-Drop NAs while optimizing data frame size via trial and error.
-Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.
-Use KMeans to find the top 10 features from each model. Combine these variables with significant variables from the linear regression models completed in R.
-Continue preprocessing with the reduced dataset (using only variables from step 3) 
-Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable.
-In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. 
-For life expectancy, we dropped outliers first (ages below 60 and above 90, see supplemental Figure1A).
-Train/test split dataset
-Create model
-Use LogisticRegression, RandomForestClassifier, GradientBoostingClassifier, CategoricalNaiveBayes, and Ensemble. Find which model performs the best.
-Hyperparameterize the model that works best from step 5a.
-Cross validate finalized model
-Test on testing data to find true accuracy
-Confusion matrix to see what went wrong
+1. Create our desired dataframe by reading in data from our remote database and joining where necessary.
+2. Preprocess:
+    - Drop NAs while optimizing data frame size via trial and error.
+    - Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.
+3. Use KMeans to find the top 10 features from each model (see Supplemental Figures 1A-1C). Combine these variables with significant variables from the linear regression models completed in R.
+4. Continue preprocessing with the reduced dataset (using only variables from step 3) 
+    - Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable.
+        - In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. 
+        - For life expectancy, we dropped outliers first (ages below 60 and above 90, see Supplemental Figure 1D).
+    - Train/test split dataset
+5. Create model
+    - Use LogisticRegression, RandomForestClassifier, GradientBoostingClassifier, CategoricalNaiveBayes, and Ensemble. Find which model performs the best.
+    - Hyperparameterize the model that works best from step 5a.
+    - Cross validate finalized model
+    - Test on testing data to find true accuracy
+    - Confusion matrix to see what went wrong (see Supplemental Figures 1E and 1F).
+6. Add PCA to the model
+    - Determine how many components explain 90% variance in the model (see Supplemental Figures 1G-1I).
+    - Add PCA with that number of components to the optimized pipeline made from Step 5.
 
-For our models that predicted prevalence of a specific disease, we used the mean prevalence across states rather than across counties. We did this because the covariates for those models were only available by state. 
+For the type of model where we predicted prevalence of a disease based on Medicaid-related variables, the basic outline was as follows:
+ 1. Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state. 
+2. Preprocess, split, and model the data as outlined above.
+
+For the creation of our new variable:
+1. Gather our entire dataset (not just access to care related variables) See Supplemental Table 1B for a list of all variables used.
+2. Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.
+3. Use PCA to see how much variance can be explained by the first eigenvalue (see Supplemental Figure 1J).
+4. Project desired health variables to the first eigenvalue.
+5. Compare weights of all variables to see how much they each contribute to this “new variable."
 
 ### Data Ethics
 We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented.  

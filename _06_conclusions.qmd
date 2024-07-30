@@ -1,1 +1,12 @@
 # Conclusions
+Our analysis showed significant correlations between various socio-economic factors and key health outcomes such as life expectancy, infant mortality, and age-adjusted death rate. Specifically, food insecurity, broadband internet access, and segregation emerged as crucial features. While we observed meaningful correlations, certain findings were limited by missing data, particularly regarding residential segregation and infant mortality rate, which should be excluded from future models made from the same data.
+
+Adjustments for outliers are necessary to better understand the nuanced relationship between income and death rates within our linear models. Importantly, the prevalence of primary care physicians correlated positively with life expectancy, reinforcing the expected relationship between access to healthcare and improved health outcomes.
+
+Furthermore, our additional findings highlight the impact of preventative healthcare measures on overall health. For instance, broadband internet access and median household income showed significant negative correlations with infant mortality, indicating that better access to resources and economic stability can contribute to lower infant mortality rates. Conversely, higher segregation indices were associated with increased infant mortality, emphasizing the detrimental effects of social and economic divides.
+
+Our predictive models, though varying in accuracy, consistently underscored the importance of healthcare access. The life expectancy and age-adjusted death rate models based on access-to-care variables suggested that a significant portion of health outcomes can be anticipated through healthcare accessibility metrics.
+
+Furthermore, our findings related to Diabetes (DM) and Cardiovascular Disease (CVD) reveal significant insights into the impact of Medicaid on chronic conditions. Our linear regression models demonstrated that Medicaid-related factors could predict diabetes prevalence with 38% accuracy and cardiovascular disease prevalence with 46% accuracy. These findings highlight the substantial role Medicaid plays in managing these chronic conditions and underscore the importance of access to healthcare for lower-income populations.
+
+Overall, our comprehensive analysis confirms the critical role of socio-economic factors, healthcare access, and preventative measures in determining health outcomes. Future research should focus on refining models to account for outliers and improving data completeness to further explore these relationships.
