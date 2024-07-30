@@ -6,6 +6,8 @@
 
 ![S.Table 1B: CSV containing all variables used to assess weight contribution to new variable](./Figures/all_columns_list.csv)
 
+## Supplemental Figures
+
 ![S.Figure 1A: KBest Features for Life Expectancy](./Figures/kbest_life_exp.png)
 
 ![S.Figure 1B: KBest Features for Infant Mortality Rate](./Figures/kbest_inf_mor.png)
