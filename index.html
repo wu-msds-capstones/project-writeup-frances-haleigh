@@ -40,6 +40,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -71,11 +74,11 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="fullcontent">
+<body class="floating">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">United States’ Health Quality</h1>
@@ -101,8 +104,67 @@ ul.task-list li input[type="checkbox"] {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#data-ingestion" id="toc-data-ingestion" class="nav-link" data-scroll-target="#data-ingestion">Data Ingestion</a>
+  <ul class="collapse">
+  <li><a href="#kff-collection-and-cleaning" id="toc-kff-collection-and-cleaning" class="nav-link" data-scroll-target="#kff-collection-and-cleaning">KFF: Collection and Cleaning</a></li>
+  <li><a href="#chrr-collection-and-cleaning" id="toc-chrr-collection-and-cleaning" class="nav-link" data-scroll-target="#chrr-collection-and-cleaning">CHRR: Collection and Cleaning</a></li>
+  </ul></li>
+  <li><a href="#data-organization" id="toc-data-organization" class="nav-link" data-scroll-target="#data-organization">Data Organization</a></li>
+  </ul></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
+  <ul class="collapse">
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis">Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#statistical-thinking" id="toc-statistical-thinking" class="nav-link" data-scroll-target="#statistical-thinking">Statistical Thinking</a></li>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
+  <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering">Data Engineering</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
+  <li><a href="#data-ethics" id="toc-data-ethics" class="nav-link" data-scroll-target="#data-ethics">Data Ethics</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <ul class="collapse">
+  <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1">Introduction</a></li>
+  <li><a href="#analyzing-impact-of-access-to-care-on-health-metrics" id="toc-analyzing-impact-of-access-to-care-on-health-metrics" class="nav-link" data-scroll-target="#analyzing-impact-of-access-to-care-on-health-metrics">Analyzing Impact of Access to Care on Health Metrics</a>
+  <ul class="collapse">
+  <li><a href="#life-expectancy" id="toc-life-expectancy" class="nav-link" data-scroll-target="#life-expectancy">Life Expectancy</a></li>
+  <li><a href="#infant-mortality" id="toc-infant-mortality" class="nav-link" data-scroll-target="#infant-mortality">Infant Mortality</a></li>
+  <li><a href="#age-adjusted-death-rate" id="toc-age-adjusted-death-rate" class="nav-link" data-scroll-target="#age-adjusted-death-rate">Age Adjusted Death Rate</a></li>
+  </ul></li>
+  <li><a href="#predicting-chronic-conditions-based-on-medicaid-data" id="toc-predicting-chronic-conditions-based-on-medicaid-data" class="nav-link" data-scroll-target="#predicting-chronic-conditions-based-on-medicaid-data">Predicting Chronic Conditions Based On Medicaid Data</a>
+  <ul class="collapse">
+  <li><a href="#diabetes" id="toc-diabetes" class="nav-link" data-scroll-target="#diabetes">Diabetes</a></li>
+  <li><a href="#cardiovascular-disease-cvd" id="toc-cardiovascular-disease-cvd" class="nav-link" data-scroll-target="#cardiovascular-disease-cvd">Cardiovascular Disease (CVD)</a></li>
+  </ul></li>
+  <li><a href="#creating-an-overall-health-quality-variable" id="toc-creating-an-overall-health-quality-variable" class="nav-link" data-scroll-target="#creating-an-overall-health-quality-variable">Creating an Overall Health Quality Variable</a></li>
+  </ul></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#supplemental-data" id="toc-supplemental-data" class="nav-link" data-scroll-target="#supplemental-data">Supplemental Data</a>
+  <ul class="collapse">
+  <li><a href="#supplemental-tables" id="toc-supplemental-tables" class="nav-link" data-scroll-target="#supplemental-tables">Supplemental Tables</a>
+  <ul class="collapse">
+  <li><a href="#s.table-1a-csv-containing-all-variables-used-to-assess-access-to-care" id="toc-s.table-1a-csv-containing-all-variables-used-to-assess-access-to-care" class="nav-link" data-scroll-target="#s.table-1a-csv-containing-all-variables-used-to-assess-access-to-care">S.Table 1A: CSV containing all variables used to assess access to care</a></li>
+  <li><a href="#s.table-1b-csv-containing-all-variables-used-to-assess-weight-contribution-to-new-variable" id="toc-s.table-1b-csv-containing-all-variables-used-to-assess-weight-contribution-to-new-variable" class="nav-link" data-scroll-target="#s.table-1b-csv-containing-all-variables-used-to-assess-weight-contribution-to-new-variable">S.Table 1B: CSV containing all variables used to assess weight contribution to new variable</a></li>
+  </ul></li>
+  <li><a href="#supplemental-figures" id="toc-supplemental-figures" class="nav-link" data-scroll-target="#supplemental-figures">Supplemental Figures</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -153,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Data was combined and normalized to third normal form. The ids were primary keys for each table except for question_responses, where “state_id,” “year_id,” and “question_id” were used as a compound primary key. We used the same foreign key for “group” and “secondary_group” and another separate foreign key for both “type” and “secondary_type.” All columns had a NOT NULL constraint except for unit_type from the unit table, and unit_id, secondary_group_id, and secondary_type_id from question_responses.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./capstone_erd.png" class="img-fluid figure-img"></p>
+<p><a href="./capstone_erd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="ERD."><img src="./capstone_erd.png" class="img-fluid figure-img" alt="ERD."></a></p>
 <figcaption>ERD.</figcaption>
 </figure>
 </div>
@@ -239,14 +301,14 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="life-expectancy">Life Expectancy</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/life_expectancy_by_state.png" class="img-fluid figure-img"></p>
+<p><a href="./images/life_expectancy_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Fig 2A: Median Life Expectancy by State."><img src="./images/life_expectancy_by_state.png" class="img-fluid figure-img" alt="Fig 2A: Median Life Expectancy by State."></a></p>
 <figcaption>Fig 2A: Median Life Expectancy by State.</figcaption>
 </figure>
 </div>
 <p>Figure 2A demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 2B.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/life_expectancy_significanct_state.png" class="img-fluid figure-img"></p>
+<p><a href="./images/life_expectancy_significanct_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 2B: Map of State Significance for Life Expectancy."><img src="./images/life_expectancy_significanct_state.png" class="img-fluid figure-img" alt="Figure 2B: Map of State Significance for Life Expectancy."></a></p>
 <figcaption>Figure 2B: Map of State Significance for Life Expectancy.</figcaption>
 </figure>
 </div>
@@ -254,20 +316,20 @@ ul.task-list li input[type="checkbox"] {
 <p>These were all expected, but what was surprising was that the Residential Segregation Index was positively correlated with life expectancy but the opposite relationship was found for the Segregation Index. While we expected to see Segregation Index negatively correlated with life expectancy, it seems to be paradoxical that the opposite was true for the Residential Segregation Index. We realized that our Residential Segregation Index had a lot of missing values, so plotting it against life expectancy didn’t reveal any visible trend. To improve this model in the future, we would remove this predictor.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/life_expectanct_lm_coef.png" class="img-fluid figure-img"></p>
+<p><a href="./images/life_expectanct_lm_coef.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure 2C: Life Expectancy Linear Model Coefficients."><img src="./images/life_expectanct_lm_coef.png" class="img-fluid figure-img" alt="Figure 2C: Life Expectancy Linear Model Coefficients."></a></p>
 <figcaption>Figure 2C: Life Expectancy Linear Model Coefficients.</figcaption>
 </figure>
 </div>
 <p>To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 2D shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = &lt;2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/KM_food.png" class="img-fluid figure-img"></p>
+<p><a href="./images/KM_food.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure 2D: Kaplan-Meier Curve for Life Expectancy and Percentage of Food Insecurity."><img src="./images/KM_food.png" class="img-fluid figure-img" alt="Figure 2D: Kaplan-Meier Curve for Life Expectancy and Percentage of Food Insecurity."></a></p>
 <figcaption>Figure 2D: Kaplan-Meier Curve for Life Expectancy and Percentage of Food Insecurity.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/log_rank_food.png" class="img-fluid figure-img"></p>
+<p><a href="./images/log_rank_food.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 5: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity."><img src="./images/log_rank_food.png" class="img-fluid figure-img" alt="Figure 5: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity."></a></p>
 <figcaption>Figure 5: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity.</figcaption>
 </figure>
 </div>
@@ -278,7 +340,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Using the clustering method KMeans, we found the predicted clusters of our life expectancy quartiles projected on its first two principle components (Fig2F). It neatly separates each quartile into four obvious groups. However, we also found that our life expectancy dataset required about twenty-five principle components to explain 90% of the variance in our model (see S.Fig1G), so despite its seemingly accurate divisions, this graphic is limited by its two dimensions. We would need many more to visualize how the data is truly clustering.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/kmeans_life_exp.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/kmeans_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 2F: K-means clustering (k=4) for Life Expectancy Model"><img src="./Figures/kmeans_life_exp.png" class="img-fluid figure-img" alt="Figure 2F: K-means clustering (k=4) for Life Expectancy Model"></a></p>
 <figcaption>Figure 2F: K-means clustering (k=4) for Life Expectancy Model</figcaption>
 </figure>
 </div>
@@ -287,14 +349,14 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="infant-mortality">Infant Mortality</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img"></p>
+<p><a href="./images/median_infant_mortality_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 3A: Median Infant Mortality Rate by State."><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img" alt="Figure 3A: Median Infant Mortality Rate by State."></a></p>
 <figcaption>Figure 3A: Median Infant Mortality Rate by State.</figcaption>
 </figure>
 </div>
 <p>Figure 3A shows a difference between median infant mortality rates between states. Note that the chart appears to “stair-step” as Infant Mortality Rate are represented as integers rather than continuous numbers. Because of the linear trend associated with each state, we included the variable in our linear model to determine which states were significantly correlated with infant mortality.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/significance_state_infant_mortality.png" class="img-fluid figure-img"></p>
+<p><a href="./images/significance_state_infant_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure 3B: Significance of State for Infant Mortality."><img src="./images/significance_state_infant_mortality.png" class="img-fluid figure-img" alt="Figure 3B: Significance of State for Infant Mortality."></a></p>
 <figcaption>Figure 3B: Significance of State for Infant Mortality.</figcaption>
 </figure>
 </div>
@@ -302,7 +364,7 @@ ul.task-list li input[type="checkbox"] {
 <p>In terms of preventative healthcare measures that were significantly correlated with infant mortality (Figure 3C), we found that Median Household Income and Broadband Internet Access were significantly correlated in the negative direction with infant mortality. That is, as income and access to the Internet increased, infant mortality rates decreased. We came across the same issue with segregation here as we did in our life expectancy model. The Segregation Index coefficient shows that as segregation increases, infant mortality rates increase as well.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/infant_mortality_lm_coef.png" class="img-fluid figure-img"></p>
+<p><a href="./images/infant_mortality_lm_coef.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure 3C: Infant Mortality Linear Model Coefficients."><img src="./images/infant_mortality_lm_coef.png" class="img-fluid figure-img" alt="Figure 3C: Infant Mortality Linear Model Coefficients."></a></p>
 <figcaption>Figure 3C: Infant Mortality Linear Model Coefficients.</figcaption>
 </figure>
 </div>
@@ -312,14 +374,14 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="age-adjusted-death-rate">Age Adjusted Death Rate</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/median_mortality_rate_by_state.png" class="img-fluid figure-img"></p>
+<p><a href="./images/median_mortality_rate_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure 4A: Median Mortality Rate by State."><img src="./images/median_mortality_rate_by_state.png" class="img-fluid figure-img" alt="Figure 4A: Median Mortality Rate by State."></a></p>
 <figcaption>Figure 4A: Median Mortality Rate by State.</figcaption>
 </figure>
 </div>
 <p>Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model. Figure 4B shows which states were significantly correlated with mortality rate. Negative correlation is in green (AZ) showing a significantly lower death rate in Arizona. Positive correlation is in red, showing significantly higher death rates.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/significance_state_death_rate_map.png" class="img-fluid figure-img"></p>
+<p><a href="./images/significance_state_death_rate_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 4B: Significance of State for Age Adjusted Death Rate (Mortality Rate)."><img src="./images/significance_state_death_rate_map.png" class="img-fluid figure-img" alt="Figure 4B: Significance of State for Age Adjusted Death Rate (Mortality Rate)."></a></p>
 <figcaption>Figure 4B: Significance of State for Age Adjusted Death Rate (Mortality Rate).</figcaption>
 </figure>
 </div>
@@ -327,7 +389,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/death_rate_lm_coef.png" class="img-fluid figure-img"></p>
+<p><a href="./images/death_rate_lm_coef.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients."><img src="./images/death_rate_lm_coef.png" class="img-fluid figure-img" alt="Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients."></a></p>
 <figcaption>Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients.</figcaption>
 </figure>
 </div>
@@ -335,7 +397,7 @@ ul.task-list li input[type="checkbox"] {
 <p>KMeans clustering again found four apparent clusters within our data along its first two principle components. As with the life expectancy data, we found that our data needs 30 components to explain 90% of its variance, so this two dimensional plot is missing a lot of further details that would otherwise be revealed by a multi-dimensional graphic.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/kmeans_mortality.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/kmeans_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 4D: K-means clustering (k=4) for Age-Adjusted Death Rate Model"><img src="./Figures/kmeans_mortality.png" class="img-fluid figure-img" alt="Figure 4D: K-means clustering (k=4) for Age-Adjusted Death Rate Model"></a></p>
 <figcaption>Figure 4D: K-means clustering (k=4) for Age-Adjusted Death Rate Model</figcaption>
 </figure>
 </div>
@@ -349,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
 <p>We immediately plotted our mean diabetes percentages by Medicaid percentage across states to see if any obvious correlation existed (see Fig5B). No correlation was obvious, but there appeared to be a slight linear trend. We created a linear regression model predicting diabetes prevalence by many Medicaid-related covariates, such as how many adults did not see a doctor in the past twelve months due to cost, state Medicaid expenditure, state Medicaid spending, total Medicaid spending, and population percentage on Medicaid. Our simple model showed a surprising 38% accuracy in predicting how many people in a given population would have diabetes based on these factors. While Medicaid-related factors may not be able to completely predict diabetes prevalence, it certainly plays a role.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/dm_medicaid.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/dm_medicaid.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 5A: Mean diabetes percentage per state vs Medicaid percentage"><img src="./Figures/dm_medicaid.png" class="img-fluid figure-img" alt="Figure 5A: Mean diabetes percentage per state vs Medicaid percentage"></a></p>
 <figcaption>Figure 5A: Mean diabetes percentage per state vs Medicaid percentage</figcaption>
 </figure>
 </div>
@@ -359,7 +421,7 @@ ul.task-list li input[type="checkbox"] {
 <p>As with our diabetes dataset, we again repeated the above process to predict CVD prevalence based on Medicaid-only related factors. Our simple scatterplot shows a faint linear trend and two potential clusters. Shockingly, our model accurately predicted CVD prevalence 46% of the time! This is such a high number that it cannot be ignored, and we can assume Medicaid plays some factor in a population’s cardiovascular disease prevalence.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/cvd_medicaid.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/cvd_medicaid.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure 5B: Mean CVD Percentage per State vs Medicaid Percentage"><img src="./Figures/cvd_medicaid.png" class="img-fluid figure-img" alt="Figure 5B: Mean CVD Percentage per State vs Medicaid Percentage"></a></p>
 <figcaption>Figure 5B: Mean CVD Percentage per State vs Medicaid Percentage</figcaption>
 </figure>
 </div>
@@ -370,14 +432,14 @@ ul.task-list li input[type="checkbox"] {
 <p>As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.3 Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one’s actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/pairplot.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/pairplot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure 6A: Health Metrics Pair Plot"><img src="./Figures/pairplot.png" class="img-fluid figure-img" alt="Figure 6A: Health Metrics Pair Plot"></a></p>
 <figcaption>Figure 6A: Health Metrics Pair Plot</figcaption>
 </figure>
 </div>
 <p>Though the first eigenvalue of our entire dataset only explained 31% of the variance in our dataset, we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/weights.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/weights.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure 6B: Top 5 High and Bottom 5 Low Weights"><img src="./Figures/weights.png" class="img-fluid figure-img" alt="Figure 6B: Top 5 High and Bottom 5 Low Weights"></a></p>
 <figcaption>Figure 6B: Top 5 High and Bottom 5 Low Weights</figcaption>
 </figure>
 </div>
@@ -448,61 +510,61 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="supplemental-figures">Supplemental Figures</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/kbest_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="S.Figure 1A: KBest Features for Life Expectancy"><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img" alt="S.Figure 1A: KBest Features for Life Expectancy"></a></p>
 <figcaption>S.Figure 1A: KBest Features for Life Expectancy</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/kbest_inf_mor.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/kbest_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="S.Figure 1B: KBest Features for Infant Mortality Rate"><img src="./Figures/kbest_inf_mor.png" class="img-fluid figure-img" alt="S.Figure 1B: KBest Features for Infant Mortality Rate"></a></p>
 <figcaption>S.Figure 1B: KBest Features for Infant Mortality Rate</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="S.Figure 1C: KBest Features for Death Rate"><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="S.Figure 1C: KBest Features for Death Rate"></a></p>
 <figcaption>S.Figure 1C: KBest Features for Death Rate</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="S.Figure 1D: Distribution of Life Expectancy Quartiles"><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="S.Figure 1D: Distribution of Life Expectancy Quartiles"></a></p>
 <figcaption>S.Figure 1D: Distribution of Life Expectancy Quartiles</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/conf_matrix_life_exp.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/conf_matrix_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="S.Figure 1E: Confusion Matrix for Life Expectancy Model"><img src="./Figures/conf_matrix_life_exp.png" class="img-fluid figure-img" alt="S.Figure 1E: Confusion Matrix for Life Expectancy Model"></a></p>
 <figcaption>S.Figure 1E: Confusion Matrix for Life Expectancy Model</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/conf_matrix_mortality.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/conf_matrix_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="S.Figure 1F: Confusion Matrix for Death Rate Model"><img src="./Figures/conf_matrix_mortality.png" class="img-fluid figure-img" alt="S.Figure 1F: Confusion Matrix for Death Rate Model"></a></p>
 <figcaption>S.Figure 1F: Confusion Matrix for Death Rate Model</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/variance_life_exp.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/variance_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="S.Figure 1G: Variance Explained by each Principle Component in the Life Expectancy Model"><img src="./Figures/variance_life_exp.png" class="img-fluid figure-img" alt="S.Figure 1G: Variance Explained by each Principle Component in the Life Expectancy Model"></a></p>
 <figcaption>S.Figure 1G: Variance Explained by each Principle Component in the Life Expectancy Model</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/variance_inf_mor.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/variance_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="S.Figure 1H: Variance Explained by each Principle Component in the Infant Mortality Model"><img src="./Figures/variance_inf_mor.png" class="img-fluid figure-img" alt="S.Figure 1H: Variance Explained by each Principle Component in the Infant Mortality Model"></a></p>
 <figcaption>S.Figure 1H: Variance Explained by each Principle Component in the Infant Mortality Model</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/variance_mortality.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/variance_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="S.Figure 1I: Variance Explained by each Principle Component in the Death Rate Model"><img src="./Figures/variance_mortality.png" class="img-fluid figure-img" alt="S.Figure 1I: Variance Explained by each Principle Component in the Death Rate Model"></a></p>
 <figcaption>S.Figure 1I: Variance Explained by each Principle Component in the Death Rate Model</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/total_eigenvalue.png" class="img-fluid figure-img"></p>
+<p><a href="./Figures/total_eigenvalue.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="S.Figure 1J: Explained Variance by Eigenvalue for Entire Dataset"><img src="./Figures/total_eigenvalue.png" class="img-fluid figure-img" alt="S.Figure 1J: Explained Variance by Eigenvalue for Entire Dataset"></a></p>
 <figcaption>S.Figure 1J: Explained Variance by Eigenvalue for Entire Dataset</figcaption>
 </figure>
 </div>
@@ -1077,6 +1139,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
