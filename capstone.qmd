@@ -1,9 +1,10 @@
 ---
 title: "United States' Health Quality"
-subtitle: Does a Perfect Health Insurance Model Exist?
+subtitle: How do preventative healthcare measures impact standard health metrics?
 authors:
   - Frances Romero
   - Haleigh Schwartz
+date: today
 title-block-banner: true
 ---
 
