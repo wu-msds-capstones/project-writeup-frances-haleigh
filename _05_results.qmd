@@ -1,12 +1,12 @@
 # Results
 
 ## Introduction
-In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.3 In the following sections, we modeled each of these by a list of variables representing access to care (Supplemental Table 1A). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population. 
+In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (Supplemental Table 1A). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population. 
 
 ## Analyzing Impact of Access to Care on Health Metrics
 ### Life Expectancy
 
-![Fig 2A: Median Life Expectancy by State. ](./images/life_expectancy_by_state.png)
+![Fig 2A: Median Life Expectancy by State.](./images/life_expectancy_by_state.png)
 
 Figure 2A demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 2B. 
 

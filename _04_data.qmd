@@ -7,12 +7,12 @@ We generated a custom report from data available on KFF, downloading a large var
 
 KFF data for each state was downloaded as CSVs. We chose the most recent dates for all of the different health and insurance related questions, from between 2017-2022. The CSVs originally had a question, state, and value field. We used text parsing to create a column called demographic and a column called group. This allowed us to parse out demographics like age, race/ethnicity, poverty level and create groups within each of those. 
                 
-We also created fields called "year" and "measure", and parsed out the years and measurements from the question field. Some questions had multiple demographics, so we created a secondary demographic field and a secondary group field. These are not ranked. 
+We also created fields called `year` and `measure`, and parsed out the years and measurements from the question field. Some questions had multiple demographics, so we created a secondary demographic field and a secondary group field. These are not ranked. 
 
-Finally, we added a "county" column (which we filled with all NA) and edited the state and question fields to replicate the way that data from our CHFF dataset was formatted. This allowed us to merge the two datasets.
+Finally, we added a `county` column (which we filled with all NA) and edited the `state` and `question` fields to replicate the way that data from our CHFF dataset was formatted. This allowed us to merge the two datasets.
 
 ### CHRR: Collection and Cleaning
-Similar to KFF, we downloaded data for each state from 2022-2017 (not including 2020) from CHRR. We chose the “20xx County Health Release National Data” links for each year. This data included metrics such as life expectancy, death rate, years of potential loss rate, food environment index, percentage of physically inactive adults, percentage of excessive drinking, Primary Care Provider (PCP) ratio, and much more.²
+Similar to KFF, we downloaded data for each state from 2022-2017 (not including 2020) from CHRR. We chose the “20xx County Health Release National Data” links for each year. This data included metrics such as `life_expectancy`, `age-adjusted_death_rate`, years of potential loss rate, food environment index, percentage of physically inactive adults, percentage of excessive drinking, Primary Care Provider (PCP) ratio, and much more.²
 
 County Health Rankings and Roadmaps (CHRR) data was downloaded from the years 2017-2022 (excluding the missing 2020 year). Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States. 
 

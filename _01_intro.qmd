@@ -1,4 +1,8 @@
 # Introduction
+
+
+
+
 Our capstone project investigated the impact of public health insurance on the health status of individuals, focusing on the accessibility of preventative care and its correlation with overall health outcomes. We explored which states were most affected by limited access to preventative care and how state health expenditures related to the health status of their populations. By examining these factors, we aimed to contribute to the understanding of how health insurance models can be optimized to improve public health in the United States.
 
 
