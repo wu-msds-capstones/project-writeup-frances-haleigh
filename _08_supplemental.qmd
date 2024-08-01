@@ -38,11 +38,11 @@
 
 ## Supplemental Figures
 
-![S.Figure 1A: KBest Features for Life Expectancy](./Figures/kbest_life_exp.png)
+![S.Figure 1A: KBest Features for Life Expectancy](./Figures/kbest_life_exp.png){#fig-S.Fig1A}
 
-![S.Figure 1B: KBest Features for Infant Mortality Rate](./Figures/kbest_inf_mor.png)
+![S.Figure 1B: KBest Features for Infant Mortality Rate](./Figures/kbest_inf_mor.png){#Supplemental_Figure_1B}
 
-![S.Figure 1C: KBest Features for Death Rate](./Figures/kbest_mortality.png)
+![S.Figure 1C: KBest Features for Death Rate](./Figures/kbest_mortality.png){#Supplemental_Figure_1C}
 
 ![S.Figure 1D: Distribution of Life Expectancy Quartiles](./Figures/life_expectancy_bins.png)
 

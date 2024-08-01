@@ -52,8 +52,45 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="data-analysis">Data Analysis</h2>
 <section id="statistical-thinking" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-thinking">Statistical Thinking</h3>
-<p>We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy and mortality rates.³ We compared proportions across states to account for differences in population.</p>
+<p>We determined health status using commonly used markers (proxies) such as life expectancy and mortality rates.³ We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.</p>
 <p>In our linear models created in R, we first took the natural logarithm of income-related data due to both its skewed distribution and disproportionate scale (in comparison to the rest of our data).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What are these statistical tests?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<section id="optional-text" class="level3 callout-body-container callout-body">
+<h3 class="anchored" data-anchor-id="optional-text">optional text</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 37%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Log Rank Test</strong></th>
+<th><strong>Kaplan-Meier Curve</strong></th>
+<th><strong>Linear Regression</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+<td>text</td>
+<td>text</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div>
 </section>
 <section id="data-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="data-visualization">Data Visualization</h3>
@@ -61,12 +98,114 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-engineering" class="level3">
 <h3 class="anchored" data-anchor-id="data-engineering">Data Engineering</h3>
-<p>We stored our data into a relational database and accessed it with Postgresql (through Railway). We accessed our data in both R and Python using the RPostgreSQL and sqlalchemy libraries, respectively. A detailed description for how this was done is in the data section below.</p>
+<p>We stored our data into a relational database and accessed it with Postgresql (through Railway). We accessed our data in both R and Python using the RPostgreSQL and sqlalchemy libraries, respectively. A detailed description for how this was done is in the data section above.</p>
 </section>
 <section id="machine-learning" class="level3">
 <h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
 <p>We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. Finally, we created a new variable that represented overall health quality.</p>
-<p>For the first type of model, predicting health by access to care, our basic outline was as follows:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What are these models?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="model-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="model-optimization">Model Optimization</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>K-Best Feature Selection</strong></th>
+<th><strong>Confusion Matrices</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+<td>text</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="supervised-classification-models" class="level3">
+<h3 class="anchored" data-anchor-id="supervised-classification-models">Supervised Classification Models</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 28%">
+<col style="width: 26%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Random Forests</strong></th>
+<th><strong>Naive Bayes</strong></th>
+<th><strong>Logistic Regression</strong></th>
+<th><strong>Ensemble</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="unsupervised-dimension-reduction-model" class="level3">
+<h3 class="anchored" data-anchor-id="unsupervised-dimension-reduction-model">Unsupervised Dimension Reduction Model</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>PCA</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="unsupervised-clustering-models" class="level3">
+<h3 class="anchored" data-anchor-id="unsupervised-clustering-models">Unsupervised Clustering Models</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>K-Means</strong></th>
+<th><strong>Gaussian Mixture Model</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Process outline for predicting health by access to care:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>Create our desired dataframe by reading in data from our remote database and joining where necessary.</li>
 <li>Preprocess:
@@ -74,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Drop NAs while optimizing data frame size via trial and error.</li>
 <li>Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.</li>
 </ol></li>
-<li>Use KMeans to find the top 10 features from each model (see Supplemental Figures 1A-1C). Combine these variables with significant variables from the linear regression models completed in R.</li>
+<li>Use KMeans to find the top 10 features from each model (see <strong>?@fig-S.Fig1A</strong>, <span class="citation" data-cites="Supplemental_Figure_1B">@Supplemental_Figure_1B</span>, and <span class="citation" data-cites="Supplemental_Figure_1C">@Supplemental_Figure_1C</span>). Combine these variables with significant variables from the linear regression models completed in R.</li>
 <li>Continue preprocessing with the reduced dataset (using only variables from step 3)
 <ol type="i">
 <li>Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable. A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. B. For life expectancy, we dropped outliers first (ages below 60 and above 90, see Supplemental Figure 1D).</li>
@@ -94,12 +233,40 @@ ul.task-list li input[type="checkbox"] {
 <li>Add PCA with that number of components to the optimized pipeline made from Step 5.</li>
 </ol></li>
 </ol>
-<p>For the type of model where we predicted prevalence of a disease based on Medicaid-related variables, the basic outline was as follows:</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Process outline for predicting health by prevalence of a disease based on Medicaid-related variables:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state.</li>
 <li>Preprocess, split, and model the data as outlined above.</li>
 </ol>
-<p>For the creation of our new variable:</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Process outline for creating a new variable:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>Gather our entire dataset (not just access to care related variables) See Supplemental Table 1B for a list of all variables used.</li>
 <li>Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.</li>
@@ -107,6 +274,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Project desired health variables to the first eigenvalue.</li>
 <li>Compare weights of all variables to see how much they each contribute to this “new variable.”</li>
 </ol>
+</div>
+</div>
+</div>
 </section>
 <section id="data-ethics" class="level3">
 <h3 class="anchored" data-anchor-id="data-ethics">Data Ethics</h3>
