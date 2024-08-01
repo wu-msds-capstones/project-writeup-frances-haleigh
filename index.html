@@ -174,18 +174,19 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Our capstone project investigated the impact of public health insurance on the health status of individuals, focusing on the accessibility of preventative care and its correlation with overall health outcomes. We explored which states were most affected by limited access to preventative care and how state health expenditures related to the health status of their populations. By examining these factors, we aimed to contribute to the understanding of how health insurance models can be optimized to improve public health in the United States.</p>
+<p>To help answer questions regarding the effectiveness of preventative care, we investigated current relationships between health care, access to care, public health insurance, and overall health outcomes across the United States. We explored how primary care and prevenatitive measures impact standard health metrics, such as life expectancy, mortality, and infant mortality. We compared these metrics across demographics and insurance models (public versus private). By examining these factors, we aimed to contribute to the understanding of how preventative care can help improve public health in the United States.</p>
 </section>
 <section id="background" class="level1">
 <h1>Background</h1>
-<p>The impact of health insurance on medical care and the health of populations is important because it could pose a solution to the growing problem of increasingly poor health across the globe. While life expectancy has increased, the amount of years spent in poor health has also increased proportionally.¹</p>
-<p>In the United States, both private and social healthcare exist, but social healthcare is not available to everyone. Social healthcare in the US is available to those who are disabled or over 65 years old through Medicare. Medicare is not always free, but generally more affordable than private health insurance. Low income Americans can also receive free social healthcare through Medicaid. Social healthcare is funded through both federal and state health expenditures.</p>
 <p>While access to life-saving healthcare is crucial, preventative healthcare is generally accepted as one of the most important factors in maintaining health.⁵ Daily exercise, access to healthy foods, minimal consumption of alcohol, and access to PCPs are all important factors for improving and maintaining one’s health.</p>
-<p>Recent research proposes there is a direct link between health insurance type and the health quality of individuals, where countries with universal public health insurance are healthier.⁴ However, research focusing on just the United States found a positive correlation between Medicare spending and disease rate.⁸ This could simply be a “chicken and the egg” debate, where a higher disease burden exists first, leading to higher spending in those same states, or the opposite could be true. We intend to investigate this relationship by discovering how effective social healthcare is and understanding how access to preventative care correlates with health status for the lower-income populations in the US. We will do this by examining the health status of a population by commonly used markers such as life expectancy, quality of life, and mortality rates.³</p>
-<p>We hypothesize the above-mentioned world-wide trend might be different in the United States because private health insurance is more common and those most in need are on public health insurance.</p>
 <blockquote class="blockquote">
 <p>Although spending did not correlate meaningfully with health, certain features of the [United States’] health care system did correlate highly with health outcomes, notably rates of health insurance coverage and access to affordable care (not having to forego care due to cost)… [H]ealth outcomes were better in states with adequate primary care services to manage chronic diseases and prevent hospitalizations for conditions like heart attacks, congestive heart failure, and pneumonia.⁸</p>
 </blockquote>
+<p>~~~~ (I think we will want to keep the above but delete or rephrase the below)</p>
+<p>The impact of health insurance on medical care and the health of populations is important because it could pose a solution to the growing problem of increasingly poor health across the globe. While life expectancy has increased, the amount of years spent in poor health has also increased proportionally.¹</p>
+<p>In the United States, both private and social healthcare exist, but social healthcare is not available to everyone. Social healthcare in the US is available to those who are disabled or over 65 years old through Medicare. Medicare is not always free, but generally more affordable than private health insurance. Low income Americans can also receive free social healthcare through Medicaid. Social healthcare is funded through both federal and state health expenditures.</p>
+<p>Recent research proposes there is a direct link between health insurance type and the health quality of individuals, where countries with universal public health insurance are healthier.⁴ However, research focusing on just the United States found a positive correlation between Medicare spending and disease rate.⁸ This could simply be a “chicken and the egg” debate, where a higher disease burden exists first, leading to higher spending in those same states, or the opposite could be true. We intend to investigate this relationship by discovering how effective social healthcare is and understanding how access to preventative care correlates with health status for the lower-income populations in the US. We will do this by examining the health status of a population by commonly used markers such as life expectancy, quality of life, and mortality rates.³</p>
+<p>We hypothesize the above-mentioned world-wide trend might be different in the United States because private health insurance is more common and those most in need are on public health insurance.</p>
 <p>Since we can expect access to preventative care to be limited for those on public health insurance in the United States and know preventative care improves health outcomes, we hypothesize that reduced access to preventative care for those on public health insurance explains the apparent paradox mentioned above.</p>
 </section>
 <section id="data" class="level1">
@@ -195,24 +196,23 @@ ul.task-list li input[type="checkbox"] {
 <p>We gathered data from two sources: KFF (an independent source for health policy research, polling, and news)⁶ and County Health Rankings and Roadmaps (CHRR).²</p>
 <section id="kff-collection-and-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="kff-collection-and-cleaning">KFF: Collection and Cleaning</h3>
-<p>We generated a custom report from data available on KFF, downloading a large variety of data from 2022-2017 (not including 2020) for each state in the US. Variables we investigated from this dataset included percentage of population on Medicare, percentage of adults who smoke, healthcare expenditure, median annual household income, cervical cancer incidence rate, and many more potentially relevant factors.⁶</p>
-<p>KFF data for each state was downloaded as CSVs. We chose the most recent dates for all of the different health and insurance related questions, from between 2017-2022. The CSVs originally had a question, state, and value field. We used text parsing to create a column called demographic and a column called group. This allowed us to parse out demographics like age, race/ethnicity, poverty level and create groups within each of those.</p>
-<p>We also created fields called “year” and “measure”, and parsed out the years and measurements from the question field. Some questions had multiple demographics, so we created a secondary demographic field and a secondary group field. These are not ranked.</p>
-<p>Finally, we added a “county” column (which we filled with all NA) and edited the state and question fields to replicate the way that data from our CHFF dataset was formatted. This allowed us to merge the two datasets.</p>
+<p>We generated a custom report from data available on KFF, downloading a large variety of data from 2017-2022 (not including 2020 due to lack of data collection) for each state in the US. Variables we investigated from this dataset included percentage of population on Medicare, percentage of adults who smoke, healthcare expenditure, median annual household income, cervical cancer incidence rate, and many more potentially relevant factors.⁶</p>
+<p>KFF data for each state was downloaded as CSVs. We chose the most recent dates for all of the different health and insurance related questions between 2017-2022. The CSVs originally had a question, state, and value field. We used text parsing to create a column called demographic and a column called group. This allowed us to parse out demographics like age, race/ethnicity, poverty level and create groups within each of those.</p>
+<p>We also created fields called <code>year</code> and <code>measure</code>, and parsed out the years and measurements from the question field. Some questions had multiple demographics, so we created a <code>secondary_demographic</code> field and a <code>secondary_group</code> field. These are not ranked.</p>
+<p>Finally, we added a <code>county</code> column (which we filled with all NA) and edited the <code>state</code> and <code>question</code> fields to replicate the way that data from our CHFF dataset was formatted. This allowed us to merge the two datasets.</p>
 </section>
 <section id="chrr-collection-and-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="chrr-collection-and-cleaning">CHRR: Collection and Cleaning</h3>
-<p>Similar to KFF, we downloaded data for each state from 2022-2017 (not including 2020) from CHRR. We chose the “20xx County Health Release National Data” links for each year. This data included metrics such as life expectancy, death rate, years of potential loss rate, food environment index, percentage of physically inactive adults, percentage of excessive drinking, Primary Care Provider (PCP) ratio, and much more.²</p>
-<p>County Health Rankings and Roadmaps (CHRR) data was downloaded from the years 2017-2022 (excluding the missing 2020 year). Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States.</p>
-<p>First, we cleaned up the columns. We reviewed the documentation and renamed any potentially confusing column names. For example, “#_Medicaid_Enrollees” became “no_female_medicaid_enrollees” to avoid mistakenly believing the first column included both genders in its count. We dropped columns that would not be of help to us, such as the “95% CI - Low” and “95% CI - High” columns, as our dataset did not describe how these confidence intervals were found. We replaced all spaces with an underscore.</p>
-<p>Second, we joined the two CSVs for each year to have one CSV per year and added a “Year” column to help with merging later.</p>
-<p>Finally, we reformatted the CSVs to match that of the KFF data, where our original columns became the “question” column and the values filled in a new “values” column. Again, we used text parsing such as “grepl” and “gsub” to fill in our newly created “demographic,” “measure”, “group”, “secondary_demographic”, and “secondary_group” columns. For example, if our question was “mean_%<em>Children_in_Poverty</em>(white)”, our “demographic”, “group”, “secondary_demographic”, and “secondary_group” columns became “Race/Ethnicity”, “White”, “Age”, and “0-17”, respectively.</p>
+<p>Similar to KFF, we downloaded data for each state from 2017-2022 (not including 2020 due to lack of data collection) from County Health Rankings and Roadmaps (CHRR). We chose the “20xx County Health Release National Data” links for each year. Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States. This data included metrics such as <code>life_expectancy</code>, <code>age-adjusted_death_rate</code>, <code>years_of_potential_life_loss_rate</code>, <code>food_environment_index</code>, <code>percentage_of_physically_inactive_adults</code>, <code>percentage_of_excessive_drinking</code>, <code>Primary_Care_Provider_ratio</code>, and much more.²</p>
+<p>First, we cleaned up the columns. We reviewed the documentation and renamed any potentially confusing column names. For example, <code>#_Medicaid_Enrollees</code> became <code>no_female_medicaid_enrollees</code> to avoid mistakenly believing the first column included both genders in its count. We dropped columns that would not be of help to us, such as the <code>95% CI - Low</code> and <code>95% CI - High</code> columns, as our dataset did not describe how these confidence intervals were found. We replaced all spaces with an underscore.</p>
+<p>Second, we joined the two CSVs for each year to have one CSV per year and added a <code>Year</code> column to help with merging later.</p>
+<p>Finally, we reformatted the CSVs to match that of the KFF data, where our original columns became the <code>question</code> column and the values filled in a new <code>values</code> column. Again, we used text parsing such as <code>grepl</code> and <code>gsub</code> to fill in our newly created <code>demographic</code>, <code>measure</code>, <code>group</code>, <code>secondary_demographic</code>, and <code>secondary_group</code>, columns. For example, if our question was <code>mean_%_Children_in_Poverty_(white)</code>, our <code>demographic</code>, <code>group</code>, <code>secondary_demographic</code>, and <code>secondary_group</code> columns became “Race/Ethnicity”, “White”, “Age”, and “0-17”, respectively.</p>
 <p>Since the questions and potential answers collected by CHRR data varied each year, we made sure that our cleaning code was modified for each year to both accommodate the changes in the data and match identical answers from previous years. As an example, the only races that were listed as options in the 2017 data were “White”, “Black”, “Hispanic”, and “Asian”. However, by the 2022 data collection, the options had expanded to include “American Indian/Alaskan Native”, “Native Hawaiian/Other Pacific Islander”, and “Other/Multiple Races.” In 2022, “Black” was changed to “African American,” so we changed it back to “Black” to both match the earlier CHRR data and the KFF data.</p>
 </section>
 </section>
 <section id="data-organization" class="level2">
 <h2 class="anchored" data-anchor-id="data-organization">Data Organization</h2>
-<p>Data was combined and normalized to third normal form. The ids were primary keys for each table except for question_responses, where “state_id,” “year_id,” and “question_id” were used as a compound primary key. We used the same foreign key for “group” and “secondary_group” and another separate foreign key for both “type” and “secondary_type.” All columns had a NOT NULL constraint except for unit_type from the unit table, and unit_id, secondary_group_id, and secondary_type_id from question_responses.</p>
+<p>Data was combined and normalized to third normal form. The ids were primary keys for each table except for <code>question_responses</code>, where <code>state_id</code>, <code>year_id</code>, and <code>question_id</code> were used as a compound primary key. We used the same foreign key for <code>group</code> and <code>secondary_group</code> and another separate foreign key for both <code>type</code> and <code>secondary_type</code>. All columns had a <code>NOT NULL</code> constraint except for <code>unit_type</code> from the <code>unit</code> table, and <code>unit_id</code>, <code>secondary_group_id</code>, and <code>secondary_type_id</code> from <code>question_responses</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./capstone_erd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="ERD."><img src="./capstone_erd.png" class="img-fluid figure-img" alt="ERD."></a></p>
@@ -227,8 +227,45 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="data-analysis">Data Analysis</h2>
 <section id="statistical-thinking" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-thinking">Statistical Thinking</h3>
-<p>We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We determined health status using commonly used markers (proxies) such as life expectancy and mortality rates.³ We compared proportions across states to account for differences in population.</p>
+<p>We determined health status using commonly used markers (proxies) such as life expectancy and mortality rates.³ We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.</p>
 <p>In our linear models created in R, we first took the natural logarithm of income-related data due to both its skewed distribution and disproportionate scale (in comparison to the rest of our data).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What are these statistical tests?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<section id="optional-text" class="level3 callout-body-container callout-body">
+<h3 class="anchored" data-anchor-id="optional-text">optional text</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 37%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Log Rank Test</strong></th>
+<th><strong>Kaplan-Meier Curve</strong></th>
+<th><strong>Linear Regression</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+<td>text</td>
+<td>text</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div>
 </section>
 <section id="data-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="data-visualization">Data Visualization</h3>
@@ -236,12 +273,114 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-engineering" class="level3">
 <h3 class="anchored" data-anchor-id="data-engineering">Data Engineering</h3>
-<p>We stored our data into a relational database and accessed it with Postgresql (through Railway). We accessed our data in both R and Python using the RPostgreSQL and sqlalchemy libraries, respectively. A detailed description for how this was done is in the data section below.</p>
+<p>We stored our data into a relational database and accessed it with Postgresql (through Railway). We accessed our data in both R and Python using the RPostgreSQL and sqlalchemy libraries, respectively. A detailed description for how this was done is in the data section above.</p>
 </section>
 <section id="machine-learning" class="level3">
 <h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
 <p>We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. Finally, we created a new variable that represented overall health quality.</p>
-<p>For the first type of model, predicting health by access to care, our basic outline was as follows:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What are these models?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="model-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="model-optimization">Model Optimization</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>K-Best Feature Selection</strong></th>
+<th><strong>Confusion Matrices</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+<td>text</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="supervised-classification-models" class="level3">
+<h3 class="anchored" data-anchor-id="supervised-classification-models">Supervised Classification Models</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 28%">
+<col style="width: 26%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Random Forests</strong></th>
+<th><strong>Naive Bayes</strong></th>
+<th><strong>Logistic Regression</strong></th>
+<th><strong>Ensemble</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="unsupervised-dimension-reduction-model" class="level3">
+<h3 class="anchored" data-anchor-id="unsupervised-dimension-reduction-model">Unsupervised Dimension Reduction Model</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>PCA</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="unsupervised-clustering-models" class="level3">
+<h3 class="anchored" data-anchor-id="unsupervised-clustering-models">Unsupervised Clustering Models</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>K-Means</strong></th>
+<th><strong>Gaussian Mixture Model</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Process outline for predicting health by access to care:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>Create our desired dataframe by reading in data from our remote database and joining where necessary.</li>
 <li>Preprocess:
@@ -249,7 +388,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Drop NAs while optimizing data frame size via trial and error.</li>
 <li>Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.</li>
 </ol></li>
-<li>Use KMeans to find the top 10 features from each model (see Supplemental Figures 1A-1C). Combine these variables with significant variables from the linear regression models completed in R.</li>
+<li>Use KMeans to find the top 10 features from each model (see <a href="#fig-S.Fig1A" class="quarto-xref">Figure&nbsp;1</a>, <span class="citation" data-cites="Supplemental_Figure_1B">@Supplemental_Figure_1B</span>, and <span class="citation" data-cites="Supplemental_Figure_1C">@Supplemental_Figure_1C</span>). Combine these variables with significant variables from the linear regression models completed in R.</li>
 <li>Continue preprocessing with the reduced dataset (using only variables from step 3)
 <ol type="i">
 <li>Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable. A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. B. For life expectancy, we dropped outliers first (ages below 60 and above 90, see Supplemental Figure 1D).</li>
@@ -269,12 +408,40 @@ ul.task-list li input[type="checkbox"] {
 <li>Add PCA with that number of components to the optimized pipeline made from Step 5.</li>
 </ol></li>
 </ol>
-<p>For the type of model where we predicted prevalence of a disease based on Medicaid-related variables, the basic outline was as follows:</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Process outline for predicting health by prevalence of a disease based on Medicaid-related variables:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state.</li>
 <li>Preprocess, split, and model the data as outlined above.</li>
 </ol>
-<p>For the creation of our new variable:</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Process outline for creating a new variable:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>Gather our entire dataset (not just access to care related variables) See Supplemental Table 1B for a list of all variables used.</li>
 <li>Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.</li>
@@ -282,6 +449,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Project desired health variables to the first eigenvalue.</li>
 <li>Compare weights of all variables to see how much they each contribute to this “new variable.”</li>
 </ol>
+</div>
+</div>
+</div>
 </section>
 <section id="data-ethics" class="level3">
 <h3 class="anchored" data-anchor-id="data-ethics">Data Ethics</h3>
@@ -293,7 +463,7 @@ ul.task-list li input[type="checkbox"] {
 <h1>Results</h1>
 <section id="introduction-1" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-1">Introduction</h2>
-<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.3 In the following sections, we modeled each of these by a list of variables representing access to care (Supplemental Table 1A). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.</p>
+<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (Supplemental Table 1A). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.</p>
 </section>
 <section id="analyzing-impact-of-access-to-care-on-health-metrics" class="level2">
 <h2 class="anchored" data-anchor-id="analyzing-impact-of-access-to-care-on-health-metrics">Analyzing Impact of Access to Care on Health Metrics</h2>
@@ -508,10 +678,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="supplemental-figures" class="level2">
 <h2 class="anchored" data-anchor-id="supplemental-figures">Supplemental Figures</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./Figures/kbest_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="S.Figure 1A: KBest Features for Life Expectancy"><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img" alt="S.Figure 1A: KBest Features for Life Expectancy"></a></p>
-<figcaption>S.Figure 1A: KBest Features for Life Expectancy</figcaption>
+<div id="fig-S.Fig1A" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-S.Fig1A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./Figures/kbest_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure&nbsp;1: S.Figure 1A: KBest Features for Life Expectancy"><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-S.Fig1A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: S.Figure 1A: KBest Features for Life Expectancy
+</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -1139,7 +1313,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
