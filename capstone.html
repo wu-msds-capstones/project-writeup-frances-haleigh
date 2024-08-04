@@ -6,7 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-08-03">
+<meta name="author" content="Frances Romero">
+<meta name="author" content="Haleigh Schwartz">
+<meta name="dcterms.date" content="2024-08-04">
 
 <title>Preventative Care in the United States</title>
 <style>
@@ -101,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 3, 2024</p>
+        <p class="date">August 4, 2024</p>
       </div>
     </div>
     
@@ -141,18 +143,18 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1">Introduction</a></li>
-  <li><a href="#analyzing-impact-of-access-to-care-on-health-metrics" id="toc-analyzing-impact-of-access-to-care-on-health-metrics" class="nav-link" data-scroll-target="#analyzing-impact-of-access-to-care-on-health-metrics">Analyzing Impact of Access to Care on Health Metrics</a>
+  <li><a href="#goal-1-analyzing-impact-of-access-to-care-on-health-metrics" id="toc-goal-1-analyzing-impact-of-access-to-care-on-health-metrics" class="nav-link" data-scroll-target="#goal-1-analyzing-impact-of-access-to-care-on-health-metrics">Goal 1: Analyzing Impact of Access to Care on Health Metrics</a>
   <ul class="collapse">
   <li><a href="#life-expectancy" id="toc-life-expectancy" class="nav-link" data-scroll-target="#life-expectancy">Life Expectancy</a></li>
   <li><a href="#infant-mortality" id="toc-infant-mortality" class="nav-link" data-scroll-target="#infant-mortality">Infant Mortality</a></li>
   <li><a href="#age-adjusted-death-rate" id="toc-age-adjusted-death-rate" class="nav-link" data-scroll-target="#age-adjusted-death-rate">Age Adjusted Death Rate</a></li>
   </ul></li>
-  <li><a href="#predicting-chronic-conditions-based-on-medicaid-data" id="toc-predicting-chronic-conditions-based-on-medicaid-data" class="nav-link" data-scroll-target="#predicting-chronic-conditions-based-on-medicaid-data">Predicting Chronic Conditions Based On Medicaid Data</a>
+  <li><a href="#goal-2-predicting-chronic-conditions-based-on-insurance-type" id="toc-goal-2-predicting-chronic-conditions-based-on-insurance-type" class="nav-link" data-scroll-target="#goal-2-predicting-chronic-conditions-based-on-insurance-type">Goal 2: Predicting Chronic Conditions Based On Insurance Type</a>
   <ul class="collapse">
   <li><a href="#diabetes" id="toc-diabetes" class="nav-link" data-scroll-target="#diabetes">Diabetes</a></li>
   <li><a href="#cardiovascular-disease-cvd" id="toc-cardiovascular-disease-cvd" class="nav-link" data-scroll-target="#cardiovascular-disease-cvd">Cardiovascular Disease (CVD)</a></li>
   </ul></li>
-  <li><a href="#creating-an-overall-health-quality-variable" id="toc-creating-an-overall-health-quality-variable" class="nav-link" data-scroll-target="#creating-an-overall-health-quality-variable">Creating an Overall Health Quality Variable</a></li>
+  <li><a href="#goal-3-creating-an-overall-health-quality-variable" id="toc-goal-3-creating-an-overall-health-quality-variable" class="nav-link" data-scroll-target="#goal-3-creating-an-overall-health-quality-variable">Goal 3: Creating an Overall Health Quality Variable</a></li>
   </ul></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -294,20 +296,75 @@ What are these statistical tests?
 <section id="machine-learning" class="level3">
 <h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
 <p>We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. Finally, we created a new variable that represented overall health quality.</p>
+<section id="process-outlines" class="level4">
+<h4 class="anchored">Process outlines:</h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Goal 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Goal 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Goal 3</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Predicting health by access to care</strong></p>
+<ol start="3" type="1">
+<li><p>Use KMeans to find the top 10 features from each model . Combine these variables with significant variables from the linear regression models completed in R.</p></li>
+<li><p>Create our desired dataframe by reading in data from our remote database and joining where necessary.</p></li>
+<li><p>Preprocess:</p>
+<ol type="i">
+<li>Drop NAs while optimizing data frame size via trial and error.</li>
+<li>Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.</li>
+</ol></li>
+<li><p>Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure S.1A">Supplemental Figures 1A</a>, <a href="./Figures/kbest_inf_mor.png" title="Figure S.1B">1B</a>, and <a href="./Figures/kbest_mortality.png" title="Figure S.1C">1C</a>). Combine these variables with significant variables from the linear regression models completed in R.</p></li>
+<li><p>Continue preprocessing with the reduced dataset (using only variables from step 3)</p>
+<ol type="i">
+<li>Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable. A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. B. For life expectancy, we dropped outliers first (ages below 60 and above 90, see <a href="./Figures/life_expectancy_bins.png" title="Figure S.1D">Supplemental Figure 1D</a>).</li>
+<li>Train/test split dataset</li>
+</ol></li>
+<li><p>Create model</p>
+<ol type="i">
+<li>Use LogisticRegression, RandomForestClassifier, GradientBoostingClassifier, CategoricalNaiveBayes, and Ensemble. Find which model performs the best.</li>
+<li>Hyperparameterize the model that works best from step 5i.</li>
+<li>Cross validate finalized model</li>
+<li>Test on testing data to find true accuracy</li>
+<li>Confusion matrix to see what went wrong (see <a href="./Figures/conf_matrix_life_exp.png" title="Figure S.1E">Supplemental Figures 1E</a> and <a href="./Figures/conf_matrix_mortality.png" title="Figure S.1F">1F</a>).</li>
+</ol></li>
+<li><p>Add PCA to the model</p>
+<ol type="i">
+<li>Determine how many components explain 90% variance in the model (see <a href="./Figures/variance_life_exp.png" title="Figure S.1G">Supplemental Figures 1G</a>, <a href="./Figures/variance_inf_mor.png" title="Figure S.1H">1H</a>, and <a href="./Figures/variance_mortality.png" title="Figure S.1I">1I</a>).</li>
+<li>Add PCA with that number of components to the optimized pipeline made from Step 5.</li>
+</ol></li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>Predicting disease prevalence by insurance type</strong></p>
+<ol type="1">
+<li>Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state.</li>
+<li>Preprocess, split, and model the data as outlined in the first process.</li>
+</ol>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>Engineering overall health variable</strong></p>
+<ol type="1">
+<li>Gather our entire dataset (not just access to care related variables) See Supplemental Table 1B for a list of all variables used.</li>
+<li>Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.</li>
+<li>Use PCA to see how much variance can be explained by the first eigenvalue (see <a href="./Figures/total_eigenvalue.png" title="Figure S.1J">Supplemental Figure 1J</a>).</li>
+<li>Project desired health variables to the first eigenvalue.</li>
+<li>Compare weights of all variables to see how much they each contribute to this “new variable.”</li>
+</ol>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What are these models?
+What are these models and tools?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<section id="model-optimization" class="level3">
-<h3 class="anchored" data-anchor-id="model-optimization">Model Optimization</h3>
+<section id="model-optimization-tools" class="level3">
+<h3 class="anchored" data-anchor-id="model-optimization-tools">Model Optimization Tools</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -327,6 +384,31 @@ What are these models?
 <tr class="even">
 <td><em>Confusion Matrices</em></td>
 <td>Confusion matrices are plots of the true and predicted values of a given model and are used to determine where a model is succeeding and/or failing.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-preprocessing-tools" class="level3">
+<h3 class="anchored" data-anchor-id="data-preprocessing-tools">Data Preprocessing Tools</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 84%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Name</strong></th>
+<th><strong>Explaination</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Standard Scaler</em></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><em>One Hot Encoder</em></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -358,6 +440,10 @@ What are these models?
 <td></td>
 </tr>
 <tr class="even">
+<td><em>Gradient Boosting</em></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td><em>Ensemble</em></td>
 <td></td>
 </tr>
@@ -413,61 +499,6 @@ What are these models?
 </div>
 </div>
 </div>
-<section id="process-outlines" class="level4">
-<h4 class="anchored" data-anchor-id="process-outlines">Process outlines:</h4>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Goal 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Goal 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Goal 3</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><strong>Predicting health by access to care</strong></p>
-<ol start="3" type="1">
-<li><p>Use KMeans to find the top 10 features from each model . Combine these variables with significant variables from the linear regression models completed in R.</p></li>
-<li><p>Create our desired dataframe by reading in data from our remote database and joining where necessary.</p></li>
-<li><p>Preprocess:</p>
-<ol type="i">
-<li>Drop NAs while optimizing data frame size via trial and error.</li>
-<li>Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.</li>
-</ol></li>
-<li><p>Use KMeans to find the top 10 features from each model (see <a href="_08_supplemental.qmd#supplemental-figures" title="![Figure 1A](./Figures/kbest_life_exp_1A.png) ![Figure 1B](./Figures/kbest_life_exp_1B.png) ![Figure 1C](./Figures/kbest_life_exp_1C.png)">Supplemental Figures 1A-C</a>). (see <a href="_08_supplemental.qmd#supplemental-figures">Supplemental Figures 1A-C</a>). Combine these variables with significant variables from the linear regression models completed in R.</p></li>
-<li><p>Continue preprocessing with the reduced dataset (using only variables from step 3)</p>
-<ol type="i">
-<li>Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable. A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. B. For life expectancy, we dropped outliers first (ages below 60 and above 90, see Supplemental Figure 1D).</li>
-<li>Train/test split dataset</li>
-</ol></li>
-<li><p>Create model</p>
-<ol type="i">
-<li>Use LogisticRegression, RandomForestClassifier, GradientBoostingClassifier, CategoricalNaiveBayes, and Ensemble. Find which model performs the best.</li>
-<li>Hyperparameterize the model that works best from step 5a.</li>
-<li>Cross validate finalized model</li>
-<li>Test on testing data to find true accuracy</li>
-<li>Confusion matrix to see what went wrong (see Supplemental Figures 1E and 1F).</li>
-</ol></li>
-<li><p>Add PCA to the model</p>
-<ol type="i">
-<li>Determine how many components explain 90% variance in the model (see Supplemental Figures 1G-1I).</li>
-<li>Add PCA with that number of components to the optimized pipeline made from Step 5.</li>
-</ol></li>
-</ol>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><strong>Predicting disease prevalence by insurance type</strong></p>
-<ol type="1">
-<li>Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state.</li>
-<li>Preprocess, split, and model the data as outlined in the first process.</li>
-</ol>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p><strong>Engineering overall health variable</strong></p>
-<ol type="1">
-<li>Gather our entire dataset (not just access to care related variables) See Supplemental Table 1B for a list of all variables used.</li>
-<li>Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.</li>
-<li>Use PCA to see how much variance can be explained by the first eigenvalue (see Supplemental Figure 1J).</li>
-<li>Project desired health variables to the first eigenvalue.</li>
-<li>Compare weights of all variables to see how much they each contribute to this “new variable.”</li>
-</ol>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="data-ethics" class="level3">
@@ -482,8 +513,8 @@ What are these models?
 <h2 class="anchored" data-anchor-id="introduction-1">Introduction</h2>
 <p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (Supplemental Table 1A). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.</p>
 </section>
-<section id="analyzing-impact-of-access-to-care-on-health-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="analyzing-impact-of-access-to-care-on-health-metrics">Analyzing Impact of Access to Care on Health Metrics</h2>
+<section id="goal-1-analyzing-impact-of-access-to-care-on-health-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="goal-1-analyzing-impact-of-access-to-care-on-health-metrics">Goal 1: Analyzing Impact of Access to Care on Health Metrics</h2>
 <section id="life-expectancy" class="level3">
 <h3 class="anchored" data-anchor-id="life-expectancy">Life Expectancy</h3>
 <div class="quarto-figure quarto-figure-center">
@@ -590,8 +621,8 @@ What are these models?
 </div>
 </section>
 </section>
-<section id="predicting-chronic-conditions-based-on-medicaid-data" class="level2">
-<h2 class="anchored" data-anchor-id="predicting-chronic-conditions-based-on-medicaid-data">Predicting Chronic Conditions Based On Medicaid Data</h2>
+<section id="goal-2-predicting-chronic-conditions-based-on-insurance-type" class="level2">
+<h2 class="anchored" data-anchor-id="goal-2-predicting-chronic-conditions-based-on-insurance-type">Goal 2: Predicting Chronic Conditions Based On Insurance Type</h2>
 <p>To answer the question of how state insurance in particular impacts one’s health status, we evaluated two common chronic conditions in the United States, diabetes and cardiovascular disease.</p>
 <section id="diabetes" class="level3">
 <h3 class="anchored" data-anchor-id="diabetes">Diabetes</h3>
@@ -614,8 +645,8 @@ What are these models?
 </div>
 </section>
 </section>
-<section id="creating-an-overall-health-quality-variable" class="level2">
-<h2 class="anchored" data-anchor-id="creating-an-overall-health-quality-variable">Creating an Overall Health Quality Variable</h2>
+<section id="goal-3-creating-an-overall-health-quality-variable" class="level2">
+<h2 class="anchored" data-anchor-id="goal-3-creating-an-overall-health-quality-variable">Goal 3: Creating an Overall Health Quality Variable</h2>
 <p>As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.3 Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one’s actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1327,7 +1358,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
