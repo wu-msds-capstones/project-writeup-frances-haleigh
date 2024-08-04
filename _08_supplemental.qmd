@@ -2,24 +2,7 @@
 
 ## Supplemental Tables
 
-### S.Table 1A: CSV containing all variables used to assess access to care
-<button id="download-button" class="btn btn-danger">
-  <i class="fa fa-save"></i> Download S.Table 1A
-</button>
-
-<script>
-  document.getElementById('download-button').addEventListener('click', function() {
-    const csvFilePath = './Figures/access_to_care_total.csv'; // Update the path to your CSV file
-    const link = document.createElement('a');
-    link.href = csvFilePath;
-    link.download = 'access_to_care_total.csv'; // The name of the file to be downloaded
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  });
-</script>
-
-### S.Table 1B: CSV containing all variables used to assess weight contribution to new variable
+### S.Table 1: CSV containing all variables used to assess weight contribution to new variable {#sec-s_table_1}
 <button id="download-button2" class="btn btn-danger">
   <i class="fa fa-save"></i> Download S.Table 1B
 </button>
@@ -30,6 +13,23 @@
     const link = document.createElement('a');
     link.href = csvFilePath;
     link.download = 'all_columns_list.csv'; // The name of the file to be downloaded
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+</script>
+
+### S.Table 2: CSV containing all variables used to assess access to care {#sec-s_table_2}
+<button id="download-button" class="btn btn-danger">
+  <i class="fa fa-save"></i> Download S.Table 1A
+</button>
+
+<script>
+  document.getElementById('download-button').addEventListener('click', function() {
+    const csvFilePath = './Figures/access_to_care_total.csv'; // Update the path to your CSV file
+    const link = document.createElement('a');
+    link.href = csvFilePath;
+    link.download = 'access_to_care_total.csv'; // The name of the file to be downloaded
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

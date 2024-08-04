@@ -1,4 +1,4 @@
-# Conclusions
+# Conclusions - need to update
 Our analysis showed significant correlations between various socio-economic factors and key health outcomes such as life expectancy, infant mortality, and age-adjusted death rate. Specifically, food insecurity, broadband internet access, and segregation emerged as crucial features. While we observed meaningful correlations, certain findings were limited by missing data, particularly regarding residential segregation and infant mortality rate, which should be excluded from future models made from the same data.
 
 Adjustments for outliers are necessary to better understand the nuanced relationship between income and death rates within our linear models. Importantly, the prevalence of primary care physicians correlated positively with life expectancy, reinforcing the expected relationship between access to healthcare and improved health outcomes.

@@ -25,4 +25,4 @@ Since the questions and potential answers collected by CHRR data varied each yea
 ## Data Organization
 Data was combined and normalized to third normal form. The ids were primary keys for each table except for `question_responses`, where `state_id`, `year_id`, and `question_id` were used as a compound primary key. We used the same foreign key for `group` and `secondary_group` and another separate foreign key for both `type` and `secondary_type`. All columns had a `NOT NULL` constraint except for `unit_type` from the `unit` table, and `unit_id`, `secondary_group_id`, and `secondary_type_id` from `question_responses`. 
 
-![ERD.](./capstone_erd.png)
+![Figure 1: ERD.](./capstone_erd.png)

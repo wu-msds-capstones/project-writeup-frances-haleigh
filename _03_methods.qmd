@@ -59,7 +59,7 @@ We used machine learning models such as ensembles, logistic regression, random f
 ## Goal 3
 **Engineering overall health variable**
 
-1. Gather our entire dataset (not just access to care related variables) See Supplemental Table 1B for a list of all variables used.
+1. Gather our entire dataset (not just access to care related variables) See [@sec-s_table_1] for a list of all variables used.
 2. Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.
 3. Use PCA to see how much variance can be explained by the first eigenvalue (see <a href="./Figures/total_eigenvalue.png" title="Figure S.1J">Supplemental Figure 1J</a>).
 4. Project desired health variables to the first eigenvalue.
@@ -69,36 +69,36 @@ We used machine learning models such as ensembles, logistic regression, random f
 ::: {.callout-note collapse="true"}
 #### What are these models and tools?
 ### Model Optimization Tools
-|**Name**                    |**Explaination**                                                                                                                                     |
-|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-|*K-Best Feature Selection*  |K-Best feature selection is a tool used in machine learning used to find which variables in a given model most contribute to its prediction accuracy.|
-|*Confusion Matrices*        |Confusion matrices are plots of the true and predicted values of a given model and are used to determine where a model is succeeding and/or failing. |
+|**Name**                    |**Explaination**                                                                                                                                      |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+|*K-Best Feature Selection*  |K-Best feature selection is a tool used in machine learning used to find which variables in a given model most contribute to its prediction accuracy. |
+|*Confusion Matrices*        |Confusion matrices are plots of the true and predicted values of a given model and are used to determine where a model is succeeding and/or failing.  |
 
 ### Data Preprocessing Tools
-|**Name**                    |**Explaination**                                                                                                                                     |
-|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-|*Standard Scaler*           |
-|*One Hot Encoder*           |
+|**Name**                    |**Explaination**                                                                                                                                      |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+|*Standard Scaler*           |Standard Scaler is a tool you can use in machine learning to standardize all numeric inputs so the model can correctly assess the impact of each value.|
+|*One Hot Encoder*           |Similar to Standard Scaler, One Hot Encoder is a method use to convert character data to numeric in a standardized way so the model can weigh the impact of character input along with numeric.|
 
 ### Supervised Classification Models
 |**Name**                    |**Explaination** 
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-|*Random Forests*            |
-|*Naive Bayes*               |  
-|*Logistic Regression*       |
-|*Gradient Boosting*         | 
-|*Ensemble*                  |
+|*Random Forests*            |Random Forests randomly distribute the data given to it into multiple "trees" and averages the outcome from each tree to come to its final result.   |
+|*Naive Bayes*               |Naive Bayes uses probability to find the most likely outcome.                                                                                        |
+|*Logistic Regression*       |Logisitic regression finds the linear regression of the log odds of the predictor variables to predict a binary outcome.                             |
+|*Gradient Boosting*         |Rather than creating lots of uncorrelated models like Random Forest, Gradient Boosting fits many models where each successive one corrects upon where the previous one was wrong.|
+|*Ensemble*                  |Ensemble models combine many user-specified models and comes to its final outcome by averaging the individual outcomes of each model made up within it.|  
 
 ### Unsupervised Dimension Reduction Model
 |**Name**                    |**Explaination** 
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-|*PCA*                       |
+|*PCA*                       |Principle Component Analysis (PCA) is a method of reducing the number of variables in a model by combining them into the principle components that describe the most variance in a given dataset.|
 
 ### Unsupervised Clustering Models
 |**Name**                    |**Explaination** 
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-|*K-Means*                   |
-|*Gaussian Mixture Model*    |
+|*K-Means*                   |K-Means is a clustering method that attempts to divide up the data into a specified number of groups based on how close each data point is to each other.|
+|*Gaussian Mixture Model*    |Gaussian Mixture Model is another clustering method that assumes a specificed number of normally distributed clusters and assigns data points to the normal curve they best fit.|
 :::
 
 

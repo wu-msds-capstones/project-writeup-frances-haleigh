@@ -2,13 +2,12 @@ project:
   type: website
   output-dir: _output
 
-title: "Preventative Care in the United States"
-subtitle: "How do preventative healthcare measures impact standard health metrics?"
-author:
+authors:
   - Frances Romero
   - Haleigh Schwartz
 date: today
 title-block-banner: true
+number-sections: true
 
 format: 
   html:
@@ -17,6 +16,8 @@ format:
     theme:
       light: lightly
       dark: darkly
+    title: "Preventative Care in the United States"
+    subtitle: "How do preventative healthcare measures impact standard health metrics?"
 
 with:
   target: gh-pages
