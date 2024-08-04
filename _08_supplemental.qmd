@@ -36,24 +36,24 @@
   });
 </script>
 
-## Supplemental Figures
+## Supplemental Figures{#supplemental-figures}
 
-![S.Figure 1A: KBest Features for Life Expectancy](./Figures/kbest_life_exp.png){#fig-S.Fig1A}
+![Figure S.1A: KBest Features for Life Expectancy](./Figures/kbest_life_exp.png)
 
-![S.Figure 1B: KBest Features for Infant Mortality Rate](./Figures/kbest_inf_mor.png){#Supplemental_Figure_1B}
+![Figure S.1B: KBest Features for Infant Mortality Rate](./Figures/kbest_inf_mor.png)
 
-![S.Figure 1C: KBest Features for Death Rate](./Figures/kbest_mortality.png){#Supplemental_Figure_1C}
+![Figure S.1C: KBest Features for Death Rate](./Figures/kbest_mortality.png)
 
-![S.Figure 1D: Distribution of Life Expectancy Quartiles](./Figures/life_expectancy_bins.png)
+![Figure S.1D: Distribution of Life Expectancy Quartiles](./Figures/life_expectancy_bins.png)
 
-![S.Figure 1E: Confusion Matrix for Life Expectancy Model](./Figures/conf_matrix_life_exp.png)
+![Figure S.1E: Confusion Matrix for Life Expectancy Model](./Figures/conf_matrix_life_exp.png)
 
-![S.Figure 1F: Confusion Matrix for Death Rate Model](./Figures/conf_matrix_mortality.png)
+![S.Figure S.1F: Confusion Matrix for Death Rate Model](./Figures/conf_matrix_mortality.png)
 
-![S.Figure 1G: Variance Explained by each Principle Component in the Life Expectancy Model](./Figures/variance_life_exp.png)
+![Figure S.1G: Variance Explained by each Principle Component in the Life Expectancy Model](./Figures/variance_life_exp.png)
 
-![S.Figure 1H: Variance Explained by each Principle Component in the Infant Mortality Model](./Figures/variance_inf_mor.png)
+![Figure S.1H: Variance Explained by each Principle Component in the Infant Mortality Model](./Figures/variance_inf_mor.png)
 
-![S.Figure 1I: Variance Explained by each Principle Component in the Death Rate Model](./Figures/variance_mortality.png)
+![Figure S.1I: Variance Explained by each Principle Component in the Death Rate Model](./Figures/variance_mortality.png)
 
-![S.Figure 1J: Explained Variance by Eigenvalue for Entire Dataset](./Figures/total_eigenvalue.png)
+![Figure S.1J: Explained Variance by Eigenvalue for Entire Dataset](./Figures/total_eigenvalue.png)

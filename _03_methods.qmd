@@ -1,16 +1,17 @@
 # Methods
 ## Data Analysis
 ### Statistical Thinking
-We determined health status using commonly used markers (proxies) such as life expectancy and mortality rates.³ We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.
+We determined health status using commonly used proxies such as life expectancy and mortality rates.³ We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.
 
 In our linear models created in R, we first took the natural logarithm of income-related data due to both its skewed distribution and disproportionate scale (in comparison to the rest of our data). 
 
-::: {.callout-note collapse="true"}
-## What are these statistical tests?
-### optional text 
-|    **Log Rank Test**      |       **Kaplan-Meier Curve**       |      **Linear Regression**       |
-|---------------------------|------------------------------------|----------------------------------|
-| text                      | text                               | text                             |
+::: {.callout-note collapse="true"} 
+#### What are these statistical tests?
+|**Test**                |**Description**                                                                              |
+|------------------------|---------------------------------------------------------------------------------------------|
+|*Kaplan-Meier Curve*    |A Kaplan-Meier (KM) curve is a display of survival data over time and across groups.         |
+|*Log Rank Test*         |A log rank test is used to determine if the groups in a KM curve are significant.            |
+|*Linear Regression*     |Linear regression is a statistical test used to find and quanitfy linear trends between data.|
 :::
 
 ### Data Visualization
@@ -23,35 +24,45 @@ We stored our data into a relational database and accessed it with Postgresql (t
 We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. Finally, we created a new variable that represented overall health quality. 
 
 ::: {.callout-note collapse="true"}
-## What are these models?
+#### What are these models?
 ### Model Optimization
-|**K-Best Feature Selection**  |  **Confusion Matrices**   |
-|------------------------------|---------------------------|
-| text                         | text                      |
+|**Name**                    |**Explaination**                                                                                                                                     |
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|*K-Best Feature Selection*  |K-Best feature selection is a tool used in machine learning used to find which variables in a given model most contribute to its prediction accuracy.|
+|*Confusion Matrices*        |Confusion matrices are plots of the true and predicted values of a given model and are used to determine where a model is succeeding and/or failing. |
 
 ### Supervised Classification Models
-|   **Random Forests**    | **Naive Bayes**            | **Logistic Regression**  | **Ensemble**        |
-|-------------------------|----------------------------|--------------------------|---------------------|
-| text                    |                            |                          |                     |
+|**Name**                    |**Explaination** 
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|*Random Forests*            |
+|*Naive Bayes*               |  
+|*Logistic Regression*       | 
+|*Ensemble*                  |
 
 ### Unsupervised Dimension Reduction Model
-| **PCA** |
-|---------|
-|text     |
+|**Name**                    |**Explaination** 
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|*PCA*                       |
 
 ### Unsupervised Clustering Models
-|   **K-Means**       | **Gaussian Mixture Model** |
-|---------------------|----------------------------|
-| text                |                            |
+|**Name**                    |**Explaination** 
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|*K-Means*                   |
+|*Gaussian Mixture Model*    |
 :::
 
-::: {.callout-note collapse="true"}
-## Process outline for predicting health by access to care:
+#### Process outlines:
+::: {.panel-tabset}
+## Goal 1
+**Predicting health by access to care**
+
+3. Use KMeans to find the top 10 features from each model . Combine these variables with significant variables from the linear regression models completed in R.
+
 1. Create our desired dataframe by reading in data from our remote database and joining where necessary.
 2. Preprocess:
     i) Drop NAs while optimizing data frame size via trial and error.
     ii) Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.
-3. Use KMeans to find the top 10 features from each model (see @fig-S.Fig1A, @Supplemental_Figure_1B, and @Supplemental_Figure_1C). Combine these variables with significant variables from the linear regression models completed in R.
+3. Use KMeans to find the top 10 features from each model (see <a href="_08_supplemental.qmd#supplemental-figures" title="![Figure 1A](./Figures/kbest_life_exp_1A.png) ![Figure 1B](./Figures/kbest_life_exp_1B.png) ![Figure 1C](./Figures/kbest_life_exp_1C.png)">Supplemental Figures 1A-C</a>). (see [Supplemental Figures 1A-C](_08_supplemental.qmd#supplemental-figures)). Combine these variables with significant variables from the linear regression models completed in R.
 4. Continue preprocessing with the reduced dataset (using only variables from step 3) 
     i) Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable.
         A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. 
@@ -66,17 +77,16 @@ We used machine learning models such as ensembles, logistic regression, random f
 6. Add PCA to the model
     i) Determine how many components explain 90% variance in the model (see Supplemental Figures 1G-1I).
     ii) Add PCA with that number of components to the optimized pipeline made from Step 5.
-:::
 
-::: {.callout-note collapse="true"}
-## Process outline for predicting health by prevalence of a disease based on Medicaid-related variables:
+## Goal 2
+**Predicting disease prevalence by insurance type**
+
 1. Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state. 
-2. Preprocess, split, and model the data as outlined above.
-:::
+2. Preprocess, split, and model the data as outlined in the first process.
 
+## Goal 3
+**Engineering overall health variable**
 
-::: {.callout-note collapse="true"}
-## Process outline for creating a new variable:
 1. Gather our entire dataset (not just access to care related variables) See Supplemental Table 1B for a list of all variables used.
 2. Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.
 3. Use PCA to see how much variance can be explained by the first eigenvalue (see Supplemental Figure 1J).

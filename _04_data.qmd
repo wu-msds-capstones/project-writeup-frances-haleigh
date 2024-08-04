@@ -1,9 +1,9 @@
 # Data
 ## Data Ingestion
-We gathered data from two sources: KFF (an independent source for health policy research, polling, and news)⁶ and County Health Rankings and Roadmaps (CHRR).²
+We gathered data from two sources: KFF (an independent source for health policy research, polling, and news)⁷ and County Health Rankings and Roadmaps (CHRR).²  Though we collected data across several years, we analyzed only data from 2022 due to data quality concerns when comparing year to year.
 
 ### KFF: Collection and Cleaning
-We generated a custom report from data available on KFF, downloading a large variety of data from 2017-2022 (not including 2020 due to lack of data collection) for each state in the US. Variables we investigated from this dataset included percentage of population on Medicare, percentage of adults who smoke, healthcare expenditure, median annual household income, cervical cancer incidence rate, and many more potentially relevant factors.⁶
+We generated a custom report from data available on KFF, downloading a large variety of data from 2017-2022 (not including 2020 due to lack of data collection) for each state in the U.S. Variables we investigated from this dataset included percentage of population on Medicare, percentage of adults who smoke, healthcare expenditure, median annual household income, cervical cancer incidence rate, and many more potentially relevant factors.⁷
 
 KFF data for each state was downloaded as CSVs. We chose the most recent dates for all of the different health and insurance related questions between 2017-2022. The CSVs originally had a question, state, and value field. We used text parsing to create a column called demographic and a column called group. This allowed us to parse out demographics like age, race/ethnicity, poverty level and create groups within each of those. 
                 
@@ -14,7 +14,7 @@ Finally, we added a `county` column (which we filled with all NA) and edited the
 ### CHRR: Collection and Cleaning
 Similar to KFF, we downloaded data for each state from 2017-2022 (not including 2020 due to lack of data collection) from County Health Rankings and Roadmaps (CHRR). We chose the “20xx County Health Release National Data” links for each year. Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States. This data included metrics such as `life_expectancy`, `age-adjusted_death_rate`, `years_of_potential_life_loss_rate`, `food_environment_index`, `percentage_of_physically_inactive_adults`, `percentage_of_excessive_drinking`, `Primary_Care_Provider_ratio`, and much more.²
 
-First, we cleaned up the columns. We reviewed the documentation and renamed any potentially confusing column names. For example, `#_Medicaid_Enrollees` became `no_female_medicaid_enrollees` to avoid mistakenly believing the first column included both genders in its count. We dropped columns that would not be of help to us, such as the `95% CI - Low` and `95% CI - High` columns, as our dataset did not describe how these confidence intervals were found. We replaced all spaces with an underscore.
+First, we cleaned up the columns. We reviewed the documentation and renamed any potentially confusing column names. For example, `#_Medicaid_Enrollees` became `no_female_medicaid_enrollees` to avoid mistakenly believing the first column included both genders in its count. We dropped columns that would not be of help to us, such as columns containing the word `Unreliable.` We replaced all spaces with an underscore.
 
 Second, we joined the two CSVs for each year to have one CSV per year and added a `Year` column to help with merging later.
 

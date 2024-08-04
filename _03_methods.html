@@ -52,7 +52,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="data-analysis">Data Analysis</h2>
 <section id="statistical-thinking" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-thinking">Statistical Thinking</h3>
-<p>We determined health status using commonly used markers (proxies) such as life expectancy and mortality rates.³ We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.</p>
+<p>We determined health status using commonly used proxies such as life expectancy and mortality rates.³ We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.</p>
 <p>In our linear models created in R, we first took the natural logarithm of income-related data due to both its skewed distribution and disproportionate scale (in comparison to the rest of our data).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -195,7 +195,7 @@ What are these models?
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -204,7 +204,7 @@ Process outline for predicting health by access to care:
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>Create our desired dataframe by reading in data from our remote database and joining where necessary.</li>
@@ -230,44 +230,10 @@ Process outline for predicting health by access to care:
 <li>Add PCA to the model
 <ol type="i">
 <li>Determine how many components explain 90% variance in the model (see Supplemental Figures 1G-1I).</li>
-<li>Add PCA with that number of components to the optimized pipeline made from Step 5.</li>
+<li>Add PCA with that number of components to the optimized pipeline made from Step 5. ## Process outline for predicting health by prevalence of a disease based on Medicaid-related variables:</li>
 </ol></li>
-</ol>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Process outline for predicting health by prevalence of a disease based on Medicaid-related variables:
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
 <li>Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state.</li>
-<li>Preprocess, split, and model the data as outlined above.</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Process outline for creating a new variable:
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
+<li>Preprocess, split, and model the data as outlined above. ## Process outline for creating a new variable:</li>
 <li>Gather our entire dataset (not just access to care related variables) See Supplemental Table 1B for a list of all variables used.</li>
 <li>Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.</li>
 <li>Use PCA to see how much variance can be explained by the first eigenvalue (see Supplemental Figure 1J).</li>

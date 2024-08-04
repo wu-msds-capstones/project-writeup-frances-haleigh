@@ -1,7 +1,8 @@
 # Introduction
-To help answer questions regarding the effectiveness of preventative care, we investigated current relationships between health care, access to care, public health insurance, and overall health outcomes across the United States. We explored how primary care and prevenatitive measures impact standard health metrics, such as life expectancy, mortality, and infant mortality. We compared these metrics across demographics and insurance models (public versus private). By examining these factors, we aimed to contribute to the understanding of how preventative care can help improve public health in the United States.
+To answer questions regarding the effectiveness of preventative care, we investigated current relationships between health care, access to care, public health insurance, and overall health outcomes across the United States. To do so, we took a multi-layered approach to our data:
 
+1. Compare how access to care impacts common health metrics such as life expectancy, mortality, and infant mortality.³
+2. Investigate predictability of chronic condition prevalence between public and private insurances.
+3. Engineer a variable that encapsulates all health metrics to discover what factors are most important to health overall. 
 
-
-
-
+By examining these questions, we aimed to contribute to the understanding of how preventative care can improve public health in the United States.

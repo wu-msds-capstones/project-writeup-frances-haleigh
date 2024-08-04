@@ -1,5 +1,5 @@
 ---
-title: "United States' Health Quality"
+title: "Preventative Care in the United States"
 subtitle: How do preventative healthcare measures impact standard health metrics?
 authors:
   - Frances Romero
