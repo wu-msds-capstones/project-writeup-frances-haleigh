@@ -3,7 +3,7 @@
 ## Introduction
 In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (Supplemental Table 1A). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population. 
 
-## Analyzing Impact of Access to Care on Health Metrics
+## Goal 1: Analyzing Impact of Access to Care on Health Metrics
 ### Life Expectancy
 
 ![Fig 2A: Median Life Expectancy by State.](./images/life_expectancy_by_state.png)
@@ -72,7 +72,7 @@ KMeans clustering again found four apparent clusters within our data along its f
 
 ![Figure 4D: K-means clustering (k=4) for Age-Adjusted Death Rate Model](./Figures/kmeans_mortality.png)
 
-## Predicting Chronic Conditions Based On Medicaid Data
+## Goal 2: Predicting Chronic Conditions Based On Insurance Type
 To answer the question of how state insurance in particular impacts one’s health status, we evaluated two common chronic conditions in the United States, diabetes and cardiovascular disease.  
 
 ### Diabetes
@@ -85,7 +85,7 @@ As with our diabetes dataset, we again repeated the above process to predict CVD
 
 ![Figure 5B: Mean CVD Percentage per State vs Medicaid Percentage](./Figures/cvd_medicaid.png)
 
-## Creating an Overall Health Quality Variable
+## Goal 3: Creating an Overall Health Quality Variable
 As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.3 Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one's actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).
 
 ![Figure 6A: Health Metrics Pair Plot](./Figures/pairplot.png)

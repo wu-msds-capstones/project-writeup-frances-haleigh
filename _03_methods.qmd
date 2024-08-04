@@ -23,20 +23,70 @@ We stored our data into a relational database and accessed it with Postgresql (t
 ### Machine Learning
 We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. Finally, we created a new variable that represented overall health quality. 
 
+#### Process outlines:
+::: {.panel-tabset}
+## Goal 1
+**Predicting health by access to care**
+
+3. Use KMeans to find the top 10 features from each model . Combine these variables with significant variables from the linear regression models completed in R.
+
+1. Create our desired dataframe by reading in data from our remote database and joining where necessary.
+2. Preprocess:
+    i) Drop NAs while optimizing data frame size via trial and error.
+    ii) Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.
+3. Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure S.1A">Supplemental Figures 1A</a>, <a href="./Figures/kbest_inf_mor.png" title="Figure S.1B">1B</a>, and <a href="./Figures/kbest_mortality.png" title="Figure S.1C">1C</a>). Combine these variables with significant variables from the linear regression models completed in R.
+4. Continue preprocessing with the reduced dataset (using only variables from step 3) 
+    i) Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable.
+        A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. 
+        B. For life expectancy, we dropped outliers first (ages below 60 and above 90, see <a href="./Figures/life_expectancy_bins.png" title="Figure S.1D">Supplemental Figure 1D</a>).
+    ii) Train/test split dataset
+5. Create model
+    i) Use LogisticRegression, RandomForestClassifier, GradientBoostingClassifier, CategoricalNaiveBayes, and Ensemble. Find which model performs the best.
+    ii) Hyperparameterize the model that works best from step 5i.
+    iii) Cross validate finalized model
+    iv) Test on testing data to find true accuracy
+    v) Confusion matrix to see what went wrong (see <a href="./Figures/conf_matrix_life_exp.png" title="Figure S.1E">Supplemental Figures 1E</a> and <a href="./Figures/conf_matrix_mortality.png" title="Figure S.1F">1F</a>).
+6. Add PCA to the model
+    i) Determine how many components explain 90% variance in the model (see <a href="./Figures/variance_life_exp.png" title="Figure S.1G">Supplemental Figures 1G</a>, <a href="./Figures/variance_inf_mor.png" title="Figure S.1H">1H</a>, and <a href="./Figures/variance_mortality.png" title="Figure S.1I">1I</a>).
+    ii) Add PCA with that number of components to the optimized pipeline made from Step 5.
+
+## Goal 2
+**Predicting disease prevalence by insurance type**
+
+1. Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state. 
+2. Preprocess, split, and model the data as outlined in the first process.
+
+## Goal 3
+**Engineering overall health variable**
+
+1. Gather our entire dataset (not just access to care related variables) See Supplemental Table 1B for a list of all variables used.
+2. Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.
+3. Use PCA to see how much variance can be explained by the first eigenvalue (see <a href="./Figures/total_eigenvalue.png" title="Figure S.1J">Supplemental Figure 1J</a>).
+4. Project desired health variables to the first eigenvalue.
+5. Compare weights of all variables to see how much they each contribute to this “new variable."
+:::
+
 ::: {.callout-note collapse="true"}
-#### What are these models?
-### Model Optimization
+#### What are these models and tools?
+### Model Optimization Tools
 |**Name**                    |**Explaination**                                                                                                                                     |
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 |*K-Best Feature Selection*  |K-Best feature selection is a tool used in machine learning used to find which variables in a given model most contribute to its prediction accuracy.|
 |*Confusion Matrices*        |Confusion matrices are plots of the true and predicted values of a given model and are used to determine where a model is succeeding and/or failing. |
+
+### Data Preprocessing Tools
+|**Name**                    |**Explaination**                                                                                                                                     |
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|*Standard Scaler*           |
+|*One Hot Encoder*           |
 
 ### Supervised Classification Models
 |**Name**                    |**Explaination** 
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 |*Random Forests*            |
 |*Naive Bayes*               |  
-|*Logistic Regression*       | 
+|*Logistic Regression*       |
+|*Gradient Boosting*         | 
 |*Ensemble*                  |
 
 ### Unsupervised Dimension Reduction Model
@@ -51,48 +101,6 @@ We used machine learning models such as ensembles, logistic regression, random f
 |*Gaussian Mixture Model*    |
 :::
 
-#### Process outlines:
-::: {.panel-tabset}
-## Goal 1
-**Predicting health by access to care**
-
-3. Use KMeans to find the top 10 features from each model . Combine these variables with significant variables from the linear regression models completed in R.
-
-1. Create our desired dataframe by reading in data from our remote database and joining where necessary.
-2. Preprocess:
-    i) Drop NAs while optimizing data frame size via trial and error.
-    ii) Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.
-3. Use KMeans to find the top 10 features from each model (see <a href="_08_supplemental.qmd#supplemental-figures" title="![Figure 1A](./Figures/kbest_life_exp_1A.png) ![Figure 1B](./Figures/kbest_life_exp_1B.png) ![Figure 1C](./Figures/kbest_life_exp_1C.png)">Supplemental Figures 1A-C</a>). (see [Supplemental Figures 1A-C](_08_supplemental.qmd#supplemental-figures)). Combine these variables with significant variables from the linear regression models completed in R.
-4. Continue preprocessing with the reduced dataset (using only variables from step 3) 
-    i) Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable.
-        A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. 
-        B. For life expectancy, we dropped outliers first (ages below 60 and above 90, see Supplemental Figure 1D).
-    ii) Train/test split dataset
-5. Create model
-    i) Use LogisticRegression, RandomForestClassifier, GradientBoostingClassifier, CategoricalNaiveBayes, and Ensemble. Find which model performs the best.
-    ii) Hyperparameterize the model that works best from step 5a.
-    iii) Cross validate finalized model
-    iv) Test on testing data to find true accuracy
-    v) Confusion matrix to see what went wrong (see Supplemental Figures 1E and 1F).
-6. Add PCA to the model
-    i) Determine how many components explain 90% variance in the model (see Supplemental Figures 1G-1I).
-    ii) Add PCA with that number of components to the optimized pipeline made from Step 5.
-
-## Goal 2
-**Predicting disease prevalence by insurance type**
-
-1. Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state. 
-2. Preprocess, split, and model the data as outlined in the first process.
-
-## Goal 3
-**Engineering overall health variable**
-
-1. Gather our entire dataset (not just access to care related variables) See Supplemental Table 1B for a list of all variables used.
-2. Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.
-3. Use PCA to see how much variance can be explained by the first eigenvalue (see Supplemental Figure 1J).
-4. Project desired health variables to the first eigenvalue.
-5. Compare weights of all variables to see how much they each contribute to this “new variable."
-:::
 
 ### Data Ethics
 We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented.  
