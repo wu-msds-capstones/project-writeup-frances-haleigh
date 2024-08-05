@@ -31,7 +31,7 @@ Figure 2A demonstrates how median life expectancy varies by state. We decided to
 
 Figure 2C shows our linear model for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Rate and Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity was negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy. 
 
-These were all expected, but what was surprising was that the Residential Segregation Index was positively correlated with life expectancy but the opposite relationship was found for the Segregation Index. While we expected to see Segregation Index negatively correlated with life expectancy, it seems to be paradoxical that the opposite was true for the Residential Segregation Index. We realized that our Residential Segregation Index had a lot of missing values, so plotting it against life expectancy didn’t reveal any visible trend. To improve this model, we removed this as a predictor. 
+These were all expected, but what was surprising was that the Residential Segregation Index was positively correlated with life expectancy but the opposite relationship was found for the Segregation Index. While we expected to see Segregation Index negatively correlated with life expectancy, it seems to be paradoxical that the opposite was true for the Residential Segregation Index. We realized that our Residential Segregation Index had a lot of missing values, so plotting it against life expectancy didn’t reveal any visible trend. To improve this model, we removed this as a predictor. PCP_RATE and PCP_RATE were redundent, so we kept PCP_RATIO. Figure 2C shows our final life expectancy model and our coefficient table.
 
 Figure 2C: Life Expectancy Linear Model and Coefficient Table:
 ```markdown
@@ -40,7 +40,6 @@ lm(formula = `LIFE_EXPECTANCY` ~ `state_name` + `PCP_RATIO` +
     `HOUSEHOLD_INCOME_(HISPANIC)_LN` +
     `SEGREGATION_INDEX` + `%_BROADBAND_ACCESS`, data = ds_life_adjusted)
 ```
-
 | Predictor                       | Estimate  | Std. Error | t value | Pr(>|t|)    |
 |---------------------------------|-----------|------------|---------|-------------|
 | (Intercept)                     | 7.092e+01 | 2.171e+00  | 32.661  | < 2e-16 *** |
@@ -57,9 +56,15 @@ To better understand the survival (life expectancy) of different groups for each
 ![Figure 2D: As expected, those who are more food insecure have lower life expectancies.](./images/KM_food.png)
 
 
-![Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity. ](./images/log_rank_food.png)
+Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity
+| Quantile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
+|------------|-----|----------|----------|-----------|-----------|
+| quantile=1 | 704 | 704      | 505      | 78.411    | 98.013    |
+| quantile=2 | 760 | 760      | 584      | 52.895    | 68.550    |
+| quantile=3 | 757 | 757      | 745      | 0.184     | 0.254     |
+| quantile=4 | 749 | 749      | 1135     | 131.551   | 230.098   |
 
-Kaplan-Meier Curves for life expectancy were made with the following variables: PCP Rate and Ratio, Percentage of Food Insecurity, Segregation Index, and Percentage of Broadband Internet Access. Log rank tests were performed, and all of the results were significant. To explore the curves and log rank test results, please explore our gallery below: 
+Kaplan-Meier Curves for life expectancy were made with the following variables: PCP Ratio, Percentage of Food Insecurity, Segregation Index, and Percentage of Broadband Internet Access. Log rank tests were performed, and all of the results were significant. To explore the curves and log rank test results, please explore our gallery below: 
 
 **add a gallery here?**
 
@@ -78,7 +83,19 @@ Figure 3B shows which states were positively or negatively correlated with infan
 
 In terms of preventative healthcare measures that were significantly correlated with infant mortality (Figure 3C), we found that Median Household Income and Broadband Internet Access were significantly correlated in the negative direction with infant mortality. That is, as income and access to the Internet increased, infant mortality rates decreased. We came across the same issue with segregation here as we did in our life expectancy model. The Segregation Index coefficient shows that as segregation increases, infant mortality rates increase as well. 
 
-![Figure 3C: Infant Mortality Linear Model Coefficients.](./images/infant_mortality_lm_coef.png)
+Figure 3C: Infant Mortality Linear Model and Coefficients:
+```markdown
+lm(formula = `INFANT_MORTALITY_RATE` ~ `state_name` + `AVERAGE_DAILY_PM2.5` + 
+    `MEDIAN_HOUSEHOLD_INCOME_LN` + `SEGREGATION_INDEX` + `%_BROADBAND_ACCESS`, 
+    data = ds_mortality_adjusted)
+```
+| Predictor                        | Estimate  | Std. Error | t value | Pr(>|t|)    |
+|----------------------------------|-----------|------------|---------|-------------|
+| (Intercept)                      | 57.531253 | 2.427216   | 23.703  | < 2e-16 *** |
+| `AVERAGE_DAILY_PM2.5`            | 0.036263  | 0.023539   | 1.541   | 0.124       |
+| `MEDIAN_HOUSEHOLD_INCOME_LN`     | -4.134217 | 0.269866   | -15.320 | < 2e-16 *** |
+| `SEGREGATION_INDEX`              | 0.032420  | 0.004514   | 7.182   | 1.19e-12 ***|
+| `%_BROADBAND_ACCESS`             | -0.058167 | 0.009648   | -6.029  | 2.19e-09 ***|
 
 In our machine learning model, we repeated the same process for infant mortality rate as for life expectancy, but got a low accuracy score of 36% due to the high number of NAs in our Infant Mortality Rate column. Future analyses would do well to increase record-keeping of infant mortality rates by county as the metric “indicates the current health status of a population and reflects the overall state of maternal health, as well as the quality and accessibility of primary health care available to pregnant women and infants.”³
 
@@ -93,7 +110,28 @@ Preventative healthcare measures that were significantly correlated with mortali
 
 Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well. 
 
-![Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients.](./images/death_rate_lm_coef.png)
+Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model and Coefficients:
+```markdown
+lm(formula = `AGE-ADJUSTED_DEATH_RATE` ~ `state_name` + `%_VACCINATED` + 
+    `%_SEVERE_HOUSING_PROBLEMS` + `%_FOOD_INSECURE` + `SCHOOL_SEGREGATION_IDX` + 
+    `HOUSEHOLD_INCOME_(HISPANIC)_LN` + `SEGREGATION_INDEX` + `%_BROADBAND_ACCESS` + 
+    `#_RURAL_RESIDENTS` + `HOUSEHOLD_INCOME_(WHITE)_LN` + `%_VACCINATED_(ASIAN)` + 
+    `HOUSEHOLD_INCOME_(ASIAN)_LN`, data = ds_mortality_adjusted)
+```
+| Predictor                          | Estimate  | Std. Error | t value | Pr(>|t|)    |
+|------------------------------------|-----------|------------|---------|-------------|
+| (Intercept)                        | 9.933e+02 | 1.443e+02  | 6.884   | 1.06e-11 ***|
+| `%_VACCINATED`                     | -2.097e+00| 3.655e-01  | -5.737  | 1.29e-08 ***|
+| `%_SEVERE_HOUSING_PROBLEMS`        | -3.190e+00| 5.191e-01  | -6.145  | 1.18e-09 ***|
+| `%_FOOD_INSECURE`                  | 1.503e+01 | 9.902e-01  | 15.181  | < 2e-16 *** |
+| `SCHOOL_SEGREGATION_IDX`           | 2.925e+01 | 3.784e+01  | 0.773   | 0.43979     |
+| `HOUSEHOLD_INCOME_(HISPANIC)_LN`   | 1.999e+01 | 9.581e+00  | 2.086   | 0.03725 *   |
+| `SEGREGATION_INDEX`                | 1.275e+00 | 2.641e-01  | 4.827   | 1.61e-06 ***|
+| `%_BROADBAND_ACCESS`               | -5.696e+00| 5.048e-01  | -11.284 | < 2e-16 *** |
+| `#_RURAL_RESIDENTS`                | -1.468e-05| 5.814e-06  | -2.524  | 0.01175 *   |
+| `HOUSEHOLD_INCOME_(WHITE)_LN`      | -5.001e+01| 1.544e+01  | -3.239  | 0.00124 **  |
+| `%_VACCINATED_(ASIAN)`             | 2.830e-01 | 2.432e-01  | 1.163   | 0.24498     |
+| `HOUSEHOLD_INCOME_(ASIAN)_LN`      | 1.067e+01 | 6.013e+00  | 1.774   | 0.07641 .   |
 
 Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.  
 
