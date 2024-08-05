@@ -1,5 +1,4 @@
 ---
-#also in index.qmd, not rendering from capstone.qmd for some reason
 title: "Preventative Care in the United States"
 subtitle: "How do preventative healthcare measures impact standard health metrics?"
 authors:
