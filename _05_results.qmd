@@ -31,9 +31,26 @@ Figure 2A demonstrates how median life expectancy varies by state. We decided to
 
 Figure 2C shows our linear model for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Rate and Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity was negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy. 
 
-These were all expected, but what was surprising was that the Residential Segregation Index was positively correlated with life expectancy but the opposite relationship was found for the Segregation Index. While we expected to see Segregation Index negatively correlated with life expectancy, it seems to be paradoxical that the opposite was true for the Residential Segregation Index. We realized that our Residential Segregation Index had a lot of missing values, so plotting it against life expectancy didn’t reveal any visible trend. To improve this model in the future, we would remove this predictor. 
+These were all expected, but what was surprising was that the Residential Segregation Index was positively correlated with life expectancy but the opposite relationship was found for the Segregation Index. While we expected to see Segregation Index negatively correlated with life expectancy, it seems to be paradoxical that the opposite was true for the Residential Segregation Index. We realized that our Residential Segregation Index had a lot of missing values, so plotting it against life expectancy didn’t reveal any visible trend. To improve this model, we removed this as a predictor. 
 
-![Figure 2C: Life Expectancy Linear Model Coefficients.](./images/life_expectanct_lm_coef.png)
+![Figure 2C: Life Expectancy Linear Model and Coefficients.](./images/life_expectanct_lm_coef.png)
+```{r}
+lm(formula = `LIFE_EXPECTANCY` ~ `state_name` + `PCP_RATIO` + 
+    `%_VACCINATED_(HISPANIC)` + `AVERAGE_DAILY_PM2.5` + `%_FOOD_INSECURE` + 
+    `HOUSEHOLD_INCOME_(HISPANIC)_LN` + RESIDENTIAL_SEGREGATION_IDX + 
+    SEGREGATION_INDEX + `%_BROADBAND_ACCESS`, data = ds_life_adjusted)
+```
+
+| Predictor                       | Estimate  | Std. Error | t value | Pr(>|t|)    |
+|---------------------------------|-----------|------------|---------|-------------|
+| (Intercept)                     | 7.092e+01 | 2.171e+00  | 32.661  | < 2e-16 *** |
+| `PCP_RATIO`                     | 1.076e-04 | 3.664e-05  | 2.935   | 0.00338 **  |
+| `%_VACCINATED_(HISPANIC)`       | -6.969e-03| 5.291e-03  | -1.317  | 0.18802     |
+| `AVERAGE_DAILY_PM2.5`           | -3.642e-02| 2.558e-02  | -1.424  | 0.15471     |
+| `%_FOOD_INSECURE`               | -3.947e-01| 2.030e-02  | -19.440 | < 2e-16 *** |
+| `HOUSEHOLD_INCOME_(HISPANIC)_LN`| 9.561e-02 | 1.897e-01  | 0.504   | 0.61427     |
+| `SEGREGATION_INDEX`             | -3.593e-02| 4.618e-03  | -7.781  | 1.35e-14 ***|
+| `%_BROADBAND_ACCESS`            | 1.175e-01 | 9.519e-03  | 12.340  | < 2e-16 *** |
 
 To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 2D shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = <2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.
 
