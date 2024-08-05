@@ -28,7 +28,7 @@ We used machine learning models such as ensembles, logistic regression, random f
 ## Goal 1
 **Predicting health by access to care**
 
-3. Use KMeans to find the top 10 features from each model . Combine these variables with significant variables from the linear regression models completed in R.
+3. Use KMeans to find the top 10 features from each model. Combine these variables with significant variables from the linear regression models completed in R.
 
 1. Create our desired dataframe by reading in data from our remote database and joining where necessary.
 2. Preprocess:
