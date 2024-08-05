@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -565,16 +599,11 @@ What are these models and tools?
 </div>
 <p>Figure 2C shows our linear model for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Rate and Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity was negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy.</p>
 <p>These were all expected, but what was surprising was that the Residential Segregation Index was positively correlated with life expectancy but the opposite relationship was found for the Segregation Index. While we expected to see Segregation Index negatively correlated with life expectancy, it seems to be paradoxical that the opposite was true for the Residential Segregation Index. We realized that our Residential Segregation Index had a lot of missing values, so plotting it against life expectancy didn’t reveal any visible trend. To improve this model, we removed this as a predictor.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./images/life_expectanct_lm_coef.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 2C: Life Expectancy Linear Model and Coefficients."><img src="./images/life_expectanct_lm_coef.png" class="img-fluid figure-img" alt="Figure 2C: Life Expectancy Linear Model and Coefficients."></a></p>
-<figcaption>Figure 2C: Life Expectancy Linear Model and Coefficients.</figcaption>
-</figure>
-</div>
-<pre class="{markdown}"><code>lm(formula = `LIFE_EXPECTANCY` ~ `state_name` + `PCP_RATIO` + 
-    `%_VACCINATED_(HISPANIC)` + `AVERAGE_DAILY_PM2.5` + `%_FOOD_INSECURE` + 
-    `HOUSEHOLD_INCOME_(HISPANIC)_LN` +
-    `SEGREGATION_INDEX` + `%_BROADBAND_ACCESS`, data = ds_life_adjusted)</code></pre>
+<p>Figure 2C: Life Expectancy Linear Model and Coefficient Table:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`LIFE_EXPECTANCY`</span> ~ <span class="in">`state_name`</span> + <span class="in">`PCP_RATIO`</span> + </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`%_VACCINATED_(HISPANIC)`</span> + <span class="in">`AVERAGE_DAILY_PM2.5`</span> + <span class="in">`%_FOOD_INSECURE`</span> + </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(HISPANIC)_LN`</span> +</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span>, data = ds_life_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 42%">
@@ -654,13 +683,13 @@ What are these models and tools?
 <p>To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 2D shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = &lt;2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/KM_food.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 2D: As expected, those who are more food insecure have lower life expectancies."><img src="./images/KM_food.png" class="img-fluid figure-img" alt="Figure 2D: As expected, those who are more food insecure have lower life expectancies."></a></p>
+<p><a href="./images/KM_food.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 2D: As expected, those who are more food insecure have lower life expectancies."><img src="./images/KM_food.png" class="img-fluid figure-img" alt="Figure 2D: As expected, those who are more food insecure have lower life expectancies."></a></p>
 <figcaption>Figure 2D: As expected, those who are more food insecure have lower life expectancies.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/log_rank_food.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity."><img src="./images/log_rank_food.png" class="img-fluid figure-img" alt="Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity."></a></p>
+<p><a href="./images/log_rank_food.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity."><img src="./images/log_rank_food.png" class="img-fluid figure-img" alt="Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity."></a></p>
 <figcaption>Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity.</figcaption>
 </figure>
 </div>
@@ -673,14 +702,14 @@ What are these models and tools?
 <h3 data-number="5.4.2" class="anchored" data-anchor-id="infant-mortality"><span class="header-section-number">5.4.2</span> Infant Mortality</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/median_infant_mortality_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img" alt="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."></a></p>
+<p><a href="./images/median_infant_mortality_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img" alt="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."></a></p>
 <figcaption>Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births.</figcaption>
 </figure>
 </div>
 <p>Figure 3A shows a difference between median infant mortality rates between states. Note that the chart appears to “stair-step” as Infant Mortality Rate are represented as integers rather than continuous numbers. Because of the linear trend associated with each state, we included the variable in our linear model to determine which states were significantly correlated with infant mortality.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/significance_state_infant_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest."><img src="./images/significance_state_infant_mortality.png" class="img-fluid figure-img" alt="Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest."></a></p>
+<p><a href="./images/significance_state_infant_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest."><img src="./images/significance_state_infant_mortality.png" class="img-fluid figure-img" alt="Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest."></a></p>
 <figcaption>Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest.</figcaption>
 </figure>
 </div>
@@ -688,7 +717,7 @@ What are these models and tools?
 <p>In terms of preventative healthcare measures that were significantly correlated with infant mortality (Figure 3C), we found that Median Household Income and Broadband Internet Access were significantly correlated in the negative direction with infant mortality. That is, as income and access to the Internet increased, infant mortality rates decreased. We came across the same issue with segregation here as we did in our life expectancy model. The Segregation Index coefficient shows that as segregation increases, infant mortality rates increase as well.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/infant_mortality_lm_coef.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure 3C: Infant Mortality Linear Model Coefficients."><img src="./images/infant_mortality_lm_coef.png" class="img-fluid figure-img" alt="Figure 3C: Infant Mortality Linear Model Coefficients."></a></p>
+<p><a href="./images/infant_mortality_lm_coef.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure 3C: Infant Mortality Linear Model Coefficients."><img src="./images/infant_mortality_lm_coef.png" class="img-fluid figure-img" alt="Figure 3C: Infant Mortality Linear Model Coefficients."></a></p>
 <figcaption>Figure 3C: Infant Mortality Linear Model Coefficients.</figcaption>
 </figure>
 </div>
@@ -698,14 +727,14 @@ What are these models and tools?
 <h3 data-number="5.4.3" class="anchored" data-anchor-id="age-adjusted-death-rate"><span class="header-section-number">5.4.3</span> Age Adjusted Death Rate</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/median_mortality_rate_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."><img src="./images/median_mortality_rate_by_state.png" class="img-fluid figure-img" alt="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."></a></p>
+<p><a href="./images/median_mortality_rate_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."><img src="./images/median_mortality_rate_by_state.png" class="img-fluid figure-img" alt="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."></a></p>
 <figcaption>Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A).</figcaption>
 </figure>
 </div>
 <p>Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model. Figure 4B shows which states were significantly correlated with mortality rate. Negative correlation is in green (AZ) showing a significantly lower death rate in Arizona. Positive correlation is in red, showing significantly higher death rates.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/significance_state_death_rate_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. Arizona is the only state with a significantly lower rate than the other forty-nine."><img src="./images/significance_state_death_rate_map.png" class="img-fluid figure-img" alt="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. Arizona is the only state with a significantly lower rate than the other forty-nine."></a></p>
+<p><a href="./images/significance_state_death_rate_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. Arizona is the only state with a significantly lower rate than the other forty-nine."><img src="./images/significance_state_death_rate_map.png" class="img-fluid figure-img" alt="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. Arizona is the only state with a significantly lower rate than the other forty-nine."></a></p>
 <figcaption>Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. Arizona is the only state with a significantly lower rate than the other forty-nine.</figcaption>
 </figure>
 </div>
@@ -713,7 +742,7 @@ What are these models and tools?
 <p>Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/death_rate_lm_coef.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients."><img src="./images/death_rate_lm_coef.png" class="img-fluid figure-img" alt="Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients."></a></p>
+<p><a href="./images/death_rate_lm_coef.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients."><img src="./images/death_rate_lm_coef.png" class="img-fluid figure-img" alt="Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients."></a></p>
 <figcaption>Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients.</figcaption>
 </figure>
 </div>
@@ -725,14 +754,14 @@ What are these models and tools?
 <p>As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.3 Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one’s actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/pairplot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other."><img src="./Figures/pairplot.png" class="img-fluid figure-img" alt="Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other."></a></p>
+<p><a href="./Figures/pairplot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other."><img src="./Figures/pairplot.png" class="img-fluid figure-img" alt="Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other."></a></p>
 <figcaption>Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other.</figcaption>
 </figure>
 </div>
 <p>Though the first eigenvalue of our entire dataset only explained 31% of the variance in our dataset, we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/weights.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric."><img src="./Figures/weights.png" class="img-fluid figure-img" alt="Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric."></a></p>
+<p><a href="./Figures/weights.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric."><img src="./Figures/weights.png" class="img-fluid figure-img" alt="Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric."></a></p>
 <figcaption>Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric.</figcaption>
 </figure>
 </div>
@@ -804,61 +833,61 @@ What are these models and tools?
 <h2 data-number="8.2" class="anchored" data-anchor-id="supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy."><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img" alt="Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy."></a></p>
+<p><a href="./Figures/kbest_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy."><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img" alt="Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy."></a></p>
 <figcaption>Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate."><img src="./Figures/kbest_inf_mor.png" class="img-fluid figure-img" alt="Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate."></a></p>
+<p><a href="./Figures/kbest_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate."><img src="./Figures/kbest_inf_mor.png" class="img-fluid figure-img" alt="Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate."></a></p>
 <figcaption>Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate."><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate."></a></p>
+<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate."><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate."></a></p>
 <figcaption>Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
+<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
 <figcaption>Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/conf_matrix_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another."><img src="./Figures/conf_matrix_life_exp.png" class="img-fluid figure-img" alt="Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another."></a></p>
+<p><a href="./Figures/conf_matrix_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another."><img src="./Figures/conf_matrix_life_exp.png" class="img-fluid figure-img" alt="Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another."></a></p>
 <figcaption>Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/conf_matrix_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another."><img src="./Figures/conf_matrix_mortality.png" class="img-fluid figure-img" alt="S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another."></a></p>
+<p><a href="./Figures/conf_matrix_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another."><img src="./Figures/conf_matrix_mortality.png" class="img-fluid figure-img" alt="S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another."></a></p>
 <figcaption>S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/variance_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model"><img src="./Figures/variance_life_exp.png" class="img-fluid figure-img" alt="Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model"></a></p>
+<p><a href="./Figures/variance_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model"><img src="./Figures/variance_life_exp.png" class="img-fluid figure-img" alt="Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model"></a></p>
 <figcaption>Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/variance_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model."><img src="./Figures/variance_inf_mor.png" class="img-fluid figure-img" alt="Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model."></a></p>
+<p><a href="./Figures/variance_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model."><img src="./Figures/variance_inf_mor.png" class="img-fluid figure-img" alt="Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model."></a></p>
 <figcaption>Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/variance_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model."><img src="./Figures/variance_mortality.png" class="img-fluid figure-img" alt="Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model."></a></p>
+<p><a href="./Figures/variance_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model."><img src="./Figures/variance_mortality.png" class="img-fluid figure-img" alt="Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model."></a></p>
 <figcaption>Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/total_eigenvalue.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset."><img src="./Figures/total_eigenvalue.png" class="img-fluid figure-img" alt="Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset."></a></p>
+<p><a href="./Figures/total_eigenvalue.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset."><img src="./Figures/total_eigenvalue.png" class="img-fluid figure-img" alt="Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset."></a></p>
 <figcaption>Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset.</figcaption>
 </figure>
 </div>
@@ -1433,7 +1462,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
