@@ -129,15 +129,12 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">4</span> Methods</a>
   <ul class="collapse">
-  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">4.1</span> Data Analysis</a>
-  <ul class="collapse">
-  <li><a href="#process-outlines" id="toc-process-outlines" class="nav-link" data-scroll-target="#process-outlines"><span class="header-section-number">4.1.1</span> Process outlines:</a></li>
-  <li><a href="#statistical-thinking" id="toc-statistical-thinking" class="nav-link" data-scroll-target="#statistical-thinking"><span class="header-section-number">4.1.2</span> Statistical Thinking</a></li>
-  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization"><span class="header-section-number">4.1.3</span> Data Visualization</a></li>
-  <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering"><span class="header-section-number">4.1.4</span> Data Engineering</a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning"><span class="header-section-number">4.1.5</span> Machine Learning</a></li>
-  <li><a href="#data-ethics" id="toc-data-ethics" class="nav-link" data-scroll-target="#data-ethics"><span class="header-section-number">4.1.11</span> Data Ethics</a></li>
-  </ul></li>
+  <li><a href="#process-outlines" id="toc-process-outlines" class="nav-link" data-scroll-target="#process-outlines"><span class="header-section-number">4.1</span> Process outlines:</a></li>
+  <li><a href="#statistical-thinking" id="toc-statistical-thinking" class="nav-link" data-scroll-target="#statistical-thinking"><span class="header-section-number">4.2</span> Statistical Thinking</a></li>
+  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization"><span class="header-section-number">4.3</span> Data Visualization</a></li>
+  <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering"><span class="header-section-number">4.4</span> Data Engineering</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning"><span class="header-section-number">4.5</span> Machine Learning</a></li>
+  <li><a href="#data-ethics" id="toc-data-ethics" class="nav-link" data-scroll-target="#data-ethics"><span class="header-section-number">4.6</span> Data Ethics</a></li>
   </ul></li>
   <li><a href="#results---need-lots-of-updating" id="toc-results---need-lots-of-updating" class="nav-link" data-scroll-target="#results---need-lots-of-updating"><span class="header-section-number">5</span> Results - need lots of updating</a>
   <ul class="collapse">
@@ -238,10 +235,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="methods" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Methods</h1>
-<section id="data-analysis" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">4.1</span> Data Analysis</h2>
-<section id="process-outlines" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="process-outlines"><span class="header-section-number">4.1.1</span> Process outlines:</h3>
+<section id="process-outlines" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="process-outlines"><span class="header-section-number">4.1</span> Process outlines:</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Goal 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Goal 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Goal 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Goal 4</a></li></ul>
 <div class="tab-content">
@@ -253,12 +248,41 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><strong>Detecting differences in access to care by insruance type</strong> Need to fill out. Use R or Python?</p>
+<p><strong>Detecting differences in access to care by insruance type</strong></p>
+<p>Need to fill out. Use R or Python?</p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p><strong>Predicting health by access to care</strong></p>
-<p><em>Statistics in R</em> (Frances to fill out)</p>
-<p><em>Machine Learning in Python</em> 1. Create our desired dataframe by reading in data from our remote database and joining where necessary. 2. Preprocess: i) Drop NAs while optimizing data frame size via trial and error. ii) Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively. 3. Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure S.1A">Supplemental Figures 1A</a>, <a href="./Figures/kbest_inf_mor.png" title="Figure S.1B">1B</a>, and <a href="./Figures/kbest_mortality.png" title="Figure S.1C">1C</a>). Combine these variables with significant variables from the linear regression models completed in R. 4. Continue preprocessing with the reduced dataset (using only variables from step 3) i) Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable. A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. B. For life expectancy, we dropped outliers first (ages below 60 and above 90, see <a href="./Figures/life_expectancy_bins.png" title="Figure S.1D">Supplemental Figure 1D</a>). ii) Train/test split dataset 5. Create model i) Use LogisticRegression, RandomForestClassifier, GradientBoostingClassifier, CategoricalNaiveBayes, and Ensemble. Find which model performs the best. ii) Hyperparameterize the model that works best from step 5i. iii) Cross validate finalized model iv) Test on testing data to find true accuracy v) Confusion matrix to see what went wrong (see <a href="./Figures/conf_matrix_life_exp.png" title="Figure S.1E">Supplemental Figures 1E</a> and <a href="./Figures/conf_matrix_mortality.png" title="Figure S.1F">1F</a>). 6. Add PCA to the model i) Determine how many components explain 90% variance in the model (see <a href="./Figures/variance_life_exp.png" title="Figure S.1G">Supplemental Figures 1G</a>, <a href="./Figures/variance_inf_mor.png" title="Figure S.1H">1H</a>, and <a href="./Figures/variance_mortality.png" title="Figure S.1I">1I</a>). ii) Add PCA with that number of components to the optimized pipeline made from Step 5.</p>
+<p><em>Statistics in R</em></p>
+<p>(Frances to fill out)</p>
+<p><em>Machine Learning in Python</em></p>
+<ol type="1">
+<li>Create our desired dataframe by reading in data from our remote database and joining where necessary.</li>
+<li>Preprocess:
+<ol type="i">
+<li>Drop NAs while optimizing data frame size via trial and error.</li>
+<li>Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.</li>
+</ol></li>
+<li>Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure S.1A">Supplemental Figures 1A</a>, <a href="./Figures/kbest_inf_mor.png" title="Figure S.1B">1B</a>, and <a href="./Figures/kbest_mortality.png" title="Figure S.1C">1C</a>). Combine these variables with significant variables from the linear regression models completed in R.</li>
+<li>Continue preprocessing with the reduced dataset (using only variables from step 3)
+<ol type="i">
+<li>Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable. A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. B. For life expectancy, we dropped outliers first (ages below 60 and above 90, see <a href="./Figures/life_expectancy_bins.png" title="Figure S.1D">Supplemental Figure 1D</a>).</li>
+<li>Train/test split dataset</li>
+</ol></li>
+<li>Create model
+<ol type="i">
+<li>Use LogisticRegression, RandomForestClassifier, GradientBoostingClassifier, CategoricalNaiveBayes, and Ensemble. Find which model performs the best.</li>
+<li>Hyperparameterize the model that works best from step 5i.</li>
+<li>Cross validate finalized model</li>
+<li>Test on testing data to find true accuracy</li>
+<li>Confusion matrix to see what went wrong (see <a href="./Figures/conf_matrix_life_exp.png" title="Figure S.1E">Supplemental Figures 1E</a> and <a href="./Figures/conf_matrix_mortality.png" title="Figure S.1F">1F</a>).</li>
+</ol></li>
+<li>Add PCA to the model
+<ol type="i">
+<li>Determine how many components explain 90% variance in the model (see <a href="./Figures/variance_life_exp.png" title="Figure S.1G">Supplemental Figures 1G</a>, <a href="./Figures/variance_inf_mor.png" title="Figure S.1H">1H</a>, and <a href="./Figures/variance_mortality.png" title="Figure S.1I">1I</a>).</li>
+<li>Add PCA with that number of components to the optimized pipeline made from Step 5.</li>
+</ol></li>
+</ol>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <p><strong>Engineering overall health variable</strong></p>
@@ -273,8 +297,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="statistical-thinking" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="statistical-thinking"><span class="header-section-number">4.1.2</span> Statistical Thinking</h3>
+<section id="statistical-thinking" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="statistical-thinking"><span class="header-section-number">4.2</span> Statistical Thinking</h2>
 <p>We determined health status using commonly used proxies such as life expectancy and mortality rates.³ We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.</p>
 <p>In our linear models created in R, we first took the natural logarithm of income-related data due to both its skewed distribution and disproportionate scale (in comparison to the rest of our data).</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -323,16 +347,16 @@ What are these statistical tests?
 </div>
 </div>
 </section>
-<section id="data-visualization" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="data-visualization"><span class="header-section-number">4.1.3</span> Data Visualization</h3>
+<section id="data-visualization" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="data-visualization"><span class="header-section-number">4.3</span> Data Visualization</h2>
 <p>We used data visualization as part of both our exploratory data analysis and in our final outcome. We created maps of the United States to determine if there is a spatial relationship between our variables and quality of health. Various other visualizations were displayed from our statistical analysis and machine learning product, such as Kaplan-Meier curves, graphs of K-Best’s top features, confusion matrices, and K-Means and/or Gaussian Mixture Model scatterplots, where appropriate.</p>
 </section>
-<section id="data-engineering" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="data-engineering"><span class="header-section-number">4.1.4</span> Data Engineering</h3>
+<section id="data-engineering" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="data-engineering"><span class="header-section-number">4.4</span> Data Engineering</h2>
 <p>We stored our data into a relational database and accessed it with Postgresql (through Railway). We accessed our data in both R and Python using the RPostgreSQL and sqlalchemy libraries, respectively. A detailed description for how this was done is in the data section above.</p>
 </section>
-<section id="machine-learning" class="level3" data-number="4.1.5">
-<h3 data-number="4.1.5" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">4.1.5</span> Machine Learning</h3>
+<section id="machine-learning" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">4.5</span> Machine Learning</h2>
 <p>We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. Finally, we created a new variable that represented overall health quality.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -346,8 +370,8 @@ What are these models and tools?
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<section id="model-optimization-tools" class="level3" data-number="4.1.6">
-<h3 data-number="4.1.6" class="anchored" data-anchor-id="model-optimization-tools"><span class="header-section-number">4.1.6</span> Model Optimization Tools</h3>
+<section id="model-optimization-tools" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="model-optimization-tools"><span class="header-section-number">4.5.1</span> Model Optimization Tools</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -371,8 +395,8 @@ What are these models and tools?
 </tbody>
 </table>
 </section>
-<section id="data-preprocessing-tools" class="level3" data-number="4.1.7">
-<h3 data-number="4.1.7" class="anchored" data-anchor-id="data-preprocessing-tools"><span class="header-section-number">4.1.7</span> Data Preprocessing Tools</h3>
+<section id="data-preprocessing-tools" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="data-preprocessing-tools"><span class="header-section-number">4.5.2</span> Data Preprocessing Tools</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -396,8 +420,8 @@ What are these models and tools?
 </tbody>
 </table>
 </section>
-<section id="supervised-classification-models" class="level3" data-number="4.1.8">
-<h3 data-number="4.1.8" class="anchored" data-anchor-id="supervised-classification-models"><span class="header-section-number">4.1.8</span> Supervised Classification Models</h3>
+<section id="supervised-classification-models" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="supervised-classification-models"><span class="header-section-number">4.5.3</span> Supervised Classification Models</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -433,8 +457,8 @@ What are these models and tools?
 </tbody>
 </table>
 </section>
-<section id="unsupervised-dimension-reduction-model" class="level3" data-number="4.1.9">
-<h3 data-number="4.1.9" class="anchored" data-anchor-id="unsupervised-dimension-reduction-model"><span class="header-section-number">4.1.9</span> Unsupervised Dimension Reduction Model</h3>
+<section id="unsupervised-dimension-reduction-model" class="level3" data-number="4.5.4">
+<h3 data-number="4.5.4" class="anchored" data-anchor-id="unsupervised-dimension-reduction-model"><span class="header-section-number">4.5.4</span> Unsupervised Dimension Reduction Model</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -454,8 +478,8 @@ What are these models and tools?
 </tbody>
 </table>
 </section>
-<section id="unsupervised-clustering-models" class="level3" data-number="4.1.10">
-<h3 data-number="4.1.10" class="anchored" data-anchor-id="unsupervised-clustering-models"><span class="header-section-number">4.1.10</span> Unsupervised Clustering Models</h3>
+<section id="unsupervised-clustering-models" class="level3" data-number="4.5.5">
+<h3 data-number="4.5.5" class="anchored" data-anchor-id="unsupervised-clustering-models"><span class="header-section-number">4.5.5</span> Unsupervised Clustering Models</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -483,10 +507,9 @@ What are these models and tools?
 </div>
 </div>
 </section>
-<section id="data-ethics" class="level3" data-number="4.1.11">
-<h3 data-number="4.1.11" class="anchored" data-anchor-id="data-ethics"><span class="header-section-number">4.1.11</span> Data Ethics</h3>
+<section id="data-ethics" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="data-ethics"><span class="header-section-number">4.6</span> Data Ethics</h2>
 <p>We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented.</p>
-</section>
 </section>
 </section>
 <section id="results---need-lots-of-updating" class="level1" data-number="5">
@@ -541,13 +564,93 @@ What are these models and tools?
 </figure>
 </div>
 <p>Figure 2C shows our linear model for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Rate and Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity was negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy.</p>
-<p>These were all expected, but what was surprising was that the Residential Segregation Index was positively correlated with life expectancy but the opposite relationship was found for the Segregation Index. While we expected to see Segregation Index negatively correlated with life expectancy, it seems to be paradoxical that the opposite was true for the Residential Segregation Index. We realized that our Residential Segregation Index had a lot of missing values, so plotting it against life expectancy didn’t reveal any visible trend. To improve this model in the future, we would remove this predictor.</p>
+<p>These were all expected, but what was surprising was that the Residential Segregation Index was positively correlated with life expectancy but the opposite relationship was found for the Segregation Index. While we expected to see Segregation Index negatively correlated with life expectancy, it seems to be paradoxical that the opposite was true for the Residential Segregation Index. We realized that our Residential Segregation Index had a lot of missing values, so plotting it against life expectancy didn’t reveal any visible trend. To improve this model, we removed this as a predictor.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/life_expectanct_lm_coef.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 2C: Life Expectancy Linear Model Coefficients."><img src="./images/life_expectanct_lm_coef.png" class="img-fluid figure-img" alt="Figure 2C: Life Expectancy Linear Model Coefficients."></a></p>
-<figcaption>Figure 2C: Life Expectancy Linear Model Coefficients.</figcaption>
+<p><a href="./images/life_expectanct_lm_coef.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 2C: Life Expectancy Linear Model and Coefficients."><img src="./images/life_expectanct_lm_coef.png" class="img-fluid figure-img" alt="Figure 2C: Life Expectancy Linear Model and Coefficients."></a></p>
+<figcaption>Figure 2C: Life Expectancy Linear Model and Coefficients.</figcaption>
 </figure>
 </div>
+<pre class="{markdown}"><code>lm(formula = `LIFE_EXPECTANCY` ~ `state_name` + `PCP_RATIO` + 
+    `%_VACCINATED_(HISPANIC)` + `AVERAGE_DAILY_PM2.5` + `%_FOOD_INSECURE` + 
+    `HOUSEHOLD_INCOME_(HISPANIC)_LN` +
+    `SEGREGATION_INDEX` + `%_BROADBAND_ACCESS`, data = ds_life_adjusted)</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 14%">
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Predictor</th>
+<th>Estimate</th>
+<th>Std. Error</th>
+<th>t value</th>
+<th>Pr(&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td>7.092e+01</td>
+<td>2.171e+00</td>
+<td>32.661</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+<tr class="even">
+<td><code>PCP_RATIO</code></td>
+<td>1.076e-04</td>
+<td>3.664e-05</td>
+<td>2.935</td>
+<td>0.00338 **</td>
+</tr>
+<tr class="odd">
+<td><code>%_VACCINATED_(HISPANIC)</code></td>
+<td>-6.969e-03</td>
+<td>5.291e-03</td>
+<td>-1.317</td>
+<td>0.18802</td>
+</tr>
+<tr class="even">
+<td><code>AVERAGE_DAILY_PM2.5</code></td>
+<td>-3.642e-02</td>
+<td>2.558e-02</td>
+<td>-1.424</td>
+<td>0.15471</td>
+</tr>
+<tr class="odd">
+<td><code>%_FOOD_INSECURE</code></td>
+<td>-3.947e-01</td>
+<td>2.030e-02</td>
+<td>-19.440</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+<tr class="even">
+<td><code>HOUSEHOLD_INCOME_(HISPANIC)_LN</code></td>
+<td>9.561e-02</td>
+<td>1.897e-01</td>
+<td>0.504</td>
+<td>0.61427</td>
+</tr>
+<tr class="odd">
+<td><code>SEGREGATION_INDEX</code></td>
+<td>-3.593e-02</td>
+<td>4.618e-03</td>
+<td>-7.781</td>
+<td>1.35e-14 ***</td>
+</tr>
+<tr class="even">
+<td><code>%_BROADBAND_ACCESS</code></td>
+<td>1.175e-01</td>
+<td>9.519e-03</td>
+<td>12.340</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+</tbody>
+</table>
 <p>To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 2D shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = &lt;2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1001,7 +1104,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/us_health_quality\/");
+      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/project-writeup-frances-haleigh\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1330,7 +1433,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
