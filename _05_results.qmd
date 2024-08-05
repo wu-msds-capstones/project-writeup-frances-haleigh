@@ -1,9 +1,26 @@
-# Results
+# Results - need lots of updating
 
 ## Introduction
 In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (see [@sec-s_table_2]). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population. 
 
-## Goal 1: Analyzing Impact of Access to Care on Health Metrics
+## Goal 1: Predicting Chronic Conditions Based On Insurance Type
+To answer the question of how state insurance in particular impacts one’s health status, we evaluated two common chronic conditions in the United States, diabetes and cardiovascular disease.  
+
+### Diabetes
+We immediately plotted our mean diabetes percentages by Medicaid percentage across states to see if any obvious correlation existed (see <a href="./Figures/dm_medicaid.png" title="Figure 5B">Figure 5B</a>). No correlation was obvious, but there appeared to be a slight linear trend. We created a linear regression model predicting diabetes prevalence by many Medicaid-related covariates, such as how many adults did not see a doctor in the past twelve months due to cost, state Medicaid expenditure, state Medicaid spending, total Medicaid spending, and population percentage on Medicaid. Our simple model showed a surprising 38% accuracy in predicting how many people in a given population would have diabetes based on these factors. While Medicaid-related factors may not be able to completely predict diabetes prevalence, it certainly plays a role. 
+
+![Figure 5A: There may be a slight linear correlation between mean diabetes percentage per state and Medicaid percentage. There may be 2-3 clusters- analysis will show us if these trends exist!](./Figures/dm_medicaid.png)
+
+### Cardiovascular Disease (CVD)
+As with our diabetes dataset, we again repeated the above process to predict CVD prevalence based on Medicaid-only related factors. Our simple scatterplot shows a faint linear trend and two potential clusters. Shockingly, our model accurately predicted CVD prevalence 46% of the time! This is such a high number that it cannot be ignored, and we can assume Medicaid plays some factor in a population’s cardiovascular disease prevalence.
+
+![Figure 5B: As with Fig 5A, there again appears to be a slight linear correlation between mean CVD percentage per state and Medicaid percentage, and 2 possible clusters. Further analysis to revealed if these trends existed.](./Figures/cvd_medicaid.png)
+
+
+## Goal 2: Detecting differences in access to care by insurance type
+FILL IN
+
+## Goal 3: Analyzing Impact of Access to Care on Health Metrics
 ### Life Expectancy
 
 ![Fig 2A: Median life expectancy of most states is between 77 and 80 years old.](./images/life_expectancy_by_state.png)
@@ -63,20 +80,7 @@ Looking at demographics, we noticed as income increased among white Americans, m
 
 Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.  
 
-## Goal 2: Predicting Chronic Conditions Based On Insurance Type
-To answer the question of how state insurance in particular impacts one’s health status, we evaluated two common chronic conditions in the United States, diabetes and cardiovascular disease.  
-
-### Diabetes
-We immediately plotted our mean diabetes percentages by Medicaid percentage across states to see if any obvious correlation existed (see <a href="./Figures/dm_medicaid.png" title="Figure 5B">Figure 5B</a>). No correlation was obvious, but there appeared to be a slight linear trend. We created a linear regression model predicting diabetes prevalence by many Medicaid-related covariates, such as how many adults did not see a doctor in the past twelve months due to cost, state Medicaid expenditure, state Medicaid spending, total Medicaid spending, and population percentage on Medicaid. Our simple model showed a surprising 38% accuracy in predicting how many people in a given population would have diabetes based on these factors. While Medicaid-related factors may not be able to completely predict diabetes prevalence, it certainly plays a role. 
-
-![Figure 5A: There may be a slight linear correlation between mean diabetes percentage per state and Medicaid percentage. There may be 2-3 clusters- analysis will show us if these trends exist!](./Figures/dm_medicaid.png)
-
-### Cardiovascular Disease (CVD)
-As with our diabetes dataset, we again repeated the above process to predict CVD prevalence based on Medicaid-only related factors. Our simple scatterplot shows a faint linear trend and two potential clusters. Shockingly, our model accurately predicted CVD prevalence 46% of the time! This is such a high number that it cannot be ignored, and we can assume Medicaid plays some factor in a population’s cardiovascular disease prevalence.
-
-![Figure 5B: As with Fig 5A, there again appears to be a slight linear correlation between mean CVD percentage per state and Medicaid percentage, and 2 possible clusters. Further analysis to revealed if these trends existed.](./Figures/cvd_medicaid.png)
-
-## Goal 3: Creating an Overall Health Quality Variable
+## Goal 4: Creating an Overall Health Quality Variable
 As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.3 Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one's actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).
 
 ![Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other.](./Figures/pairplot.png)
