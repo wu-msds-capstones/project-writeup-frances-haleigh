@@ -34,13 +34,16 @@ Figure 2C shows our linear model for preventative healthcare measures and life e
 These were all expected, but what was surprising was that the Residential Segregation Index was positively correlated with life expectancy but the opposite relationship was found for the Segregation Index. While we expected to see Segregation Index negatively correlated with life expectancy, it seems to be paradoxical that the opposite was true for the Residential Segregation Index. We realized that our Residential Segregation Index had a lot of missing values, so plotting it against life expectancy didn’t reveal any visible trend. To improve this model, we removed this as a predictor. 
 
 ![Figure 2C: Life Expectancy Linear Model and Coefficients.](./images/life_expectanct_lm_coef.png)
-```{markdown}
+
+### Life Expectancy Linear Model
+```markdown
 lm(formula = `LIFE_EXPECTANCY` ~ `state_name` + `PCP_RATIO` + 
     `%_VACCINATED_(HISPANIC)` + `AVERAGE_DAILY_PM2.5` + `%_FOOD_INSECURE` + 
     `HOUSEHOLD_INCOME_(HISPANIC)_LN` +
     `SEGREGATION_INDEX` + `%_BROADBAND_ACCESS`, data = ds_life_adjusted)
 ```
 
+### Coefficient Table
 | Predictor                       | Estimate  | Std. Error | t value | Pr(>|t|)    |
 |---------------------------------|-----------|------------|---------|-------------|
 | (Intercept)                     | 7.092e+01 | 2.171e+00  | 32.661  | < 2e-16 *** |
