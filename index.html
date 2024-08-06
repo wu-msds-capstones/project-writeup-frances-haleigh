@@ -971,14 +971,14 @@ What are these models and tools?
 </section>
 <section id="goal-4-creating-an-overall-health-quality-variable" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="goal-4-creating-an-overall-health-quality-variable"><span class="header-section-number">5.4</span> Goal 4: Creating an Overall Health Quality Variable</h2>
-<p>As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.3 Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one’s actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).</p>
+<p>As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.³ Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one’s actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/pairplot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other."><img src="./Figures/pairplot.png" class="img-fluid figure-img" alt="Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other."></a></p>
 <figcaption>Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other.</figcaption>
 </figure>
 </div>
-<p>Though the first eigenvalue of our entire dataset only explained 31% of the variance in our dataset, we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health.</p>
+<p>The first eigenvalue of our entire dataset explained 31% of the variance in our dataset, so we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/weights.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric."><img src="./Figures/weights.png" class="img-fluid figure-img" alt="Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric."></a></p>
@@ -1682,7 +1682,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
