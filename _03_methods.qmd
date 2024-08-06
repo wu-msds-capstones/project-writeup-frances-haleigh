@@ -5,7 +5,7 @@
 **Predicting disease prevalence by insurance type**
 
 1. Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state. 
-2. Preprocess, split, and model the data as outlined in the first process.
+2. Preprocess, split, and model the data as fully outlined in Goal 3.
 
 ### Goal 2
 **Detecting differences in access to care by insruance type**
