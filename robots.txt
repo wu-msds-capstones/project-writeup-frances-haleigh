@@ -1,1 +1,1 @@
-Sitemap: https://wu-msds-capstones.github.io/us_health_quality/sitemap.xml
+Sitemap: https://wu-msds-capstones.github.io/project-writeup-frances-haleigh/sitemap.xml
