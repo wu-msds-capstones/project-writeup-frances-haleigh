@@ -1,26 +1,33 @@
 # Results - need lots of updating
 
-## Introduction
-In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (see [@sec-s_table_2]). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population. 
-
 ## Goal 1: Predicting Chronic Conditions Based On Insurance Type
 To answer the question of how state insurance in particular impacts one’s health status, we evaluated two common chronic conditions in the United States, diabetes and cardiovascular disease.  
 
 ### Diabetes
-We immediately plotted our mean diabetes percentages by Medicaid percentage across states to see if any obvious correlation existed (see <a href="./Figures/dm_medicaid.png" title="Figure 5B">Figure 5B</a>). No correlation was obvious, but there appeared to be a slight linear trend. We created a linear regression model predicting diabetes prevalence by many Medicaid-related covariates, such as how many adults did not see a doctor in the past twelve months due to cost, state Medicaid expenditure, state Medicaid spending, total Medicaid spending, and population percentage on Medicaid. Our simple model showed a surprising 38% accuracy in predicting how many people in a given population would have diabetes based on these factors. While Medicaid-related factors may not be able to completely predict diabetes prevalence, it certainly plays a role. 
+#### Public Insurance
+We immediately plotted our mean diabetes percentages by Medicaid percentage across states to see if any obvious correlation existed (see <a href="./Figures/dm_medicaid.png" title="Figure 5A">Figure 5A</a>). No correlation was obvious, but there appeared to be a slight linear trend. We created a logisitic regression model predicting quartile of diabetes prevalence by many Medicaid-related covariates, such as how many adults did not see a doctor in the past twelve months due to cost, state Medicaid expenditure, state Medicaid spending, total Medicaid spending, and population percentage on Medicaid. Our simple model showed a surprising 54% accuracy in predicting how many people in a given population would have diabetes based on these factors. We had a small dataset, however, so cross validation showed our accuracy to be 38% with a standard deviation of 20%. While Medicaid-related factors may not be able to completely predict diabetes prevalence, it certainly is correlated. 
 
 ![Figure 5A: There may be a slight linear correlation between mean diabetes percentage per state and Medicaid percentage. There may be 2-3 clusters- analysis will show us if these trends exist!](./Figures/dm_medicaid.png)
+
+#### Private Insurance
+In contrast, the same plot with private insurance percentages shows a negative trend (see <a href="./Figures/dm_private_ins.png" title="Figure 5B">Figure 5B</a>).
+
+![Figure 5B: Opposite of the public insurance data, there may be a slight *negative* linear correlation between mean diabetes percentage per state and private insurance percentage. There may be 2 clusters- analysis will show us if these trends exist!](./Figures/dm_private_ins.png)
+
+We made a linear model with just diabetes prevalance and percent private insurance per state with 28% accuracy.
 
 ### Cardiovascular Disease (CVD)
 As with our diabetes dataset, we again repeated the above process to predict CVD prevalence based on Medicaid-only related factors. Our simple scatterplot shows a faint linear trend and two potential clusters. Shockingly, our model accurately predicted CVD prevalence 46% of the time! This is such a high number that it cannot be ignored, and we can assume Medicaid plays some factor in a population’s cardiovascular disease prevalence.
 
-![Figure 5B: As with Fig 5A, there again appears to be a slight linear correlation between mean CVD percentage per state and Medicaid percentage, and 2 possible clusters. Further analysis to revealed if these trends existed.](./Figures/cvd_medicaid.png)
+![Figure 5C: As with the diabetes data, there again appears to be a slight linear correlation between mean CVD percentage per state and Medicaid percentage, and 2 possible clusters. Further analysis to revealed if these trends existed.](./Figures/cvd_medicaid.png)
 
 
 ## Goal 2: Detecting differences in access to care by insurance type
 FILL IN
 
 ## Goal 3: Analyzing Impact of Access to Care on Health Metrics
+In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (see [@sec-s_table_2]). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.
+
 ### Life Expectancy
 
 ![Fig 2A: Median life expectancy of most states is between 77 and 80 years old.](./images/life_expectancy_by_state.png)
