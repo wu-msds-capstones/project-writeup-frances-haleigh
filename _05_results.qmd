@@ -39,7 +39,7 @@ In order to evaluate the health status of a group of people, we turned to three 
 
 Figure 2A demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 2B. 
 
-![Figure 2B: There does not appear to be a geographic influence on median life expectancy.](./images/life_expectancy_significanct_state.png)
+![Figure 2B: There does not appear to be a geographic influence on median life expectancy.](./images/life_expecancy_map.png)
 
 Figure 2C shows our final linear model and coefficient table for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity and Segregation Index were both negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy. 
 
