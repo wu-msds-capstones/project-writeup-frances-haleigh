@@ -17,7 +17,19 @@ Need to fill out. Use R or Python?
 
 *Statistics in R*
 
-(Frances to fill out)
+1. Create our desired dataframe by reading in data from our remote database and joining where necessary.
+2. Preprocess:
+    i) Selected preventative health measures of interest.
+    ii) Create distribution plots for variables of interest. Take natural log if skew was obvious (income data).
+3. Create Model
+    i) Multiple Linear Mixed Model in R using selected variables. Created lm models for life expectancy, infant mortality, and age-adjusted death rate. 
+    ii) select signfiicant features for each, and recreate model with signfiicant features.
+    iii) check to see if significance changes after recreating the model.
+    iv) check directions of significance and double check variables have enough data points.
+4. Kaplan-Meier Curves for Life Expectancy
+    i) Break up each significant predictive variable from above into quartiles.
+    ii) Create KM curves.
+    iii) Run log rank test to determine if there were significant differences between the quartiles.
 
 *Machine Learning in Python*
 
