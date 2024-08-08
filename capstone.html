@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-08-06">
+<meta name="dcterms.date" content="2024-08-08">
 
 <title>Preventative Care in the United States</title>
 <style>
@@ -135,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 6, 2024</p>
+        <p class="date">August 8, 2024</p>
       </div>
     </div>
     
@@ -229,7 +229,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p>[a]lthough spending did not correlate meaningfully with health, certain features of the [United States’] health care system did correlate highly with health outcomes, notably rates of health insurance coverage and access to affordable care (not having to forego care due to cost)… [H]ealth outcomes were better in states with adequate primary care services to manage chronic diseases and prevent hospitalizations for conditions like heart attacks, congestive heart failure, and pneumonia.⁸</p>
 </blockquote>
-<p>This comes as no surprise; having both insurance to cover the cost of healthcare and accessible care leads to better health outcomes. In particular, preventative care is generally accepted as one of the most important factors in maintaining health.⁶ Daily exercise, access to healthy foods, minimal consumption of alcohol, and access to Primary Care Providers (PCPs) are all important factors for improving and maintaining one’s health.</p>
+<p>This comes as no surprise; preventative care is generally accepted as one of the most important factors in maintaining health. Daily exercise, access to healthy foods, minimal consumption of alcohol, and not smoking are all important factors for improving and maintaining one’s health.⁶ The above underscores the reality that, even if a person is uninsured, having access to a primary care provider helps prevent against their need to go to a hospital and risk getting caught with a tremendous bill due to their uninsured stats.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+But how can an uninsured individual even access primary care to avoid hospital fees?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="https://www.aafp.org/family-physician/practice-and-career/delivery-payment-models/direct-primary-care.html">Direct Primary Care (DPC)</a> models offer the solution. DPCs do not bill insurance and charge a flat-rate monthly membership instead, thus allowing individuals access to primary care at an accessible and affordable cost. In particular, <a href="https://www.dpcfrontier.com/health-sharing-ministries">DPCs paired with a healthshare</a> offer people the most options at an affordable rate, as their healthshare could cover the cost of specialists, imaging, DPC membership fees, and other healthcare-related expenses as needed.</p>
+</div>
+</div>
+</div>
 <p>As for insurance’s impact on health, measuring it becomes tricky in the United States. Surprisingly, the U.S. is the only high-income country to not offer health coverage to all citizens.⁵ Instead, both private and social healthcare co-exist, where social healthcare is not available to everyone. Social healthcare in the US is available to those who are disabled or over 65 years old through Medicare. Medicare is not always free, but generally more affordable than private health insurance. Low income Americans can also receive free social healthcare through Medicaid. Social healthcare is funded through both federal and state health expenditures. In our reseach, we focused on just Medicaid in order to better serve our low-income and traditionally marginalized communities.</p>
 <p>At the global level, there is a direct link between health insurance type and the health quality of individuals, where countries with universal public health insurance are healthier.⁴ However, within just the United States, there is no correlation between Medicaid spending and disease rate.⁸ We intend to investigate this relationship by discovering chronic disease trends by insurance type. Since we can expect access to preventative care to be limited for those on public health insurance in the United States and know preventative care improves health outcomes, we hypothesize that reduced access to preventative care and higher rates of chronic conditions will exist together.</p>
 <p>We recognize we cannot make a causal claim from this data; we can’t answer the question on if reduced access to care <em>causes</em> increased disease rates. This is due to the fact that having low income may just as likely result in a cycle between decreased access to care <em>and</em> higher disease rates. Instead of attempting to find the causal agent in this cycle, we instead aim to provide knowledge and resources for those who have found themselves in such a situation.</p>
@@ -355,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We determined health status using commonly used proxies such as life expectancy and mortality rates.³ We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.</p>
 <p>In our linear models created in R, we first took the natural logarithm of income-related data due to both its skewed distribution and disproportionate scale (in comparison to the rest of our data).</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -364,7 +380,7 @@ What are these statistical tests?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <colgroup>
@@ -412,7 +428,7 @@ What are these statistical tests?
 <h2 data-number="4.5" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">4.5</span> Machine Learning</h2>
 <p>We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. Finally, we created a new variable that represented overall health quality.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -421,7 +437,7 @@ What are these models and tools?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <section id="model-optimization-tools" class="level3" data-number="4.5.1">
 <h3 data-number="4.5.1" class="anchored" data-anchor-id="model-optimization-tools"><span class="header-section-number">4.5.1</span> Model Optimization Tools</h3>
@@ -1373,7 +1389,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/project-writeup-frances-haleigh\/");
+      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/us_health_quality\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1702,7 +1718,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
