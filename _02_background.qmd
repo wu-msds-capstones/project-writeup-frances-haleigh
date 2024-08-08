@@ -5,7 +5,7 @@ Other research has already attempted to answer this question and found that:
 
 > [a]lthough spending did not correlate meaningfully with health, certain features of the [United States’] health care system did correlate highly with health outcomes, notably rates of health insurance coverage and access to affordable care (not having to forego care due to cost)... [H]ealth outcomes were better in states with adequate primary care services to manage chronic diseases and prevent hospitalizations for conditions like heart attacks, congestive heart failure, and pneumonia.⁸
 
-This comes as no surprise; preventative care is generally accepted as one of the most important factors in maintaining health. Daily exercise, access to healthy foods, minimal consumption of alcohol, and not smoking are all important factors for improving and maintaining one’s health.⁶ The above underscores the reality that, even if a person is uninsured, having access to a primary care provider helps prevent against their need to go to a hospital and risk getting caught with a tremendous bill due to their uninsured stats. 
+This comes as no surprise; preventative care is generally accepted as one of the most important factors in maintaining health. Daily exercise, access to healthy foods, minimal consumption of alcohol, and not smoking are all important factors for improving and maintaining one’s health.⁶ The above underscores the reality that, even if a person is uninsured, having access to a primary care provider helps prevent against their need to go to a hospital and risk getting caught with a tremendous bill due to their uninsured status. 
 
 ::: {.callout-tip collapse="true"}
 # But how can an uninsured individual even access primary care to avoid hospital fees?
