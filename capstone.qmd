@@ -1,20 +1,21 @@
 ---
-title: "Capstone Project"
-subtitle: Subtitle
+#also in index.qmd, not rendering from capstone.qmd for some reason
+title: "Preventative Care in the United States"
+subtitle: "How do preventative healthcare measures impact standard health metrics?"
 authors:
-  - Bob
-  - Jane
+  - Frances Romero
+  - Haleigh Schwartz
+date: today
 title-block-banner: true
-format: 
-  html:
-    theme:
-      light: lightly
-      dark: darkly
+number-sections: true
+lightbox: true
 ---
 
 {{< include _01_intro.qmd >}}
 {{< include _02_background.qmd >}}
-{{< include _03_methods.qmd >}}
 {{< include _04_data.qmd >}}
+{{< include _03_methods.qmd >}}
 {{< include _05_results.qmd >}}
 {{< include _06_conclusions.qmd >}}
+{{< include _07_workscited.qmd >}}
+{{< include _08_supplemental.qmd >}}

@@ -1,0 +1,20 @@
+---
+title: "Preventative Care in the United States"
+subtitle: "How do preventative healthcare measures impact standard health metrics?"
+authors:
+  - Frances Romero
+  - Haleigh Schwartz
+date: today
+title-block-banner: true
+number-sections: true
+lightbox: true
+---
+
+{{< include _01_intro.qmd >}}
+{{< include _02_background.qmd >}}
+{{< include _04_data.qmd >}}
+{{< include _03_methods.qmd >}}
+{{< include _05_results.qmd >}}
+{{< include _06_conclusions.qmd >}}
+{{< include _07_workscited.qmd >}}
+{{< include _08_supplemental.qmd >}}

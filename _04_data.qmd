@@ -1,1 +1,28 @@
 # Data
+## Data Ingestion
+We gathered data from two sources: KFF (which does not represent anything but is an independent source for health policy research, polling, and news)[¹³](#ref13) and County Health Rankings and Roadmaps (CHRR).[⁵](#ref5) Though we collected data across several years, we analyzed only data from 2022 due to data quality concerns when comparing year to year.
+
+### KFF: Collection and Cleaning
+We generated a custom report from data available on KFF, downloading a large variety of data from 2017-2022 (not including 2020 due to lack of data collection) for each state in the U.S. Variables we investigated from this dataset included percentage of population on Medicare, percentage of adults who smoke, healthcare expenditure, median annual household income, cervical cancer incidence rate, and many more potentially relevant factors.[¹³](#ref13)
+
+KFF data for each state was downloaded as CSVs. We chose the most recent dates for all of the different health and insurance related questions between 2017-2022. The CSVs originally had a question, state, and value field. We used text parsing to create a column called demographic and a column called group. This allowed us to parse out demographics like age, race/ethnicity, poverty level and create groups within each of those. 
+                
+We also created fields called `year` and `measure`, and parsed out the years and measurements from the question field. Some questions had multiple demographics, so we created a `secondary_demographic` field and a `secondary_group` field. These are not ranked. 
+
+Finally, we added a `county` column (which we filled with all NA) and edited the `state` and `question` fields to replicate the way that data from our CHFF dataset was formatted. This allowed us to merge the two datasets.
+
+### CHRR: Collection and Cleaning
+Similar to KFF, we downloaded data for each state from 2017-2022 (not including 2020 due to lack of data collection) from County Health Rankings and Roadmaps (CHRR). We chose the “20xx County Health Release National Data” links for each year as they were the CSVs with the most relevant data to our project.[⁵](#ref5) Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States. This data included metrics such as `life_expectancy`, `age-adjusted_death_rate`, `years_of_potential_life_loss_rate`, `food_environment_index`, `percentage_of_physically_inactive_adults`, `percentage_of_excessive_drinking`, `Primary_Care_Provider_ratio`, and much more.²
+
+First, we cleaned up the columns. We reviewed the documentation and renamed any potentially confusing column names. For example, `#_Medicaid_Enrollees` became `no_female_medicaid_enrollees` to avoid mistakenly believing the first column included both genders in its count. We dropped columns that would not be of help to us, such as columns containing the word `Unreliable.` We replaced all spaces with an underscore.
+
+Second, we joined the two CSVs for each year to have one CSV per year and added a `Year` column to help with merging later.
+
+Finally, we reformatted the CSVs to match that of the KFF data, where our original columns became the `question` column and the values filled in a new `values` column. Again, we used text parsing such as `grepl` and `gsub` to fill in our newly created `demographic`, `measure`, `group`, `secondary_demographic`, and `secondary_group`, columns. For example, if our question was `mean_%_Children_in_Poverty_(white)`, our `demographic`, `group`, `secondary_demographic`, and `secondary_group` columns became "Race/Ethnicity", "White", "Age", and "0-17", respectively.
+
+Since the questions and potential answers collected by CHRR data varied each year, we made sure that our cleaning code was modified for each year to both accommodate the changes in the data and match identical answers from previous years. As an example, the only races that were listed as options in the 2017 data were "White", "Black", "Hispanic", and "Asian". However, by the 2022 data collection, the options had expanded to include "American Indian/Alaskan Native", "Native Hawaiian/Other Pacific Islander", and "Other/Multiple Races." In 2022, "Black" was changed to "African American," so we changed it back to "Black" to both match the earlier CHRR data and the KFF data.
+
+## Data Organization
+Data was combined and normalized to third normal form (see <a href="./capstone_erd.png" title="Figure 1">Figure 1</a>). The ids were primary keys for each table except for `question_responses`, where `state_id`, `year_id`, and `question_id` were used as a compound primary key. We used the same foreign key for `group` and `secondary_group` and another separate foreign key for both `type` and `secondary_type`. All columns had a `NOT NULL` constraint except for `unit_type` from the `unit` table, and `unit_id`, `secondary_group_id`, and `secondary_type_id` from `question_responses`. 
+
+![Figure 1: Entity Relationship Diagram for our project.](./capstone_erd.png)
