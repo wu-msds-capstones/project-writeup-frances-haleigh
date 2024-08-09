@@ -163,7 +163,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">4</span> Methods</a>
   <ul class="collapse">
-  <li><a href="#process-outlines" id="toc-process-outlines" class="nav-link" data-scroll-target="#process-outlines"><span class="header-section-number">4.1</span> Process outlines:</a></li>
+  <li><a href="#process-outlines" id="toc-process-outlines" class="nav-link" data-scroll-target="#process-outlines"><span class="header-section-number">4.1</span> Process outlines:</a>
+  <ul class="collapse">
+  <li><a href="#engineering-overall-health-variable" id="toc-engineering-overall-health-variable" class="nav-link" data-scroll-target="#engineering-overall-health-variable"><span class="header-section-number">4.1.1</span> Engineering overall health variable**</a></li>
+  <li><a href="#predicting-health-by-access-to-care" id="toc-predicting-health-by-access-to-care" class="nav-link" data-scroll-target="#predicting-health-by-access-to-care"><span class="header-section-number">4.1.2</span> Predicting health by access to care**</a></li>
+  </ul></li>
   <li><a href="#statistical-thinking" id="toc-statistical-thinking" class="nav-link" data-scroll-target="#statistical-thinking"><span class="header-section-number">4.2</span> Statistical Thinking</a></li>
   <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization"><span class="header-section-number">4.3</span> Data Visualization</a></li>
   <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering"><span class="header-section-number">4.4</span> Data Engineering</a></li>
@@ -172,19 +176,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#results---need-lots-of-updating" id="toc-results---need-lots-of-updating" class="nav-link" data-scroll-target="#results---need-lots-of-updating"><span class="header-section-number">5</span> Results - need lots of updating</a>
   <ul class="collapse">
-  <li><a href="#goal-1-predicting-chronic-conditions-based-on-insurance-type" id="toc-goal-1-predicting-chronic-conditions-based-on-insurance-type" class="nav-link" data-scroll-target="#goal-1-predicting-chronic-conditions-based-on-insurance-type"><span class="header-section-number">5.1</span> Goal 1: Predicting Chronic Conditions Based On Insurance Type</a>
+  <li><a href="#creating-an-overall-health-quality-variable" id="toc-creating-an-overall-health-quality-variable" class="nav-link" data-scroll-target="#creating-an-overall-health-quality-variable"><span class="header-section-number">5.1</span> Creating an Overall Health Quality Variable</a></li>
+  <li><a href="#analyzing-impact-of-access-to-care-on-health-metrics" id="toc-analyzing-impact-of-access-to-care-on-health-metrics" class="nav-link" data-scroll-target="#analyzing-impact-of-access-to-care-on-health-metrics"><span class="header-section-number">5.2</span> Analyzing Impact of Access to Care on Health Metrics</a>
   <ul class="collapse">
-  <li><a href="#diabetes" id="toc-diabetes" class="nav-link" data-scroll-target="#diabetes"><span class="header-section-number">5.1.1</span> Diabetes</a></li>
-  <li><a href="#cardiovascular-disease-cvd" id="toc-cardiovascular-disease-cvd" class="nav-link" data-scroll-target="#cardiovascular-disease-cvd"><span class="header-section-number">5.1.2</span> Cardiovascular Disease (CVD)</a></li>
+  <li><a href="#life-expectancy" id="toc-life-expectancy" class="nav-link" data-scroll-target="#life-expectancy"><span class="header-section-number">5.2.1</span> Life Expectancy</a></li>
+  <li><a href="#infant-mortality" id="toc-infant-mortality" class="nav-link" data-scroll-target="#infant-mortality"><span class="header-section-number">5.2.2</span> Infant Mortality</a></li>
+  <li><a href="#age-adjusted-death-rate" id="toc-age-adjusted-death-rate" class="nav-link" data-scroll-target="#age-adjusted-death-rate"><span class="header-section-number">5.2.3</span> Age Adjusted Death Rate</a></li>
   </ul></li>
-  <li><a href="#goal-2-detecting-differences-in-access-to-care-by-insurance-type" id="toc-goal-2-detecting-differences-in-access-to-care-by-insurance-type" class="nav-link" data-scroll-target="#goal-2-detecting-differences-in-access-to-care-by-insurance-type"><span class="header-section-number">5.2</span> Goal 2: Detecting differences in access to care by insurance type</a></li>
-  <li><a href="#goal-3-analyzing-impact-of-access-to-care-on-health-metrics" id="toc-goal-3-analyzing-impact-of-access-to-care-on-health-metrics" class="nav-link" data-scroll-target="#goal-3-analyzing-impact-of-access-to-care-on-health-metrics"><span class="header-section-number">5.3</span> Goal 3: Analyzing Impact of Access to Care on Health Metrics</a>
-  <ul class="collapse">
-  <li><a href="#life-expectancy" id="toc-life-expectancy" class="nav-link" data-scroll-target="#life-expectancy"><span class="header-section-number">5.3.1</span> Life Expectancy</a></li>
-  <li><a href="#infant-mortality" id="toc-infant-mortality" class="nav-link" data-scroll-target="#infant-mortality"><span class="header-section-number">5.3.2</span> Infant Mortality</a></li>
-  <li><a href="#age-adjusted-death-rate" id="toc-age-adjusted-death-rate" class="nav-link" data-scroll-target="#age-adjusted-death-rate"><span class="header-section-number">5.3.3</span> Age Adjusted Death Rate</a></li>
-  </ul></li>
-  <li><a href="#goal-4-creating-an-overall-health-quality-variable" id="toc-goal-4-creating-an-overall-health-quality-variable" class="nav-link" data-scroll-target="#goal-4-creating-an-overall-health-quality-variable"><span class="header-section-number">5.4</span> Goal 4: Creating an Overall Health Quality Variable</a></li>
   </ul></li>
   <li><a href="#conclusions---need-to-update" id="toc-conclusions---need-to-update" class="nav-link" data-scroll-target="#conclusions---need-to-update"><span class="header-section-number">6</span> Conclusions - need to update</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7</span> References</a></li>
@@ -213,23 +211,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>To answer questions regarding the effectiveness of preventative care, we investigated current relationships between health care, access to care, insurance type, and overall health outcomes across the United States. To do so, we took a multi-layered approach to our data:</p>
-<ol type="1">
-<li>Investigate predictability of chronic condition prevalence between public and private insurances.</li>
-<li>Discover differences (if any) between access of care and insurance type.</li>
-<li>Compare how access to care impacts common health metrics such as life expectancy, mortality, and infant mortality.³</li>
-<li>Engineer a variable that encapsulates all health metrics to discover what factors are most important to health overall.</li>
-</ol>
-<p>By examining these questions, we aimed to contribute to the understanding of how preventative care can improve public health in the United States.</p>
+<p>To investigate the current health status of individuals in the United States and propose metrics to improve health, we explored relationships between county health rankings and overall health outcomes.</p>
+<p>We first took a broad look at our data and emgineered a variable that encapsulates all available health metrics to discover what factors are most important to health overall.</p>
+<p>Additionally, we focused in our search onto just preventative care’s impact on health as prior research (see below) has already suggested access to affordable preventative care has a tremendous impact on health quality. We quantified the extent to which access to care impacts common health metrics such as life expectancy, mortality, and infant mortality.</p>
+<p>By examining these relationships, we aimed to contribute to the understanding of how preventative care can improve the deterioriating public health in the United States.</p>
 </section>
 <section id="background" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Background</h1>
-<p>In the world today, there is a growing problem of increasingly poor health across the globe. While life expectancy has increased, the amount of years spent in poor health has also increased proportionally.¹ Within the United States in particular, recent reseach has revealed not only that “the U.S. [has] the lowest life expectancy among high-income countries, but it also has the highest rates of avoidable deaths” despite spending almost 18% of its Gross Domestic Product (GDP) on healthcare. In comparison, the second-highest spender on healthcare is Germany at 12.8%. Furthermore, the United States has almost double the obesity rate than other high-income countries and its citizens are more likely to suffer with multiple chronic conditions.⁵ It is no question that finding a solution to this health endemic is vital to Americans’ health- but what is the answer?</p>
+<p>In the world today, there is a growing problem of increasingly poor health across the globe. While life expectancy has increased, the amount of years spent in poor health has also increased proportionally.<a href="#ref3">³</a> Within the United States in particular, recent reseach has revealed not only that “the U.S. [has] the lowest life expectancy among high-income countries, but it also has the highest rates of avoidable deaths” despite spending almost 18% of its Gross Domestic Product (GDP) on healthcare. In comparison, the second-highest spender on healthcare is Germany at 12.8%. Furthermore, the United States has almost double the obesity rate than other high-income countries and its citizens are more likely to suffer with multiple chronic conditions.<a href="#ref10">¹⁰</a> It is no question that finding a solution to this health endemic is vital to Americans’ health- but what is the answer?</p>
 <p>Other research has already attempted to answer this question and found that:</p>
 <blockquote class="blockquote">
-<p>[a]lthough spending did not correlate meaningfully with health, certain features of the [United States’] health care system did correlate highly with health outcomes, notably rates of health insurance coverage and access to affordable care (not having to forego care due to cost)… [H]ealth outcomes were better in states with adequate primary care services to manage chronic diseases and prevent hospitalizations for conditions like heart attacks, congestive heart failure, and pneumonia.⁸</p>
+<p>[a]lthough spending did not correlate meaningfully with health, certain features of the [United States’] health care system did correlate highly with health outcomes, notably rates of health insurance coverage and access to affordable care (not having to forego care due to cost)… [H]ealth outcomes were better in states with adequate primary care services to manage chronic diseases and prevent hospitalizations for conditions like heart attacks, congestive heart failure, and pneumonia.<a href="#ref14">¹⁴</a></p>
 </blockquote>
-<p>This comes as no surprise; preventative care is generally accepted as one of the most important factors in maintaining health. Daily exercise, access to healthy foods, minimal consumption of alcohol, and not smoking are all important factors for improving and maintaining one’s health.⁶ The above underscores the reality that, even if a person is uninsured, having access to a primary care provider helps prevent against their need to go to a hospital and risk getting caught with a tremendous bill due to their uninsured status.</p>
+<p>This comes as no surprise; preventative care is generally accepted as one of the most important factors in maintaining health. Daily exercise, access to healthy foods, minimal consumption of alcohol, and not smoking are all important factors for improving and maintaining one’s health.<a href="#ref11">¹¹</a> The above underscores the reality that, even if a person is uninsured, having access to a primary care provider helps prevent against their need to go to a hospital and risk getting caught with a tremendous bill due to their uninsured status.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -242,29 +236,30 @@ But how can an uninsured individual even access primary care to avoid hospital f
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><a href="https://www.aafp.org/family-physician/practice-and-career/delivery-payment-models/direct-primary-care.html">Direct Primary Care (DPC)</a> models offer the solution. DPCs do not bill insurance and charge a flat-rate monthly membership instead, thus allowing individuals access to primary care at an accessible and affordable cost. In particular, <a href="https://www.dpcfrontier.com/health-sharing-ministries">DPCs paired with a healthshare</a> offer people the most options at an affordable rate, as their healthshare could cover the cost of specialists, imaging, DPC membership fees, and other healthcare-related expenses as needed.</p>
+<p><a href="https://www.aafp.org/family-physician/practice-and-career/delivery-payment-models/direct-primary-care.html">Direct Primary Care (DPC)</a> models offer the solution. DPCs do not bill insurance and charge a flat-rate monthly membership instead, thus allowing individuals access to primary care at an accessible and affordable cost.<a href="#ref1">¹</a> In particular, <a href="https://www.dpcfrontier.com/health-sharing-ministries">DPCs paired with a healthshare</a> offer people the most options at an affordable rate, as their healthshare could cover the cost of specialists, imaging, DPC membership fees, and other healthcare-related expenses as needed.<a href="#ref6">⁶</a></p>
 </div>
 </div>
 </div>
-<p>As for insurance’s impact on health, measuring it becomes tricky in the United States. Surprisingly, the U.S. is the only high-income country to not offer health coverage to all citizens.⁵ Instead, both private and social healthcare co-exist, where social healthcare is not available to everyone. Social healthcare in the US is available to those who are disabled or over 65 years old through Medicare. Medicare is not always free, but generally more affordable than private health insurance. Low income Americans can also receive free social healthcare through Medicaid. Social healthcare is funded through both federal and state health expenditures. In our reseach, we focused on just Medicaid in order to better serve our low-income and traditionally marginalized communities.</p>
-<p>At the global level, there is a direct link between health insurance type and the health quality of individuals, where countries with universal public health insurance are healthier.⁴ However, within just the United States, there is no correlation between Medicaid spending and disease rate.⁸ We intend to investigate this relationship by discovering chronic disease trends by insurance type. Since we can expect access to preventative care to be limited for those on public health insurance in the United States and know preventative care improves health outcomes, we hypothesize that reduced access to preventative care and higher rates of chronic conditions will exist together.</p>
-<p>We recognize we cannot make a causal claim from this data; we can’t answer the question on if reduced access to care <em>causes</em> increased disease rates. This is due to the fact that having low income may just as likely result in a cycle between decreased access to care <em>and</em> higher disease rates. Instead of attempting to find the causal agent in this cycle, we instead aim to provide knowledge and resources for those who have found themselves in such a situation.</p>
+<p>As for insurance’s impact on health, measuring it becomes tricky in the United States. Though countries with univeral public health insurance are healthier at the global level, the United States is the only high-income country to not offer health coverage to all citizens.<a href="#ref9">⁹</a>𝄒<a href="#ref10">¹⁰</a> Instead, both private and public healthcare co-exist, where public healthcare is not available to everyone.</p>
+<p>In the United States, public healthcare is available to those who are disabled or over 65 years old through Medicare. Medicare is not always free, but generally more affordable than private health insurance. Low income Americans can also receive free public healthcare through Medicaid. Public healthcare is funded through both federal and state health expenditures.</p>
+<p>While this system may have been implemented with good intentions, the current reality is that for-profit institutions are decentivized from accepting Medcaid and Medicare patients. This is because public health insurance in the United States reimburses health centers at a low rate- much lower than private insurance. As of 2022, when our data was collected, Medicare reimbursement was at an all-time low. By the end of the year, this added up to $99.2 billion in underpaid Medicare treatments.<a href="#ref2">²</a></p>
+<p>Sadly, research has shown that Medicaid patients have reduced access to care.<a href="#ref12">¹²</a> Furthermore, Medicaid populations are made up of a more diverse population than the rest of the United States’ population. What this means is that our minority populations and those most of need in care are most likely unable to get it.<a href="#ref4">⁴</a> This is a problem and needs a solution. Our research seeks to face this problem and provide knowledge and resources to those who have found themselves in such a situation.</p>
 </section>
 <section id="data" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Data</h1>
 <section id="data-ingestion" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="data-ingestion"><span class="header-section-number">3.1</span> Data Ingestion</h2>
-<p>We gathered data from two sources: KFF (an independent source for health policy research, polling, and news)⁷ and County Health Rankings and Roadmaps (CHRR).² Though we collected data across several years, we analyzed only data from 2022 due to data quality concerns when comparing year to year.</p>
+<p>We gathered data from two sources: KFF (which does not represent anything but is an independent source for health policy research, polling, and news)<a href="#ref13">¹³</a> and County Health Rankings and Roadmaps (CHRR).<a href="#ref5">⁵</a> Though we collected data across several years, we analyzed only data from 2022 due to data quality concerns when comparing year to year.</p>
 <section id="kff-collection-and-cleaning" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="kff-collection-and-cleaning"><span class="header-section-number">3.1.1</span> KFF: Collection and Cleaning</h3>
-<p>We generated a custom report from data available on KFF, downloading a large variety of data from 2017-2022 (not including 2020 due to lack of data collection) for each state in the U.S. Variables we investigated from this dataset included percentage of population on Medicare, percentage of adults who smoke, healthcare expenditure, median annual household income, cervical cancer incidence rate, and many more potentially relevant factors.⁷</p>
+<p>We generated a custom report from data available on KFF, downloading a large variety of data from 2017-2022 (not including 2020 due to lack of data collection) for each state in the U.S. Variables we investigated from this dataset included percentage of population on Medicare, percentage of adults who smoke, healthcare expenditure, median annual household income, cervical cancer incidence rate, and many more potentially relevant factors.<a href="#ref13">¹³</a></p>
 <p>KFF data for each state was downloaded as CSVs. We chose the most recent dates for all of the different health and insurance related questions between 2017-2022. The CSVs originally had a question, state, and value field. We used text parsing to create a column called demographic and a column called group. This allowed us to parse out demographics like age, race/ethnicity, poverty level and create groups within each of those.</p>
 <p>We also created fields called <code>year</code> and <code>measure</code>, and parsed out the years and measurements from the question field. Some questions had multiple demographics, so we created a <code>secondary_demographic</code> field and a <code>secondary_group</code> field. These are not ranked.</p>
 <p>Finally, we added a <code>county</code> column (which we filled with all NA) and edited the <code>state</code> and <code>question</code> fields to replicate the way that data from our CHFF dataset was formatted. This allowed us to merge the two datasets.</p>
 </section>
 <section id="chrr-collection-and-cleaning" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="chrr-collection-and-cleaning"><span class="header-section-number">3.1.2</span> CHRR: Collection and Cleaning</h3>
-<p>Similar to KFF, we downloaded data for each state from 2017-2022 (not including 2020 due to lack of data collection) from County Health Rankings and Roadmaps (CHRR). We chose the “20xx County Health Release National Data” links for each year. Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States. This data included metrics such as <code>life_expectancy</code>, <code>age-adjusted_death_rate</code>, <code>years_of_potential_life_loss_rate</code>, <code>food_environment_index</code>, <code>percentage_of_physically_inactive_adults</code>, <code>percentage_of_excessive_drinking</code>, <code>Primary_Care_Provider_ratio</code>, and much more.²</p>
+<p>Similar to KFF, we downloaded data for each state from 2017-2022 (not including 2020 due to lack of data collection) from County Health Rankings and Roadmaps (CHRR). We chose the “20xx County Health Release National Data” links for each year as they were the CSVs with the most relevant data to our project.<a href="#ref5">⁵</a> Data from CHRR originally came in two separate CSVs for each year and broke up the data by each county in the United States. This data included metrics such as <code>life_expectancy</code>, <code>age-adjusted_death_rate</code>, <code>years_of_potential_life_loss_rate</code>, <code>food_environment_index</code>, <code>percentage_of_physically_inactive_adults</code>, <code>percentage_of_excessive_drinking</code>, <code>Primary_Care_Provider_ratio</code>, and much more.²</p>
 <p>First, we cleaned up the columns. We reviewed the documentation and renamed any potentially confusing column names. For example, <code>#_Medicaid_Enrollees</code> became <code>no_female_medicaid_enrollees</code> to avoid mistakenly believing the first column included both genders in its count. We dropped columns that would not be of help to us, such as columns containing the word <code>Unreliable.</code> We replaced all spaces with an underscore.</p>
 <p>Second, we joined the two CSVs for each year to have one CSV per year and added a <code>Year</code> column to help with merging later.</p>
 <p>Finally, we reformatted the CSVs to match that of the KFF data, where our original columns became the <code>question</code> column and the values filled in a new <code>values</code> column. Again, we used text parsing such as <code>grepl</code> and <code>gsub</code> to fill in our newly created <code>demographic</code>, <code>measure</code>, <code>group</code>, <code>secondary_demographic</code>, and <code>secondary_group</code>, columns. For example, if our question was <code>mean_%_Children_in_Poverty_(white)</code>, our <code>demographic</code>, <code>group</code>, <code>secondary_demographic</code>, and <code>secondary_group</code> columns became “Race/Ethnicity”, “White”, “Age”, and “0-17”, respectively.</p>
@@ -273,11 +268,11 @@ But how can an uninsured individual even access primary care to avoid hospital f
 </section>
 <section id="data-organization" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="data-organization"><span class="header-section-number">3.2</span> Data Organization</h2>
-<p>Data was combined and normalized to third normal form. The ids were primary keys for each table except for <code>question_responses</code>, where <code>state_id</code>, <code>year_id</code>, and <code>question_id</code> were used as a compound primary key. We used the same foreign key for <code>group</code> and <code>secondary_group</code> and another separate foreign key for both <code>type</code> and <code>secondary_type</code>. All columns had a <code>NOT NULL</code> constraint except for <code>unit_type</code> from the <code>unit</code> table, and <code>unit_id</code>, <code>secondary_group_id</code>, and <code>secondary_type_id</code> from <code>question_responses</code>.</p>
+<p>Data was combined and normalized to third normal form (see <a href="./capstone_erd.png" title="Figure 1">Figure 1</a>). The ids were primary keys for each table except for <code>question_responses</code>, where <code>state_id</code>, <code>year_id</code>, and <code>question_id</code> were used as a compound primary key. We used the same foreign key for <code>group</code> and <code>secondary_group</code> and another separate foreign key for both <code>type</code> and <code>secondary_type</code>. All columns had a <code>NOT NULL</code> constraint except for <code>unit_type</code> from the <code>unit</code> table, and <code>unit_id</code>, <code>secondary_group_id</code>, and <code>secondary_type_id</code> from <code>question_responses</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./capstone_erd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure 1: ERD."><img src="./capstone_erd.png" class="img-fluid figure-img" alt="Figure 1: ERD."></a></p>
-<figcaption>Figure 1: ERD.</figcaption>
+<p><a href="./capstone_erd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure 1: Entity Relationship Diagram for our project."><img src="./capstone_erd.png" class="img-fluid figure-img" alt="Figure 1: Entity Relationship Diagram for our project."></a></p>
+<figcaption>Figure 1: Entity Relationship Diagram for our project.</figcaption>
 </figure>
 </div>
 </section>
@@ -286,22 +281,18 @@ But how can an uninsured individual even access primary care to avoid hospital f
 <h1 data-number="4"><span class="header-section-number">4</span> Methods</h1>
 <section id="process-outlines" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="process-outlines"><span class="header-section-number">4.1</span> Process outlines:</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Goal 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Goal 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Goal 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Goal 4</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><strong>Predicting disease prevalence by insurance type</strong></p>
+<section id="engineering-overall-health-variable" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="engineering-overall-health-variable"><span class="header-section-number">4.1.1</span> Engineering overall health variable**</h3>
 <ol type="1">
-<li>Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state.</li>
-<li>Preprocess, split, and model the data as fully outlined in Goal 3.</li>
+<li>Gather our entire dataset (not just access to care related variables) See <a href="#sec-s_table_1" class="quarto-xref">Section&nbsp;8.1.1</a> for a list of all variables used.</li>
+<li>Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.</li>
+<li>Use PCA to see how much variance can be explained by the first eigenvalue (see <a href="./Figures/total_eigenvalue.png" title="Figure S.1J">Supplemental Figure 1J</a>).</li>
+<li>Project desired health variables to the first eigenvalue.</li>
+<li>Compare weights of all variables to see how much they each contribute to this “new variable.”</li>
 </ol>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><strong>Detecting differences in access to care by insruance type</strong></p>
-<p>Need to fill out. Use R or Python?</p>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p><strong>Predicting health by access to care</strong></p>
+</section>
+<section id="predicting-health-by-access-to-care" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="predicting-health-by-access-to-care"><span class="header-section-number">4.1.2</span> Predicting health by access to care**</h3>
 <p><em>Statistics in R</em></p>
 <ol type="1">
 <li>Create our desired dataframe by reading in data from our remote database and joining where necessary.</li>
@@ -352,23 +343,11 @@ But how can an uninsured individual even access primary care to avoid hospital f
 <li>Add PCA with that number of components to the optimized pipeline made from Step 5.</li>
 </ol></li>
 </ol>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p><strong>Engineering overall health variable</strong></p>
-<ol type="1">
-<li>Gather our entire dataset (not just access to care related variables) See <a href="#sec-s_table_1" class="quarto-xref">Section&nbsp;8.1.1</a> for a list of all variables used.</li>
-<li>Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.</li>
-<li>Use PCA to see how much variance can be explained by the first eigenvalue (see <a href="./Figures/total_eigenvalue.png" title="Figure S.1J">Supplemental Figure 1J</a>).</li>
-<li>Project desired health variables to the first eigenvalue.</li>
-<li>Compare weights of all variables to see how much they each contribute to this “new variable.”</li>
-</ol>
-</div>
-</div>
-</div>
+</section>
 </section>
 <section id="statistical-thinking" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="statistical-thinking"><span class="header-section-number">4.2</span> Statistical Thinking</h2>
-<p>We determined health status using commonly used proxies such as life expectancy and mortality rates.³ We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.</p>
+<p>We determined health status using commonly used proxies such as life expectancy and mortality rates.<a href="#ref8">⁸</a> We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.</p>
 <p>In our linear models created in R, we first took the natural logarithm of income-related data due to both its skewed distribution and disproportionate scale (in comparison to the rest of our data).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -406,10 +385,6 @@ What are these statistical tests?
 <td><em>Linear Regression</em></td>
 <td>Linear regression is a statistical test used to find and quanitfy linear trends between data.</td>
 </tr>
-<tr class="even">
-<td><em>Add any test used in goal 2</em></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -426,7 +401,7 @@ What are these statistical tests?
 </section>
 <section id="machine-learning" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">4.5</span> Machine Learning</h2>
-<p>We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. Finally, we created a new variable that represented overall health quality.</p>
+<p>We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. Using these tools, we created a new variable that represented overall health quality and predicted metrics based on our access to care variables.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -583,76 +558,39 @@ What are these models and tools?
 </section>
 <section id="results---need-lots-of-updating" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Results - need lots of updating</h1>
-<section id="goal-1-predicting-chronic-conditions-based-on-insurance-type" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="goal-1-predicting-chronic-conditions-based-on-insurance-type"><span class="header-section-number">5.1</span> Goal 1: Predicting Chronic Conditions Based On Insurance Type</h2>
-<p>To answer the question of how state insurance in particular impacts one’s health status, we evaluated two common chronic conditions in the United States, diabetes and cardiovascular disease.</p>
-<section id="diabetes" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="diabetes"><span class="header-section-number">5.1.1</span> Diabetes</h3>
-<section id="public-insurance" class="level4" data-number="5.1.1.1">
-<h4 data-number="5.1.1.1" class="anchored" data-anchor-id="public-insurance"><span class="header-section-number">5.1.1.1</span> Public Insurance</h4>
-<p>We immediately plotted our mean diabetes percentages by Medicaid percentage across states to see if any obvious correlation existed (see <a href="./Figures/dm_medicaid.png" title="Figure 5A">Figure 5A</a>). No correlation was obvious, but there appeared to be a slight linear trend. We created a logisitic regression model predicting quartile of diabetes prevalence by many Medicaid-related covariates, such as how many adults did not see a doctor in the past twelve months due to cost, state Medicaid expenditure, state Medicaid spending, total Medicaid spending, and population percentage on Medicaid. Our simple model showed a surprising 54% accuracy in predicting how many people in a given population would have diabetes based on these factors. We had a small dataset, however, so cross validation showed our accuracy to be 38% with a standard deviation of 20%. While Medicaid-related factors may not be able to completely predict diabetes prevalence, it certainly is correlated.</p>
+<section id="creating-an-overall-health-quality-variable" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="creating-an-overall-health-quality-variable"><span class="header-section-number">5.1</span> Creating an Overall Health Quality Variable</h2>
+<p>As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.³ Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one’s actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/dm_medicaid.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 5A: There may be a slight linear correlation between mean diabetes percentage per state and Medicaid percentage, so we will see how a regression can predict diabetes prevalence."><img src="./Figures/dm_medicaid.png" class="img-fluid figure-img" alt="Figure 5A: There may be a slight linear correlation between mean diabetes percentage per state and Medicaid percentage, so we will see how a regression can predict diabetes prevalence."></a></p>
-<figcaption>Figure 5A: There may be a slight linear correlation between mean diabetes percentage per state and Medicaid percentage, so we will see how a regression can predict diabetes prevalence.</figcaption>
+<p><a href="./Figures/pairplot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 6A: NOT UPDATED We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other."><img src="./Figures/pairplot.png" class="img-fluid figure-img" alt="Figure 6A: NOT UPDATED We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other."></a></p>
+<figcaption>Figure 6A: NOT UPDATED We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other.</figcaption>
 </figure>
 </div>
-</section>
-<section id="private-insurance" class="level4" data-number="5.1.1.2">
-<h4 data-number="5.1.1.2" class="anchored" data-anchor-id="private-insurance"><span class="header-section-number">5.1.1.2</span> Private Insurance</h4>
-<p>In contrast, the same plot with private insurance percentages shows a negative trend (see <a href="./Figures/dm_private_ins.png" title="Figure 5B">Figure 5B</a>).</p>
+<p>The first eigenvalue of our entire dataset explained 31% of the variance in our dataset, so we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/dm_private_ins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 5B: Opposite of the public insurance data, there may be a slight negative linear correlation between mean diabetes percentage per state and private insurance percentage. Again, we will confirm this with regression."><img src="./Figures/dm_private_ins.png" class="img-fluid figure-img" alt="Figure 5B: Opposite of the public insurance data, there may be a slight negative linear correlation between mean diabetes percentage per state and private insurance percentage. Again, we will confirm this with regression."></a></p>
-<figcaption>Figure 5B: Opposite of the public insurance data, there may be a slight <em>negative</em> linear correlation between mean diabetes percentage per state and private insurance percentage. Again, we will confirm this with regression.</figcaption>
+<p><a href="./Figures/weights.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 6B: NOT UPDATED Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric."><img src="./Figures/weights.png" class="img-fluid figure-img" alt="Figure 6B: NOT UPDATED Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric."></a></p>
+<figcaption>Figure 6B: NOT UPDATED Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric.</figcaption>
 </figure>
 </div>
-<p>We made another logisitic regression model with just diabetes prevalance and percent private insurance per state with only 23% accuracy. Though this is lower than the above-mentioned public insurance data, it is important to note that we are using only <em>one</em> predictor in this model- percent of privately insured individuals. In the above model, we used all Medicaid-related variables (thirteen total predictors). Again, this shows that a correlation exists between the type of insurance and diabetes prevalence.</p>
+<p>ADD FIGURE FOR ACCESS TO CARE METRICS V OVERALL HEALTH</p>
 </section>
-</section>
-<section id="cardiovascular-disease-cvd" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="cardiovascular-disease-cvd"><span class="header-section-number">5.1.2</span> Cardiovascular Disease (CVD)</h3>
-<section id="public-insurance-1" class="level4" data-number="5.1.2.1">
-<h4 data-number="5.1.2.1" class="anchored" data-anchor-id="public-insurance-1"><span class="header-section-number">5.1.2.1</span> Public Insurance</h4>
-<p>As with our diabetes dataset, we again repeated the above process to predict CVD prevalence based on Medicaid-only related factors. Our simple scatterplot shows a faint linear trend. Our model accurately predicted CVD prevalence only 15% of the time- though this can possibly be explained by our small dataset. Cross validation testing revealed an accuracy of 41% with a standard deviation of 25%. Though not as obvious as with our diabetes data, there may be some correlation between only Medicaid-related factors and cardiovascular disease.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./Figures/cvd_medicaid.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure 5C: As with the diabetes data, there again appears to be a slight linear correlation between mean CVD percentage per state and Medicaid percentage."><img src="./Figures/cvd_medicaid.png" class="img-fluid figure-img" alt="Figure 5C: As with the diabetes data, there again appears to be a slight linear correlation between mean CVD percentage per state and Medicaid percentage."></a></p>
-<figcaption>Figure 5C: As with the diabetes data, there again appears to be a slight linear correlation between mean CVD percentage per state and Medicaid percentage.</figcaption>
-</figure>
-</div>
-</section>
-<section id="private-insurance-1" class="level4" data-number="5.1.2.2">
-<h4 data-number="5.1.2.2" class="anchored" data-anchor-id="private-insurance-1"><span class="header-section-number">5.1.2.2</span> Private Insurance</h4>
-<p>Turning once again to our privately insured individuals, a similar model accurately prediced CVD prevalence only 15% of the time. The same problems as before apply; our dataset had few data points to truly train, and we are again only using one predictor (percent of private insurance per state) rather than thirteen from our public insurance models. The fact that our one predictor can produce an accuracy equal to the publicly insured model suggests that there may be some correlation between insurance type and chronic disease prevalence.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./Figures/cvd_private_ins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure 5D: Again, there appears to be a slight negative linear correlation between mean CVD percentage per state and private insurance percentage. We will confirm this with regression."><img src="./Figures/cvd_private_ins.png" class="img-fluid figure-img" alt="Figure 5D: Again, there appears to be a slight negative linear correlation between mean CVD percentage per state and private insurance percentage. We will confirm this with regression."></a></p>
-<figcaption>Figure 5D: Again, there appears to be a slight <em>negative</em> linear correlation between mean CVD percentage per state and private insurance percentage. We will confirm this with regression.</figcaption>
-</figure>
-</div>
-</section>
-</section>
-</section>
-<section id="goal-2-detecting-differences-in-access-to-care-by-insurance-type" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="goal-2-detecting-differences-in-access-to-care-by-insurance-type"><span class="header-section-number">5.2</span> Goal 2: Detecting differences in access to care by insurance type</h2>
-<p>FILL IN</p>
-</section>
-<section id="goal-3-analyzing-impact-of-access-to-care-on-health-metrics" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="goal-3-analyzing-impact-of-access-to-care-on-health-metrics"><span class="header-section-number">5.3</span> Goal 3: Analyzing Impact of Access to Care on Health Metrics</h2>
+<section id="analyzing-impact-of-access-to-care-on-health-metrics" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="analyzing-impact-of-access-to-care-on-health-metrics"><span class="header-section-number">5.2</span> Analyzing Impact of Access to Care on Health Metrics</h2>
 <p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (see <a href="#sec-s_table_2" class="quarto-xref">Section&nbsp;8.1.2</a>). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.</p>
-<section id="life-expectancy" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="life-expectancy"><span class="header-section-number">5.3.1</span> Life Expectancy</h3>
+<section id="life-expectancy" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="life-expectancy"><span class="header-section-number">5.2.1</span> Life Expectancy</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/life_expectancy_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Fig 2A: Median life expectancy of most states is between 77 and 80 years old."><img src="./images/life_expectancy_by_state.png" class="img-fluid figure-img" alt="Fig 2A: Median life expectancy of most states is between 77 and 80 years old."></a></p>
+<p><a href="./images/life_expectancy_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Fig 2A: Median life expectancy of most states is between 77 and 80 years old."><img src="./images/life_expectancy_by_state.png" class="img-fluid figure-img" alt="Fig 2A: Median life expectancy of most states is between 77 and 80 years old."></a></p>
 <figcaption>Fig 2A: Median life expectancy of most states is between 77 and 80 years old.</figcaption>
 </figure>
 </div>
 <p>Figure 2A demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 2B.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/life_expecancy_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 2B: There does not appear to be a geographic influence on median life expectancy."><img src="./images/life_expecancy_map.png" class="img-fluid figure-img" alt="Figure 2B: There does not appear to be a geographic influence on median life expectancy."></a></p>
+<p><a href="./images/life_expecancy_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure 2B: There does not appear to be a geographic influence on median life expectancy."><img src="./images/life_expecancy_map.png" class="img-fluid figure-img" alt="Figure 2B: There does not appear to be a geographic influence on median life expectancy."></a></p>
 <figcaption>Figure 2B: There does not appear to be a geographic influence on median life expectancy.</figcaption>
 </figure>
 </div>
@@ -741,7 +679,7 @@ What are these models and tools?
 <p>To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 2D shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = &lt;2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/KM_food.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 2D: As expected, those who are more food insecure have lower life expectancies."><img src="./images/KM_food.png" class="img-fluid figure-img" alt="Figure 2D: As expected, those who are more food insecure have lower life expectancies."></a></p>
+<p><a href="./images/KM_food.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 2D: As expected, those who are more food insecure have lower life expectancies."><img src="./images/KM_food.png" class="img-fluid figure-img" alt="Figure 2D: As expected, those who are more food insecure have lower life expectancies."></a></p>
 <figcaption>Figure 2D: As expected, those who are more food insecure have lower life expectancies.</figcaption>
 </figure>
 </div>
@@ -797,18 +735,18 @@ What are these models and tools?
 <p>We then used machine learning algorithms to predict life expectancy of individuals based on these significant covariates along with the top ten features found through KBest (see <a href="./Figures/kbest_life_exp.png" title="Figure S.1A">Supplemental Figure 1A</a>). It is important to note that a lot of features were found in both the linear regression model explained above and in the KBest result.</p>
 <p>Our model predicted life expectancy based only on the fifteen significant access-to-care-related variables with 56% accuracy. While this may at first appear unimpressive, it’s important to note that 56% of life expectancy can be predicted or explained by only fifteen items- all of which relate to one’s access to healthcare. Only the remaining 44% can be explained by all other factors in a person’s life.</p>
 </section>
-<section id="infant-mortality" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="infant-mortality"><span class="header-section-number">5.3.2</span> Infant Mortality</h3>
+<section id="infant-mortality" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="infant-mortality"><span class="header-section-number">5.2.2</span> Infant Mortality</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/median_infant_mortality_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img" alt="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."></a></p>
+<p><a href="./images/median_infant_mortality_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img" alt="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."></a></p>
 <figcaption>Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births.</figcaption>
 </figure>
 </div>
 <p>Figure 3A shows a difference between median infant mortality rates between states. Note that the chart appears to “stair-step” as infant mortality rates are represented as integers rather than continuous numbers. Because of the linear trend associated with each state, we included the variable in our linear model to determine which states were significantly correlated with infant mortality.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/significance_state_infant_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest."><img src="./images/significance_state_infant_mortality.png" class="img-fluid figure-img" alt="Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest."></a></p>
+<p><a href="./images/significance_state_infant_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest."><img src="./images/significance_state_infant_mortality.png" class="img-fluid figure-img" alt="Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest."></a></p>
 <figcaption>Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest.</figcaption>
 </figure>
 </div>
@@ -875,18 +813,18 @@ What are these models and tools?
 </table>
 <p>In our machine learning model, we repeated the same process for infant mortality rate as for life expectancy, but got a low accuracy score of 36% due to the high number of NAs in our Infant Mortality Rate column. Future analyses would do well to increase record-keeping of infant mortality rates by county as the metric “indicates the current health status of a population and reflects the overall state of maternal health, as well as the quality and accessibility of primary health care available to pregnant women and infants.”³</p>
 </section>
-<section id="age-adjusted-death-rate" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="age-adjusted-death-rate"><span class="header-section-number">5.3.3</span> Age Adjusted Death Rate</h3>
+<section id="age-adjusted-death-rate" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="age-adjusted-death-rate"><span class="header-section-number">5.2.3</span> Age Adjusted Death Rate</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/median_mortality_rate_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."><img src="./images/median_mortality_rate_by_state.png" class="img-fluid figure-img" alt="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."></a></p>
+<p><a href="./images/median_mortality_rate_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."><img src="./images/median_mortality_rate_by_state.png" class="img-fluid figure-img" alt="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."></a></p>
 <figcaption>Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A).</figcaption>
 </figure>
 </div>
 <p>Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model. Figure 4B shows which states were significantly correlated with mortality rate. Negative correlation is in green to represent significantly lower death rates. The opposite is true for red-colored states.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/significance_state_death_rate_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies)."><img src="./images/significance_state_death_rate_map.png" class="img-fluid figure-img" alt="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies)."></a></p>
+<p><a href="./images/significance_state_death_rate_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies)."><img src="./images/significance_state_death_rate_map.png" class="img-fluid figure-img" alt="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies)."></a></p>
 <figcaption>Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies).</figcaption>
 </figure>
 </div>
@@ -1005,23 +943,6 @@ What are these models and tools?
 <p>Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.</p>
 </section>
 </section>
-<section id="goal-4-creating-an-overall-health-quality-variable" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="goal-4-creating-an-overall-health-quality-variable"><span class="header-section-number">5.4</span> Goal 4: Creating an Overall Health Quality Variable</h2>
-<p>As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.³ Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one’s actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./Figures/pairplot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other."><img src="./Figures/pairplot.png" class="img-fluid figure-img" alt="Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other."></a></p>
-<figcaption>Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other.</figcaption>
-</figure>
-</div>
-<p>The first eigenvalue of our entire dataset explained 31% of the variance in our dataset, so we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./Figures/weights.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric."><img src="./Figures/weights.png" class="img-fluid figure-img" alt="Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric."></a></p>
-<figcaption>Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric.</figcaption>
-</figure>
-</div>
-</section>
 </section>
 <section id="conclusions---need-to-update" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Conclusions - need to update</h1>
@@ -1035,15 +956,20 @@ What are these models and tools?
 <section id="references" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> References</h1>
 <ol type="1">
-<li>Broom, D. (2022, April 5). <em>We’re spending more years in poor health than at any point in history. How can we change this?</em> World Economic Forum. https://www.weforum.org/agenda/2022/04/longer-healthier-lives-everyone/#:~:text=Global%20Health,-Follow&amp;text=Life%20expectancy%20is%20rising%2C%20but,six%20years%20of%20quality%20life.</li>
-<li>County Health Rankings &amp; Roadmaps. (2024). <em>Data &amp; Documentation.</em> County Health Rankings &amp; Roadmaps. https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation</li>
-<li>EPA. (2023, August 10). <em>Health status.</em> EPA. https://www.epa.gov/report-environment/health-status#:~:text=The%20health%20status%20of%20a,accessibility%20of%20health%20personnel%20and</li>
-<li>Galvani-Townsend, S., Martinez, I., &amp; Pandey, A. (2022). Is life expectancy higher in countries and territories with publicly funded health care? Global analysis of health care access and the social determinants of health. <em>Journal of Global Health, 12</em>(04091), 1-12. doi: 10.7189/jogh.12.04091</li>
-<li>Gunja, M.Z., Gumaz, E.D., &amp; Williams, R.D.II. (2023, Jan.&nbsp;31). <em>U.S. Health Care from a Global Perspective, 2022: Accelerating Spending, Worsening Outcomes.</em> The Commonwealth Fund. https://www.commonwealthfund.org/publications/issue-briefs/2023/jan/us-health-care-global-perspective-2022<br>
-</li>
-<li>Harvard School of Public Health. (2022, December). <em>Healthy longevity.</em> The Nutrition Source. https://nutritionsource.hsph.harvard.edu/healthy-longevity/</li>
-<li>KFF. (2024). <em>State Health Facts: Build A Custom State Report</em> KFF: The independent source for health policy research, polling, and news. https://www.kff.org/statedata/custom/</li>
-<li>Woolf , S.H., Aron, L., Chapman, D.A., Dubay, L., Zimmerman, E., Snellings, L.C., Hall, L., Haley, A.D., Holla, N., Ayers, K., Lowenstein, C., &amp; Waidmann, T.A. (2016). <em>The health of the States: How U.S. States compare in health status and the factors that shape health.</em> Virginia Commonwealth University Center on Society and Health. https://www.urban.org/sites/default/files/publication/85211/health-of-the-states_6.pdf</li>
+<li><a id="ref1"></a> AAFP. (n.d.). <em>Direct Primary Care.</em> AAFP. <a href="https://www.aafp.org/family-physician/practice-and-career/delivery-payment-models/direct-primary-care.html">https://www.aafp.org/family-physician/practice-and-career/delivery-payment-models/direct-primary-care.html</a></li>
+<li><a id="ref2"></a> American Hospital Association. (n.d.). <em>Infographic: Medicare Significantly Underpays Hospitals for Cost of Patient Care.</em> American Hospital Association. <a href="https://www.aha.org/2024-01-10-infographic-medicare-significantly-underpays-hospitals-cost-patient-care">https://www.aha.org/2024-01-10-infographic-medicare-significantly-underpays-hospitals-cost-patient-care</a></li>
+<li><a id="ref3"></a> Broom, D. (2022, April 5). <em>We’re spending more years in poor health than at any point in history. How can we change this?</em> World Economic Forum. <a href="https://www.weforum.org/agenda/2022/04/longer-healthier-lives-everyone/#:~:text=Global%20Health,-Follow&amp;text=Life%20expectancy%20is%20rising%2C%20but,six%20years%20of%20quality%20life.">https://www.weforum.org/agenda/2022/04/longer-healthier-lives-everyone/#:~:text=Global%20Health,-Follow&amp;text=Life%20expectancy%20is%20rising%2C%20but,six%20years%20of%20quality%20life.</a></li>
+<li><a id="ref4"></a> CMS. (2020). <em>Race and ethnicity of the national Medicaid and CHIP population in 2020.</em> CMS. <a href="https://www.medicaid.gov/medicaid/data-and-systems/downloads/macbis/2020-race-etncity-data-brf.pdf">https://www.medicaid.gov/medicaid/data-and-systems/downloads/macbis/2020-race-etncity-data-brf.pdf</a></li>
+<li><a id="ref5"></a> County Health Rankings &amp; Roadmaps. (2024). <em>Data &amp; Documentation.</em> County Health Rankings &amp; Roadmaps. <a href="https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation">https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation</a></li>
+<li><a id="ref6"></a> DPC Frontier. (n.d.). <em>Health Care Sharing Ministries.</em> DPC Frontier. <a href="https://www.dpcfrontier.com/health-sharing-ministries">https://www.dpcfrontier.com/health-sharing-ministries</a></li>
+<li><a id="ref7"></a> DPC Nation. (n.d.). <em>Join the Direct Primary Care revolution.</em> DPC Nation. <a href="https://dpcnation.org/">https://dpcnation.org/</a></li>
+<li><a id="ref8"></a> EPA. (2023, August 10). <em>Health status.</em> EPA. <a href="https://www.epa.gov/report-environment/health-status#:~:text=The%20health%20status%20of%20a,accessibility%20of%20health%20personnel%20and">https://www.epa.gov/report-environment/health-status#:~:text=The%20health%20status%20of%20a,accessibility%20of%20health%20personnel%20and</a></li>
+<li><a id="ref9"></a> Galvani-Townsend, S., Martinez, I., &amp; Pandey, A. (2022, Nov.&nbsp;12). Is life expectancy higher in countries and territories with publicly funded health care? Global analysis of health care access and the social determinants of health. <em>Journal of Global Health, 12</em>(04091), 1-12. <a href="https://pubmed.ncbi.nlm.nih.gov/36370409/">doi: 10.7189/jogh.12.04091</a></li>
+<li><a id="ref10"></a> Gunja, M.Z., Gumaz, E.D., &amp; Williams, R.D.II. (2023, Jan.&nbsp;31). <em>U.S. Health Care from a Global Perspective, 2022: Accelerating Spending, Worsening Outcomes.</em> The Commonwealth Fund. <a href="https://www.commonwealthfund.org/publications/issue-briefs/2023/jan/us-health-care-global-perspective-2022">https://www.commonwealthfund.org/publications/issue-briefs/2023/jan/us-health-care-global-perspective-2022</a></li>
+<li><a id="ref11"></a> Harvard School of Public Health. (2022, December). <em>Healthy longevity.</em> The Nutrition Source. <a href="https://nutritionsource.hsph.harvard.edu/healthy-longevity/">https://nutritionsource.hsph.harvard.edu/healthy-longevity/</a></li>
+<li><a id="ref12"></a> Hsiang, W.R., Lukasiewicz, A., Gentry, M., Kim, C., Leslie, M.P., Pelker, R., Forman, H.P. Wiznia, D.H. (2019, Apr.&nbsp;5). Medicaid patients have greater difficulty scheduling health care appointments compared with private insurance patients: A meta-analysis. <em>Inquiry: The Journal of Health Care Organization, Provision, and Financing, 56,</em>(1-9). <a href="https://journals.sagepub.com/doi/10.1177/0046958019838118">https://doi.org/10.1177/004695801983811</a></li>
+<li><a id="ref13"></a> KFF. (2024). <em>State Health Facts: Build A Custom State Report</em> KFF: The independent source for health policy research, polling, and news. <a href="https://www.kff.org/statedata/custom/">https://www.kff.org/statedata/custom/</a></li>
+<li><a id="ref14"></a> Woolf , S.H., Aron, L., Chapman, D.A., Dubay, L., Zimmerman, E., Snellings, L.C., Hall, L., Haley, A.D., Holla, N., Ayers, K., Lowenstein, C., &amp; Waidmann, T.A. (2016). <em>The health of the States: How U.S. States compare in health status and the factors that shape health.</em> Virginia Commonwealth University Center on Society and Health. <a href="https://www.urban.org/sites/default/files/publication/85211/health-of-the-states_6.pdf">https://www.urban.org/sites/default/files/publication/85211/health-of-the-states_6.pdf</a></li>
 </ol>
 </section>
 <section id="supplemental-data" class="level1" data-number="8">
@@ -1089,61 +1015,61 @@ What are these models and tools?
 <h2 data-number="8.2" class="anchored" data-anchor-id="supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy."><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img" alt="Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy."></a></p>
+<p><a href="./Figures/kbest_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy."><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img" alt="Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy."></a></p>
 <figcaption>Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate."><img src="./Figures/kbest_inf_mor.png" class="img-fluid figure-img" alt="Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate."></a></p>
+<p><a href="./Figures/kbest_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate."><img src="./Figures/kbest_inf_mor.png" class="img-fluid figure-img" alt="Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate."></a></p>
 <figcaption>Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate."><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate."></a></p>
+<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate."><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate."></a></p>
 <figcaption>Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
+<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
 <figcaption>Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/conf_matrix_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another."><img src="./Figures/conf_matrix_life_exp.png" class="img-fluid figure-img" alt="Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another."></a></p>
+<p><a href="./Figures/conf_matrix_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another."><img src="./Figures/conf_matrix_life_exp.png" class="img-fluid figure-img" alt="Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another."></a></p>
 <figcaption>Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/conf_matrix_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another."><img src="./Figures/conf_matrix_mortality.png" class="img-fluid figure-img" alt="S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another."></a></p>
+<p><a href="./Figures/conf_matrix_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another."><img src="./Figures/conf_matrix_mortality.png" class="img-fluid figure-img" alt="S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another."></a></p>
 <figcaption>S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/variance_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model"><img src="./Figures/variance_life_exp.png" class="img-fluid figure-img" alt="Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model"></a></p>
+<p><a href="./Figures/variance_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model"><img src="./Figures/variance_life_exp.png" class="img-fluid figure-img" alt="Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model"></a></p>
 <figcaption>Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/variance_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model."><img src="./Figures/variance_inf_mor.png" class="img-fluid figure-img" alt="Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model."></a></p>
+<p><a href="./Figures/variance_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model."><img src="./Figures/variance_inf_mor.png" class="img-fluid figure-img" alt="Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model."></a></p>
 <figcaption>Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/variance_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model."><img src="./Figures/variance_mortality.png" class="img-fluid figure-img" alt="Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model."></a></p>
+<p><a href="./Figures/variance_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model."><img src="./Figures/variance_mortality.png" class="img-fluid figure-img" alt="Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model."></a></p>
 <figcaption>Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/total_eigenvalue.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset."><img src="./Figures/total_eigenvalue.png" class="img-fluid figure-img" alt="Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset."></a></p>
+<p><a href="./Figures/total_eigenvalue.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset."><img src="./Figures/total_eigenvalue.png" class="img-fluid figure-img" alt="Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset."></a></p>
 <figcaption>Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset.</figcaption>
 </figure>
 </div>
@@ -1718,7 +1644,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
