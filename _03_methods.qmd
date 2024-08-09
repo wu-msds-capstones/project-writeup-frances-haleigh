@@ -1,19 +1,14 @@
 # Methods
 ## Process outlines:
-::: {.panel-tabset}
-### Goal 1
-**Predicting disease prevalence by insurance type**
+### Engineering overall health variable**
 
-1. Manipulate data to find mean prevalence of the disease by state. Use this state-wide data rather than the county data as the Medicaid covariates were only available by state. 
-2. Preprocess, split, and model the data as fully outlined in Goal 3.
+1. Gather our entire dataset (not just access to care related variables) See [@sec-s_table_1] for a list of all variables used.
+2. Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.
+3. Use PCA to see how much variance can be explained by the first eigenvalue (see <a href="./Figures/total_eigenvalue.png" title="Figure S.1J">Supplemental Figure 1J</a>).
+4. Project desired health variables to the first eigenvalue.
+5. Compare weights of all variables to see how much they each contribute to this “new variable."
 
-### Goal 2
-**Detecting differences in access to care by insruance type**
-
-Need to fill out. Use R or Python?
-
-### Goal 3
-**Predicting health by access to care**
+### Predicting health by access to care**
 
 *Statistics in R*
 
@@ -53,18 +48,9 @@ Need to fill out. Use R or Python?
     i) Determine how many components explain 90% variance in the model (see <a href="./Figures/variance_life_exp.png" title="Figure S.1G">Supplemental Figures 1G</a>, <a href="./Figures/variance_inf_mor.png" title="Figure S.1H">1H</a>, and <a href="./Figures/variance_mortality.png" title="Figure S.1I">1I</a>).
     ii) Add PCA with that number of components to the optimized pipeline made from Step 5.
 
-### Goal 4
-**Engineering overall health variable**
-
-1. Gather our entire dataset (not just access to care related variables) See [@sec-s_table_1] for a list of all variables used.
-2. Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.
-3. Use PCA to see how much variance can be explained by the first eigenvalue (see <a href="./Figures/total_eigenvalue.png" title="Figure S.1J">Supplemental Figure 1J</a>).
-4. Project desired health variables to the first eigenvalue.
-5. Compare weights of all variables to see how much they each contribute to this “new variable."
-:::
 
 ## Statistical Thinking
-We determined health status using commonly used proxies such as life expectancy and mortality rates.³ We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.
+We determined health status using commonly used proxies such as life expectancy and mortality rates.[⁸](#ref8) We used statistics (log rank tests) and modeling (Kaplan-Meier curves and linear regression) to determine how access to preventative care correlates with health status. We compared proportions across states to account for differences in population.
 
 In our linear models created in R, we first took the natural logarithm of income-related data due to both its skewed distribution and disproportionate scale (in comparison to the rest of our data). 
 
@@ -75,7 +61,6 @@ In our linear models created in R, we first took the natural logarithm of income
 |*Kaplan-Meier Curve*    |A Kaplan-Meier (KM) curve is a display of survival data over time and across groups.         |
 |*Log Rank Test*         |A log rank test is used to determine if the groups in a KM curve are significant.            |
 |*Linear Regression*     |Linear regression is a statistical test used to find and quanitfy linear trends between data.|
-|*Add any test used in goal 2*|                                                                                        |      
 :::
 
 ## Data Visualization
@@ -85,7 +70,7 @@ We used data visualization as part of both our exploratory data analysis and in 
 We stored our data into a relational database and accessed it with Postgresql (through Railway). We accessed our data in both R and Python using the RPostgreSQL and sqlalchemy libraries, respectively. A detailed description for how this was done is in the data section above. 
 
 ## Machine Learning
-We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. For example, we predicted metrics like life expectancy based on our access to care variables. We also predicted the prevalence of common chronic conditions, such as Diabetes, within each state based on the percentage of people on Medicaid. Finally, we created a new variable that represented overall health quality. 
+We used machine learning models such as ensembles, logistic regression, random forest, naive bayes, PCA, KMeans, Gaussian Mixture Models, and more to explore relationships and predict health outcomes from our data. Using these tools, we created a new variable that represented overall health quality and predicted metrics based on our access to care variables.  
 
 ::: {.callout-note collapse="true"}
 #### What are these models and tools?

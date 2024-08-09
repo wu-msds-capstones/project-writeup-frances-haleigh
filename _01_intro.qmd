@@ -1,9 +1,8 @@
 # Introduction
-To answer questions regarding the effectiveness of preventative care, we investigated current relationships between health care, access to care, insurance type, and overall health outcomes across the United States. To do so, we took a multi-layered approach to our data:
+To investigate the current health status of individuals in the United States and propose metrics to improve health, we explored relationships between county health rankings and overall health outcomes. 
 
-1. Investigate predictability of chronic condition prevalence between public and private insurances.
-2. Discover differences (if any) between access of care and insurance type.
-3. Compare how access to care impacts common health metrics such as life expectancy, mortality, and infant mortality.³
-4. Engineer a variable that encapsulates all health metrics to discover what factors are most important to health overall. 
+We first took a broad look at our data and emgineered a variable that encapsulates all available health metrics to discover what factors are most important to health overall.  
 
-By examining these questions, we aimed to contribute to the understanding of how preventative care can improve public health in the United States.
+Additionally, we focused in our search onto just preventative care's impact on health as prior research (see below) has already suggested access to affordable preventative care has a tremendous impact on health quality. We quantified the extent to which access to care impacts common health metrics such as life expectancy, mortality, and infant mortality.
+
+By examining these relationships, we aimed to contribute to the understanding of how preventative care can improve the deterioriating public health in the United States.

@@ -1,36 +1,17 @@
 # Results - need lots of updating
 
-## Goal 1: Predicting Chronic Conditions Based On Insurance Type
-To answer the question of how state insurance in particular impacts one’s health status, we evaluated two common chronic conditions in the United States, diabetes and cardiovascular disease.  
+## Creating an Overall Health Quality Variable
+As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.³ Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one's actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).
 
-### Diabetes
-#### Public Insurance
-We immediately plotted our mean diabetes percentages by Medicaid percentage across states to see if any obvious correlation existed (see <a href="./Figures/dm_medicaid.png" title="Figure 5A">Figure 5A</a>). No correlation was obvious, but there appeared to be a slight linear trend. We created a logisitic regression model predicting quartile of diabetes prevalence by many Medicaid-related covariates, such as how many adults did not see a doctor in the past twelve months due to cost, state Medicaid expenditure, state Medicaid spending, total Medicaid spending, and population percentage on Medicaid. Our simple model showed a surprising 54% accuracy in predicting how many people in a given population would have diabetes based on these factors. We had a small dataset, however, so cross validation showed our accuracy to be 38% with a standard deviation of 20%. While Medicaid-related factors may not be able to completely predict diabetes prevalence, it certainly is correlated. 
+![Figure 6A: NOT UPDATED We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other.](./Figures/pairplot.png)
 
-![Figure 5A: There may be a slight linear correlation between mean diabetes percentage per state and Medicaid percentage, so we will see how a regression can predict diabetes prevalence.](./Figures/dm_medicaid.png)
+The first eigenvalue of our entire dataset explained 31% of the variance in our dataset, so we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health. 
 
-#### Private Insurance
-In contrast, the same plot with private insurance percentages shows a negative trend (see <a href="./Figures/dm_private_ins.png" title="Figure 5B">Figure 5B</a>).
+![Figure 6B: NOT UPDATED Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric.](./Figures/weights.png)
 
-![Figure 5B: Opposite of the public insurance data, there may be a slight *negative* linear correlation between mean diabetes percentage per state and private insurance percentage. Again, we will confirm this with regression.](./Figures/dm_private_ins.png)
+ADD FIGURE FOR ACCESS TO CARE METRICS V OVERALL HEALTH
 
-We made another logisitic regression model with just diabetes prevalance and percent private insurance per state with only 23% accuracy. Though this is lower than the above-mentioned public insurance data, it is important to note that we are using only *one* predictor in this model- percent of privately insured individuals. In the above model, we used all Medicaid-related variables (thirteen total predictors). Again, this shows that a correlation exists between the type of insurance and diabetes prevalence. 
-
-### Cardiovascular Disease (CVD)
-#### Public Insurance
-As with our diabetes dataset, we again repeated the above process to predict CVD prevalence based on Medicaid-only related factors. Our simple scatterplot shows a faint linear trend. Our model accurately predicted CVD prevalence only 15% of the time- though this can possibly be explained by our small dataset. Cross validation testing revealed an accuracy of 41% with a standard deviation of 25%. Though not as obvious as with our diabetes data, there may be some correlation between only Medicaid-related factors and cardiovascular disease. 
-
-![Figure 5C: As with the diabetes data, there again appears to be a slight linear correlation between mean CVD percentage per state and Medicaid percentage.](./Figures/cvd_medicaid.png)
-
-#### Private Insurance
-Turning once again to our privately insured individuals, a similar model accurately prediced CVD prevalence only 15% of the time. The same problems as before apply; our dataset had few data points to truly train, and we are again only using one predictor (percent of private insurance per state) rather than thirteen from our public insurance models. The fact that our one predictor can produce an accuracy equal to the publicly insured model suggests that there may be some correlation between insurance type and chronic disease prevalence.
-
-![Figure 5D: Again, there appears to be a slight *negative* linear correlation between mean CVD percentage per state and private insurance percentage. We will confirm this with regression.](./Figures/cvd_private_ins.png)
-
-## Goal 2: Detecting differences in access to care by insurance type
-FILL IN
-
-## Goal 3: Analyzing Impact of Access to Care on Health Metrics
+## Analyzing Impact of Access to Care on Health Metrics
 In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (see [@sec-s_table_2]). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.
 
 ### Life Expectancy
@@ -144,12 +125,3 @@ lm(formula = `AGE-ADJUSTED_DEATH_RATE` ~ `state_name` + `%_VACCINATED` +
 | `HOUSEHOLD_INCOME_(ASIAN)_LN`      | 1.067e+01 | 6.013e+00  | 1.774   | 0.07641 .   |
 
 Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.  
-
-## Goal 4: Creating an Overall Health Quality Variable
-As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.³ Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one's actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).
-
-![Figure 6A: We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other.](./Figures/pairplot.png)
-
-The first eigenvalue of our entire dataset explained 31% of the variance in our dataset, so we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health. 
-
-![Figure 6B: Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric.](./Figures/weights.png)
