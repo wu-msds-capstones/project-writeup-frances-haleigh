@@ -1,14 +1,83 @@
 # Methods
-## Process outlines:
-### Engineering overall health variable**
+Our project focused on two main goals:
 
-1. Gather our entire dataset (not just access to care related variables) See [@sec-s_table_1] for a list of all variables used.
-2. Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns.
-3. Use PCA to see how much variance can be explained by the first eigenvalue (see <a href="./Figures/total_eigenvalue.png" title="Figure S.1J">Supplemental Figure 1J</a>).
+1. Engineer an “overall” health metric to detect what variables influence health as a whole.
+2. Discover how access to care impacts life expectancy, infant mortality, and mortality.
+
+See below for a thorough explanation of how we accomplished both goals.
+
+## Goal 1: Engineer an “overall” health metric to detect what variables influence health as a whole.
+### Overview
+```{mermaid}
+flowchart LR
+  A(1. Create Dataset) --> B(2. Scale Dataset)
+  B --> C(3. Select all Health-\nRelated Variables)
+  C --> D(4. Project those health \nmetrics to the first eigenvalue)
+  D --> E(5a. Assess contribution of \neach health variable)
+  D --> F(5b. Assess projection value \nof all other variables)
+  D --> G(5c. Assess projection value by \ncounty then average by state)
+```
+
+### More detailed explanation
+1. Gather our entire dataset (not just access to care related variables). Drop all NAs and variables related to count data (we kept only rates and percentages). See [@sec-s_table_1] for a list of all variables used.
+2. Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns (numeric and categorical, respectively). This converts our data to completely similarly scaled numeric data to ensure equal contributions from each variable to the final output.
+3. Select the following variables to summarize health: `LIFE_EXPECTANCY`, `AGE-ADJUSTED_DEATH_RATE`, `YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, `%_FREQUENT_PHYSICAL_DISTRESS` and `%_FREQUENT_MENTAL_DISTRESS`. `AGE-ADJUSTED_DEATH_RATE`, `YEARS_OF_POTENTIAL_LIFE_LOST_RATE` both represent mortality rates. `%_FREQUENT_PHYSICAL_DISTRESS`, `%_FREQUENT_MENTAL_DISTRESS` represent the percent of adults who report having 14 or more days of poor physical and mental health, respectively, per month. We chose these variables for multiple reasons:
+    i) As stated previously, life expectancy, mortality, and infant mortality are common metrics used to assess the health of a population.[⁸](#ref8) Note we dropped infant mortality due to its high rate of NAs.
+    ii) Percieved health, as measured by `%_FREQUENT_PHYSICAL_DISTRESS` and `%_FREQUENT_MENTAL_DISTRESS`, also has an impact on one's actual health.
+    iii) We confirmed the linear relationship between each of these variables in a pair-plot (see <a href="./Figures/pairplot.png" title="Figure 2">Figure 2</a>), confirming their interconnectedness and validity in using as a summarized health metric.
+
+![Figure 2: Pairplot between all variables used to summarize overall health. Notice the linear relationship between each. This confirms the validity of using them to represent health as a whole.](./Figures/pairplot.png)
+
 4. Project desired health variables to the first eigenvalue.
-5. Compare weights of all variables to see how much they each contribute to this “new variable."
 
-### Predicting health by access to care**
+::: {.callout-note collapse="true"}
+#### How did we do this?
+See below for how we projected these variables to the first eigenvalue:
+```
+pca_all = Pipeline([('transfomer', transformer_all), #need to use transfomer since have both categorical and numeric data
+                         ('pca', PCA(1))]) #only project to first one
+
+pca_all.fit(ds_no_nan)
+
+# Extract the PCA components
+pca_components = pca_all['pca'].components_
+
+# Get the first eigenvalue component
+first_eigenvalue_component = pca_components[0]
+
+# Select the columns to project
+columns_to_project = ['YEARS_OF_POTENTIAL_LIFE_LOST_RATE','LIFE_EXPECTANCY', 'AGE-ADJUSTED_DEATH_RATE', '%_FREQUENT_PHYSICAL_DISTRESS', '%_FREQUENT_MENTAL_DISTRESS']
+
+# Assuming X_train_all is a DataFrame
+selected_columns = ds_no_nan[columns_to_project]
+
+# Transform the selected columns using the first eigenvalue component
+projected_values = selected_columns.dot(first_eigenvalue_component[:len(columns_to_project)])
+```
+:::
+
+5. Assess contributions and projection values of variables and states.
+    i)  Assess contribution of each health variable (finish explaining, add code and figures)
+    ii) Assess projection value of all other variables (finish explaining, add code and figures)
+    iii) Assess projection value by county then average by state (finish explaining, add code and figures)
+
+::: {.callout-note collapse="true"}
+#### What are these models and tools?
+##### Data Preprocessing Tools
+|**Name**                    |**Explaination**                                                                                                                                      |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+|*Standard Scaler*           |Standard Scaler is a tool you can use in machine learning to standardize all numeric inputs so the model can correctly assess the impact of each value.|
+|*One Hot Encoder*           |Similar to Standard Scaler, One Hot Encoder is a method use to convert character data to numeric in a standardized way so the model can weigh the impact of character input along with numeric.|
+
+### Unsupervised Dimension Reduction Model
+|**Name**                    |**Explaination** 
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|*PCA*                       |Principle Component Analysis (PCA) is a method of reducing the number of variables in a model by combining them into the principle components that describe the most variance in a given dataset.|
+:::
+
+# haven't finished anything past this, coming back later
+
+## Goal 2: Discover how access to care impacts life expectancy, infant mortality, and mortality.
 
 *Statistics in R*
 
@@ -80,12 +149,6 @@ We used machine learning models such as ensembles, logistic regression, random f
 |*K-Best Feature Selection*  |K-Best feature selection is a tool used in machine learning used to find which variables in a given model most contribute to its prediction accuracy. |
 |*Confusion Matrices*        |Confusion matrices are plots of the true and predicted values of a given model and are used to determine where a model is succeeding and/or failing.  |
 
-### Data Preprocessing Tools
-|**Name**                    |**Explaination**                                                                                                                                      |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-|*Standard Scaler*           |Standard Scaler is a tool you can use in machine learning to standardize all numeric inputs so the model can correctly assess the impact of each value.|
-|*One Hot Encoder*           |Similar to Standard Scaler, One Hot Encoder is a method use to convert character data to numeric in a standardized way so the model can weigh the impact of character input along with numeric.|
-
 ### Supervised Classification Models
 |**Name**                    |**Explaination** 
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -94,11 +157,6 @@ We used machine learning models such as ensembles, logistic regression, random f
 |*Logistic Regression*       |Logisitic regression finds the linear regression of the log odds of the predictor variables to predict a binary outcome.                             |
 |*Gradient Boosting*         |Rather than creating lots of uncorrelated models like Random Forest, Gradient Boosting fits many models where each successive one corrects upon where the previous one was wrong.|
 |*Ensemble*                  |Ensemble models combine many user-specified models and comes to its final outcome by averaging the individual outcomes of each model made up within it.|  
-
-### Unsupervised Dimension Reduction Model
-|**Name**                    |**Explaination** 
-|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-|*PCA*                       |Principle Component Analysis (PCA) is a method of reducing the number of variables in a model by combining them into the principle components that describe the most variance in a given dataset.|
 
 ### Unsupervised Clustering Models
 |**Name**                    |**Explaination** 

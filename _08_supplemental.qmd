@@ -9,10 +9,10 @@
 
 <script>
   document.getElementById('download-button2').addEventListener('click', function() {
-    const csvFilePath = './Figures/all_columns_list.csv'; // Update the path to your CSV file
+    const csvFilePath = './Figures/all_columns_list.csv';
     const link = document.createElement('a');
     link.href = csvFilePath;
-    link.download = 'all_columns_list.csv'; // The name of the file to be downloaded
+    link.download = 'all_columns_list.csv';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -26,10 +26,10 @@
 
 <script>
   document.getElementById('download-button').addEventListener('click', function() {
-    const csvFilePath = './Figures/access_to_care_total.csv'; // Update the path to your CSV file
+    const csvFilePath = './Figures/access_to_care_total.csv'; 
     const link = document.createElement('a');
     link.href = csvFilePath;
-    link.download = 'access_to_care_total.csv'; // The name of the file to be downloaded
+    link.download = 'access_to_care_total.csv'; 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
