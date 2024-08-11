@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2024-08-11">
 
-<title>Preventative Care in the United States</title>
+<title>Healthcare access in the United States</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,8 +120,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Preventative Care in the United States</h1>
-            <p class="subtitle lead">How do preventative healthcare measures impact standard health metrics?</p>
+      <h1 class="title">Healthcare access in the United States</h1>
+            <p class="subtitle lead">How does access to care and other basic needs impact standard health metrics?</p>
                       </div>
   </div>
     
@@ -199,6 +199,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-s_table_2" id="toc-sec-s_table_2" class="nav-link" data-scroll-target="#sec-s_table_2"><span class="header-section-number">8.1.2</span> S.Table 2: CSV containing all variables used to assess access to care</a></li>
   <li><a href="#sec-s_table_3" id="toc-sec-s_table_3" class="nav-link" data-scroll-target="#sec-s_table_3"><span class="header-section-number">8.1.3</span> S. Table 3: Coefficient Table of Life Expectancy Linear Model</a></li>
   <li><a href="#sec-s_table_4" id="toc-sec-s_table_4" class="nav-link" data-scroll-target="#sec-s_table_4"><span class="header-section-number">8.1.4</span> S. Table 4: Coefficient Table of Infant Mortality Rate Linear Model</a></li>
+  <li><a href="#s.-table-5a-log-rank-test-results-for-food-insecurity-km-curve" id="toc-s.-table-5a-log-rank-test-results-for-food-insecurity-km-curve" class="nav-link" data-scroll-target="#s.-table-5a-log-rank-test-results-for-food-insecurity-km-curve"><span class="header-section-number">8.1.5</span> S. Table 5a: Log Rank Test Results for Food Insecurity KM Curve</a></li>
+  <li><a href="#s.-table-5b-log-rank-test-results-for-pcp-ratio-km-curve" id="toc-s.-table-5b-log-rank-test-results-for-pcp-ratio-km-curve" class="nav-link" data-scroll-target="#s.-table-5b-log-rank-test-results-for-pcp-ratio-km-curve"><span class="header-section-number">8.1.6</span> S. Table 5b: Log Rank Test Results for PCP Ratio KM Curve</a></li>
+  <li><a href="#s.-table-5c-log-rank-test-results-segregation-index-km-curve" id="toc-s.-table-5c-log-rank-test-results-segregation-index-km-curve" class="nav-link" data-scroll-target="#s.-table-5c-log-rank-test-results-segregation-index-km-curve"><span class="header-section-number">8.1.7</span> S. Table 5C: Log Rank Test Results Segregation Index KM Curve</a></li>
+  <li><a href="#s.-table-5d-log-rank-test-results-broadband-access-km-curve" id="toc-s.-table-5d-log-rank-test-results-broadband-access-km-curve" class="nav-link" data-scroll-target="#s.-table-5d-log-rank-test-results-broadband-access-km-curve"><span class="header-section-number">8.1.8</span> S. Table 5D: Log Rank Test Results Broadband Access KM Curve</a></li>
+  <li><a href="#s.-table-5e-log-rank-test-results-household-income-hispanic-km-curve" id="toc-s.-table-5e-log-rank-test-results-household-income-hispanic-km-curve" class="nav-link" data-scroll-target="#s.-table-5e-log-rank-test-results-household-income-hispanic-km-curve"><span class="header-section-number">8.1.9</span> S. Table 5E: Log Rank Test Results Household Income (Hispanic) KM Curve</a></li>
+  <li><a href="#s.-table-5f-log-rank-test-results-median-household-income-km-curve" id="toc-s.-table-5f-log-rank-test-results-median-household-income-km-curve" class="nav-link" data-scroll-target="#s.-table-5f-log-rank-test-results-median-household-income-km-curve"><span class="header-section-number">8.1.10</span> S. Table 5F: Log Rank Test Results Median Household Income KM Curve</a></li>
+  <li><a href="#s.-table-5g-log-rank-test-results-percent-vaccination-km-curve" id="toc-s.-table-5g-log-rank-test-results-percent-vaccination-km-curve" class="nav-link" data-scroll-target="#s.-table-5g-log-rank-test-results-percent-vaccination-km-curve"><span class="header-section-number">8.1.11</span> S. Table 5G: Log Rank Test Results Percent Vaccination KM Curve</a></li>
+  <li><a href="#s.-table-5h-log-rank-test-results-severe-housing-issues-km-curve" id="toc-s.-table-5h-log-rank-test-results-severe-housing-issues-km-curve" class="nav-link" data-scroll-target="#s.-table-5h-log-rank-test-results-severe-housing-issues-km-curve"><span class="header-section-number">8.1.12</span> S. Table 5H: Log Rank Test Results Severe Housing Issues KM Curve</a></li>
   </ul></li>
   <li><a href="#supplemental-figures" id="toc-supplemental-figures" class="nav-link" data-scroll-target="#supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</a></li>
   </ul></li>
@@ -220,8 +228,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>To investigate the current health status of individuals in the United States and propose metrics to improve health, we explored relationships between county health rankings and overall health outcomes.</p>
 <p>We first took a broad look at our data and engineered a variable to represent overall health. Using this new variable, we discovered what factors are most important to health as a whole.</p>
-<p>Then, we focused in our search onto just preventative care’s impact on health as prior research (see below) has already suggested access to affordable preventative care has a tremendous impact on health quality.<a href="#ref11">¹¹</a>𝄒<a href="#ref14">¹⁴</a> We quantified the extent to which access to care impacts common health metrics such as life expectancy, mortality, and infant mortality.<a href="#ref8">⁸</a></p>
-<p>By examining these relationships, we aimed to contribute to the understanding of how preventative care can improve the deterioriating public health in the United States.</p>
+<p>Then, we focused in our search onto just how access to care and other basic needs impact health. Prior research has suggested access to affordable preventative care has a tremendous impact on health quality,<a href="#ref11">¹¹</a>𝄒<a href="#ref14">¹⁴</a> so we quantified the extent to which this occurs. We used common health metrics such as life expectancy, mortality, and infant mortality<a href="#ref8">⁸</a> as proxies for measuring health.</p>
+<p>By examining these relationships, we aimed to contribute to the understanding of how increasing access to care and other basic needs can improve the deterioriating public health in the United States.</p>
 </section>
 <section id="background" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Background</h1>
@@ -250,7 +258,7 @@ But how can an uninsured individual even access primary care to avoid hospital f
 <p>As for insurance’s impact on health, measuring it becomes tricky in the United States. Though countries with univeral public health insurance are healthier at the global level, the United States is the only high-income country to not offer health coverage to all citizens.<a href="#ref9">⁹</a>𝄒<a href="#ref10">¹⁰</a> Instead, both private and public healthcare co-exist, where neither option is available to all.</p>
 <p>In the United States, public healthcare is available to those who are disabled or over 65 years old through Medicare. Medicare is not always free, but generally more affordable than private health insurance. Low income Americans can also receive free public healthcare through Medicaid. Public healthcare is funded through both federal and state health expenditures.</p>
 <p>While this system may have been implemented with good intentions, the current reality is that for-profit institutions are disincentivized from accepting Medcaid and Medicare patients. This is because public health insurance in the United States reimburses health centers at a low rate- much lower than private insurance. As of 2022, when our data was collected, Medicare reimbursement was at an all-time low. By the end of the year, this added up to $99.2 billion in unpaid Medicare treatments.<a href="#ref2">²</a></p>
-<p>Sadly, research has also shown that Medicaid patients have reduced access to care.<a href="#ref12">¹²</a> Medicaid populations are made up of a more diverse population than the rest of the United States’ population, which means our minority populations and those most of need in care have the hardest time getting it.<a href="#ref4">⁴</a> This is a problem and needs a solution. Our research seeks to face this problem by providing knowledge and resources to those who have found themselves in need of care but cannot access or afford it.</p>
+<p>Sadly, research has also shown that Medicaid patients have reduced access to care.<a href="#ref12">¹²</a> Medicaid populations are made up of a more diverse population than the rest of the United States’ population, which means our minority populations and those most of need in care have the hardest time getting it.<a href="#ref4">⁴</a> This is a problem and needs a solution. Our research seeks to face this problem by providing knowledge and resources to those who have found themselves in need of care and/or basic needs but cannot access or afford it.</p>
 </section>
 <section id="data" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Data</h1>
@@ -1602,7 +1610,7 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 </div>
 </figure>
 </div>
-<p>Additional Kaplan-Meier Curves for life expectancy were made for the following variables: <code>PCP Ratio</code>, <code>Segregation Index</code>, and <code>Percentage of Broadband Internet Access</code>. Log rank tests were performed for each, and all of the overall results were significant (not shown here). There were significant differences between each quartile in the <code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code> plots, but the fourth quartile from the <code>Segregation Index</code> was the only one that was significantly different from the rest. <a href="./images/KM_PCPratio.png" title="Figure 8">Figure 8</a> shows each of the KM curves. These results suggest that lower access to care (<code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code>) and the most segregated areas (fourth quartile of <code>Segregation Index</code>) have lower life expectancies. The rest of the KM curves can be found in section here: <a href="./images/KM_inc_hispanic.png" title="Figures S.6a">S.6a</a> through <a href="./images/KM_perc_vacc.png" title="Figure S.6E">S.6E</a>.</p>
+<p>Additional Kaplan-Meier Curves for life expectancy were made for the following variables: <code>PCP Ratio</code>, <code>Segregation Index</code>, and <code>Percentage of Broadband Internet Access</code>. Log rank tests were performed for each, and all of the overall results were significant (see <strong>?@sec-s_table_5a</strong> through <strong>?@sec-s_table_5h</strong>). There were significant differences between each quartile in the <code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code> plots, but the fourth quartile from the <code>Segregation Index</code> was the only one that was significantly different from the rest. <a href="./images/KM_PCPratio.png" title="Figure 8">Figure 8</a> shows each of the KM curves. These results suggest that lower access to care (<code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code>) and the most segregated areas (fourth quartile of <code>Segregation Index</code>) have lower life expectancies. The rest of the KM curves can be found in section here: <a href="./images/KM_inc_hispanic.png" title="Figures S.6a">S.6a</a> through <a href="./images/KM_perc_vacc.png" title="Figure S.6E">S.6E</a>.</p>
 <div>
 
 </div>
@@ -1675,23 +1683,15 @@ Important&nbsp;2: Equation 2: Infant Mortality Rate Linear Model
 </section>
 <section id="age-adjusted-death-rate" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="age-adjusted-death-rate"><span class="header-section-number">5.2.3</span> Age Adjusted Death Rate</h3>
+<p><a href="./images/median_mortality_rate_by_state.png" title="Figure 4A">Figure 4A</a> shows median age-adjusted death rate by state, with hawaii having the lowest rate and Mississippi having the highest. Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./images/median_mortality_rate_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."><img src="./images/median_mortality_rate_by_state.png" class="img-fluid figure-img" alt="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."></a></p>
 <figcaption>Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A).</figcaption>
 </figure>
 </div>
-<p>Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model. Figure 4B shows which states were significantly correlated with mortality rate. Negative correlation is in green to represent significantly lower death rates. The opposite is true for red-colored states.</p>
-<p>See <a href="./images/M_pairs.png" title="Figures S.4C">Figures S.4C</a> and <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./images/significance_state_death_rate_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies)."><img src="./images/significance_state_death_rate_map.png" class="img-fluid figure-img" alt="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies)."></a></p>
-<figcaption>Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies).</figcaption>
-</figure>
-</div>
 <p>Preventative healthcare measures that were significantly correlated with mortality rate are shown in Figure 4C. As food insecurity, segregation, and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.</p>
-<p>Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well.</p>
-<p>Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model and Coefficients:</p>
+<p>Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well. (See <a href="./images/M_pairs.png" title="Figures S.4C">Figures S.4C</a> and <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a> for our pairwise and assumption plots, which show that the variables we kept in our model were not correlated with each other.) Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model and Coefficients:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`AGE-ADJUSTED_DEATH_RATE`</span> ~ <span class="in">`state_name`</span> + <span class="in">`%_VACCINATED`</span> + </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`%_SEVERE_HOUSING_PROBLEMS`</span> + <span class="in">`%_FOOD_INSECURE`</span> + <span class="in">`SCHOOL_SEGREGATION_IDX`</span> + </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(HISPANIC)_LN`</span> + <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span> + </span>
@@ -1804,7 +1804,7 @@ Important&nbsp;2: Equation 2: Infant Mortality Rate Linear Model
 <p>Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 17: caption"><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure 17: caption"></a></p>
+<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 17: caption"><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure 17: caption"></a></p>
 <figcaption>Figure 17: caption</figcaption>
 </figure>
 </div>
@@ -1813,11 +1813,11 @@ Important&nbsp;2: Equation 2: Infant Mortality Rate Linear Model
 </section>
 <section id="conclusions---need-to-update" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Conclusions - need to update</h1>
-<p>Our analysis showed significant correlations between various socio-economic factors and key health outcomes such as life expectancy, infant mortality, and age-adjusted death rate. Specifically, food insecurity, broadband internet access, and segregation emerged as crucial features. While we observed meaningful correlations, certain findings were limited by missing data, particularly regarding residential segregation and infant mortality rate, which should be excluded from future models made from the same data.</p>
-<p>Adjustments for outliers are necessary to better understand the nuanced relationship between income and death rates within our linear models. Importantly, the prevalence of primary care physicians correlated positively with life expectancy, reinforcing the expected relationship between access to healthcare and improved health outcomes.</p>
-<p>Furthermore, our additional findings highlight the impact of preventative healthcare measures on overall health. For instance, broadband internet access and median household income showed significant negative correlations with infant mortality, indicating that better access to resources and economic stability can contribute to lower infant mortality rates. Conversely, higher segregation indices were associated with increased infant mortality, emphasizing the detrimental effects of social and economic divides.</p>
-<p>Our predictive models, though varying in accuracy, consistently underscored the importance of healthcare access. The life expectancy and age-adjusted death rate models based on access-to-care variables suggested that a significant portion of health outcomes can be anticipated through healthcare accessibility metrics.</p>
-<p>Overall, our comprehensive analysis confirms the critical role of socio-economic factors, healthcare access, and preventative measures in determining health outcomes. Future research should focus on refining models to account for outliers and improving data completeness to further explore these relationships.</p>
+<p>Our analysis showed significant correlations between various socio-economic factors and key health outcomes such as life expectancy, infant mortality, and age-adjusted death rate. When assessing overall health, years of potential life lost had the biggest impact, suggesting variations in this variable influenced our holistic view of health the most. This implies our data had a large differences in this mortality metric across communities, where some areas are dying earlier than would otherwise be predicted.</p>
+<p>Throughout our analysis, the southern states continually showed to have worse health outcomes than the northwestern states. Lower income areas, communities with greater segregation between races, and food deserts all had low health metrics. Future public health work should focus on builidng infrastructure and increasing access to care and other basic needs in these areas. Specifically, broadband internet access, food security, income, rate of PCPs, and exercise opportunities emerged as crucial necessities for improving health.</p>
+<p>While we observed meaningful correlations, certain findings were limited by missing data, particularly regarding infant mortality rate. We were also limited by the low consistency in CHRR data across years, which led us to doubt we could find an accurate year-to-year comparison. KFF data was only available on the state-level, so further refining it by county would greatly improve the accuracy of our findings.</p>
+<p>Future analysis would benefit from comparing year over year with more consistent data, measuring across income groups to see which healthcare measures are most important for each socioeconomic group, and investigating how preventative care measures in particular impact health.</p>
+<p>Overall, our comprehensive analysis confirms the critical role of socioeconomic factors, healthcare availability, and basic need access in determining health outcomes.</p>
 <p>WRITE ABOUT LIMITATIONS, STATE SUMMARY, VARIABLE SUMMARY, AND FUTURE WORK THAT SHOULD BE DONE</p>
 </section>
 <section id="references" class="level1" data-number="7">
@@ -2014,12 +2014,396 @@ Important&nbsp;2: Equation 2: Infant Mortality Rate Linear Model
 </tbody>
 </table>
 </section>
+<section id="s.-table-5a-log-rank-test-results-for-food-insecurity-km-curve" class="level3" data-number="8.1.5">
+<h3 data-number="8.1.5" class="anchored" data-anchor-id="s.-table-5a-log-rank-test-results-for-food-insecurity-km-curve"><span class="header-section-number">8.1.5</span> S. Table 5a: Log Rank Test Results for Food Insecurity KM Curve</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantile</th>
+<th>N</th>
+<th>Observed</th>
+<th>Expected</th>
+<th>(O-E)^2/E</th>
+<th>(O-E)^2/V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quantile=1</td>
+<td>779</td>
+<td>779</td>
+<td>1451</td>
+<td>311.4</td>
+<td>660.4</td>
+</tr>
+<tr class="even">
+<td>quantile=2</td>
+<td>777</td>
+<td>777</td>
+<td>880</td>
+<td>12.0</td>
+<td>17.3</td>
+</tr>
+<tr class="odd">
+<td>quantile=3</td>
+<td>781</td>
+<td>781</td>
+<td>548</td>
+<td>99.4</td>
+<td>127.5</td>
+</tr>
+<tr class="even">
+<td>quantile=4</td>
+<td>786</td>
+<td>786</td>
+<td>245</td>
+<td>1199.1</td>
+<td>1414.8</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="s.-table-5b-log-rank-test-results-for-pcp-ratio-km-curve" class="level3" data-number="8.1.6">
+<h3 data-number="8.1.6" class="anchored" data-anchor-id="s.-table-5b-log-rank-test-results-for-pcp-ratio-km-curve"><span class="header-section-number">8.1.6</span> S. Table 5b: Log Rank Test Results for PCP Ratio KM Curve</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantile</th>
+<th>N</th>
+<th>Observed</th>
+<th>Expected</th>
+<th>(O-E)^2/E</th>
+<th>(O-E)^2/V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quantile=1</td>
+<td>733</td>
+<td>733</td>
+<td>1122</td>
+<td>135.0780</td>
+<td>236.6866</td>
+</tr>
+<tr class="even">
+<td>quantile=2</td>
+<td>740</td>
+<td>740</td>
+<td>746</td>
+<td>0.0479</td>
+<td>0.0663</td>
+</tr>
+<tr class="odd">
+<td>quantile=3</td>
+<td>743</td>
+<td>743</td>
+<td>574</td>
+<td>49.7260</td>
+<td>64.2851</td>
+</tr>
+<tr class="even">
+<td>quantile=4</td>
+<td>743</td>
+<td>743</td>
+<td>517</td>
+<td>99.2125</td>
+<td>125.0144</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="s.-table-5c-log-rank-test-results-segregation-index-km-curve" class="level3" data-number="8.1.7">
+<h3 data-number="8.1.7" class="anchored" data-anchor-id="s.-table-5c-log-rank-test-results-segregation-index-km-curve"><span class="header-section-number">8.1.7</span> S. Table 5C: Log Rank Test Results Segregation Index KM Curve</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantile</th>
+<th>N</th>
+<th>Observed</th>
+<th>Expected</th>
+<th>(O-E)^2/E</th>
+<th>(O-E)^2/V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quantile=1</td>
+<td>726</td>
+<td>726</td>
+<td>725</td>
+<td>3.95e-04</td>
+<td>5.46e-04</td>
+</tr>
+<tr class="even">
+<td>quantile=2</td>
+<td>725</td>
+<td>725</td>
+<td>782</td>
+<td>4.21e+00</td>
+<td>5.95e+00</td>
+</tr>
+<tr class="odd">
+<td>quantile=3</td>
+<td>725</td>
+<td>725</td>
+<td>792</td>
+<td>5.66e+00</td>
+<td>8.05e+00</td>
+</tr>
+<tr class="even">
+<td>quantile=4</td>
+<td>725</td>
+<td>725</td>
+<td>601</td>
+<td>2.55e+01</td>
+<td>3.33e+01</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="s.-table-5d-log-rank-test-results-broadband-access-km-curve" class="level3" data-number="8.1.8">
+<h3 data-number="8.1.8" class="anchored" data-anchor-id="s.-table-5d-log-rank-test-results-broadband-access-km-curve"><span class="header-section-number">8.1.8</span> S. Table 5D: Log Rank Test Results Broadband Access KM Curve</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantile</th>
+<th>N</th>
+<th>Observed</th>
+<th>Expected</th>
+<th>(O-E)^2/E</th>
+<th>(O-E)^2/V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quantile=1</td>
+<td>775</td>
+<td>775</td>
+<td>373</td>
+<td>433.06</td>
+<td>517.44</td>
+</tr>
+<tr class="even">
+<td>quantile=2</td>
+<td>781</td>
+<td>781</td>
+<td>573</td>
+<td>75.18</td>
+<td>96.20</td>
+</tr>
+<tr class="odd">
+<td>quantile=3</td>
+<td>787</td>
+<td>787</td>
+<td>819</td>
+<td>1.28</td>
+<td>1.79</td>
+</tr>
+<tr class="even">
+<td>quantile=4</td>
+<td>780</td>
+<td>780</td>
+<td>1357</td>
+<td>245.50</td>
+<td>476.83</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="s.-table-5e-log-rank-test-results-household-income-hispanic-km-curve" class="level3" data-number="8.1.9">
+<h3 data-number="8.1.9" class="anchored" data-anchor-id="s.-table-5e-log-rank-test-results-household-income-hispanic-km-curve"><span class="header-section-number">8.1.9</span> S. Table 5E: Log Rank Test Results Household Income (Hispanic) KM Curve</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantile</th>
+<th>N</th>
+<th>Observed</th>
+<th>Expected</th>
+<th>(O-E)^2/E</th>
+<th>(O-E)^2/V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quantile=1</td>
+<td>589</td>
+<td>589</td>
+<td>402</td>
+<td>87.38</td>
+<td>109.78</td>
+</tr>
+<tr class="even">
+<td>quantile=2</td>
+<td>595</td>
+<td>595</td>
+<td>490</td>
+<td>22.39</td>
+<td>29.25</td>
+</tr>
+<tr class="odd">
+<td>quantile=3</td>
+<td>596</td>
+<td>596</td>
+<td>641</td>
+<td>3.16</td>
+<td>4.49</td>
+</tr>
+<tr class="even">
+<td>quantile=4</td>
+<td>588</td>
+<td>588</td>
+<td>835</td>
+<td>73.12</td>
+<td>121.34</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="s.-table-5f-log-rank-test-results-median-household-income-km-curve" class="level3" data-number="8.1.10">
+<h3 data-number="8.1.10" class="anchored" data-anchor-id="s.-table-5f-log-rank-test-results-median-household-income-km-curve"><span class="header-section-number">8.1.10</span> S. Table 5F: Log Rank Test Results Median Household Income KM Curve</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantile</th>
+<th>N</th>
+<th>Observed</th>
+<th>Expected</th>
+<th>(O-E)^2/E</th>
+<th>(O-E)^2/V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quantile=1</td>
+<td>779</td>
+<td>779</td>
+<td>262</td>
+<td>1024.10</td>
+<td>1199.8</td>
+</tr>
+<tr class="even">
+<td>quantile=2</td>
+<td>778</td>
+<td>778</td>
+<td>539</td>
+<td>105.80</td>
+<td>135.5</td>
+</tr>
+<tr class="odd">
+<td>quantile=3</td>
+<td>781</td>
+<td>781</td>
+<td>874</td>
+<td>9.94</td>
+<td>14.3</td>
+</tr>
+<tr class="even">
+<td>quantile=4</td>
+<td>784</td>
+<td>784</td>
+<td>1447</td>
+<td>303.86</td>
+<td>643.3</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="s.-table-5g-log-rank-test-results-percent-vaccination-km-curve" class="level3" data-number="8.1.11">
+<h3 data-number="8.1.11" class="anchored" data-anchor-id="s.-table-5g-log-rank-test-results-percent-vaccination-km-curve"><span class="header-section-number">8.1.11</span> S. Table 5G: Log Rank Test Results Percent Vaccination KM Curve</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantile</th>
+<th>N</th>
+<th>Observed</th>
+<th>Expected</th>
+<th>(O-E)^2/E</th>
+<th>(O-E)^2/V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quantile=1</td>
+<td>755</td>
+<td>755</td>
+<td>579</td>
+<td>53.32</td>
+<td>67.73</td>
+</tr>
+<tr class="even">
+<td>quantile=2</td>
+<td>779</td>
+<td>779</td>
+<td>654</td>
+<td>23.71</td>
+<td>31.10</td>
+</tr>
+<tr class="odd">
+<td>quantile=3</td>
+<td>790</td>
+<td>790</td>
+<td>752</td>
+<td>1.88</td>
+<td>2.56</td>
+</tr>
+<tr class="even">
+<td>quantile=4</td>
+<td>786</td>
+<td>786</td>
+<td>1124</td>
+<td>101.58</td>
+<td>166.97</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="s.-table-5h-log-rank-test-results-severe-housing-issues-km-curve" class="level3" data-number="8.1.12">
+<h3 data-number="8.1.12" class="anchored" data-anchor-id="s.-table-5h-log-rank-test-results-severe-housing-issues-km-curve"><span class="header-section-number">8.1.12</span> S. Table 5H: Log Rank Test Results Severe Housing Issues KM Curve</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantile</th>
+<th>N</th>
+<th>Observed</th>
+<th>Expected</th>
+<th>(O-E)^2/E</th>
+<th>(O-E)^2/V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quantile=1</td>
+<td>759</td>
+<td>759</td>
+<td>889</td>
+<td>18.9</td>
+<td>27.3</td>
+</tr>
+<tr class="even">
+<td>quantile=2</td>
+<td>784</td>
+<td>784</td>
+<td>671</td>
+<td>19.0</td>
+<td>25.1</td>
+</tr>
+<tr class="odd">
+<td>quantile=3</td>
+<td>791</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="supplemental-figures" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
+<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
 <figcaption>Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.</figcaption>
 </figure>
 </div>
@@ -2430,7 +2814,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/project-writeup-frances-haleigh\/");
+      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/us_health_quality\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -2759,7 +3143,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
