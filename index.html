@@ -185,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-goal2" id="toc-sec-goal2" class="nav-link" data-scroll-target="#sec-goal2"><span class="header-section-number">5.2</span> Analyzing Impact of Access to Care on Health Metrics</a>
   <ul class="collapse">
   <li><a href="#life-expectancy" id="toc-life-expectancy" class="nav-link" data-scroll-target="#life-expectancy"><span class="header-section-number">5.2.1</span> Life Expectancy</a></li>
-  <li><a href="#infant-mortality" id="toc-infant-mortality" class="nav-link" data-scroll-target="#infant-mortality"><span class="header-section-number">5.2.2</span> Infant Mortality</a></li>
+  <li><a href="#infant-mortality---left-off-here" id="toc-infant-mortality---left-off-here" class="nav-link" data-scroll-target="#infant-mortality---left-off-here"><span class="header-section-number">5.2.2</span> Infant Mortality - left off here</a></li>
   <li><a href="#age-adjusted-death-rate" id="toc-age-adjusted-death-rate" class="nav-link" data-scroll-target="#age-adjusted-death-rate"><span class="header-section-number">5.2.3</span> Age Adjusted Death Rate</a></li>
   </ul></li>
   </ul></li>
@@ -1545,7 +1545,7 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 </div>
 </figure>
 </div>
-<p>Additional Kaplan-Meier Curves for life expectancy were made for the following variables: <code>PCP Ratio</code>, <code>Segregation Index</code>, and <code>Percentage of Broadband Internet Access</code>. Log rank tests were performed for each, and all of the results were significant (not shown here). <a href="./images/KM_PCPratio.png" title="Figure 9">Figure 9</a> shows each of the KM curves.</p>
+<p>Additional Kaplan-Meier Curves for life expectancy were made for the following variables: <code>PCP Ratio</code>, <code>Segregation Index</code>, and <code>Percentage of Broadband Internet Access</code>. Log rank tests were performed for each, and all of the overall results were significant (not shown here). There were significant differences between each quartile in the <code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code> plots, but the fourth quartile from the <code>Segregation Index</code> was the only one that was significantly different from the rest. <a href="./images/KM_PCPratio.png" title="Figure 9">Figure 9</a> shows each of the KM curves.</p>
 <div>
 
 </div>
@@ -1562,8 +1562,8 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/KM_Segregation.png" class="lightbox" data-gallery="km_gallery" title="Figure 9b: Living in a more segregated community (ratio of Blacks versus Whites) reduces life expectancy."><img src="./images/KM_Segregation.png" class="img-fluid figure-img" alt="Figure 9b: Living in a more segregated community (ratio of Blacks versus Whites) reduces life expectancy."></a></p>
-<figcaption>Figure 9b: Living in a more segregated community (ratio of Blacks versus Whites) reduces life expectancy.</figcaption>
+<p><a href="./images/KM_Segregation.png" class="lightbox" data-gallery="km_gallery" title="Figure 9b: Living in the most segregated communities (ratio of Blacks versus Whites) reduces life expectancy."><img src="./images/KM_Segregation.png" class="img-fluid figure-img" alt="Figure 9b: Living in the most segregated communities (ratio of Blacks versus Whites) reduces life expectancy."></a></p>
+<figcaption>Figure 9b: Living in the most segregated communities (ratio of Blacks versus Whites) reduces life expectancy.</figcaption>
 </figure>
 </div>
 </div>
@@ -1578,21 +1578,21 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<p>Significant differences exist between each feature’s quartiles. This suggests that lower access to care (<code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code>) and more segregated areas (<code>Segregation Index</code>) have lower life expectancies.</p>
+<p>This suggests that lower access to care (<code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code>) and the most segregated areas (fourth quartile of <code>Segregation Index</code>) have lower life expectancies.</p>
 </div>
 </div>
 </div>
-<p>We then used machine learning algorithms to predict life expectancy of individuals based on these significant covariates along with the top ten features found through KBest (see <a href="./Figures/kbest_life_exp.png" title="Figure 9">Figure 9</a>). It is important to note that a lot of features were found in both the linear regression model explained above and in the KBest result.</p>
+<p>We then used machine learning algorithms to predict life expectancy of individuals based on these significant covariates along with the top ten features found through KBest (see <a href="./Figures/kbest_life_exp.png" title="Figure 10">Figure 10</a>). It is important to note that a lot of features were found in both the linear regression model explained above and in the KBest result.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure 9: caption"><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img" alt="Figure 9: caption"></a></p>
-<figcaption>Figure 9: caption</figcaption>
+<p><a href="./Figures/kbest_life_exp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure 10: Top 10 features in the life expectancy dataset. Note that a lot of features were found in both the linear regression model explained above and in this result. Income, food insecurity, and internet access seem to be most associated with differences in life expectancy."><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img" alt="Figure 10: Top 10 features in the life expectancy dataset. Note that a lot of features were found in both the linear regression model explained above and in this result. Income, food insecurity, and internet access seem to be most associated with differences in life expectancy."></a></p>
+<figcaption>Figure 10: Top 10 features in the life expectancy dataset. Note that a lot of features were found in both the linear regression model explained above and in this result. Income, food insecurity, and internet access seem to be most associated with differences in life expectancy.</figcaption>
 </figure>
 </div>
-<p>Our model predicted life expectancy based only on the fifteen significant access-to-care-related variables with 56% accuracy. While this may at first appear unimpressive, it’s important to note that 56% of life expectancy can be predicted or explained by only fifteen items- all of which relate to one’s access to healthcare. Only the remaining 44% can be explained by all other factors in a person’s life.</p>
+<p>Our model predicted life expectancy based only on the fifteen significant access-to-care-related variables with 56% accuracy. While this may at first appear unimpressive, it’s important to realize that 56% of life expectancy can be predicted or explained by only fifteen items- all of which relate to one’s access to care. Only the remaining 44% can be explained by all other factors in a person’s life.</p>
 </section>
-<section id="infant-mortality" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="infant-mortality"><span class="header-section-number">5.2.2</span> Infant Mortality</h3>
+<section id="infant-mortality---left-off-here" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="infant-mortality---left-off-here"><span class="header-section-number">5.2.2</span> Infant Mortality - left off here</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./images/median_infant_mortality_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img" alt="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."></a></p>
@@ -2591,7 +2591,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
