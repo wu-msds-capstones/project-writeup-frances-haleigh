@@ -38,22 +38,14 @@
 
 ## Supplemental Figures{#supplemental-figures}
 
-![Figure S.1A: Mean household income, food insecurity, and income all contribute the most to life expectancy.](./Figures/kbest_life_exp.png)
+![Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.](./Figures/life_expectancy_bins.png)
 
-![Figure S.1B: Different metrics of wealth or poverty impact infant mortality rate.](./Figures/kbest_inf_mor.png)
+![Figure S.2A: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another.](./Figures/conf_matrix_life_exp.png){group="conf_matrix_gallery"}
 
-![Figure S.1C: Which state you live in, food insecurity, and income-related factors contribute the most to age-adjusted mortality rate.](./Figures/kbest_mortality.png)
+![S.Figure S.2B: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another.](./Figures/conf_matrix_mortality.png){group="conf_matrix_gallery"}
 
-![Figure S.1D: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.](./Figures/life_expectancy_bins.png)
+![Figure S.3A: It takes about 25 components to explain 90% of the variance seen in our life expectancy model](./Figures/variance_life_exp.png){group="variance_gallery"}
 
-![Figure S.1E: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another.](./Figures/conf_matrix_life_exp.png)
+![Figure S.3B: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model.](./Figures/variance_inf_mor.png){group="variance_gallery"}
 
-![S.Figure S.1F: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another.](./Figures/conf_matrix_mortality.png)
-
-![Figure S.1G: It takes about 25 components to explain 90% of the variance seen in our life expectancy model](./Figures/variance_life_exp.png)
-
-![Figure S.1H: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model.](./Figures/variance_inf_mor.png)
-
-![Figure S.1I: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model.](./Figures/variance_mortality.png)
-
-![Figure S.1J: Our engineered overall health variable (made from just five features) represents about 31% of the variance seen in our entire dataset.](./Figures/total_eigenvalue.png)
+![Figure S.3C: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model.](./Figures/variance_mortality.png){group="variance_gallery"}

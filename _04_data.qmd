@@ -63,7 +63,7 @@ Second, we joined the two CSVs for each year to have one CSV per year and added 
 
 Finally, we reformatted the CSVs to match that of the KFF data, where our original columns became the `question` column and the values filled in a new `values` column. Again, we used text parsing such as `grepl` and `gsub` to fill in our newly created `demographic`, `measure`, `group`, `secondary_demographic`, and `secondary_group`, columns. 
 
-:::{.callout-tip collapse="true"}
+:::{.callout-note collapse="true"}
 # How did we do this?
 For example, if our question was `mean_%_Children_in_Poverty_(white)`, our `demographic`, `group`, `secondary_demographic`, and `secondary_group` columns became "Race/Ethnicity", "White", "Age", and "0-17", respectively. See the code below for a full example.
 ```

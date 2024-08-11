@@ -57,3 +57,7 @@ Turning once again to our privately insured individuals, a similar model accurat
 
 ## Goal 2: Detecting differences in access to care by insurance type
 FILL IN
+
+
+# Conclusions
+Furthermore, our findings related to Diabetes (DM) and Cardiovascular Disease (CVD) reveal significant insights into the impact of Medicaid on chronic conditions. Our linear regression models demonstrated that Medicaid-related factors could predict diabetes prevalence with 38% accuracy and cardiovascular disease prevalence with 46% accuracy. These findings highlight the substantial role Medicaid plays in managing these chronic conditions and underscore the importance of access to healthcare for lower-income populations.
