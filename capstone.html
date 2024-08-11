@@ -1451,7 +1451,7 @@ Further description on the models and tools used:
 </section>
 <section id="sec-goal2" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="sec-goal2"><span class="header-section-number">5.2</span> Analyzing Impact of Access to Care on Health Metrics</h2>
-<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.<a href="#ref8">⁸</a> In the following sections, we modeled each of these by a list of variables representing access to care (see <a href="#sec-s_table_2" class="quarto-xref">Section&nbsp;8.1.2</a>) and ensured there was not multicollinearity between the remaining variables <strong>(ADD REFERENCE TO FIGURES HERE)</strong>. Our goal was to determine how access to care impacted each of these three health metrics.</p>
+<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.<a href="#ref8">⁸</a> In the following sections, we modeled each of these by a list of variables representing access to care (see <a href="#sec-s_table_2" class="quarto-xref">Section&nbsp;8.1.2</a>) and ensured there was not multicollinearity between the remaining variables and that model assumptions were met <strong>(ADD REFERENCE TO FIGURES HERE)</strong>. Our goal was to determine how access to care impacted each of these three health metrics.</p>
 <section id="life-expectancy" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="life-expectancy"><span class="header-section-number">5.2.1</span> Life Expectancy</h3>
 <p>Before doing any regression analysis, we were curious about the relationship between median life expectancy and state. <a href="./images/life_expectancy_by_state.png" title="Figure 6">Figure 6</a> demonstrates this relationship and reveals a clear linear association.</p>
@@ -2020,6 +2020,68 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 </div>
 </div>
 </div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./Images/LE_pairs.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.4A: Life Expectancy Model Pairwise Plot."><img src="./Images/LE_pairs.png" class="img-fluid figure-img" alt="Figure S.4A: Life Expectancy Model Pairwise Plot."></a></p>
+<figcaption>Figure S.4A: Life Expectancy Model Pairwise Plot.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./Images/IM_pairs.png.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.4B: Infant Mortality Model Pairwise Plot."><img src="./Images/IM_pairs.png.png" class="img-fluid figure-img" alt="Figure S.4B: Infant Mortality Model Pairwise Plot."></a></p>
+<figcaption>Figure S.4B: Infant Mortality Model Pairwise Plot.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./Images/M_pairs.png.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.4C: Mortality Model Pairwise Plot."><img src="./Images/M_pairs.png.png" class="img-fluid figure-img" alt="Figure S.4C: Mortality Model Pairwise Plot."></a></p>
+<figcaption>Figure S.4C: Mortality Model Pairwise Plot.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./Images/LE_assumptions.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.5A: Life Expectancy Model Assumptions Plot."><img src="./Images/LE_assumptions.png" class="img-fluid figure-img" alt="Figure S.5A: Life Expectancy Model Assumptions Plot."></a></p>
+<figcaption>Figure S.5A: Life Expectancy Model Assumptions Plot.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./Images/IM_assumptions.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.5B: Infant Mortality Model Assumptions Plot."><img src="./Images/IM_assumptions.png" class="img-fluid figure-img" alt="Figure S.5B: Infant Mortality Model Assumptions Plot."></a></p>
+<figcaption>Figure S.5B: Infant Mortality Model Assumptions Plot.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./Images/M_assumptions.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.5C: Mortality Model Assumptions Plot."><img src="./Images/M_assumptions.png" class="img-fluid figure-img" alt="Figure S.5C: Mortality Model Assumptions Plot."></a></p>
+<figcaption>Figure S.5C: Mortality Model Assumptions Plot.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -2262,7 +2324,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/us_health_quality\/");
+      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/project-writeup-frances-haleigh\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -2591,7 +2653,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":false,"selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
