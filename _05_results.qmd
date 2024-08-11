@@ -85,14 +85,16 @@ lm(formula = `INFANT_MORTALITY_RATE` ~ `state_name` + `AVERAGE_DAILY_PM2.5` +
 On the machine learning side, we repeated the same process for infant mortality rate as for life expectancy, but got a low accuracy score of 36% due to the high number of NAs in our Infant Mortality Rate column. Future analyses would do well to increase record-keeping of infant mortality rates by county as the metric “indicates the current health status of a population and reflects the overall state of maternal health, as well as the quality and accessibility of primary health care available to pregnant women and infants.”[⁸](#ref8) 
 
 ### Age Adjusted Death Rate
-<a href="./images/median_mortality_rate_by_state.png" title="Figure 4A">Figure 4A</a> shows median age-adjusted death rate by state, with hawaii having the lowest rate and Mississippi having the highest. Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model.
+<a href="./images/median_mortality_rate_by_state.png" title="Figure 11">Figure 11</a> shows median age-adjusted death rate by state, with Hawaii having the lowest rate and Mississippi having the highest. Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model.
 
-![Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A).](./images/median_mortality_rate_by_state.png)
+![Figure 11: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 10).](./images/median_mortality_rate_by_state.png)
 
-Preventative healthcare measures that were significantly correlated with mortality rate are shown in Figure 4C. As food insecurity, segregation, and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.
+In our statistical model of preventative healthcare measures and mortality (see Equation[@imp-mor] and @sec-s_table_5), we found that as food insecurity, segregation, and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.
 
-Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well. (See <a href="./images/M_pairs.png" title="Figures S.4C">Figures S.4C</a> and <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a> for our pairwise and assumption plots, which show that the variables we kept in our model were not correlated with each other.)
-Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model and Coefficients:
+Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian (not significant) and Hispanic Americans (significant). Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well. (See <a href="./images/M_pairs.png" title="Figures S.4C">Figures S.4C</a> and <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a> for our pairwise and assumption plots, which show that the variables we kept in our model were not correlated with each other.)
+
+::: {#imp-mor .callout-warning icon=false collapse="false"}
+# Equation 3: Mortality Rate Linear Model
 ```markdown
 lm(formula = `AGE-ADJUSTED_DEATH_RATE` ~ `state_name` + `%_VACCINATED` + 
     `%_SEVERE_HOUSING_PROBLEMS` + `%_FOOD_INSECURE` + `SCHOOL_SEGREGATION_IDX` + 
@@ -100,20 +102,9 @@ lm(formula = `AGE-ADJUSTED_DEATH_RATE` ~ `state_name` + `%_VACCINATED` +
     `#_RURAL_RESIDENTS` + `HOUSEHOLD_INCOME_(WHITE)_LN` + `%_VACCINATED_(ASIAN)` + 
     `HOUSEHOLD_INCOME_(ASIAN)_LN`, data = ds_mortality_adjusted)
 ```
-| Predictor                          | Estimate  | Std. Error | t value | Pr(>\|t\|)    |
-|------------------------------------|-----------|------------|---------|-------------|
-| (Intercept)                        | 9.933e+02 | 1.443e+02  | 6.884   | 1.06e-11 ***|
-| `%_VACCINATED`                     | -2.097e+00| 3.655e-01  | -5.737  | 1.29e-08 ***|
-| `%_SEVERE_HOUSING_PROBLEMS`        | -3.190e+00| 5.191e-01  | -6.145  | 1.18e-09 ***|
-| `%_FOOD_INSECURE`                  | 1.503e+01 | 9.902e-01  | 15.181  | < 2e-16 *** |
-| `SCHOOL_SEGREGATION_IDX`           | 2.925e+01 | 3.784e+01  | 0.773   | 0.43979     |
-| `HOUSEHOLD_INCOME_(HISPANIC)_LN`   | 1.999e+01 | 9.581e+00  | 2.086   | 0.03725 *   |
-| `SEGREGATION_INDEX`                | 1.275e+00 | 2.641e-01  | 4.827   | 1.61e-06 ***|
-| `%_BROADBAND_ACCESS`               | -5.696e+00| 5.048e-01  | -11.284 | < 2e-16 *** |
-| `#_RURAL_RESIDENTS`                | -1.468e-05| 5.814e-06  | -2.524  | 0.01175 *   |
-| `HOUSEHOLD_INCOME_(WHITE)_LN`      | -5.001e+01| 1.544e+01  | -3.239  | 0.00124 **  |
-| `%_VACCINATED_(ASIAN)`             | 2.830e-01 | 2.432e-01  | 1.163   | 0.24498     |
-| `HOUSEHOLD_INCOME_(ASIAN)_LN`      | 1.067e+01 | 6.013e+00  | 1.774   | 0.07641 .   |
+:::
+
+### Combined Map 
 
 Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.  
 
