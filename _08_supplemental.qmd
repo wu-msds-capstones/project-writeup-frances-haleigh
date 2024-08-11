@@ -77,9 +77,9 @@
 :::
 
 ::: {layout-ncol=3}
-![Figure S.4A: Life Expectancy Model Assumptions Plot.](./Images/LE_assumptions.png){group="variance_gallery"}
+![Figure S.5A: Life Expectancy Model Assumptions Plot.](./Images/LE_assumptions.png){group="variance_gallery"}
 
-![Figure S.4B: Infant Mortality Model Assumptions Plot.](./Images/IM_assumptions.png){group="variance_gallery"}
+![Figure S.5B: Infant Mortality Model Assumptions Plot.](./Images/IM_assumptions.png){group="variance_gallery"}
 
-![Figure S.4C: Mortality Model Assumptions Plot.](./Images/M_assumptions.png){group="variance_gallery"}
+![Figure S.5C: Mortality Model Assumptions Plot.](./Images/M_assumptions.png){group="variance_gallery"}
 :::
