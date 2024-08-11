@@ -187,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#life-expectancy" id="toc-life-expectancy" class="nav-link" data-scroll-target="#life-expectancy"><span class="header-section-number">5.2.1</span> Life Expectancy</a></li>
   <li><a href="#infant-mortality" id="toc-infant-mortality" class="nav-link" data-scroll-target="#infant-mortality"><span class="header-section-number">5.2.2</span> Infant Mortality</a></li>
   <li><a href="#age-adjusted-death-rate" id="toc-age-adjusted-death-rate" class="nav-link" data-scroll-target="#age-adjusted-death-rate"><span class="header-section-number">5.2.3</span> Age Adjusted Death Rate</a></li>
-  <li><a href="#combined-map" id="toc-combined-map" class="nav-link" data-scroll-target="#combined-map"><span class="header-section-number">5.2.4</span> Combined Map</a></li>
+  <li><a href="#state-congruence-for-all-health-measures" id="toc-state-congruence-for-all-health-measures" class="nav-link" data-scroll-target="#state-congruence-for-all-health-measures"><span class="header-section-number">5.2.4</span> State Congruence for All Health Measures</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">6</span> Conclusions</a></li>
@@ -1692,7 +1692,7 @@ Important&nbsp;2: Equation 2: Infant Mortality Rate Linear Model
 <figcaption>Figure 11: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 10).</figcaption>
 </figure>
 </div>
-<p>In our statistical model of preventative healthcare measures and mortality (see Equation<a href="#imp-mor" class="quarto-xref">Important&nbsp;3</a> and <a href="#sec-s_table_5" class="quarto-xref">Section&nbsp;8.1.5</a>), we found that as food insecurity, segregation, and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.</p>
+<p>In our statistical model of preventative healthcare measures and mortality (see [Equation@imp-mor] and <a href="#sec-s_table_5" class="quarto-xref">Section&nbsp;8.1.5</a>), we found that as food insecurity, segregation, and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.</p>
 <p>Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian (not significant) and Hispanic Americans (significant). Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well. (See <a href="./images/M_pairs.png" title="Figures S.4C">Figures S.4C</a> and <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a> for our pairwise and assumption plots, which show that the variables we kept in our model were not correlated with each other.)</p>
 <div id="imp-mor" class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
@@ -1715,12 +1715,19 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </div>
 </div>
 </section>
-<section id="combined-map" class="level3" data-number="5.2.4">
-<h3 data-number="5.2.4" class="anchored" data-anchor-id="combined-map"><span class="header-section-number">5.2.4</span> Combined Map</h3>
+<section id="state-congruence-for-all-health-measures" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="state-congruence-for-all-health-measures"><span class="header-section-number">5.2.4</span> State Congruence for All Health Measures</h3>
+<p>When creating our individual linear mixed models, we ofund that some states had significant impacts on the health measures (life expectancy, infant mortality, mortaltiy). We were curious if states were showing congruent signficance. For example, if Oregon had significantly higher life expectancy, did it also have significantly lower infant mortality and mortality? To explore this we created <a href="./images/congruence_map.png" title="Figure 12">Figure 12</a>, which shows positive outcomes and green and negative outcomes in red, with color intensity indicating congruence. ‘Congruence’ means that the state was significant for all 3 variables.’More’ means that the state was negatively/positively significant for 2/3 variables, ‘Slight’ means the state was negatively/positively significant for 1/3, and ‘Neutral’ means the state was nit significant for any variables. Life expectancy was adjusted since it is considered positive while infant mortality and mortality are considered negative.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./images/congruence_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 12: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes."><img src="./images/congruence_map.png" class="img-fluid figure-img" alt="Figure 12: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes."></a></p>
+<figcaption>Figure 12: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes.</figcaption>
+</figure>
+</div>
 <p>Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 17: caption"><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure 17: caption"></a></p>
+<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 17: caption"><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure 17: caption"></a></p>
 <figcaption>Figure 17: caption</figcaption>
 </figure>
 </div>
@@ -2426,7 +2433,7 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 <h2 data-number="8.2" class="anchored" data-anchor-id="supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
+<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
 <figcaption>Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.</figcaption>
 </figure>
 </div>
@@ -3166,7 +3173,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
