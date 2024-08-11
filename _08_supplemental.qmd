@@ -71,7 +71,7 @@
 ::: {layout-ncol=3}
 ![Figure S.4A: Life Expectancy Model Pairwise Plot.](./images/LE_pairs.png){group="variance_gallery"}
 
-![Figure S.4B: Infant Mortality Model Pairwise Plot.](./images/IM_pairspng){group="variance_gallery"}
+![Figure S.4B: Infant Mortality Model Pairwise Plot.](./images/IM_pairs.png){group="variance_gallery"}
 
 ![Figure S.4C: Mortality Model Pairwise Plot.](./images/M_pairs.png){group="variance_gallery"}
 :::
