@@ -185,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-goal2" id="toc-sec-goal2" class="nav-link" data-scroll-target="#sec-goal2"><span class="header-section-number">5.2</span> Analyzing Impact of Access to Care on Health Metrics</a>
   <ul class="collapse">
   <li><a href="#life-expectancy" id="toc-life-expectancy" class="nav-link" data-scroll-target="#life-expectancy"><span class="header-section-number">5.2.1</span> Life Expectancy</a></li>
-  <li><a href="#infant-mortality---left-off-here" id="toc-infant-mortality---left-off-here" class="nav-link" data-scroll-target="#infant-mortality---left-off-here"><span class="header-section-number">5.2.2</span> Infant Mortality - left off here</a></li>
+  <li><a href="#infant-mortality" id="toc-infant-mortality" class="nav-link" data-scroll-target="#infant-mortality"><span class="header-section-number">5.2.2</span> Infant Mortality</a></li>
   <li><a href="#age-adjusted-death-rate" id="toc-age-adjusted-death-rate" class="nav-link" data-scroll-target="#age-adjusted-death-rate"><span class="header-section-number">5.2.3</span> Age Adjusted Death Rate</a></li>
   </ul></li>
   </ul></li>
@@ -198,6 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-s_table_1" id="toc-sec-s_table_1" class="nav-link" data-scroll-target="#sec-s_table_1"><span class="header-section-number">8.1.1</span> S.Table 1: CSV containing all variables used to assess weight contribution to new variable</a></li>
   <li><a href="#sec-s_table_2" id="toc-sec-s_table_2" class="nav-link" data-scroll-target="#sec-s_table_2"><span class="header-section-number">8.1.2</span> S.Table 2: CSV containing all variables used to assess access to care</a></li>
   <li><a href="#sec-s_table_3" id="toc-sec-s_table_3" class="nav-link" data-scroll-target="#sec-s_table_3"><span class="header-section-number">8.1.3</span> S. Table 3: Coefficient Table of Life Expectancy Linear Model</a></li>
+  <li><a href="#sec-s_table_4" id="toc-sec-s_table_4" class="nav-link" data-scroll-target="#sec-s_table_4"><span class="header-section-number">8.1.4</span> S. Table 4: Coefficient Table of Infant Mortality Rate Linear Model</a></li>
   </ul></li>
   <li><a href="#supplemental-figures" id="toc-supplemental-figures" class="nav-link" data-scroll-target="#supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</a></li>
   </ul></li>
@@ -263,9 +264,10 @@ But how can an uninsured individual even access primary care to avoid hospital f
 <p>We also created fields called <code>year</code> and <code>measure</code>, and parsed out the years and measurements from the question field. Some questions had multiple demographics, so we created a <code>secondary_demographic</code> field and a <code>secondary_group</code> field. These are not ranked.</p>
 <p>Finally, we added a <code>county</code> column (which we filled with all NA) and edited the <code>state</code> and <code>question</code> fields to replicate the way that data from our CHFF dataset was formatted. This allowed us to merge the two datasets.</p>
 <p>See below for examples of what our data looked like before and after cleaning.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
+<p><strong>MAY HAVE TO CHANGE TO DROPDOWN SINCE CAN’T SCROLL IN TABSET</strong></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset scrolling">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">“Messy” data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Cleaned data</a></li></ul>
-<div class="tab-content">
+<div class="tab-content scrolling">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <table class="caption-top table">
 <colgroup>
@@ -716,6 +718,7 @@ How did we do this?
 </div>
 <p>Since the questions and potential answers collected by CHRR data varied each year, we made sure that our cleaning code was modified for each year to accommodate the changes in the data and match identical answers from previous years. As an example, the only races that were listed as options in the 2017 data were “White”, “Black”, “Hispanic”, and “Asian”. However, by the 2022 data collection, the options had expanded to include “American Indian/Alaskan Native”, “Native Hawaiian/Other Pacific Islander”, and “Other/Multiple Races.” In 2022, “Black” was changed to “African American,” so we changed it back to “Black” to both match the earlier CHRR data and the KFF data.</p>
 <p>See below for a sample of our pre- and post-cleaned data.</p>
+<p><strong>MAY HAVE TO CHANGE TO DROPDOWN SINCE CAN’T SCROLL IN TABSET</strong></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">“Messy” data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Cleaned data</a></li></ul>
 <div class="tab-content">
@@ -1293,7 +1296,7 @@ Further description on the statistical tests used:
 <li>Drop NAs while optimizing data frame size via trial and error.</li>
 <li>Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.</li>
 </ol></li>
-<li>Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure 9">Figures 9</a>, <a href="./Figures/kbest_inf_mor.png" title="Figure 13">13</a>, and <a href="./Figures/kbest_mortality.png" title="Figure 17">17</a>). Combine these variables with significant variables from the linear regression models completed in R.</li>
+<li>Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure 10">Figures 10</a>, and <a href="./Figures/kbest_mortality.png" title="Figure 17">17</a>). Combine these variables with significant variables from the linear regression models completed in R.</li>
 <li>Continue preprocessing with the reduced dataset (using only variables from step 3)
 <ol type="i">
 <li>Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable. A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. B. For life expectancy, we dropped outliers first (ages below 60 and above 90, see <a href="./Figures/life_expectancy_bins.png" title="Figure S.1">Supplemental Figure 1</a>).</li>
@@ -1545,7 +1548,7 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 </div>
 </figure>
 </div>
-<p>Additional Kaplan-Meier Curves for life expectancy were made for the following variables: <code>PCP Ratio</code>, <code>Segregation Index</code>, and <code>Percentage of Broadband Internet Access</code>. Log rank tests were performed for each, and all of the overall results were significant (not shown here). There were significant differences between each quartile in the <code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code> plots, but the fourth quartile from the <code>Segregation Index</code> was the only one that was significantly different from the rest. <a href="./images/KM_PCPratio.png" title="Figure 9">Figure 9</a> shows each of the KM curves.</p>
+<p>Additional Kaplan-Meier Curves for life expectancy were made for the following variables: <code>PCP Ratio</code>, <code>Segregation Index</code>, and <code>Percentage of Broadband Internet Access</code>. Log rank tests were performed for each, and all of the overall results were significant (not shown here). There were significant differences between each quartile in the <code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code> plots, but the fourth quartile from the <code>Segregation Index</code> was the only one that was significantly different from the rest. <a href="./images/KM_PCPratio.png" title="Figure 9">Figure 9</a> shows each of the KM curves. These results suggest that lower access to care (<code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code>) and the most segregated areas (fourth quartile of <code>Segregation Index</code>) have lower life expectancies.</p>
 <div>
 
 </div>
@@ -1576,11 +1579,6 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 </div>
 </div>
 </div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<p>This suggests that lower access to care (<code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code>) and the most segregated areas (fourth quartile of <code>Segregation Index</code>) have lower life expectancies.</p>
-</div>
-</div>
 </div>
 <p>We then used machine learning algorithms to predict life expectancy of individuals based on these significant covariates along with the top ten features found through KBest (see <a href="./Figures/kbest_life_exp.png" title="Figure 10">Figure 10</a>). It is important to note that a lot of features were found in both the linear regression model explained above and in the KBest result.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1591,102 +1589,48 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 </div>
 <p>Our model predicted life expectancy based only on the fifteen significant access-to-care-related variables with 56% accuracy. While this may at first appear unimpressive, it’s important to realize that 56% of life expectancy can be predicted or explained by only fifteen items- all of which relate to one’s access to care. Only the remaining 44% can be explained by all other factors in a person’s life.</p>
 </section>
-<section id="infant-mortality---left-off-here" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="infant-mortality---left-off-here"><span class="header-section-number">5.2.2</span> Infant Mortality - left off here</h3>
+<section id="infant-mortality" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="infant-mortality"><span class="header-section-number">5.2.2</span> Infant Mortality</h3>
+<p><a href="./images/median_infant_mortality_by_state.png" title="Figure 11">Figure 11</a> shows the median infant mortality rates between states. Note that the chart appears to “stair-step” as infant mortality rates are represented as integers rather than continuous numbers. Because of the linear trend associated with each state, we included the variable in our linear model to determine which states were significantly correlated with infant mortality.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/median_infant_mortality_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img" alt="Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."></a></p>
-<figcaption>Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births.</figcaption>
+<p><a href="./images/median_infant_mortality_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 11: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img" alt="Figure 11: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."></a></p>
+<figcaption>Figure 11: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births.</figcaption>
 </figure>
 </div>
-<p>Figure 3A shows a difference between median infant mortality rates between states. Note that the chart appears to “stair-step” as infant mortality rates are represented as integers rather than continuous numbers. Because of the linear trend associated with each state, we included the variable in our linear model to determine which states were significantly correlated with infant mortality.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./images/significance_state_infant_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest."><img src="./images/significance_state_infant_mortality.png" class="img-fluid figure-img" alt="Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest."></a></p>
-<figcaption>Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest.</figcaption>
-</figure>
+<p>In our statistical model of preventative healthcare measures and infant mortality (see <a href="#imp-inf" class="quarto-xref">Important&nbsp;2</a> and <a href="#sec-s_table_4" class="quarto-xref">Section&nbsp;8.1.4</a>), we found that Median Household Income and Broadband Internet Access were significantly correlated in the negative direction with infant mortality rates. That is, as income and access to the Internet increased, infant mortality rates decreased. We came across the same issue with segregation here as we did in our life expectancy model. The Segregation Index coefficient shows that as segregation increases, infant mortality rates increase as well.</p>
+<div id="imp-inf" class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<p>Figure 3B shows which states were positively or negatively correlated with infant mortality. Note that this time, negative significance in plotted in green as it indicates a lower infant mortality rate. In this case, Maryland and Mississippi are the only states with significantly higher rates of infant mortality.</p>
-<p>In terms of preventative healthcare measures that were significantly correlated with infant mortality (Figure 3C), we found that Median Household Income and Broadband Internet Access were significantly correlated in the negative direction with infant mortality rates. That is, as income and access to the Internet increased, infant mortality rates decreased. We came across the same issue with segregation here as we did in our life expectancy model. The Segregation Index coefficient shows that as segregation increases, infant mortality rates increase as well.</p>
-<p>Figure 3C: Infant Mortality Linear Model and Coefficients:</p>
+<div class="callout-title-container flex-fill">
+Important&nbsp;2: Equation 2: Infant Mortality Rate Linear Model
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`INFANT_MORTALITY_RATE`</span> ~ <span class="in">`state_name`</span> + <span class="in">`AVERAGE_DAILY_PM2.5`</span> + </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`MEDIAN_HOUSEHOLD_INCOME_LN`</span> + <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span>, </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    data = ds_mortality_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 43%">
-<col style="width: 13%">
-<col style="width: 15%">
-<col style="width: 11%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Predictor</th>
-<th>Estimate</th>
-<th>Std. Error</th>
-<th>t value</th>
-<th>Pr(&gt;|t|)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>(Intercept)</td>
-<td>57.531253</td>
-<td>2.427216</td>
-<td>23.703</td>
-<td>&lt; 2e-16 ***</td>
-</tr>
-<tr class="even">
-<td><code>AVERAGE_DAILY_PM2.5</code></td>
-<td>0.036263</td>
-<td>0.023539</td>
-<td>1.541</td>
-<td>0.124</td>
-</tr>
-<tr class="odd">
-<td><code>MEDIAN_HOUSEHOLD_INCOME_LN</code></td>
-<td>-4.134217</td>
-<td>0.269866</td>
-<td>-15.320</td>
-<td>&lt; 2e-16 ***</td>
-</tr>
-<tr class="even">
-<td><code>SEGREGATION_INDEX</code></td>
-<td>0.032420</td>
-<td>0.004514</td>
-<td>7.182</td>
-<td>1.19e-12 ***</td>
-</tr>
-<tr class="odd">
-<td><code>%_BROADBAND_ACCESS</code></td>
-<td>-0.058167</td>
-<td>0.009648</td>
-<td>-6.029</td>
-<td>2.19e-09 ***</td>
-</tr>
-</tbody>
-</table>
-<p>In our machine learning model, we repeated the same process for infant mortality rate as for life expectancy, but got a low accuracy score of 36% due to the high number of NAs in our Infant Mortality Rate column. Future analyses would do well to increase record-keeping of infant mortality rates by county as the metric “indicates the current health status of a population and reflects the overall state of maternal health, as well as the quality and accessibility of primary health care available to pregnant women and infants.”³</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./Figures/kbest_inf_mor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 13: caption"><img src="./Figures/kbest_inf_mor.png" class="img-fluid figure-img" alt="Figure 13: caption"></a></p>
-<figcaption>Figure 13: caption</figcaption>
-</figure>
 </div>
+</div>
+</div>
+<p>On the machine learning side, we repeated the same process for infant mortality rate as for life expectancy, but got a low accuracy score of 36% due to the high number of NAs in our Infant Mortality Rate column. Future analyses would do well to increase record-keeping of infant mortality rates by county as the metric “indicates the current health status of a population and reflects the overall state of maternal health, as well as the quality and accessibility of primary health care available to pregnant women and infants.”<a href="#ref8">⁸</a></p>
 </section>
 <section id="age-adjusted-death-rate" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="age-adjusted-death-rate"><span class="header-section-number">5.2.3</span> Age Adjusted Death Rate</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/median_mortality_rate_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."><img src="./images/median_mortality_rate_by_state.png" class="img-fluid figure-img" alt="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."></a></p>
+<p><a href="./images/median_mortality_rate_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."><img src="./images/median_mortality_rate_by_state.png" class="img-fluid figure-img" alt="Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A)."></a></p>
 <figcaption>Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A).</figcaption>
 </figure>
 </div>
 <p>Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model. Figure 4B shows which states were significantly correlated with mortality rate. Negative correlation is in green to represent significantly lower death rates. The opposite is true for red-colored states.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/significance_state_death_rate_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies)."><img src="./images/significance_state_death_rate_map.png" class="img-fluid figure-img" alt="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies)."></a></p>
+<p><a href="./images/significance_state_death_rate_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies)."><img src="./images/significance_state_death_rate_map.png" class="img-fluid figure-img" alt="Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies)."></a></p>
 <figcaption>Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies).</figcaption>
 </figure>
 </div>
@@ -1805,7 +1749,7 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 <p>Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure 17: caption"><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure 17: caption"></a></p>
+<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 17: caption"><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure 17: caption"></a></p>
 <figcaption>Figure 17: caption</figcaption>
 </figure>
 </div>
@@ -1957,12 +1901,70 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 </tbody>
 </table>
 </section>
+<section id="sec-s_table_4" class="level3" data-number="8.1.4">
+<h3 data-number="8.1.4" class="anchored" data-anchor-id="sec-s_table_4"><span class="header-section-number">8.1.4</span> S. Table 4: Coefficient Table of Infant Mortality Rate Linear Model</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 13%">
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Predictor</th>
+<th>Estimate</th>
+<th>Std. Error</th>
+<th>t value</th>
+<th>Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td>57.531253</td>
+<td>2.427216</td>
+<td>23.703</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+<tr class="even">
+<td><code>AVERAGE_DAILY_PM2.5</code></td>
+<td>0.036263</td>
+<td>0.023539</td>
+<td>1.541</td>
+<td>0.124</td>
+</tr>
+<tr class="odd">
+<td><code>MEDIAN_HOUSEHOLD_INCOME_LN</code></td>
+<td>-4.134217</td>
+<td>0.269866</td>
+<td>-15.320</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+<tr class="even">
+<td><code>SEGREGATION_INDEX</code></td>
+<td>0.032420</td>
+<td>0.004514</td>
+<td>7.182</td>
+<td>1.19e-12 ***</td>
+</tr>
+<tr class="odd">
+<td><code>%_BROADBAND_ACCESS</code></td>
+<td>-0.058167</td>
+<td>0.009648</td>
+<td>-6.029</td>
+<td>2.19e-09 ***</td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="supplemental-figures" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
+<p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
 <figcaption>Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.</figcaption>
 </figure>
 </div>
@@ -2324,7 +2326,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/project-writeup-frances-haleigh\/");
+      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/us_health_quality\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -2653,7 +2655,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
