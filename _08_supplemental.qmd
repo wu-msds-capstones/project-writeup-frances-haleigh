@@ -59,7 +59,24 @@
 | `SEGREGATION_INDEX`              | 0.032420  | 0.004514   | 7.182   | 1.19e-12 ***|
 | `%_BROADBAND_ACCESS`             | -0.058167 | 0.009648   | -6.029  | 2.19e-09 ***|
 
-### S. Table 5a: Log Rank Test Results for Food Insecurity KM Curve
+### S. Table 5: Coefficient Table of Mortality Rate Linear Model {#sec-s_table_5}
+
+| Predictor                          | Estimate  | Std. Error | t value | Pr(>\|t\|)    |
+|------------------------------------|-----------|------------|---------|-------------|
+| (Intercept)                        | 9.933e+02 | 1.443e+02  | 6.884   | 1.06e-11 ***|
+| `%_VACCINATED`                     | -2.097e+00| 3.655e-01  | -5.737  | 1.29e-08 ***|
+| `%_SEVERE_HOUSING_PROBLEMS`        | -3.190e+00| 5.191e-01  | -6.145  | 1.18e-09 ***|
+| `%_FOOD_INSECURE`                  | 1.503e+01 | 9.902e-01  | 15.181  | < 2e-16 *** |
+| `SCHOOL_SEGREGATION_IDX`           | 2.925e+01 | 3.784e+01  | 0.773   | 0.43979     |
+| `HOUSEHOLD_INCOME_(HISPANIC)_LN`   | 1.999e+01 | 9.581e+00  | 2.086   | 0.03725 *   |
+| `SEGREGATION_INDEX`                | 1.275e+00 | 2.641e-01  | 4.827   | 1.61e-06 ***|
+| `%_BROADBAND_ACCESS`               | -5.696e+00| 5.048e-01  | -11.284 | < 2e-16 *** |
+| `#_RURAL_RESIDENTS`                | -1.468e-05| 5.814e-06  | -2.524  | 0.01175 *   |
+| `HOUSEHOLD_INCOME_(WHITE)_LN`      | -5.001e+01| 1.544e+01  | -3.239  | 0.00124 **  |
+| `%_VACCINATED_(ASIAN)`             | 2.830e-01 | 2.432e-01  | 1.163   | 0.24498     |
+| `HOUSEHOLD_INCOME_(ASIAN)_LN`      | 1.067e+01 | 6.013e+00  | 1.774   | 0.07641 .   |
+
+### S. Table 6a: Log Rank Test Results for Food Insecurity KM Curve
 
 | Quantile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
 |------------|-----|----------|----------|-----------|-----------|
@@ -68,7 +85,7 @@
 | quantile=3 | 781 | 781      | 548      | 99.4      | 127.5     |
 | quantile=4 | 786 | 786      | 245      | 1199.1    | 1414.8    |
 
-### S. Table 5b: Log Rank Test Results for PCP Ratio KM Curve
+### S. Table 6b: Log Rank Test Results for PCP Ratio KM Curve
 | Quantile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
 |------------|-----|----------|----------|-----------|-----------|
 | quantile=1 | 733 | 733      | 1122     | 135.0780  | 236.6866  |
@@ -76,7 +93,7 @@
 | quantile=3 | 743 | 743      | 574      | 49.7260   | 64.2851   |
 | quantile=4 | 743 | 743      | 517      | 99.2125   | 125.0144  |
 
-### S. Table 5C: Log Rank Test Results Segregation Index KM Curve
+### S. Table 6C: Log Rank Test Results Segregation Index KM Curve
 | Quantile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
 |------------|-----|----------|----------|-----------|-----------|
 | quantile=1 | 726 | 726      | 725      | 3.95e-04  | 5.46e-04  |
@@ -84,7 +101,7 @@
 | quantile=3 | 725 | 725      | 792      | 5.66e+00  | 8.05e+00  |
 | quantile=4 | 725 | 725      | 601      | 2.55e+01  | 3.33e+01  |
 
-### S. Table 5D: Log Rank Test Results Broadband Access KM Curve
+### S. Table 6D: Log Rank Test Results Broadband Access KM Curve
 | Quantile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
 |------------|-----|----------|----------|-----------|-----------|
 | quantile=1 | 775 | 775      | 373      | 433.06    | 517.44    |
@@ -92,7 +109,7 @@
 | quantile=3 | 787 | 787      | 819      | 1.28      | 1.79      |
 | quantile=4 | 780 | 780      | 1357     | 245.50    | 476.83    |
 
-### S. Table 5E: Log Rank Test Results Household Income (Hispanic) KM Curve
+### S. Table 6E: Log Rank Test Results Household Income (Hispanic) KM Curve
 | Quantile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
 |------------|-----|----------|----------|-----------|-----------|
 | quantile=1 | 589 | 589      | 402      | 87.38     | 109.78    |
@@ -100,7 +117,7 @@
 | quantile=3 | 596 | 596      | 641      | 3.16      | 4.49      |
 | quantile=4 | 588 | 588      | 835      | 73.12     | 121.34    |
 
-### S. Table 5F: Log Rank Test Results Median Household Income KM Curve
+### S. Table 6F: Log Rank Test Results Median Household Income KM Curve
 | Quantile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
 |------------|-----|----------|----------|-----------|-----------|
 | quantile=1 | 779 | 779      | 262      | 1024.10   | 1199.8    |
@@ -108,7 +125,7 @@
 | quantile=3 | 781 | 781      | 874      | 9.94      | 14.3      |
 | quantile=4 | 784 | 784      | 1447     | 303.86    | 643.3     |
 
-### S. Table 5G: Log Rank Test Results Percent Vaccination KM Curve
+### S. Table 6G: Log Rank Test Results Percent Vaccination KM Curve
 | Quantile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
 |------------|-----|----------|----------|-----------|-----------|
 | quantile=1 | 755 | 755      | 579      | 53.32     | 67.73     |
@@ -116,7 +133,7 @@
 | quantile=3 | 790 | 790      | 752      | 1.88      | 2.56      |
 | quantile=4 | 786 | 786      | 1124     | 101.58    | 166.97    |
 
-### S. Table 5H: Log Rank Test Results Severe Housing Issues KM Curve
+### S. Table 6H: Log Rank Test Results Severe Housing Issues KM Curve
 | Quantile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
 |------------|-----|----------|----------|-----------|-----------|
 | quantile=1 | 759 | 759      | 889      | 18.9      | 27.3      |
