@@ -59,70 +59,70 @@ projected_values = selected_columns.dot(first_eigenvalue_component[:len(columns_
 5. Assess contributions and projection values of variables and states.
     i)  Assess contribution of each health variable by multiplying the corresponding element from the first eigenvalue by each of the selected columns and then summing each columns' products. `YEARS_OF_POTENTIAL_LIFE_LOST_RATE` contribued the most by a very large margin (see <a href="./Figures/first_pc_contributions.png" title="Figure 3">Figure 3</a>).
 
-    ::: {.callout-note collapse="true"}
-    # How did we do this?
-    ```
-    # Extract the PCA components
-    pca_components = pca_all['pca'].components_
+::: {.callout-note collapse="true"}
+# How did we do this?
+```
+# Extract the PCA components
+pca_components = pca_all['pca'].components_
 
-    # Get the first eigenvalue component
-    first_eigenvalue_component = pca_components[0]
+# Get the first eigenvalue component
+first_eigenvalue_component = pca_components[0]
 
-    # Select the columns to project
-    columns_to_project = ['YEARS_OF_POTENTIAL_LIFE_LOST_RATE','LIFE_EXPECTANCY', 'AGE-ADJUSTED_DEATH_RATE', '%_FREQUENT_PHYSICAL_DISTRESS', '%_FREQUENT_MENTAL_DISTRESS']
+# Select the columns to project
+columns_to_project = ['YEARS_OF_POTENTIAL_LIFE_LOST_RATE','LIFE_EXPECTANCY', 'AGE-ADJUSTED_DEATH_RATE', '%_FREQUENT_PHYSICAL_DISTRESS', '%_FREQUENT_MENTAL_DISTRESS']
 
-    # Calculate the contribution of each variable to the projection
-    contributions = selected_columns.multiply(first_eigenvalue_component[:len(columns_to_project)], axis=1)
+# Calculate the contribution of each variable to the projection
+contributions = selected_columns.multiply(first_eigenvalue_component[:len(columns_to_project)], axis=1)
 
-    # Sum the contributions for each variable across all data points
-    total_contributions = contributions.sum()
+# Sum the contributions for each variable across all data points
+total_contributions = contributions.sum()
 
-    # Create a DataFrame for visualization
-    contributions_df = pd.DataFrame({
-        'Feature': columns_to_project,
-        'TotalContribution': total_contributions
-    })
-    ```
-    :::
+# Create a DataFrame for visualization
+contributions_df = pd.DataFrame({
+    'Feature': columns_to_project,
+    'TotalContribution': total_contributions
+})
+```
+:::
 
     ii) Assess projection values of all other variables through a very similar process as the above point. We removed the selected columns first, then multiplied the corresponding first eigenvalues by the mean value of each other variable. We plotted the five variables contributing the most and least to the projection (see <a href="./Figures/overall_health_all_variables.png" title="Figure 4">Figure 4</a>).
     iii) Assess projection value by county in a very similar manner as above. We then averaged and mapped by state to visualize a geographic trend with our engineered health metric. We used Python for the projection analysis and R for the visualization See <a href="./Figures/state_projection.png" title="Figure 5">Figure 5</a> for the map and the below section for the map code.
 
-    ::: {.callout-note collapse="true"}
-    # How did we map the projections by state?
-    ```
-    # Read in the data from python
-    st = read_csv("mean_projection_state.csv")
+::: {.callout-note collapse="true"}
+# How did we map the projections by state?
+```
+# Read in the data from python
+st = read_csv("mean_projection_state.csv")
 
-    # Read in the state data from an installed package
-    states <- usmap::us_map()
+# Read in the state data from an installed package
+states <- usmap::us_map()
 
-    # Merge the datasets
-    states = states %>%
-    mutate(state_name = full)%>%
-    left_join(st)
+# Merge the datasets
+states = states %>%
+mutate(state_name = full)%>%
+left_join(st)
 
-    # Map
-    state_projection = states %>%
-    ggplot(aes(x,y,group=group)) +
-        geom_polygon(aes(fill = Projection), color = "black") +
-        theme_classic() +
-        coord_fixed()+
-        scale_fill_viridis()+
-        labs(subtitle = "Geographic differences in the first principle component, which is\nmost aligned with `Years of Potential Life Lost`",
-            title="Southern states are more unhealthy than northwestern states") +
-        theme(legend.position = "bottom") +
-        theme(
-        axis.text =element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.line = element_blank(),
-        panel.background = element_rect(fill='transparent'),
-        plot.background = element_rect(fill='transparent', color=NA),
-        legend.background = element_rect(fill='transparent')    
-        )
-    ```
-    :::
+# Map
+state_projection = states %>%
+ggplot(aes(x,y,group=group)) +
+    geom_polygon(aes(fill = Projection), color = "black") +
+    theme_classic() +
+    coord_fixed()+
+    scale_fill_viridis()+
+    labs(subtitle = "Geographic differences in the first principle component, which is\nmost aligned with `Years of Potential Life Lost`",
+        title="Southern states are more unhealthy than northwestern states") +
+    theme(legend.position = "bottom") +
+    theme(
+    axis.text =element_blank(),
+    axis.title = element_blank(),
+    axis.ticks = element_blank(),
+    axis.line = element_blank(),
+    panel.background = element_rect(fill='transparent'),
+    plot.background = element_rect(fill='transparent', color=NA),
+    legend.background = element_rect(fill='transparent')    
+    )
+```
+:::
 
 ::: {.callout-note collapse="true"}
 #### Further description on the tools and models used:
