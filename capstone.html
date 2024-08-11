@@ -1451,7 +1451,7 @@ Further description on the models and tools used:
 </section>
 <section id="sec-goal2" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="sec-goal2"><span class="header-section-number">5.2</span> Analyzing Impact of Access to Care on Health Metrics</h2>
-<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.<a href="#ref8">⁸</a> In the following sections, we modeled each of these by a list of variables representing access to care (see <a href="#sec-s_table_2" class="quarto-xref">Section&nbsp;8.1.2</a>) and ensured there was not multicollinearity between the remaining variables and that model assumptions were met <strong>(ADD REFERENCE TO FIGURES HERE)</strong>. Our goal was to determine how access to care impacted each of these three health metrics.</p>
+<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.<a href="#ref8">⁸</a> In the following sections, we modeled each of these by a list of variables representing access to care (see <a href="#sec-s_table_2" class="quarto-xref">Section&nbsp;8.1.2</a>) and ensured there was not multicollinearity between the remaining variables and that model assumptions were met (see <strong>?@sec-s_figure_4</strong>). Our goal was to determine how access to care impacted each of these three health metrics.</p>
 <section id="life-expectancy" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="life-expectancy"><span class="header-section-number">5.2.1</span> Life Expectancy</h3>
 <p>Before doing any regression analysis, we were curious about the relationship between median life expectancy and state. <a href="./images/life_expectancy_by_state.png" title="Figure 6">Figure 6</a> demonstrates this relationship and reveals a clear linear association.</p>
@@ -2036,7 +2036,7 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/IM_pairs.png.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.4B: Infant Mortality Model Pairwise Plot."><img src="./images/IM_pairs.png.png" class="img-fluid figure-img" alt="Figure S.4B: Infant Mortality Model Pairwise Plot."></a></p>
+<p><a href="./images/IM_pairspng.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.4B: Infant Mortality Model Pairwise Plot."><img src="./images/IM_pairspng.png" class="img-fluid figure-img" alt="Figure S.4B: Infant Mortality Model Pairwise Plot."></a></p>
 <figcaption>Figure S.4B: Infant Mortality Model Pairwise Plot.</figcaption>
 </figure>
 </div>
@@ -2044,7 +2044,7 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/M_pairs.png.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.4C: Mortality Model Pairwise Plot."><img src="./images/M_pairs.png.png" class="img-fluid figure-img" alt="Figure S.4C: Mortality Model Pairwise Plot."></a></p>
+<p><a href="./images/M_pairs.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.4C: Mortality Model Pairwise Plot."><img src="./images/M_pairs.png" class="img-fluid figure-img" alt="Figure S.4C: Mortality Model Pairwise Plot."></a></p>
 <figcaption>Figure S.4C: Mortality Model Pairwise Plot.</figcaption>
 </figure>
 </div>
@@ -2653,7 +2653,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
