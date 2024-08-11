@@ -51,7 +51,7 @@ To better understand the survival (life expectancy) of different groups for each
 | quartile=4 | 749 | 749      | 1135     | 131.551   | 230.098   |
 : The observed verses expected count for each Percent Food Insecure quartile were quite different, and our p value showed these differenes were significant. This suggests those in lower quartiles of food insecurity have significantly lower life expectancies than those in higher quartiles. {#tbl-log-rank-life}
 
-Additional Kaplan-Meier Curves for life expectancy were made for the following variables: `PCP Ratio`, `Segregation Index`, and `Percentage of Broadband Internet Access`. Log rank tests were performed for each, and all of the overall results were significant (not shown here). There were significant differences between each quartile in the `PCP Ratio` and `Percentage of Broadband Internet Access` plots, but the fourth quartile from the `Segregation Index` was the only one that was significantly different from the rest. <a href="./images/KM_PCPratio.png" title="Figure 9">Figure 9</a> shows each of the KM curves.
+Additional Kaplan-Meier Curves for life expectancy were made for the following variables: `PCP Ratio`, `Segregation Index`, and `Percentage of Broadband Internet Access`. Log rank tests were performed for each, and all of the overall results were significant (not shown here). There were significant differences between each quartile in the `PCP Ratio` and `Percentage of Broadband Internet Access` plots, but the fourth quartile from the `Segregation Index` was the only one that was significantly different from the rest. <a href="./images/KM_PCPratio.png" title="Figure 9">Figure 9</a> shows each of the KM curves. These results suggest that lower access to care (`PCP Ratio` and `Percentage of Broadband Internet Access`) and the most segregated areas (fourth quartile of `Segregation Index`) have lower life expectancies.
 
 ::: {layout-ncol=3}
 ![Figure 9a: Having less PCPs available in a community reduces life expectancy.](./images/KM_PCPratio.png){group="km_gallery"}
@@ -59,8 +59,7 @@ Additional Kaplan-Meier Curves for life expectancy were made for the following v
 ![Figure 9b: Living in the most segregated communities (ratio of Blacks versus Whites) reduces life expectancy.](./images/KM_Segregation.png){group="km_gallery"}
 
 ![Figure 9c: Having reduced access to internet reduces life expectancy.](./images/KM_broadband.png){group="km_gallery"}
-
-This suggests that lower access to care (`PCP Ratio` and `Percentage of Broadband Internet Access`) and the most segregated areas (fourth quartile of `Segregation Index`) have lower life expectancies. 
+ 
 :::
 
 We then used machine learning algorithms to predict life expectancy of individuals based on these significant covariates along with the top ten features found through KBest (see <a href="./Figures/kbest_life_exp.png" title="Figure 10">Figure 10</a>). It is important to note that a lot of features were found in both the linear regression model explained above and in the KBest result. 

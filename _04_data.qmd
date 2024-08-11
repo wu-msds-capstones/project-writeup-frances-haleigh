@@ -13,7 +13,9 @@ Finally, we added a `county` column (which we filled with all NA) and edited the
 
 See below for examples of what our data looked like before and after cleaning.
 
-::: {.panel-tabset}
+**MAY HAVE TO CHANGE TO DROPDOWN SINCE CAN'T SCROLL IN TABSET**
+
+::: {.panel-tabset .scrolling}
 ### "Messy" data
 |                                   |United States|Alabama|Alaska|Arizona|Arkansas|California|
 |-----------------------------------|-------------|-------|------|-------|--------|----------|
@@ -123,6 +125,8 @@ chrr_2022_by_state = chrr_2022_join %>%
 Since the questions and potential answers collected by CHRR data varied each year, we made sure that our cleaning code was modified for each year to accommodate the changes in the data and match identical answers from previous years. As an example, the only races that were listed as options in the 2017 data were "White", "Black", "Hispanic", and "Asian". However, by the 2022 data collection, the options had expanded to include "American Indian/Alaskan Native", "Native Hawaiian/Other Pacific Islander", and "Other/Multiple Races." In 2022, "Black" was changed to "African American," so we changed it back to "Black" to both match the earlier CHRR data and the KFF data.
 
 See below for a sample of our pre- and post-cleaned data.
+
+**MAY HAVE TO CHANGE TO DROPDOWN SINCE CAN'T SCROLL IN TABSET**
 
 ::: {.panel-tabset}
 ### "Messy" data
