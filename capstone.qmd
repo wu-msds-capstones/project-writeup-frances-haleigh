@@ -1,7 +1,7 @@
 ---
 #also in index.qmd, not rendering from capstone.qmd for some reason
-title: "Preventative Care in the United States"
-subtitle: "How do preventative healthcare measures impact standard health metrics?"
+title: "Healthcare access in the United States"
+subtitle: "How does access to care and other basic needs impact standard health metrics?"
 authors:
   - Frances Romero
   - Haleigh Schwartz

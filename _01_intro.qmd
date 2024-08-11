@@ -3,6 +3,6 @@ To investigate the current health status of individuals in the United States and
 
 We first took a broad look at our data and engineered a variable to represent overall health. Using this new variable, we discovered what factors are most important to health as a whole.  
 
-Then, we focused in our search onto just preventative care's impact on health as prior research (see below) has already suggested access to affordable preventative care has a tremendous impact on health quality.[¹¹](#ref11)𝄒[¹⁴](#ref14) We quantified the extent to which access to care impacts common health metrics such as life expectancy, mortality, and infant mortality.[⁸](#ref8)
+Then, we focused in our search onto just how access to care and other basic needs impact health. Prior research has suggested access to affordable preventative care has a tremendous impact on health quality,[¹¹](#ref11)𝄒[¹⁴](#ref14) so we quantified the extent to which this occurs. We used common health metrics such as life expectancy, mortality, and infant mortality[⁸](#ref8) as proxies for measuring health.
 
-By examining these relationships, we aimed to contribute to the understanding of how preventative care can improve the deterioriating public health in the United States.
+By examining these relationships, we aimed to contribute to the understanding of how increasing access to care and other basic needs can improve the deterioriating public health in the United States.
