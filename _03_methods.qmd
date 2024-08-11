@@ -150,7 +150,7 @@ We used both R and Python to analyze how access to care impacts important health
     ii) Create distribution plots for variables of interest. Take natural log if skew was obvious (income data).
 3. Create Model
     i) Multiple Linear Mixed Model in R using selected variables. Created lm models for life expectancy, infant mortality, and age-adjusted death rate. 
-    ii) Select signfiicant features for each, and recreate model with signfiicant features. Ensure no multicollinearity existed between remaining variables.
+    ii) Select signfiicant features for each, and recreate model with signfiicant features. Ensure no multicollinearity existed between remaining variables (see <a href="./images/LE_pairs.png" title="Figures S.4a">Figures S.4a</a> through <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a>).
     iii) Check to see if significance changes after recreating the model.
     iv) Check directions of significance and double check variables have enough data points.
 4. Kaplan-Meier Curves for Life Expectancy
@@ -182,7 +182,7 @@ flowchart TD
 2. Preprocess:
     i) Drop NAs while optimizing data frame size via trial and error.
     ii) Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.
-3. Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure 10">Figures 10</a>, and <a href="./Figures/kbest_mortality.png" title="Figure 17">17</a>). Combine these variables with significant variables from the linear regression models completed in R.
+3. Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure 9">Figures 9</a>, and <a href="./Figures/kbest_mortality.png" title="Figure 17">17</a>). Combine these variables with significant variables from the linear regression models completed in R.
 4. Continue preprocessing with the reduced dataset (using only variables from step 3) 
     i) Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable.
         A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. 

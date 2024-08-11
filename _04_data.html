@@ -58,15 +58,18 @@ ul.task-list li input[type="checkbox"] {
 <p>We also created fields called <code>year</code> and <code>measure</code>, and parsed out the years and measurements from the question field. Some questions had multiple demographics, so we created a <code>secondary_demographic</code> field and a <code>secondary_group</code> field. These are not ranked.</p>
 <p>Finally, we added a <code>county</code> column (which we filled with all NA) and edited the <code>state</code> and <code>question</code> fields to replicate the way that data from our CHFF dataset was formatted. This allowed us to merge the two datasets.</p>
 <p>See below for examples of what our data looked like before and after cleaning.</p>
-<!-- ```{css, echo=FALSE}
-.panel-tabset {
-  font-size: 80%
-}
-``` -->
-<div class="tabset-margin-container"></div><div class="panel-tabset scrolling">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">“Messy” data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Cleaned data</a></li></ul>
-<div class="tab-content scrolling">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+“Messy” data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 40%">
@@ -262,8 +265,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<section id="cleaned-data" class="level3">
+<h3 class="anchored" data-anchor-id="cleaned-data">Cleaned data</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 31%">
@@ -438,6 +441,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</section>
 </div>
 </div>
 </div>
@@ -449,7 +453,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Second, we joined the two CSVs for each year to have one CSV per year and added a <code>Year</code> column to help with merging later.</p>
 <p>Finally, we reformatted the CSVs to match that of the KFF data, where our original columns became the <code>question</code> column and the values filled in a new <code>values</code> column. Again, we used text parsing such as <code>grepl</code> and <code>gsub</code> to fill in our newly created <code>demographic</code>, <code>measure</code>, <code>group</code>, <code>secondary_demographic</code>, and <code>secondary_group</code>, columns.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -458,7 +462,7 @@ How did we do this?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For example, if our question was <code>mean_%_Children_in_Poverty_(white)</code>, our <code>demographic</code>, <code>group</code>, <code>secondary_demographic</code>, and <code>secondary_group</code> columns became “Race/Ethnicity”, “White”, “Age”, and “0-17”, respectively. See the code below for a full example.</p>
 <pre><code>chrr_2022_by_state = chrr_2022_join %&gt;%
@@ -516,10 +520,11 @@ How did we do this?
 </div>
 <p>Since the questions and potential answers collected by CHRR data varied each year, we made sure that our cleaning code was modified for each year to accommodate the changes in the data and match identical answers from previous years. As an example, the only races that were listed as options in the 2017 data were “White”, “Black”, “Hispanic”, and “Asian”. However, by the 2022 data collection, the options had expanded to include “American Indian/Alaskan Native”, “Native Hawaiian/Other Pacific Islander”, and “Other/Multiple Races.” In 2022, “Black” was changed to “African American,” so we changed it back to “Black” to both match the earlier CHRR data and the KFF data.</p>
 <p>See below for a sample of our pre- and post-cleaned data.</p>
+<p><strong>MAY HAVE TO CHANGE TO DROPDOWN SINCE CAN’T SCROLL IN TABSET</strong></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">“Messy” data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Cleaned data</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">“Messy” data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Cleaned data</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 4%">
@@ -593,7 +598,7 @@ How did we do this?
 </tbody>
 </table>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
