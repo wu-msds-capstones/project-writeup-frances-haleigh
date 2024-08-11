@@ -67,3 +67,19 @@
 
 ![Figure S.3C: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model.](./Figures/variance_mortality.png){group="variance_gallery"}
 :::
+
+::: {layout-ncol=3}
+![Figure S.4A: Life Expectancy Model Pairwise Plot.](./Images/LE_pairs.png){group="variance_gallery"}
+
+![Figure S.4B: Infant Mortality Model Pairwise Plot.](./Images/IM_pairs.png.png){group="variance_gallery"}
+
+![Figure S.4C: Mortality Model Pairwise Plot.](./Images/M_pairs.png.png){group="variance_gallery"}
+:::
+
+::: {layout-ncol=3}
+![Figure S.4A: Life Expectancy Model Assumptions Plot.](./Images/LE_assumptions.png){group="variance_gallery"}
+
+![Figure S.4B: Infant Mortality Model Assumptions Plot.](./Images/IM_assumptions.png){group="variance_gallery"}
+
+![Figure S.4C: Mortality Model Assumptions Plot.](./Images/M_assumptions.png){group="variance_gallery"}
+:::
