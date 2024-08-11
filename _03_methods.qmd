@@ -150,9 +150,9 @@ We used both R and Python to analyze how access to care impacts important health
     ii) Create distribution plots for variables of interest. Take natural log if skew was obvious (income data).
 3. Create Model
     i) Multiple Linear Mixed Model in R using selected variables. Created lm models for life expectancy, infant mortality, and age-adjusted death rate. 
-    ii) select signfiicant features for each, and recreate model with signfiicant features.
-    iii) check to see if significance changes after recreating the model.
-    iv) check directions of significance and double check variables have enough data points.
+    ii) Select signfiicant features for each, and recreate model with signfiicant features. Ensure no multicollinearity existed between remaining variables.
+    iii) Check to see if significance changes after recreating the model.
+    iv) Check directions of significance and double check variables have enough data points.
 4. Kaplan-Meier Curves for Life Expectancy
     i) Break up each significant predictive variable from above into quartiles.
     ii) Create KM curves.

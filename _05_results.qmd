@@ -1,4 +1,4 @@
-# Results - need to update
+# Results
 
 ## Creating an Overall Health Quality Variable
 As a novel way of assessing quality of health, we created a new variable to represent the overall health of a population. We knew that the following variables should be included in the creation of this new variable: `LIFE_EXPECTANCY`, `AGE_ADJUSTED_DEATH_RATE`, `YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, `%_FREQUENT_PHYSICAL_DISTRESS`, and `%_FREQUENT_MENTAL_DISTRESS`. Reasons for choosing these variables is explained in @sec-goal1-details. A clear linear relationship is seen between each of these metrics was observed (see <a href="./Figures/pairplot.png" title="Figure 2">Figure 2</a>).
@@ -11,22 +11,21 @@ Next, we repeated a similar process as above to discover how much all the other 
 
 ![Figure 4: Percent of population with access to exercise is most associated with the projection and `CHLAMYDIA_RATE` the least. Since the projection is most described by`YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, that means access to exercise and chlamydia rate are associated with variations in this mortality metric the most and least, respectively.](./Figures/overall_health_all_variables.png)
 
-WRITE HERE
+Finally, we determined the projection values for each state (see <a href="./Figures/state_projection.png" title="Figure 5">Figure 5</a>). We found a clear geographic trend, where southeastern states have higher projection trends. Since the projection is most explained by `YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, this data suggests southeastern states have higher rates than northwestern. Again, PCA cannot make causal claims, but only suggest associations, so @sec-goal2 was done to determine the extent of these relationships.
 
-![Figure 5: There is a clear geographic trend where the southeastern states have higher projection trends and the northwestern have lower. Since the first eigenvalue is most explained by `YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, southeastern states have higher rates and northwestern lower.](./Figures/state_projection.png)
+![Figure 5: There is a clear geographic trend where the southeastern states have higher projection trends and the northwestern have lower. Since the projection is most explained by `YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, southeastern states have higher rates and northwestern lower.](./Figures/state_projection.png)
 
-## Analyzing Impact of Access to Care on Health Metrics
-In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.[⁸](#ref8) In the following sections, we modeled each of these by a list of variables representing access to care (see @sec-s_table_2). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.
+## Analyzing Impact of Access to Care on Health Metrics {#sec-goal2}
+In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.[⁸](#ref8) In the following sections, we modeled each of these by a list of variables representing access to care (see @sec-s_table_2) and ensured there was not multicollinearity between the remaining variables **(ADD REFERENCE TO FIGURES HERE)**. Our goal was to determine how access to care impacted each of these three health metrics.
 
 ### Life Expectancy
+Before doing any regression analysis, we were curious about the relationship between median life expectancy and state. <a href="./images/life_expectancy_by_state.png" title="Figure 6">Figure 6</a> demonstrates this relationship and reveals a clear linear association. 
 
-Figure 6 demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 7. 
+![Figure 6: Median life expectancy of most states is between 77 and 80 years old. **ADD UNITS**](./images/life_expectancy_by_state.png)
 
-![Fig 6: Median life expectancy of most states is between 77 and 80 years old.](./images/life_expectancy_by_state.png)
+When building our linear model, we narrowed down our variables to just those that significantly impacted life expectancy. We ensured the remaining variables did not exhibit multicollinearity (**ADD FIGURE 7 REFERENCE**). [Equation @imp-life] shows our final model and @sec-s_table_3 our coefficient table for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Ratio and Percentage of Access to Broadband Internet were both positively correlated with life expectancy, whereas Percentage of Food Insecurity and Segregation Index were negatively correlated with life expectancy.
 
-![Figure 7: There does not appear to be a geographic influence on median life expectancy.](./images/life_expecancy_map.png)
-
-[Equation @imp-life] shows our final linear model and @sec-s_table_3 our coefficient table for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity and Segregation Index were both negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy. 
+**ADD FIGURE 7 HERE**
 
 ::: {#imp-life .callout-warning icon=false collapse="false"}
 # Equation 1: Life Expectancy Linear Model
@@ -38,22 +37,31 @@ lm(formula = `LIFE_EXPECTANCY` ~ `state_name` + `PCP_RATIO` +
 ```
 ::: 
 
-To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 8 shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = <2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.
+To better understand the survival (life expectancy) of different groups for each of these signficant variables, we created Kaplan-Meier (KM) Curves and we plotted each variable by quartile. We then conducted a log rank test to compare across quartiles to see if they were significantly different. <a href="./images/KM_food.png" title="Figure 8">Figure 8</a> shows life expectancy based on the quartile of food insecurity.
 
 ![Figure 8: As expected, those who are more food insecure have lower life expectancies.](./images/KM_food.png)
 
-Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity
+@tbl-log-rank-life shows the results of the log rank test (which are significant, as p = <2e-16 (not shown here)). Quartiles 1 and 2 (less food insecurity) observed less death than expected, but quartiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that there exits a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.
 
-| Quantile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
+| Quartile   | N   | Observed | Expected | (O-E)^2/E | (O-E)^2/V |
 |------------|-----|----------|----------|-----------|-----------|
-| quantile=1 | 704 | 704      | 505      | 78.411    | 98.013    |
-| quantile=2 | 760 | 760      | 584      | 52.895    | 68.550    |
-| quantile=3 | 757 | 757      | 745      | 0.184     | 0.254     |
-| quantile=4 | 749 | 749      | 1135     | 131.551   | 230.098   |
+| quartile=1 | 704 | 704      | 505      | 78.411    | 98.013    |
+| quartile=2 | 760 | 760      | 584      | 52.895    | 68.550    |
+| quartile=3 | 757 | 757      | 745      | 0.184     | 0.254     |
+| quartile=4 | 749 | 749      | 1135     | 131.551   | 230.098   |
+: The observed verses expected count for each Percent Food Insecure quartile were quite different, and our p value showed these differenes were significant. This suggests those in lower quartiles of food insecurity have significantly lower life expectancies than those in higher quartiles. {#tbl-log-rank-life}
 
-Kaplan-Meier Curves for life expectancy were made with the following variables: PCP Ratio, Percentage of Food Insecurity, Segregation Index, and Percentage of Broadband Internet Access. Log rank tests were performed, and all of the results were significant. To explore the curves and log rank test results, please explore our gallery below: 
+Additional Kaplan-Meier Curves for life expectancy were made for the following variables: `PCP Ratio`, `Segregation Index`, and `Percentage of Broadband Internet Access`. Log rank tests were performed for each, and all of the results were significant (not shown here). <a href="./images/KM_PCPratio.png" title="Figure 9">Figure 9</a> shows each of the KM curves.
 
-**GALLERY https://quarto.org/docs/output-formats/html-lightbox-figures.html**
+::: {layout-ncol=3}
+![Figure 9a: Having less PCPs available in a community reduces life expectancy.](./images/KM_PCPratio.png){group="km_gallery"}
+
+![Figure 9b: Living in a more segregated community (ratio of Blacks versus Whites) reduces life expectancy.](./images/KM_Segregation.png){group="km_gallery"}
+
+![Figure 9c: Having reduced access to internet reduces life expectancy.](./images/KM_broadband.png){group="km_gallery"}
+
+Significant differences exist between each feature's quartiles. This suggests that lower access to care (`PCP Ratio` and `Percentage of Broadband Internet Access`) and more segregated areas (`Segregation Index`) have lower life expectancies. 
+:::
 
 We then used machine learning algorithms to predict life expectancy of individuals based on these significant covariates along with the top ten features found through KBest (see <a href="./Figures/kbest_life_exp.png" title="Figure 9">Figure 9</a>). It is important to note that a lot of features were found in both the linear regression model explained above and in the KBest result. 
 
