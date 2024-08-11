@@ -93,3 +93,15 @@
 
 ![Figure S.5C: Mortality Model Assumptions Plot.](./images/M_assumptions.png){group="assumptions_gallery"}
 :::
+
+::: {layout-ncol=3}
+![Figure S.6A: Life Expectancy and Hispanic Household Income.](./images/KM_inc_hispanic.png){group="KM_gallery"}
+
+![Figure S.6B: Life Expectancy and White Income.](./images/KM_white_income.png){group="KM_gallery"}
+
+![Figure S.6C: Life Expectancy and Median Income.](./images/KM_median_inc.png){group="KM_gallery"}
+
+![Figure S.6D: Life Expectancy and Severe Housing Problems.](./images/KM_perc_housing.png){group="KM_gallery"}
+
+![Figure S.6E: Life Expectancy and Vaccination.](./images/KM_perc_vacc.png){group="KM_gallery"}
+:::
