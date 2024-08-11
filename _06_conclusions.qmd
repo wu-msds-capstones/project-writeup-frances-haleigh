@@ -1,4 +1,4 @@
-# Conclusions - need to update
+# Conclusions
 Our analysis showed significant correlations between various socio-economic factors and key health outcomes such as life expectancy, infant mortality, and age-adjusted death rate. When assessing overall health, years of potential life lost had the biggest impact, suggesting variations in this variable influenced our holistic view of health the most. This implies our data had a large differences in this mortality metric across communities, where some areas are dying earlier than would otherwise be predicted. 
 
 Throughout our analysis, the southern states continually showed to have worse health outcomes than the northwestern states. Lower income areas, communities with greater segregation between races, and food deserts all had low health metrics. Future public health work should focus on builidng infrastructure and increasing access to care and other basic needs in these areas. Specifically, broadband internet access, food security, income, rate of PCPs, and exercise opportunities emerged as crucial necessities for improving health. 
