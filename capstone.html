@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-08-10">
+<meta name="dcterms.date" content="2024-08-11">
 
 <title>Preventative Care in the United States</title>
 <style>
@@ -105,6 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<meta name="mermaid-theme" content="forest">
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -138,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 10, 2024</p>
+        <p class="date">August 11, 2024</p>
       </div>
     </div>
     
@@ -169,16 +170,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#goal-1-engineer-an-overall-health-metric-to-detect-what-variables-influence-health-as-a-whole." id="toc-goal-1-engineer-an-overall-health-metric-to-detect-what-variables-influence-health-as-a-whole." class="nav-link" data-scroll-target="#goal-1-engineer-an-overall-health-metric-to-detect-what-variables-influence-health-as-a-whole."><span class="header-section-number">4.1</span> Goal 1: Engineer an “overall” health metric to detect what variables influence health as a whole.</a>
   <ul class="collapse">
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">4.1.1</span> Overview</a></li>
-  <li><a href="#more-detailed-explanation" id="toc-more-detailed-explanation" class="nav-link" data-scroll-target="#more-detailed-explanation"><span class="header-section-number">4.1.2</span> More detailed explanation</a></li>
+  <li><a href="#sec-goal1-details" id="toc-sec-goal1-details" class="nav-link" data-scroll-target="#sec-goal1-details"><span class="header-section-number">4.1.2</span> More detailed explanation</a></li>
   </ul></li>
   <li><a href="#goal-2-discover-how-access-to-care-impacts-life-expectancy-infant-mortality-and-mortality." id="toc-goal-2-discover-how-access-to-care-impacts-life-expectancy-infant-mortality-and-mortality." class="nav-link" data-scroll-target="#goal-2-discover-how-access-to-care-impacts-life-expectancy-infant-mortality-and-mortality."><span class="header-section-number">4.2</span> Goal 2: Discover how access to care impacts life expectancy, infant mortality, and mortality.</a>
   <ul class="collapse">
   <li><a href="#statistics-in-r" id="toc-statistics-in-r" class="nav-link" data-scroll-target="#statistics-in-r"><span class="header-section-number">4.2.1</span> Statistics in R</a></li>
-  <li><a href="#machine-learning-in-python" id="toc-machine-learning-in-python" class="nav-link" data-scroll-target="#machine-learning-in-python"><span class="header-section-number">4.2.2</span> Machine Learning in Python*</a></li>
+  <li><a href="#machine-learning-in-python" id="toc-machine-learning-in-python" class="nav-link" data-scroll-target="#machine-learning-in-python"><span class="header-section-number">4.2.2</span> Machine Learning in Python</a></li>
   </ul></li>
   <li><a href="#important-note" id="toc-important-note" class="nav-link" data-scroll-target="#important-note"><span class="header-section-number">4.3</span> Important Note!</a></li>
   </ul></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">5</span> Results</a>
+  <li><a href="#results---need-to-update" id="toc-results---need-to-update" class="nav-link" data-scroll-target="#results---need-to-update"><span class="header-section-number">5</span> Results - need to update</a>
   <ul class="collapse">
   <li><a href="#creating-an-overall-health-quality-variable" id="toc-creating-an-overall-health-quality-variable" class="nav-link" data-scroll-target="#creating-an-overall-health-quality-variable"><span class="header-section-number">5.1</span> Creating an Overall Health Quality Variable</a></li>
   <li><a href="#analyzing-impact-of-access-to-care-on-health-metrics" id="toc-analyzing-impact-of-access-to-care-on-health-metrics" class="nav-link" data-scroll-target="#analyzing-impact-of-access-to-care-on-health-metrics"><span class="header-section-number">5.2</span> Analyzing Impact of Access to Care on Health Metrics</a>
@@ -196,6 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#sec-s_table_1" id="toc-sec-s_table_1" class="nav-link" data-scroll-target="#sec-s_table_1"><span class="header-section-number">8.1.1</span> S.Table 1: CSV containing all variables used to assess weight contribution to new variable</a></li>
   <li><a href="#sec-s_table_2" id="toc-sec-s_table_2" class="nav-link" data-scroll-target="#sec-s_table_2"><span class="header-section-number">8.1.2</span> S.Table 2: CSV containing all variables used to assess access to care</a></li>
+  <li><a href="#sec-s_table_3" id="toc-sec-s_table_3" class="nav-link" data-scroll-target="#sec-s_table_3"><span class="header-section-number">8.1.3</span> S. Table 3: Coefficient Table of Life Expectancy Linear Model</a></li>
   </ul></li>
   <li><a href="#supplemental-figures" id="toc-supplemental-figures" class="nav-link" data-scroll-target="#supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</a></li>
   </ul></li>
@@ -989,8 +991,8 @@ How did we do this?
 </div>
 </div>
 </section>
-<section id="more-detailed-explanation" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="more-detailed-explanation"><span class="header-section-number">4.1.2</span> More detailed explanation</h3>
+<section id="sec-goal1-details" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="sec-goal1-details"><span class="header-section-number">4.1.2</span> More detailed explanation</h3>
 <ol type="1">
 <li>Gather our entire dataset (not just access to care related variables). Drop all NAs and variables related to count data (we kept only rates and percentages). See <a href="#sec-s_table_1" class="quarto-xref">Section&nbsp;8.1.1</a> for a list of all variables used.</li>
 <li>Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns (numeric and categorical, respectively). This converts our data to completely similarly scaled numeric data to ensure equal contributions from each variable to the final output.</li>
@@ -1131,8 +1133,10 @@ Further description on the tools and models used:
 </section>
 <section id="goal-2-discover-how-access-to-care-impacts-life-expectancy-infant-mortality-and-mortality." class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="goal-2-discover-how-access-to-care-impacts-life-expectancy-infant-mortality-and-mortality."><span class="header-section-number">4.2</span> Goal 2: Discover how access to care impacts life expectancy, infant mortality, and mortality.</h2>
+<p>We used both R and Python to analyze how access to care impacts important health metrics.</p>
 <section id="statistics-in-r" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="statistics-in-r"><span class="header-section-number">4.2.1</span> Statistics in R</h3>
+<p><strong>(ADD FLOWCHART?)</strong></p>
 <ol type="1">
 <li>Create our desired dataframe by reading in data from our remote database and joining where necessary.</li>
 <li>Preprocess:
@@ -1197,7 +1201,25 @@ Further description on the statistical tests used:
 </div>
 </section>
 <section id="machine-learning-in-python" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="machine-learning-in-python"><span class="header-section-number">4.2.2</span> Machine Learning in Python*</h3>
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="machine-learning-in-python"><span class="header-section-number">4.2.2</span> Machine Learning in Python</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A(1. Create Dataset) --&gt; B(2. Scale Dataset)
+  B --&gt; C(3. KMeans, reduce data \nto best features)
+  C --&gt; D(4. Preprocess reduced dataset)
+  D --&gt; E(5. Model- Ensemble then \nselect best one)
+  E --&gt; F(6. Hyperparameterize, train, test model)
+  F --&gt; G(6. Add PCA to finalized pipeline)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <ol type="1">
 <li>Create our desired dataframe by reading in data from our remote database and joining where necessary.</li>
 <li>Preprocess:
@@ -1334,29 +1356,26 @@ Further description on the models and tools used:
 <p>We were wary of furthering the gap between classes, races, and/or genders. Often, those in lower socioeconomic status tend to have lower quality of health and less access to affordable healthcare. Our goal was not to perpetuate this gap but to find potential solutions for these underserved populations. We also recognized that our datasets were incomplete and that we were not be able to represent everyone’s needs. Those who are not using well-known forms of insurance, such as Direct Primary Care, or who are not seeking traditional medical care are not represented.</p>
 </section>
 </section>
-<section id="results" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Results</h1>
+<section id="results---need-to-update" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Results - need to update</h1>
 <section id="creating-an-overall-health-quality-variable" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="creating-an-overall-health-quality-variable"><span class="header-section-number">5.1</span> Creating an Overall Health Quality Variable</h2>
-<!-- As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.³ Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one's actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).
-
-![Figure 6A: NOT UPDATED We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other.](./Figures/pairplot.png)
-
-The first eigenvalue of our entire dataset explained 31% of the variance in our dataset, so we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health. 
-
-![Figure 6B: NOT UPDATED Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric.](./Figures/weights.png) -->
+<p>As a novel way of assessing quality of health, we created a new variable to represent the overall health of a population. We knew that the following variables should be included in the creation of this new variable: <code>LIFE_EXPECTANCY</code>, <code>AGE_ADJUSTED_DEATH_RATE</code>, <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code>, <code>%_FREQUENT_PHYSICAL_DISTRESS</code>, and <code>%_FREQUENT_MENTAL_DISTRESS</code>. Reasons for choosing these variables is explained in <a href="#sec-goal1-details" class="quarto-xref">Section&nbsp;4.1.2</a>. A clear linear relationship is seen between each of these metrics was observed (see <a href="./Figures/pairplot.png" title="Figure 2">Figure 2</a>).</p>
+<p>We projected these variables onto the first eigenvalue and assessed the contribution of each onto the projection. This was necessary to better interpret later analyses. We found that <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> contributed to the projection by a large amount (see <a href="./Figures/first_pc_contributions.png" title="Figure 3">Figure 3</a>), which suggested that further analyses represented <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> far more than the other four variables.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/first_pc_contributions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 3: Contribution amounts of each of the five health metrics on the projection. YEARS_OF_POTENTIAL_LIFE_LOST_RATE made the most contribution by a very far margin. This suggests that further analyses represent YEARS_OF_POTENTIAL_LIFE_LOST_RATE far more than the other four variables."><img src="./Figures/first_pc_contributions.png" class="img-fluid figure-img" alt="Figure 3: Contribution amounts of each of the five health metrics on the projection. YEARS_OF_POTENTIAL_LIFE_LOST_RATE made the most contribution by a very far margin. This suggests that further analyses represent YEARS_OF_POTENTIAL_LIFE_LOST_RATE far more than the other four variables."></a></p>
 <figcaption>Figure 3: Contribution amounts of each of the five health metrics on the projection. <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> made the most contribution by a very far margin. This suggests that further analyses represent <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> far more than the other four variables.</figcaption>
 </figure>
 </div>
+<p>Next, we repeated a similar process as above to discover how much all the other variables were associated with the projection. We found the percent of population with access to exercise is most associated with the projection and chlamydia rate the least (see <a href="./Figures/overall_health_all_variables.png" title="Figure 4">Figure 4</a>). Other variables that were highly associated with the projection were preventable hospitalization rates (rate of Medicare enrollees being discharged from out-patient services), percent of homeowners, percent of kids in single-parent homes, and percent of people 65 years old or older. Since the projection is most explained by <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code>, this graph suggests that having access to exercise is most associated with variations in this metric. Further analysis needs to be done to confirm if a causal relationship exists between these two variables, and if so, in which directions.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/overall_health_all_variables.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure 4: Percent of population with access to exercise is most associated with the variance described in the first eigenvalue. CHLAMYDIA_RATE has the least. Since the first eigenvalue is most described byYEARS_OF_POTENTIAL_LIFE_LOST_RATE, that means access to exercise and chlamydia rate describe this mortality metric the most and least, respectively."><img src="./Figures/overall_health_all_variables.png" class="img-fluid figure-img" alt="Figure 4: Percent of population with access to exercise is most associated with the variance described in the first eigenvalue. CHLAMYDIA_RATE has the least. Since the first eigenvalue is most described byYEARS_OF_POTENTIAL_LIFE_LOST_RATE, that means access to exercise and chlamydia rate describe this mortality metric the most and least, respectively."></a></p>
-<figcaption>Figure 4: Percent of population with access to exercise is most associated with the variance described in the first eigenvalue. <code>CHLAMYDIA_RATE</code> has the least. Since the first eigenvalue is most described by<code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code>, that means access to exercise and chlamydia rate describe this mortality metric the most and least, respectively.</figcaption>
+<p><a href="./Figures/overall_health_all_variables.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure 4: Percent of population with access to exercise is most associated with the projection and CHLAMYDIA_RATE the least. Since the projection is most described byYEARS_OF_POTENTIAL_LIFE_LOST_RATE, that means access to exercise and chlamydia rate are associated with variations in this mortality metric the most and least, respectively."><img src="./Figures/overall_health_all_variables.png" class="img-fluid figure-img" alt="Figure 4: Percent of population with access to exercise is most associated with the projection and CHLAMYDIA_RATE the least. Since the projection is most described byYEARS_OF_POTENTIAL_LIFE_LOST_RATE, that means access to exercise and chlamydia rate are associated with variations in this mortality metric the most and least, respectively."></a></p>
+<figcaption>Figure 4: Percent of population with access to exercise is most associated with the projection and <code>CHLAMYDIA_RATE</code> the least. Since the projection is most described by<code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code>, that means access to exercise and chlamydia rate are associated with variations in this mortality metric the most and least, respectively.</figcaption>
 </figure>
 </div>
+<p>WRITE HERE</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/state_projection.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure 5: There is a clear geographic trend where the southeastern states have higher projection trends and the northwestern have lower. Since the first eigenvalue is most explained by YEARS_OF_POTENTIAL_LIFE_LOST_RATE, southeastern states have higher rates and northwestern lower."><img src="./Figures/state_projection.png" class="img-fluid figure-img" alt="Figure 5: There is a clear geographic trend where the southeastern states have higher projection trends and the northwestern have lower. Since the first eigenvalue is most explained by YEARS_OF_POTENTIAL_LIFE_LOST_RATE, southeastern states have higher rates and northwestern lower."></a></p>
@@ -1366,109 +1385,47 @@ The first eigenvalue of our entire dataset explained 31% of the variance in our 
 </section>
 <section id="analyzing-impact-of-access-to-care-on-health-metrics" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="analyzing-impact-of-access-to-care-on-health-metrics"><span class="header-section-number">5.2</span> Analyzing Impact of Access to Care on Health Metrics</h2>
-<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (see <a href="#sec-s_table_2" class="quarto-xref">Section&nbsp;8.1.2</a>). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.</p>
+<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.<a href="#ref8">⁸</a> In the following sections, we modeled each of these by a list of variables representing access to care (see <a href="#sec-s_table_2" class="quarto-xref">Section&nbsp;8.1.2</a>). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.</p>
 <section id="life-expectancy" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="life-expectancy"><span class="header-section-number">5.2.1</span> Life Expectancy</h3>
+<p>Figure 6 demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 7.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/life_expectancy_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Fig 2A: Median life expectancy of most states is between 77 and 80 years old."><img src="./images/life_expectancy_by_state.png" class="img-fluid figure-img" alt="Fig 2A: Median life expectancy of most states is between 77 and 80 years old."></a></p>
-<figcaption>Fig 2A: Median life expectancy of most states is between 77 and 80 years old.</figcaption>
+<p><a href="./images/life_expectancy_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Fig 6: Median life expectancy of most states is between 77 and 80 years old."><img src="./images/life_expectancy_by_state.png" class="img-fluid figure-img" alt="Fig 6: Median life expectancy of most states is between 77 and 80 years old."></a></p>
+<figcaption>Fig 6: Median life expectancy of most states is between 77 and 80 years old.</figcaption>
 </figure>
 </div>
-<p>Figure 2A demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 2B.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/life_expecancy_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 2B: There does not appear to be a geographic influence on median life expectancy."><img src="./images/life_expecancy_map.png" class="img-fluid figure-img" alt="Figure 2B: There does not appear to be a geographic influence on median life expectancy."></a></p>
-<figcaption>Figure 2B: There does not appear to be a geographic influence on median life expectancy.</figcaption>
+<p><a href="./images/life_expecancy_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 7: There does not appear to be a geographic influence on median life expectancy."><img src="./images/life_expecancy_map.png" class="img-fluid figure-img" alt="Figure 7: There does not appear to be a geographic influence on median life expectancy."></a></p>
+<figcaption>Figure 7: There does not appear to be a geographic influence on median life expectancy.</figcaption>
 </figure>
 </div>
-<p>Figure 2C shows our final linear model and coefficient table for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity and Segregation Index were both negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy.</p>
-<p>Figure 2C: Life Expectancy Linear Model and Coefficient Table:</p>
+<p><a href="#imp-life" class="quarto-xref">Equation&nbsp;1</a> shows our final linear model and <a href="#sec-s_table_3" class="quarto-xref">Section&nbsp;8.1.3</a> our coefficient table for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity and Segregation Index were both negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy.</p>
+<div id="imp-life" class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important&nbsp;1: Equation 1: Life Expectancy Linear Model
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`LIFE_EXPECTANCY`</span> ~ <span class="in">`state_name`</span> + <span class="in">`PCP_RATIO`</span> + </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`%_VACCINATED_(HISPANIC)`</span> + <span class="in">`AVERAGE_DAILY_PM2.5`</span> + <span class="in">`%_FOOD_INSECURE`</span> + </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(HISPANIC)_LN`</span> +</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span>, data = ds_life_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 42%">
-<col style="width: 14%">
-<col style="width: 15%">
-<col style="width: 11%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Predictor</th>
-<th>Estimate</th>
-<th>Std. Error</th>
-<th>t value</th>
-<th>Pr(&gt;|t|)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>(Intercept)</td>
-<td>7.092e+01</td>
-<td>2.171e+00</td>
-<td>32.661</td>
-<td>&lt; 2e-16 ***</td>
-</tr>
-<tr class="even">
-<td><code>PCP_RATIO</code></td>
-<td>1.076e-04</td>
-<td>3.664e-05</td>
-<td>2.935</td>
-<td>0.00338 **</td>
-</tr>
-<tr class="odd">
-<td><code>%_VACCINATED_(HISPANIC)</code></td>
-<td>-6.969e-03</td>
-<td>5.291e-03</td>
-<td>-1.317</td>
-<td>0.18802</td>
-</tr>
-<tr class="even">
-<td><code>AVERAGE_DAILY_PM2.5</code></td>
-<td>-3.642e-02</td>
-<td>2.558e-02</td>
-<td>-1.424</td>
-<td>0.15471</td>
-</tr>
-<tr class="odd">
-<td><code>%_FOOD_INSECURE</code></td>
-<td>-3.947e-01</td>
-<td>2.030e-02</td>
-<td>-19.440</td>
-<td>&lt; 2e-16 ***</td>
-</tr>
-<tr class="even">
-<td><code>HOUSEHOLD_INCOME_(HISPANIC)_LN</code></td>
-<td>9.561e-02</td>
-<td>1.897e-01</td>
-<td>0.504</td>
-<td>0.61427</td>
-</tr>
-<tr class="odd">
-<td><code>SEGREGATION_INDEX</code></td>
-<td>-3.593e-02</td>
-<td>4.618e-03</td>
-<td>-7.781</td>
-<td>1.35e-14 ***</td>
-</tr>
-<tr class="even">
-<td><code>%_BROADBAND_ACCESS</code></td>
-<td>1.175e-01</td>
-<td>9.519e-03</td>
-<td>12.340</td>
-<td>&lt; 2e-16 ***</td>
-</tr>
-</tbody>
-</table>
-<p>To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 2D shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = &lt;2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.</p>
+</div>
+</div>
+</div>
+<p>To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 8 shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = &lt;2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./images/KM_food.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 2D: As expected, those who are more food insecure have lower life expectancies."><img src="./images/KM_food.png" class="img-fluid figure-img" alt="Figure 2D: As expected, those who are more food insecure have lower life expectancies."></a></p>
-<figcaption>Figure 2D: As expected, those who are more food insecure have lower life expectancies.</figcaption>
+<p><a href="./images/KM_food.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 8: As expected, those who are more food insecure have lower life expectancies."><img src="./images/KM_food.png" class="img-fluid figure-img" alt="Figure 8: As expected, those who are more food insecure have lower life expectancies."></a></p>
+<figcaption>Figure 8: As expected, those who are more food insecure have lower life expectancies.</figcaption>
 </figure>
 </div>
 <p>Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity</p>
@@ -1757,6 +1714,7 @@ The first eigenvalue of our entire dataset explained 31% of the variance in our 
 <p>Furthermore, our additional findings highlight the impact of preventative healthcare measures on overall health. For instance, broadband internet access and median household income showed significant negative correlations with infant mortality, indicating that better access to resources and economic stability can contribute to lower infant mortality rates. Conversely, higher segregation indices were associated with increased infant mortality, emphasizing the detrimental effects of social and economic divides.</p>
 <p>Our predictive models, though varying in accuracy, consistently underscored the importance of healthcare access. The life expectancy and age-adjusted death rate models based on access-to-care variables suggested that a significant portion of health outcomes can be anticipated through healthcare accessibility metrics.</p>
 <p>Overall, our comprehensive analysis confirms the critical role of socio-economic factors, healthcare access, and preventative measures in determining health outcomes. Future research should focus on refining models to account for outliers and improving data completeness to further explore these relationships.</p>
+<p>WRITE ABOUT LIMITATIONS, STATE SUMMARY, VARIABLE SUMMARY, AND FUTURE WORK THAT SHOULD BE DONE</p>
 </section>
 <section id="references" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> References</h1>
@@ -1815,6 +1773,85 @@ The first eigenvalue of our entire dataset explained 31% of the variance in our 
   });
 </script>
 </section>
+<section id="sec-s_table_3" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="sec-s_table_3"><span class="header-section-number">8.1.3</span> S. Table 3: Coefficient Table of Life Expectancy Linear Model</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 14%">
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Predictor</th>
+<th>Estimate</th>
+<th>Std. Error</th>
+<th>t value</th>
+<th>Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td>7.092e+01</td>
+<td>2.171e+00</td>
+<td>32.661</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+<tr class="even">
+<td><code>PCP_RATIO</code></td>
+<td>1.076e-04</td>
+<td>3.664e-05</td>
+<td>2.935</td>
+<td>0.00338 **</td>
+</tr>
+<tr class="odd">
+<td><code>%_VACCINATED_(HISPANIC)</code></td>
+<td>-6.969e-03</td>
+<td>5.291e-03</td>
+<td>-1.317</td>
+<td>0.18802</td>
+</tr>
+<tr class="even">
+<td><code>AVERAGE_DAILY_PM2.5</code></td>
+<td>-3.642e-02</td>
+<td>2.558e-02</td>
+<td>-1.424</td>
+<td>0.15471</td>
+</tr>
+<tr class="odd">
+<td><code>%_FOOD_INSECURE</code></td>
+<td>-3.947e-01</td>
+<td>2.030e-02</td>
+<td>-19.440</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+<tr class="even">
+<td><code>HOUSEHOLD_INCOME_(HISPANIC)_LN</code></td>
+<td>9.561e-02</td>
+<td>1.897e-01</td>
+<td>0.504</td>
+<td>0.61427</td>
+</tr>
+<tr class="odd">
+<td><code>SEGREGATION_INDEX</code></td>
+<td>-3.593e-02</td>
+<td>4.618e-03</td>
+<td>-7.781</td>
+<td>1.35e-14 ***</td>
+</tr>
+<tr class="even">
+<td><code>%_BROADBAND_ACCESS</code></td>
+<td>1.175e-01</td>
+<td>9.519e-03</td>
+<td>12.340</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="supplemental-figures" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</h2>
@@ -1824,35 +1861,59 @@ The first eigenvalue of our entire dataset explained 31% of the variance in our 
 <figcaption>Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.</figcaption>
 </figure>
 </div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/conf_matrix_life_exp.png" class="lightbox" data-gallery="conf_matrix_gallery" title="Figure S.2A: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another."><img src="./Figures/conf_matrix_life_exp.png" class="img-fluid figure-img" alt="Figure S.2A: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another."></a></p>
 <figcaption>Figure S.2A: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another.</figcaption>
 </figure>
 </div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/conf_matrix_mortality.png" class="lightbox" data-gallery="conf_matrix_gallery" title="S.Figure S.2B: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another."><img src="./Figures/conf_matrix_mortality.png" class="img-fluid figure-img" alt="S.Figure S.2B: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another."></a></p>
 <figcaption>S.Figure S.2B: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another.</figcaption>
 </figure>
 </div>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/variance_life_exp.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.3A: It takes about 25 components to explain 90% of the variance seen in our life expectancy model"><img src="./Figures/variance_life_exp.png" class="img-fluid figure-img" alt="Figure S.3A: It takes about 25 components to explain 90% of the variance seen in our life expectancy model"></a></p>
 <figcaption>Figure S.3A: It takes about 25 components to explain 90% of the variance seen in our life expectancy model</figcaption>
 </figure>
 </div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/variance_inf_mor.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.3B: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model."><img src="./Figures/variance_inf_mor.png" class="img-fluid figure-img" alt="Figure S.3B: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model."></a></p>
 <figcaption>Figure S.3B: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model.</figcaption>
 </figure>
 </div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/variance_mortality.png" class="lightbox" data-gallery="variance_gallery" title="Figure S.3C: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model."><img src="./Figures/variance_mortality.png" class="img-fluid figure-img" alt="Figure S.3C: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model."></a></p>
 <figcaption>Figure S.3C: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model.</figcaption>
 </figure>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -2425,7 +2486,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
