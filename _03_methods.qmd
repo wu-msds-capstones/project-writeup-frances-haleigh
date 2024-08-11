@@ -31,8 +31,7 @@ flowchart LR
 4. Project desired health variables to the first eigenvalue.
 
 ::: {.callout-note collapse="true"}
-#### How did we do this?
-See below for how we projected these variables to the first eigenvalue:
+#### How did we project some variables to the first eigenvalue?
 ```
 pca_all = Pipeline([('transfomer', transformer_all), #need to use transfomer since have both categorical and numeric data
                          ('pca', PCA(1))]) #only project to first one
@@ -58,9 +57,11 @@ projected_values = selected_columns.dot(first_eigenvalue_component[:len(columns_
 
 5. Assess contributions and projection values of variables and states.
     i)  Assess contribution of each health variable by multiplying the corresponding element from the first eigenvalue by each of the selected columns and then summing each columns' products. `YEARS_OF_POTENTIAL_LIFE_LOST_RATE` contribued the most by a very large margin (see <a href="./Figures/first_pc_contributions.png" title="Figure 3">Figure 3</a>).
+    ii) Assess projection values of all other variables through a very similar process as the above point. We removed the selected columns first, then multiplied the corresponding first eigenvalues by the mean value of each other variable. We plotted the five variables contributing the most and least to the projection (see <a href="./Figures/overall_health_all_variables.png" title="Figure 4">Figure 4</a>).
+    iii) Assess projection value by county in a very similar manner as above. We then averaged and mapped by state to visualize a geographic trend with our engineered health metric. We used Python for the projection analysis and R for the visualization See <a href="./Figures/state_projection.png" title="Figure 5">Figure 5</a> for the map and the below section for the map code.
 
 ::: {.callout-note collapse="true"}
-# How did we do this?
+# How did we assess the contribution of each health variable to the projection?
 ```
 # Extract the PCA components
 pca_components = pca_all['pca'].components_
@@ -84,9 +85,6 @@ contributions_df = pd.DataFrame({
 })
 ```
 :::
-
-    ii) Assess projection values of all other variables through a very similar process as the above point. We removed the selected columns first, then multiplied the corresponding first eigenvalues by the mean value of each other variable. We plotted the five variables contributing the most and least to the projection (see <a href="./Figures/overall_health_all_variables.png" title="Figure 4">Figure 4</a>).
-    iii) Assess projection value by county in a very similar manner as above. We then averaged and mapped by state to visualize a geographic trend with our engineered health metric. We used Python for the projection analysis and R for the visualization See <a href="./Figures/state_projection.png" title="Figure 5">Figure 5</a> for the map and the below section for the map code.
 
 ::: {.callout-note collapse="true"}
 # How did we map the projections by state?
