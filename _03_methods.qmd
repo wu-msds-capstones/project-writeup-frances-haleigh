@@ -182,7 +182,7 @@ flowchart TD
 2. Preprocess:
     i) Drop NAs while optimizing data frame size via trial and error.
     ii) Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.
-3. Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure 9">Figures 9</a>, <a href="./Figures/kbest_inf_mor.png" title="Figure 13">13</a>, and <a href="./Figures/kbest_mortality.png" title="Figure 17">17</a>). Combine these variables with significant variables from the linear regression models completed in R.
+3. Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure 10">Figures 10</a>, and <a href="./Figures/kbest_mortality.png" title="Figure 17">17</a>). Combine these variables with significant variables from the linear regression models completed in R.
 4. Continue preprocessing with the reduced dataset (using only variables from step 3) 
     i) Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable.
         A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. 

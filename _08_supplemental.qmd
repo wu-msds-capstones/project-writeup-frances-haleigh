@@ -49,6 +49,16 @@
 | `SEGREGATION_INDEX`             | -3.593e-02| 4.618e-03  | -7.781  | 1.35e-14 ***|
 | `%_BROADBAND_ACCESS`            | 1.175e-01 | 9.519e-03  | 12.340  | < 2e-16 *** |
 
+### S. Table 4: Coefficient Table of Infant Mortality Rate Linear Model {#sec-s_table_4}
+
+| Predictor                        | Estimate  | Std. Error | t value | Pr(>\|t\|)    |
+|----------------------------------|-----------|------------|---------|-------------|
+| (Intercept)                      | 57.531253 | 2.427216   | 23.703  | < 2e-16 *** |
+| `AVERAGE_DAILY_PM2.5`            | 0.036263  | 0.023539   | 1.541   | 0.124       |
+| `MEDIAN_HOUSEHOLD_INCOME_LN`     | -4.134217 | 0.269866   | -15.320 | < 2e-16 *** |
+| `SEGREGATION_INDEX`              | 0.032420  | 0.004514   | 7.182   | 1.19e-12 ***|
+| `%_BROADBAND_ACCESS`             | -0.058167 | 0.009648   | -6.029  | 2.19e-09 ***|
+
 ## Supplemental Figures{#supplemental-figures}
 
 ![Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.](./Figures/life_expectancy_bins.png)

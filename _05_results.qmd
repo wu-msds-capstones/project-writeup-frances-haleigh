@@ -68,34 +68,23 @@ We then used machine learning algorithms to predict life expectancy of individua
 
 Our model predicted life expectancy based only on the fifteen significant access-to-care-related variables with 56% accuracy. While this may at first appear unimpressive, it’s important to realize that 56% of life expectancy can be predicted or explained by only fifteen items- all of which relate to one’s access to care. Only the remaining 44% can be explained by all other factors in a person’s life. 
 
-### Infant Mortality - left off here
-![Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births.](./images/median_infant_mortality_by_state.png)
+### Infant Mortality 
+<a href="./images/median_infant_mortality_by_state.png" title="Figure 11">Figure 11</a> shows the median infant mortality rates between states. Note that the chart appears to “stair-step” as infant mortality rates are represented as integers rather than continuous numbers. Because of the linear trend associated with each state, we included the variable in our linear model to determine which states were significantly correlated with infant mortality. 
 
-Figure 3A shows a difference between median infant mortality rates between states. Note that the chart appears to “stair-step” as infant mortality rates are represented as integers rather than continuous numbers. Because of the linear trend associated with each state, we included the variable in our linear model to determine which states were significantly correlated with infant mortality. 
+![Figure 11: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births.](./images/median_infant_mortality_by_state.png)
 
-![Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest.](./images/significance_state_infant_mortality.png)
+In our statistical model of preventative healthcare measures and infant mortality (see @imp-inf and @sec-s_table_4), we found that Median Household Income and Broadband Internet Access were significantly correlated in the negative direction with infant mortality rates. That is, as income and access to the Internet increased, infant mortality rates decreased. We came across the same issue with segregation here as we did in our life expectancy model. The Segregation Index coefficient shows that as segregation increases, infant mortality rates increase as well. 
 
-Figure 3B shows which states were positively or negatively correlated with infant mortality. Note that this time, negative significance in plotted in green as it indicates a lower infant mortality rate. In this case, Maryland and Mississippi are the only states with significantly higher rates of infant mortality.
-
-In terms of preventative healthcare measures that were significantly correlated with infant mortality (Figure 3C), we found that Median Household Income and Broadband Internet Access were significantly correlated in the negative direction with infant mortality rates. That is, as income and access to the Internet increased, infant mortality rates decreased. We came across the same issue with segregation here as we did in our life expectancy model. The Segregation Index coefficient shows that as segregation increases, infant mortality rates increase as well. 
-
-Figure 3C: Infant Mortality Linear Model and Coefficients:
+::: {#imp-inf .callout-warning icon=false collapse="false"}
+# Equation 2: Infant Mortality Rate Linear Model
 ```markdown
 lm(formula = `INFANT_MORTALITY_RATE` ~ `state_name` + `AVERAGE_DAILY_PM2.5` + 
     `MEDIAN_HOUSEHOLD_INCOME_LN` + `SEGREGATION_INDEX` + `%_BROADBAND_ACCESS`, 
     data = ds_mortality_adjusted)
 ```
-| Predictor                        | Estimate  | Std. Error | t value | Pr(>\|t\|)    |
-|----------------------------------|-----------|------------|---------|-------------|
-| (Intercept)                      | 57.531253 | 2.427216   | 23.703  | < 2e-16 *** |
-| `AVERAGE_DAILY_PM2.5`            | 0.036263  | 0.023539   | 1.541   | 0.124       |
-| `MEDIAN_HOUSEHOLD_INCOME_LN`     | -4.134217 | 0.269866   | -15.320 | < 2e-16 *** |
-| `SEGREGATION_INDEX`              | 0.032420  | 0.004514   | 7.182   | 1.19e-12 ***|
-| `%_BROADBAND_ACCESS`             | -0.058167 | 0.009648   | -6.029  | 2.19e-09 ***|
+:::
 
-In our machine learning model, we repeated the same process for infant mortality rate as for life expectancy, but got a low accuracy score of 36% due to the high number of NAs in our Infant Mortality Rate column. Future analyses would do well to increase record-keeping of infant mortality rates by county as the metric “indicates the current health status of a population and reflects the overall state of maternal health, as well as the quality and accessibility of primary health care available to pregnant women and infants.”³
-
-![Figure 13: caption](./Figures/kbest_inf_mor.png)
+On the machine learning side, we repeated the same process for infant mortality rate as for life expectancy, but got a low accuracy score of 36% due to the high number of NAs in our Infant Mortality Rate column. Future analyses would do well to increase record-keeping of infant mortality rates by county as the metric “indicates the current health status of a population and reflects the overall state of maternal health, as well as the quality and accessibility of primary health care available to pregnant women and infants.”[⁸](#ref8) 
 
 ### Age Adjusted Death Rate
 ![Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A).](./images/median_mortality_rate_by_state.png)
