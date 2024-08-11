@@ -85,18 +85,13 @@ lm(formula = `INFANT_MORTALITY_RATE` ~ `state_name` + `AVERAGE_DAILY_PM2.5` +
 On the machine learning side, we repeated the same process for infant mortality rate as for life expectancy, but got a low accuracy score of 36% due to the high number of NAs in our Infant Mortality Rate column. Future analyses would do well to increase record-keeping of infant mortality rates by county as the metric “indicates the current health status of a population and reflects the overall state of maternal health, as well as the quality and accessibility of primary health care available to pregnant women and infants.”[⁸](#ref8) 
 
 ### Age Adjusted Death Rate
+<a href="./images/median_mortality_rate_by_state.png" title="Figure 4A">Figure 4A</a> shows median age-adjusted death rate by state, with hawaii having the lowest rate and Mississippi having the highest. Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model.
+
 ![Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A).](./images/median_mortality_rate_by_state.png)
-
-Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model. Figure 4B shows which states were significantly correlated with mortality rate. Negative correlation is in green to represent significantly lower death rates. The opposite is true for red-colored states.
-
-See <a href="./images/M_pairs.png" title="Figures S.4C">Figures S.4C</a> and <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a>
-
-![Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies).](./images/significance_state_death_rate_map.png)
 
 Preventative healthcare measures that were significantly correlated with mortality rate are shown in Figure 4C. As food insecurity, segregation, and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.
 
-Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well. 
-
+Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well. (See <a href="./images/M_pairs.png" title="Figures S.4C">Figures S.4C</a> and <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a> for our pairwise and assumption plots, which show that the variables we kept in our model were not correlated with each other.)
 Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model and Coefficients:
 ```markdown
 lm(formula = `AGE-ADJUSTED_DEATH_RATE` ~ `state_name` + `%_VACCINATED` + 
