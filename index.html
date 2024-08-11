@@ -1018,13 +1018,12 @@ How did we do this?
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How did we do this?
+How did we project some variables to the first eigenvalue?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>See below for how we projected these variables to the first eigenvalue:</p>
 <pre><code>pca_all = Pipeline([('transfomer', transformer_all), #need to use transfomer since have both categorical and numeric data
                          ('pca', PCA(1))]) #only project to first one
 
@@ -1051,6 +1050,8 @@ projected_values = selected_columns.dot(first_eigenvalue_component[:len(columns_
 <li>Assess contributions and projection values of variables and states.
 <ol type="i">
 <li>Assess contribution of each health variable by multiplying the corresponding element from the first eigenvalue by each of the selected columns and then summing each columns’ products. <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> contribued the most by a very large margin (see <a href="./Figures/first_pc_contributions.png" title="Figure 3">Figure 3</a>).</li>
+<li>Assess projection values of all other variables through a very similar process as the above point. We removed the selected columns first, then multiplied the corresponding first eigenvalues by the mean value of each other variable. We plotted the five variables contributing the most and least to the projection (see <a href="./Figures/overall_health_all_variables.png" title="Figure 4">Figure 4</a>).</li>
+<li>Assess projection value by county in a very similar manner as above. We then averaged and mapped by state to visualize a geographic trend with our engineered health metric. We used Python for the projection analysis and R for the visualization See <a href="./Figures/state_projection.png" title="Figure 5">Figure 5</a> for the map and the below section for the map code.</li>
 </ol></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1059,7 +1060,7 @@ projected_values = selected_columns.dot(first_eigenvalue_component[:len(columns_
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How did we do this?
+How did we assess the contribution of each health variable to the projection?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1088,8 +1089,6 @@ contributions_df = pd.DataFrame({
 </div>
 </div>
 </div>
-<pre><code>ii) Assess projection values of all other variables through a very similar process as the above point. We removed the selected columns first, then multiplied the corresponding first eigenvalues by the mean value of each other variable. We plotted the five variables contributing the most and least to the projection (see &lt;a href="./Figures/overall_health_all_variables.png" title="Figure 4"&gt;Figure 4&lt;/a&gt;).
-iii) Assess projection value by county in a very similar manner as above. We then averaged and mapped by state to visualize a geographic trend with our engineered health metric. We used Python for the projection analysis and R for the visualization See &lt;a href="./Figures/state_projection.png" title="Figure 5"&gt;Figure 5&lt;/a&gt; for the map and the below section for the map code.</code></pre>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1481,10 +1480,10 @@ Important&nbsp;1: Equation 1: Life Expectancy Linear Model
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`LIFE_EXPECTANCY`</span> ~ <span class="in">`state_name`</span> + <span class="in">`PCP_RATIO`</span> + </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`%_VACCINATED_(HISPANIC)`</span> + <span class="in">`AVERAGE_DAILY_PM2.5`</span> + <span class="in">`%_FOOD_INSECURE`</span> + </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(HISPANIC)_LN`</span> +</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span>, data = ds_life_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`LIFE_EXPECTANCY`</span> ~ <span class="in">`state_name`</span> + <span class="in">`PCP_RATIO`</span> + </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`%_VACCINATED_(HISPANIC)`</span> + <span class="in">`AVERAGE_DAILY_PM2.5`</span> + <span class="in">`%_FOOD_INSECURE`</span> + </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(HISPANIC)_LN`</span> +</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span>, data = ds_life_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1571,9 +1570,9 @@ Important&nbsp;1: Equation 1: Life Expectancy Linear Model
 <p>Figure 3B shows which states were positively or negatively correlated with infant mortality. Note that this time, negative significance in plotted in green as it indicates a lower infant mortality rate. In this case, Maryland and Mississippi are the only states with significantly higher rates of infant mortality.</p>
 <p>In terms of preventative healthcare measures that were significantly correlated with infant mortality (Figure 3C), we found that Median Household Income and Broadband Internet Access were significantly correlated in the negative direction with infant mortality rates. That is, as income and access to the Internet increased, infant mortality rates decreased. We came across the same issue with segregation here as we did in our life expectancy model. The Segregation Index coefficient shows that as segregation increases, infant mortality rates increase as well.</p>
 <p>Figure 3C: Infant Mortality Linear Model and Coefficients:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`INFANT_MORTALITY_RATE`</span> ~ <span class="in">`state_name`</span> + <span class="in">`AVERAGE_DAILY_PM2.5`</span> + </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`MEDIAN_HOUSEHOLD_INCOME_LN`</span> + <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span>, </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    data = ds_mortality_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`INFANT_MORTALITY_RATE`</span> ~ <span class="in">`state_name`</span> + <span class="in">`AVERAGE_DAILY_PM2.5`</span> + </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`MEDIAN_HOUSEHOLD_INCOME_LN`</span> + <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    data = ds_mortality_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 43%">
@@ -1655,11 +1654,11 @@ Important&nbsp;1: Equation 1: Life Expectancy Linear Model
 <p>Preventative healthcare measures that were significantly correlated with mortality rate are shown in Figure 4C. As food insecurity, segregation, and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.</p>
 <p>Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well.</p>
 <p>Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model and Coefficients:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`AGE-ADJUSTED_DEATH_RATE`</span> ~ <span class="in">`state_name`</span> + <span class="in">`%_VACCINATED`</span> + </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`%_SEVERE_HOUSING_PROBLEMS`</span> + <span class="in">`%_FOOD_INSECURE`</span> + <span class="in">`SCHOOL_SEGREGATION_IDX`</span> + </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(HISPANIC)_LN`</span> + <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span> + </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="in">`#_RURAL_RESIDENTS`</span> + <span class="in">`HOUSEHOLD_INCOME_(WHITE)_LN`</span> + <span class="in">`%_VACCINATED_(ASIAN)`</span> + </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(ASIAN)_LN`</span>, data = ds_mortality_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`AGE-ADJUSTED_DEATH_RATE`</span> ~ <span class="in">`state_name`</span> + <span class="in">`%_VACCINATED`</span> + </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`%_SEVERE_HOUSING_PROBLEMS`</span> + <span class="in">`%_FOOD_INSECURE`</span> + <span class="in">`SCHOOL_SEGREGATION_IDX`</span> + </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(HISPANIC)_LN`</span> + <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span> + </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="in">`#_RURAL_RESIDENTS`</span> + <span class="in">`HOUSEHOLD_INCOME_(WHITE)_LN`</span> + <span class="in">`%_VACCINATED_(ASIAN)`</span> + </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(ASIAN)_LN`</span>, data = ds_mortality_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 44%">
@@ -2553,7 +2552,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
