@@ -111,4 +111,4 @@ When creating our individual linear mixed models, we ofund that some states had 
 
 Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.  
 
-![Figure 17: caption](./Figures/kbest_mortality.png)
+![Figure 13: caption](./Figures/kbest_mortality.png)
