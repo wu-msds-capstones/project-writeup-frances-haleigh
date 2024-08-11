@@ -9,6 +9,8 @@ format:
     theme:
       light: lightly
       dark: darkly
+    mermaid:
+      theme: forest
     
 with:
   target: gh-pages

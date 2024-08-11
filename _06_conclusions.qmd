@@ -8,3 +8,5 @@ Furthermore, our additional findings highlight the impact of preventative health
 Our predictive models, though varying in accuracy, consistently underscored the importance of healthcare access. The life expectancy and age-adjusted death rate models based on access-to-care variables suggested that a significant portion of health outcomes can be anticipated through healthcare accessibility metrics.
 
 Overall, our comprehensive analysis confirms the critical role of socio-economic factors, healthcare access, and preventative measures in determining health outcomes. Future research should focus on refining models to account for outliers and improving data completeness to further explore these relationships.
+
+WRITE ABOUT LIMITATIONS, STATE SUMMARY, VARIABLE SUMMARY, AND FUTURE WORK THAT SHOULD BE DONE

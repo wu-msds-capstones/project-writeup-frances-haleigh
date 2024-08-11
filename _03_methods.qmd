@@ -18,7 +18,7 @@ flowchart LR
   D --> G(5c. Assess projection value by \ncounty then average by state)
 ```
 
-### More detailed explanation
+### More detailed explanation {#sec-goal1-details}
 1. Gather our entire dataset (not just access to care related variables). Drop all NAs and variables related to count data (we kept only rates and percentages). See [@sec-s_table_1] for a list of all variables used.
 2. Preprocess the dataset using StandardScaler and OneHotEncoder to the appropriate columns (numeric and categorical, respectively). This converts our data to completely similarly scaled numeric data to ensure equal contributions from each variable to the final output.
 3. Select the following variables to summarize health: `LIFE_EXPECTANCY`, `AGE-ADJUSTED_DEATH_RATE`, `YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, `%_FREQUENT_PHYSICAL_DISTRESS` and `%_FREQUENT_MENTAL_DISTRESS`. `AGE-ADJUSTED_DEATH_RATE`, `YEARS_OF_POTENTIAL_LIFE_LOST_RATE` both represent mortality rates. `%_FREQUENT_PHYSICAL_DISTRESS`, `%_FREQUENT_MENTAL_DISTRESS` represent the percent of adults who report having 14 or more days of poor physical and mental health, respectively, per month. We chose these variables for multiple reasons:
@@ -140,7 +140,11 @@ projected_values = selected_columns.dot(first_eigenvalue_component[:len(columns_
 
 ## Goal 2: Discover how access to care impacts life expectancy, infant mortality, and mortality.
 
+We used both R and Python to analyze how access to care impacts important health metrics.
+
 ### Statistics in R
+
+**(ADD FLOWCHART?)**
 
 1. Create our desired dataframe by reading in data from our remote database and joining where necessary.
 2. Preprocess:
@@ -165,7 +169,16 @@ projected_values = selected_columns.dot(first_eigenvalue_component[:len(columns_
 |*Linear Regression*     |Linear regression is a statistical test used to find and quanitfy linear trends between data.|
 :::
 
-### Machine Learning in Python*
+### Machine Learning in Python
+```{mermaid}
+flowchart TD
+  A(1. Create Dataset) --> B(2. Scale Dataset)
+  B --> C(3. KMeans, reduce data \nto best features)
+  C --> D(4. Preprocess reduced dataset)
+  D --> E(5. Model- Ensemble then \nselect best one)
+  E --> F(6. Hyperparameterize, train, test model)
+  F --> G(6. Add PCA to finalized pipeline)
+```
 
 1. Create our desired dataframe by reading in data from our remote database and joining where necessary.
 2. Preprocess:

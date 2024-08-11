@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -46,160 +80,356 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="results" class="level1">
-<h1>Results</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.3 In the following sections, we modeled each of these by a list of variables representing access to care (Supplemental Table 1A). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.</p>
+<section id="results---need-to-update" class="level1">
+<h1>Results - need to update</h1>
+<section id="creating-an-overall-health-quality-variable" class="level2">
+<h2 class="anchored" data-anchor-id="creating-an-overall-health-quality-variable">Creating an Overall Health Quality Variable</h2>
+<p>As a novel way of assessing quality of health, we created a new variable to represent the overall health of a population. We knew that the following variables should be included in the creation of this new variable: <code>LIFE_EXPECTANCY</code>, <code>AGE_ADJUSTED_DEATH_RATE</code>, <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code>, <code>%_FREQUENT_PHYSICAL_DISTRESS</code>, and <code>%_FREQUENT_MENTAL_DISTRESS</code>. Reasons for choosing these variables is explained in <strong>?@sec-goal1-details</strong>. A clear linear relationship is seen between each of these metrics was observed (see <a href="./Figures/pairplot.png" title="Figure 2">Figure 2</a>).</p>
+<p>We projected these variables onto the first eigenvalue and assessed the contribution of each onto the projection. This was necessary to better interpret later analyses. We found that <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> contributed to the projection by a large amount (see <a href="./Figures/first_pc_contributions.png" title="Figure 3">Figure 3</a>), which suggested that further analyses represented <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> far more than the other four variables.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./Figures/first_pc_contributions.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 3: Contribution amounts of each of the five health metrics on the projection. <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> made the most contribution by a very far margin. This suggests that further analyses represent <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> far more than the other four variables.</figcaption>
+</figure>
+</div>
+<p>Next, we repeated a similar process as above to discover how much all the other variables were associated with the projection. We found the percent of population with access to exercise is most associated with the projection and chlamydia rate the least (see <a href="./Figures/overall_health_all_variables.png" title="Figure 4">Figure 4</a>). Other variables that were highly associated with the projection were preventable hospitalization rates (rate of Medicare enrollees being discharged from out-patient services), percent of homeowners, percent of kids in single-parent homes, and percent of people 65 years old or older. Since the projection is most explained by <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code>, this graph suggests that having access to exercise is most associated with variations in this metric. Further analysis needs to be done to confirm if a causal relationship exists between these two variables, and if so, in which directions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./Figures/overall_health_all_variables.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 4: Percent of population with access to exercise is most associated with the projection and <code>CHLAMYDIA_RATE</code> the least. Since the projection is most described by<code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code>, that means access to exercise and chlamydia rate are associated with variations in this mortality metric the most and least, respectively.</figcaption>
+</figure>
+</div>
+<p>WRITE HERE</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./Figures/state_projection.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 5: There is a clear geographic trend where the southeastern states have higher projection trends and the northwestern have lower. Since the first eigenvalue is most explained by <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code>, southeastern states have higher rates and northwestern lower.</figcaption>
+</figure>
+</div>
 </section>
 <section id="analyzing-impact-of-access-to-care-on-health-metrics" class="level2">
 <h2 class="anchored" data-anchor-id="analyzing-impact-of-access-to-care-on-health-metrics">Analyzing Impact of Access to Care on Health Metrics</h2>
+<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.<a href="#ref8">⁸</a> In the following sections, we modeled each of these by a list of variables representing access to care (see <strong>?@sec-s_table_2</strong>). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.</p>
 <section id="life-expectancy" class="level3">
 <h3 class="anchored" data-anchor-id="life-expectancy">Life Expectancy</h3>
+<p>Figure 6 demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 7.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./images/life_expectancy_by_state.png" class="img-fluid figure-img"></p>
-<figcaption>Fig 2A: Median Life Expectancy by State.</figcaption>
+<figcaption>Fig 6: Median life expectancy of most states is between 77 and 80 years old.</figcaption>
 </figure>
 </div>
-<p>Figure 2A demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 2B.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/life_expectancy_significanct_state.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 2B: Map of State Significance for Life Expectancy.</figcaption>
+<p><img src="./images/life_expecancy_map.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7: There does not appear to be a geographic influence on median life expectancy.</figcaption>
 </figure>
 </div>
-<p>Figure 2C shows our linear model for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Rate and Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity was negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy.</p>
-<p>These were all expected, but what was surprising was that the Residential Segregation Index was positively correlated with life expectancy but the opposite relationship was found for the Segregation Index. While we expected to see Segregation Index negatively correlated with life expectancy, it seems to be paradoxical that the opposite was true for the Residential Segregation Index. We realized that our Residential Segregation Index had a lot of missing values, so plotting it against life expectancy didn’t reveal any visible trend. To improve this model in the future, we would remove this predictor.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./images/life_expectanct_lm_coef.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 2C: Life Expectancy Linear Model Coefficients.</figcaption>
-</figure>
+<p><a href="#imp-life" class="quarto-xref">Equation&nbsp;1</a> shows our final linear model and <strong>?@sec-s_table_3</strong> our coefficient table for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity and Segregation Index were both negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy.</p>
+<div id="imp-life" class="callout callout-style-default callout-warning no-icon callout-titled" title="test">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important&nbsp;1: test
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<section id="equation-1-life-expectancy-linear-model" class="level1 callout-body-container callout-body">
+<h1>Equation 1: Life Expectancy Linear Model</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`LIFE_EXPECTANCY`</span> ~ <span class="in">`state_name`</span> + <span class="in">`PCP_RATIO`</span> + </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`%_VACCINATED_(HISPANIC)`</span> + <span class="in">`AVERAGE_DAILY_PM2.5`</span> + <span class="in">`%_FOOD_INSECURE`</span> + </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(HISPANIC)_LN`</span> +</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span>, data = ds_life_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
 </div>
 <p>To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 2D shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = &lt;2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./images/KM_food.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 2D: Kaplan-Meier Curve for Life Expectancy and Percentage of Food Insecurity.</figcaption>
+<figcaption>Figure 2D: As expected, those who are more food insecure have lower life expectancies.</figcaption>
 </figure>
 </div>
+<p>Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantile</th>
+<th>N</th>
+<th>Observed</th>
+<th>Expected</th>
+<th>(O-E)^2/E</th>
+<th>(O-E)^2/V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quantile=1</td>
+<td>704</td>
+<td>704</td>
+<td>505</td>
+<td>78.411</td>
+<td>98.013</td>
+</tr>
+<tr class="even">
+<td>quantile=2</td>
+<td>760</td>
+<td>760</td>
+<td>584</td>
+<td>52.895</td>
+<td>68.550</td>
+</tr>
+<tr class="odd">
+<td>quantile=3</td>
+<td>757</td>
+<td>757</td>
+<td>745</td>
+<td>0.184</td>
+<td>0.254</td>
+</tr>
+<tr class="even">
+<td>quantile=4</td>
+<td>749</td>
+<td>749</td>
+<td>1135</td>
+<td>131.551</td>
+<td>230.098</td>
+</tr>
+</tbody>
+</table>
+<p>Kaplan-Meier Curves for life expectancy were made with the following variables: PCP Ratio, Percentage of Food Insecurity, Segregation Index, and Percentage of Broadband Internet Access. Log rank tests were performed, and all of the results were significant. To explore the curves and log rank test results, please explore our gallery below:</p>
+<p><strong>GALLERY https://quarto.org/docs/output-formats/html-lightbox-figures.html</strong></p>
+<p>We then used machine learning algorithms to predict life expectancy of individuals based on these significant covariates along with the top ten features found through KBest (see <a href="./Figures/kbest_life_exp.png" title="Figure 9">Figure 9</a>). It is important to note that a lot of features were found in both the linear regression model explained above and in the KBest result.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/log_rank_food.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 5: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity.</figcaption>
+<p><img src="./Figures/kbest_life_exp.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 9: caption</figcaption>
 </figure>
 </div>
-<p>Kaplan-Meier Curves for life expectancy were made with the following variables: PCP Rate and Ratio, Percentage of Food Insecurity, Segregation Index, and Percentage of Broadband Internet Access. Log rank tests were performed, and all of the results were significant. To explore the curves and log rank test results, please explore our gallery below:</p>
-<p>–add a gallery here but ran out of time–</p>
-<p>We then used machine learning algorithms to predict life expectancy of individuals based on these significant covariates along with the top ten features found through KBest (see Supplemental Figure 1A). It is important to note that a lot of features were found in both the linear regression model explained above and in the KBest result.</p>
 <p>Our model predicted life expectancy based only on the fifteen significant access-to-care-related variables with 56% accuracy. While this may at first appear unimpressive, it’s important to note that 56% of life expectancy can be predicted or explained by only fifteen items- all of which relate to one’s access to healthcare. Only the remaining 44% can be explained by all other factors in a person’s life.</p>
-<p>Using the clustering method KMeans, we found the predicted clusters of our life expectancy quartiles projected on its first two principle components (Fig2F). It neatly separates each quartile into four obvious groups. However, we also found that our life expectancy dataset required about twenty-five principle components to explain 90% of the variance in our model (see S.Fig1G), so despite its seemingly accurate divisions, this graphic is limited by its two dimensions. We would need many more to visualize how the data is truly clustering.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./Figures/kmeans_life_exp.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 2F: K-means clustering (k=4) for Life Expectancy Model</figcaption>
-</figure>
-</div>
 </section>
 <section id="infant-mortality" class="level3">
 <h3 class="anchored" data-anchor-id="infant-mortality">Infant Mortality</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 3A: Median Infant Mortality Rate by State.</figcaption>
+<figcaption>Figure 3A: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births.</figcaption>
 </figure>
 </div>
-<p>Figure 3A shows a difference between median infant mortality rates between states. Note that the chart appears to “stair-step” as Infant Mortality Rate are represented as integers rather than continuous numbers. Because of the linear trend associated with each state, we included the variable in our linear model to determine which states were significantly correlated with infant mortality.</p>
+<p>Figure 3A shows a difference between median infant mortality rates between states. Note that the chart appears to “stair-step” as infant mortality rates are represented as integers rather than continuous numbers. Because of the linear trend associated with each state, we included the variable in our linear model to determine which states were significantly correlated with infant mortality.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./images/significance_state_infant_mortality.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 3B: Significance of State for Infant Mortality.</figcaption>
+<figcaption>Figure 3B: Many of the same states that have longer life expectancies (Fig. 2B) as have lower infant mortality rates. Only Mississippi and Maryland have infant mortality rates significantly greater than the rest.</figcaption>
 </figure>
 </div>
-<p>Figure 3B shows which states were positively or negatively correlated with infant mortality. Note this map has negative significance in green since that would mean less infant mortality. In this case, Maryland and Mississippi have significantly higher rates of infant mortality.</p>
-<p>In terms of preventative healthcare measures that were significantly correlated with infant mortality (Figure 3C), we found that Median Household Income and Broadband Internet Access were significantly correlated in the negative direction with infant mortality. That is, as income and access to the Internet increased, infant mortality rates decreased. We came across the same issue with segregation here as we did in our life expectancy model. The Segregation Index coefficient shows that as segregation increases, infant mortality rates increase as well.</p>
+<p>Figure 3B shows which states were positively or negatively correlated with infant mortality. Note that this time, negative significance in plotted in green as it indicates a lower infant mortality rate. In this case, Maryland and Mississippi are the only states with significantly higher rates of infant mortality.</p>
+<p>In terms of preventative healthcare measures that were significantly correlated with infant mortality (Figure 3C), we found that Median Household Income and Broadband Internet Access were significantly correlated in the negative direction with infant mortality rates. That is, as income and access to the Internet increased, infant mortality rates decreased. We came across the same issue with segregation here as we did in our life expectancy model. The Segregation Index coefficient shows that as segregation increases, infant mortality rates increase as well.</p>
+<p>Figure 3C: Infant Mortality Linear Model and Coefficients:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`INFANT_MORTALITY_RATE`</span> ~ <span class="in">`state_name`</span> + <span class="in">`AVERAGE_DAILY_PM2.5`</span> + </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`MEDIAN_HOUSEHOLD_INCOME_LN`</span> + <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    data = ds_mortality_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 13%">
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Predictor</th>
+<th>Estimate</th>
+<th>Std. Error</th>
+<th>t value</th>
+<th>Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td>57.531253</td>
+<td>2.427216</td>
+<td>23.703</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+<tr class="even">
+<td><code>AVERAGE_DAILY_PM2.5</code></td>
+<td>0.036263</td>
+<td>0.023539</td>
+<td>1.541</td>
+<td>0.124</td>
+</tr>
+<tr class="odd">
+<td><code>MEDIAN_HOUSEHOLD_INCOME_LN</code></td>
+<td>-4.134217</td>
+<td>0.269866</td>
+<td>-15.320</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+<tr class="even">
+<td><code>SEGREGATION_INDEX</code></td>
+<td>0.032420</td>
+<td>0.004514</td>
+<td>7.182</td>
+<td>1.19e-12 ***</td>
+</tr>
+<tr class="odd">
+<td><code>%_BROADBAND_ACCESS</code></td>
+<td>-0.058167</td>
+<td>0.009648</td>
+<td>-6.029</td>
+<td>2.19e-09 ***</td>
+</tr>
+</tbody>
+</table>
+<p>In our machine learning model, we repeated the same process for infant mortality rate as for life expectancy, but got a low accuracy score of 36% due to the high number of NAs in our Infant Mortality Rate column. Future analyses would do well to increase record-keeping of infant mortality rates by county as the metric “indicates the current health status of a population and reflects the overall state of maternal health, as well as the quality and accessibility of primary health care available to pregnant women and infants.”³</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/infant_mortality_lm_coef.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 3C: Infant Mortality Linear Model Coefficients.</figcaption>
+<p><img src="./Figures/kbest_inf_mor.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 13: caption</figcaption>
 </figure>
 </div>
-<p>In our machine learning model, we repeated the same process for infant mortality rate as for life expectancy, but got a low accuracy score of 36% due to the high number of NAs in our Infant Mortality Rate column. Future analyses would do well to increase record-keeping of infant mortality rates by county as the metric “indicates the current health status of a population and reflects the overall state of maternal health, as well as the quality and accessibility of primary health care available to pregnant women and infants.”³</p>
 </section>
 <section id="age-adjusted-death-rate" class="level3">
 <h3 class="anchored" data-anchor-id="age-adjusted-death-rate">Age Adjusted Death Rate</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./images/median_mortality_rate_by_state.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 4A: Median Mortality Rate by State.</figcaption>
+<figcaption>Figure 4A: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 3A).</figcaption>
 </figure>
 </div>
-<p>Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model. Figure 4B shows which states were significantly correlated with mortality rate. Negative correlation is in green (AZ) showing a significantly lower death rate in Arizona. Positive correlation is in red, showing significantly higher death rates.</p>
+<p>Age-adjusted death rate (mortality rate) appeared to vary across states as seen in Figure 4A, so we again kept state in our linear model. Figure 4B shows which states were significantly correlated with mortality rate. Negative correlation is in green to represent significantly lower death rates. The opposite is true for red-colored states.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./images/significance_state_death_rate_map.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 4B: Significance of State for Age Adjusted Death Rate (Mortality Rate).</figcaption>
+<figcaption>Figure 4B: Most states do not have an age-adjusted mortality rate different from the rest. All states with a lower mortality rate also have higher life expectancies (the same is not true for higher mortality rates and lower life expectancies).</figcaption>
 </figure>
 </div>
-<p>Preventative healthcare measures that were significantly correlated with mortality rate are shown in figure 4C. As food insecurity, segregation (excluding residential segregation), and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.</p>
+<p>Preventative healthcare measures that were significantly correlated with mortality rate are shown in Figure 4C. As food insecurity, segregation, and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.</p>
 <p>Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian and Hispanic Americans. Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./images/death_rate_lm_coef.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model Coefficients.</figcaption>
-</figure>
-</div>
+<p>Figure 4C: Age Adjusted Death Rate (Mortality Rate) Linear Model and Coefficients:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lm(formula = <span class="in">`AGE-ADJUSTED_DEATH_RATE`</span> ~ <span class="in">`state_name`</span> + <span class="in">`%_VACCINATED`</span> + </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="in">`%_SEVERE_HOUSING_PROBLEMS`</span> + <span class="in">`%_FOOD_INSECURE`</span> + <span class="in">`SCHOOL_SEGREGATION_IDX`</span> + </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(HISPANIC)_LN`</span> + <span class="in">`SEGREGATION_INDEX`</span> + <span class="in">`%_BROADBAND_ACCESS`</span> + </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="in">`#_RURAL_RESIDENTS`</span> + <span class="in">`HOUSEHOLD_INCOME_(WHITE)_LN`</span> + <span class="in">`%_VACCINATED_(ASIAN)`</span> + </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="in">`HOUSEHOLD_INCOME_(ASIAN)_LN`</span>, data = ds_mortality_adjusted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Predictor</th>
+<th>Estimate</th>
+<th>Std. Error</th>
+<th>t value</th>
+<th>Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td>9.933e+02</td>
+<td>1.443e+02</td>
+<td>6.884</td>
+<td>1.06e-11 ***</td>
+</tr>
+<tr class="even">
+<td><code>%_VACCINATED</code></td>
+<td>-2.097e+00</td>
+<td>3.655e-01</td>
+<td>-5.737</td>
+<td>1.29e-08 ***</td>
+</tr>
+<tr class="odd">
+<td><code>%_SEVERE_HOUSING_PROBLEMS</code></td>
+<td>-3.190e+00</td>
+<td>5.191e-01</td>
+<td>-6.145</td>
+<td>1.18e-09 ***</td>
+</tr>
+<tr class="even">
+<td><code>%_FOOD_INSECURE</code></td>
+<td>1.503e+01</td>
+<td>9.902e-01</td>
+<td>15.181</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+<tr class="odd">
+<td><code>SCHOOL_SEGREGATION_IDX</code></td>
+<td>2.925e+01</td>
+<td>3.784e+01</td>
+<td>0.773</td>
+<td>0.43979</td>
+</tr>
+<tr class="even">
+<td><code>HOUSEHOLD_INCOME_(HISPANIC)_LN</code></td>
+<td>1.999e+01</td>
+<td>9.581e+00</td>
+<td>2.086</td>
+<td>0.03725 *</td>
+</tr>
+<tr class="odd">
+<td><code>SEGREGATION_INDEX</code></td>
+<td>1.275e+00</td>
+<td>2.641e-01</td>
+<td>4.827</td>
+<td>1.61e-06 ***</td>
+</tr>
+<tr class="even">
+<td><code>%_BROADBAND_ACCESS</code></td>
+<td>-5.696e+00</td>
+<td>5.048e-01</td>
+<td>-11.284</td>
+<td>&lt; 2e-16 ***</td>
+</tr>
+<tr class="odd">
+<td><code>#_RURAL_RESIDENTS</code></td>
+<td>-1.468e-05</td>
+<td>5.814e-06</td>
+<td>-2.524</td>
+<td>0.01175 *</td>
+</tr>
+<tr class="even">
+<td><code>HOUSEHOLD_INCOME_(WHITE)_LN</code></td>
+<td>-5.001e+01</td>
+<td>1.544e+01</td>
+<td>-3.239</td>
+<td>0.00124 **</td>
+</tr>
+<tr class="odd">
+<td><code>%_VACCINATED_(ASIAN)</code></td>
+<td>2.830e-01</td>
+<td>2.432e-01</td>
+<td>1.163</td>
+<td>0.24498</td>
+</tr>
+<tr class="even">
+<td><code>HOUSEHOLD_INCOME_(ASIAN)_LN</code></td>
+<td>1.067e+01</td>
+<td>6.013e+00</td>
+<td>1.774</td>
+<td>0.07641 .</td>
+</tr>
+</tbody>
+</table>
 <p>Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.</p>
-<p>KMeans clustering again found four apparent clusters within our data along its first two principle components. As with the life expectancy data, we found that our data needs 30 components to explain 90% of its variance, so this two dimensional plot is missing a lot of further details that would otherwise be revealed by a multi-dimensional graphic.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./Figures/kmeans_mortality.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 4D: K-means clustering (k=4) for Age-Adjusted Death Rate Model</figcaption>
+<p><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 17: caption</figcaption>
 </figure>
 </div>
 </section>
-</section>
-<section id="predicting-chronic-conditions-based-on-medicaid-data" class="level2">
-<h2 class="anchored" data-anchor-id="predicting-chronic-conditions-based-on-medicaid-data">Predicting Chronic Conditions Based On Medicaid Data</h2>
-<p>To answer the question of how state insurance in particular impacts one’s health status, we evaluated two common chronic conditions in the United States, diabetes and cardiovascular disease.</p>
-<section id="diabetes" class="level3">
-<h3 class="anchored" data-anchor-id="diabetes">Diabetes</h3>
-<p>We immediately plotted our mean diabetes percentages by Medicaid percentage across states to see if any obvious correlation existed (see Fig5B). No correlation was obvious, but there appeared to be a slight linear trend. We created a linear regression model predicting diabetes prevalence by many Medicaid-related covariates, such as how many adults did not see a doctor in the past twelve months due to cost, state Medicaid expenditure, state Medicaid spending, total Medicaid spending, and population percentage on Medicaid. Our simple model showed a surprising 38% accuracy in predicting how many people in a given population would have diabetes based on these factors. While Medicaid-related factors may not be able to completely predict diabetes prevalence, it certainly plays a role.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./Figures/dm_medicaid.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 5A: Mean diabetes percentage per state vs Medicaid percentage</figcaption>
-</figure>
-</div>
-</section>
-<section id="cardiovascular-disease-cvd" class="level3">
-<h3 class="anchored" data-anchor-id="cardiovascular-disease-cvd">Cardiovascular Disease (CVD)</h3>
-<p>As with our diabetes dataset, we again repeated the above process to predict CVD prevalence based on Medicaid-only related factors. Our simple scatterplot shows a faint linear trend and two potential clusters. Shockingly, our model accurately predicted CVD prevalence 46% of the time! This is such a high number that it cannot be ignored, and we can assume Medicaid plays some factor in a population’s cardiovascular disease prevalence.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./Figures/cvd_medicaid.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 5B: Mean CVD Percentage per State vs Medicaid Percentage</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="creating-an-overall-health-quality-variable" class="level2">
-<h2 class="anchored" data-anchor-id="creating-an-overall-health-quality-variable">Creating an Overall Health Quality Variable</h2>
-<p>As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.3 Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one’s actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./Figures/pairplot.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 6A: Health Metrics Pair Plot</figcaption>
-</figure>
-</div>
-<p>Though the first eigenvalue of our entire dataset only explained 31% of the variance in our dataset, we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./Figures/weights.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 6B: Top 5 High and Bottom 5 Low Weights</figcaption>
-</figure>
-</div>
 </section>
 </section>
 

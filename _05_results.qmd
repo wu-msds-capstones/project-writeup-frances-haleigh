@@ -1,55 +1,46 @@
-# Results
+# Results - need to update
 
 ## Creating an Overall Health Quality Variable
-<!-- As a final metric for assessing quality of health, we wanted to create a new variable that represented the overall health of a population. We knew that the following variables should be included in the creation of this new variable: Life Expectancy, Age-Adjusted Death Rate, Years of Potential Life Lost Rate, Percent of Frequent Physical Distress Days, and Percent of Frequent Mental Distress Days. We chose the first three for the same reasons explained in the introduction to our results.³ Note that we left out Infant Mortality Rate due to its high number of NAs, as explained above. We added the final two metrics to account for a person’s perceived quality of life, which does influence’s one's actual health quality. A clear linear relationship is seen between each of these metrics in the pair plot below (Fig 6A).
+As a novel way of assessing quality of health, we created a new variable to represent the overall health of a population. We knew that the following variables should be included in the creation of this new variable: `LIFE_EXPECTANCY`, `AGE_ADJUSTED_DEATH_RATE`, `YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, `%_FREQUENT_PHYSICAL_DISTRESS`, and `%_FREQUENT_MENTAL_DISTRESS`. Reasons for choosing these variables is explained in @sec-goal1-details. A clear linear relationship is seen between each of these metrics was observed (see <a href="./Figures/pairplot.png" title="Figure 2">Figure 2</a>).
 
-![Figure 6A: NOT UPDATED We chose these five variables to summarize our overall health metric since they are all linearly correlated with each other.](./Figures/pairplot.png)
-
-The first eigenvalue of our entire dataset explained 31% of the variance in our dataset, so we continued by projecting the variables above to this first eigenvalue, thus “creating” a new variable that represents overall health. We then plotted the weights of all of our other variables against this new one to see how much each contributed to overall health. 87 of our original features contributed negatively to this new variable and 35 positively. Fig6B shows which features contribute the most in both a positive and negative direction to health. 
-
-![Figure 6B: NOT UPDATED Number of alcohol associated deaths, internet access, education level, number of dentists, and uninsured status are all variables that contribute most heavily to our overall health metric.](./Figures/weights.png) -->
+We projected these variables onto the first eigenvalue and assessed the contribution of each onto the projection. This was necessary to better interpret later analyses. We found that `YEARS_OF_POTENTIAL_LIFE_LOST_RATE` contributed to the projection by a large amount (see <a href="./Figures/first_pc_contributions.png" title="Figure 3">Figure 3</a>), which suggested that further analyses represented `YEARS_OF_POTENTIAL_LIFE_LOST_RATE` far more than the other four variables.
 
 ![Figure 3: Contribution amounts of each of the five health metrics on the projection. `YEARS_OF_POTENTIAL_LIFE_LOST_RATE` made the most contribution by a very far margin. This suggests that further analyses represent `YEARS_OF_POTENTIAL_LIFE_LOST_RATE` far more than the other four variables.](./Figures/first_pc_contributions.png)
 
-![Figure 4: Percent of population with access to exercise is most associated with the variance described in the first eigenvalue. `CHLAMYDIA_RATE` has the least. Since the first eigenvalue is most described by`YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, that means access to exercise and chlamydia rate describe this mortality metric the most and least, respectively.](./Figures/overall_health_all_variables.png)
+Next, we repeated a similar process as above to discover how much all the other variables were associated with the projection. We found the percent of population with access to exercise is most associated with the projection and chlamydia rate the least (see <a href="./Figures/overall_health_all_variables.png" title="Figure 4">Figure 4</a>). Other variables that were highly associated with the projection were preventable hospitalization rates (rate of Medicare enrollees being discharged from out-patient services), percent of homeowners, percent of kids in single-parent homes, and percent of people 65 years old or older. Since the projection is most explained by `YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, this graph suggests that having access to exercise is most associated with variations in this metric. Further analysis needs to be done to confirm if a causal relationship exists between these two variables, and if so, in which directions.
+
+![Figure 4: Percent of population with access to exercise is most associated with the projection and `CHLAMYDIA_RATE` the least. Since the projection is most described by`YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, that means access to exercise and chlamydia rate are associated with variations in this mortality metric the most and least, respectively.](./Figures/overall_health_all_variables.png)
+
+WRITE HERE
 
 ![Figure 5: There is a clear geographic trend where the southeastern states have higher projection trends and the northwestern have lower. Since the first eigenvalue is most explained by `YEARS_OF_POTENTIAL_LIFE_LOST_RATE`, southeastern states have higher rates and northwestern lower.](./Figures/state_projection.png)
 
-
 ## Analyzing Impact of Access to Care on Health Metrics
-In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.³ In the following sections, we modeled each of these by a list of variables representing access to care (see [@sec-s_table_2]). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.
+In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.[⁸](#ref8) In the following sections, we modeled each of these by a list of variables representing access to care (see @sec-s_table_2). Our goal was to determine how access to care influenced each of these three metrics for determining health of a population.
 
 ### Life Expectancy
 
-![Fig 2A: Median life expectancy of most states is between 77 and 80 years old.](./images/life_expectancy_by_state.png)
+Figure 6 demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 7. 
 
-Figure 2A demonstrates how median life expectancy varies by state. We decided to keep state in our linear model because it did have a significant correlation with life expectancy. Since not all of the states were significantly correlated, we created the following plot to show which states were significantly correlated (positively or negatively) with life expectancy, as is seen in Figure 2B. 
+![Fig 6: Median life expectancy of most states is between 77 and 80 years old.](./images/life_expectancy_by_state.png)
 
-![Figure 2B: There does not appear to be a geographic influence on median life expectancy.](./images/life_expecancy_map.png)
+![Figure 7: There does not appear to be a geographic influence on median life expectancy.](./images/life_expecancy_map.png)
 
-Figure 2C shows our final linear model and coefficient table for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity and Segregation Index were both negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy. 
+[Equation @imp-life] shows our final linear model and @sec-s_table_3 our coefficient table for preventative healthcare measures and life expectancy. We found that Primary Care Physician (PCP) Ratio were both positively correlated with life expectancy. Percentage of Food Insecurity and Segregation Index were both negatively correlated with life expectancy (that is, as food insecurity increased, life expectancy decreased). Percentage of Access to Broadband Internet was also positively correlated with life expectancy. 
 
-Figure 2C: Life Expectancy Linear Model and Coefficient Table:
+::: {#imp-life .callout-warning icon=false collapse="false"}
+# Equation 1: Life Expectancy Linear Model
 ```markdown
 lm(formula = `LIFE_EXPECTANCY` ~ `state_name` + `PCP_RATIO` + 
     `%_VACCINATED_(HISPANIC)` + `AVERAGE_DAILY_PM2.5` + `%_FOOD_INSECURE` + 
     `HOUSEHOLD_INCOME_(HISPANIC)_LN` +
     `SEGREGATION_INDEX` + `%_BROADBAND_ACCESS`, data = ds_life_adjusted)
 ```
-| Predictor                       | Estimate  | Std. Error | t value | Pr(>\|t\|)    |
-|---------------------------------|-----------|------------|---------|-------------|
-| (Intercept)                     | 7.092e+01 | 2.171e+00  | 32.661  | < 2e-16 *** |
-| `PCP_RATIO`                     | 1.076e-04 | 3.664e-05  | 2.935   | 0.00338 **  |
-| `%_VACCINATED_(HISPANIC)`       | -6.969e-03| 5.291e-03  | -1.317  | 0.18802     |
-| `AVERAGE_DAILY_PM2.5`           | -3.642e-02| 2.558e-02  | -1.424  | 0.15471     |
-| `%_FOOD_INSECURE`               | -3.947e-01| 2.030e-02  | -19.440 | < 2e-16 *** |
-| `HOUSEHOLD_INCOME_(HISPANIC)_LN`| 9.561e-02 | 1.897e-01  | 0.504   | 0.61427     |
-| `SEGREGATION_INDEX`             | -3.593e-02| 4.618e-03  | -7.781  | 1.35e-14 ***|
-| `%_BROADBAND_ACCESS`            | 1.175e-01 | 9.519e-03  | 12.340  | < 2e-16 *** |
+::: 
 
-To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 2D shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = <2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.
+To better understand the survival (life expectancy) of different groups for each of these variables, we created Kaplan-Meier (KM) Curves where we plotted each variable by quartile. We then conducted a log rank test to compare across quantiles to see if the groups were significantly different from each other. Figure 8 shows life expectancy based on the percentage of food insecurity. Figure 2E shows the results of the log rank test (which are significant as p = <2e-16). Quantiles 1 and 2 (less food insecurity) observed less death than expected, but quantiles 3 and 4 (more food insecurity) observed more death than expected. This demonstrates that we are seeing a significant difference between life expectancy of people in the lower versus the higher quantiles of food insecurity.
 
-![Figure 2D: As expected, those who are more food insecure have lower life expectancies.](./images/KM_food.png)
+![Figure 8: As expected, those who are more food insecure have lower life expectancies.](./images/KM_food.png)
 
 Figure 2E: Log Rank Test Results for Life Expectancy and Percentage of Food Insecurity
 

@@ -36,16 +36,34 @@
   });
 </script>
 
+### S. Table 3: Coefficient Table of Life Expectancy Linear Model {#sec-s_table_3}
+
+| Predictor                       | Estimate  | Std. Error | t value | Pr(>\|t\|)    |
+|---------------------------------|-----------|------------|---------|-------------|
+| (Intercept)                     | 7.092e+01 | 2.171e+00  | 32.661  | < 2e-16 *** |
+| `PCP_RATIO`                     | 1.076e-04 | 3.664e-05  | 2.935   | 0.00338 **  |
+| `%_VACCINATED_(HISPANIC)`       | -6.969e-03| 5.291e-03  | -1.317  | 0.18802     |
+| `AVERAGE_DAILY_PM2.5`           | -3.642e-02| 2.558e-02  | -1.424  | 0.15471     |
+| `%_FOOD_INSECURE`               | -3.947e-01| 2.030e-02  | -19.440 | < 2e-16 *** |
+| `HOUSEHOLD_INCOME_(HISPANIC)_LN`| 9.561e-02 | 1.897e-01  | 0.504   | 0.61427     |
+| `SEGREGATION_INDEX`             | -3.593e-02| 4.618e-03  | -7.781  | 1.35e-14 ***|
+| `%_BROADBAND_ACCESS`            | 1.175e-01 | 9.519e-03  | 12.340  | < 2e-16 *** |
+
 ## Supplemental Figures{#supplemental-figures}
 
 ![Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.](./Figures/life_expectancy_bins.png)
 
+::: {layout-ncol=2}
+
 ![Figure S.2A: With balanced weights, our life expectancy model did a fairly good job at predicting life expectancy and did not appear to favor one group over another.](./Figures/conf_matrix_life_exp.png){group="conf_matrix_gallery"}
 
 ![S.Figure S.2B: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another.](./Figures/conf_matrix_mortality.png){group="conf_matrix_gallery"}
+:::
 
+::: {layout-ncol=3}
 ![Figure S.3A: It takes about 25 components to explain 90% of the variance seen in our life expectancy model](./Figures/variance_life_exp.png){group="variance_gallery"}
 
 ![Figure S.3B: It takes about 20 components to explain 90% of the variance seen in our infant mortality rate model.](./Figures/variance_inf_mor.png){group="variance_gallery"}
 
 ![Figure S.3C: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model.](./Figures/variance_mortality.png){group="variance_gallery"}
+:::
