@@ -1245,7 +1245,22 @@ Further description on the tools and models used:
 <p>We used both R and Python to analyze how access to care impacts important health metrics.</p>
 <section id="statistics-in-r" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="statistics-in-r"><span class="header-section-number">4.2.1</span> Statistics in R</h3>
-<p><strong>(ADD FLOWCHART?)</strong></p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A(1. Create Dataset) --&gt; B(2. Scale Dataset)
+  B --&gt; C(3. LM Model, reduce data \nto best features)
+  C --&gt; D(4. KM Curves \n for Life Expectancy features)
+  D --&gt; E(5. Log Rank Test \n for KM curves)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <ol type="1">
 <li>Create our desired dataframe by reading in data from our remote database and joining where necessary.</li>
 <li>Preprocess:
@@ -1256,7 +1271,7 @@ Further description on the tools and models used:
 <li>Create Model
 <ol type="i">
 <li>Multiple Linear Mixed Model in R using selected variables. Created lm models for life expectancy, infant mortality, and age-adjusted death rate.</li>
-<li>Select signfiicant features for each, and recreate model with signfiicant features. Ensure no multicollinearity existed between remaining variables (see <a href="./images/LE_pairs.png" title="Figures S.4a">Figures S.4a</a> through <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a>).</li>
+<li>Select signficant features for each, and recreate model with signfiicant features. Ensure no multicollinearity existed between remaining variables (see <a href="./images/LE_pairs.png" title="Figures S.4a">Figures S.4a</a> through <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a>).</li>
 <li>Check to see if significance changes after recreating the model.</li>
 <li>Check directions of significance and double check variables have enough data points.</li>
 </ol></li>
@@ -2744,7 +2759,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
