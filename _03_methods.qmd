@@ -141,8 +141,13 @@ ggplot(aes(x,y,group=group)) +
 We used both R and Python to analyze how access to care impacts important health metrics.
 
 ### Statistics in R
-
-**(ADD FLOWCHART?)**
+```{mermaid}
+flowchart TD
+  A(1. Create Dataset) --> B(2. Scale Dataset)
+  B --> C(3. LM Model, reduce data \nto best features)
+  C --> D(4. KM Curves \n for Life Expectancy features)
+  D --> E(5. Log Rank Test \n for KM curves)
+```
 
 1. Create our desired dataframe by reading in data from our remote database and joining where necessary.
 2. Preprocess:
@@ -150,7 +155,7 @@ We used both R and Python to analyze how access to care impacts important health
     ii) Create distribution plots for variables of interest. Take natural log if skew was obvious (income data).
 3. Create Model
     i) Multiple Linear Mixed Model in R using selected variables. Created lm models for life expectancy, infant mortality, and age-adjusted death rate. 
-    ii) Select signfiicant features for each, and recreate model with signfiicant features. Ensure no multicollinearity existed between remaining variables (see <a href="./images/LE_pairs.png" title="Figures S.4a">Figures S.4a</a> through <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a>).
+    ii) Select signficant features for each, and recreate model with signfiicant features. Ensure no multicollinearity existed between remaining variables (see <a href="./images/LE_pairs.png" title="Figures S.4a">Figures S.4a</a> through <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a>).
     iii) Check to see if significance changes after recreating the model.
     iv) Check directions of significance and double check variables have enough data points.
 4. Kaplan-Meier Curves for Life Expectancy
