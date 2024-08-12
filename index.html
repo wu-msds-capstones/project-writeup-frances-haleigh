@@ -210,7 +210,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-s_table_6g" id="toc-sec-s_table_6g" class="nav-link" data-scroll-target="#sec-s_table_6g"><span class="header-section-number">8.1.12</span> S. Table 6G: Log Rank Test Results Percent Vaccination KM Curve</a></li>
   <li><a href="#sec-s_table_6h" id="toc-sec-s_table_6h" class="nav-link" data-scroll-target="#sec-s_table_6h"><span class="header-section-number">8.1.13</span> S. Table 6H: Log Rank Test Results Severe Housing Issues KM Curve</a></li>
   </ul></li>
-  <li><a href="#supplemental-figures" id="toc-supplemental-figures" class="nav-link" data-scroll-target="#supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</a></li>
+  <li><a href="#supplemental-figures" id="toc-supplemental-figures" class="nav-link" data-scroll-target="#supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</a>
+  <ul class="collapse">
+  <li><a href="#figure-s.1-balancing-dataset" id="toc-figure-s.1-balancing-dataset" class="nav-link" data-scroll-target="#figure-s.1-balancing-dataset"><span class="header-section-number">8.2.1</span> Figure S.1: Balancing dataset</a></li>
+  <li><a href="#figure-s.2-confusion-matrices-to-assess-where-our-models-were-succeeding-and-failing-to-predict-accurately" id="toc-figure-s.2-confusion-matrices-to-assess-where-our-models-were-succeeding-and-failing-to-predict-accurately" class="nav-link" data-scroll-target="#figure-s.2-confusion-matrices-to-assess-where-our-models-were-succeeding-and-failing-to-predict-accurately"><span class="header-section-number">8.2.2</span> Figure S.2: Confusion matrices to assess where our models were succeeding and failing to predict accurately</a></li>
+  <li><a href="#figure-s.3-finding-number-of-components-necessary-to-explain-variance-in-models" id="toc-figure-s.3-finding-number-of-components-necessary-to-explain-variance-in-models" class="nav-link" data-scroll-target="#figure-s.3-finding-number-of-components-necessary-to-explain-variance-in-models"><span class="header-section-number">8.2.3</span> Figure S.3: Finding number of components necessary to explain variance in models</a></li>
+  <li><a href="#figure-s.4-pairwise-plots-of-variables-used-in-models-to-confirm-absence-of-multicollinearity" id="toc-figure-s.4-pairwise-plots-of-variables-used-in-models-to-confirm-absence-of-multicollinearity" class="nav-link" data-scroll-target="#figure-s.4-pairwise-plots-of-variables-used-in-models-to-confirm-absence-of-multicollinearity"><span class="header-section-number">8.2.4</span> Figure S.4: Pairwise plots of variables used in models to confirm absence of multicollinearity</a></li>
+  <li><a href="#figure-s.5-confirming-linear-regression-is-a-good-fit-for-our-models" id="toc-figure-s.5-confirming-linear-regression-is-a-good-fit-for-our-models" class="nav-link" data-scroll-target="#figure-s.5-confirming-linear-regression-is-a-good-fit-for-our-models"><span class="header-section-number">8.2.5</span> Figure S.5: Confirming linear regression is a good fit for our models</a></li>
+  <li><a href="#figure-s.6-more-km-curves-from-significant-variables" id="toc-figure-s.6-more-km-curves-from-significant-variables" class="nav-link" data-scroll-target="#figure-s.6-more-km-curves-from-significant-variables"><span class="header-section-number">8.2.6</span> Figure S.6: More KM Curves from significant variables</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -1651,7 +1659,7 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 <figcaption>Figure 9: Top 10 features in the life expectancy dataset. Note that a lot of features were found in both the linear regression model explained above and in this result. Income, food insecurity, and internet access seem to be most associated with differences in life expectancy.</figcaption>
 </figure>
 </div>
-<p>Our model predicted life expectancy based only on the fifteen significant access-to-care-related variables with 56% accuracy. While this may at first appear unimpressive, it’s important to realize that 56% of life expectancy can be predicted or explained by only fifteen items- all of which relate to one’s access to care. Only the remaining 44% can be explained by all other factors in a person’s life.</p>
+<p>Our model predicted life expectancy based only on the fifteen significant access-to-care-related variables with 68% accuracy! This means that 68% of an individual’s life expectancy can be predicted or explained by only thirteen items- all of which relate to one’s access to care and basic needs. Only the remaining 32% can be explained by all other factors in a person’s life. This underscores the importance of having access to healthcare, healthy foods, and other basic necessities.</p>
 </section>
 <section id="infant-mortality" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="infant-mortality"><span class="header-section-number">5.2.2</span> Infant Mortality</h3>
@@ -1714,7 +1722,7 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </div>
 </div>
 </div>
-<p>Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.</p>
+<p>Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 63% of our test data. Just sixteen access-to-care-related covariates predicted mortality rate 63% of the time! This again emphasizes the importance of access to care and basic needs in one’s overall health status.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 12: Income, access to food, and internet summarize the top ten features influencing the mortality dataset."><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure 12: Income, access to food, and internet summarize the top ten features influencing the mortality dataset."></a></p>
@@ -2430,12 +2438,17 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </section>
 <section id="supplemental-figures" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</h2>
+<section id="figure-s.1-balancing-dataset" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="figure-s.1-balancing-dataset"><span class="header-section-number">8.2.1</span> Figure S.1: Balancing dataset</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./Figures/life_expectancy_bins.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."><img src="./Figures/life_expectancy_bins.png" class="img-fluid figure-img" alt="Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class."></a></p>
 <figcaption>Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.</figcaption>
 </figure>
 </div>
+</section>
+<section id="figure-s.2-confusion-matrices-to-assess-where-our-models-were-succeeding-and-failing-to-predict-accurately" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="figure-s.2-confusion-matrices-to-assess-where-our-models-were-succeeding-and-failing-to-predict-accurately"><span class="header-section-number">8.2.2</span> Figure S.2: Confusion matrices to assess where our models were succeeding and failing to predict accurately</h3>
 <div>
 
 </div>
@@ -2459,6 +2472,9 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </div>
 </div>
 </div>
+</section>
+<section id="figure-s.3-finding-number-of-components-necessary-to-explain-variance-in-models" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="figure-s.3-finding-number-of-components-necessary-to-explain-variance-in-models"><span class="header-section-number">8.2.3</span> Figure S.3: Finding number of components necessary to explain variance in models</h3>
 <div>
 
 </div>
@@ -2490,6 +2506,9 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </div>
 </div>
 </div>
+</section>
+<section id="figure-s.4-pairwise-plots-of-variables-used-in-models-to-confirm-absence-of-multicollinearity" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="figure-s.4-pairwise-plots-of-variables-used-in-models-to-confirm-absence-of-multicollinearity"><span class="header-section-number">8.2.4</span> Figure S.4: Pairwise plots of variables used in models to confirm absence of multicollinearity</h3>
 <div>
 
 </div>
@@ -2521,6 +2540,9 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </div>
 </div>
 </div>
+</section>
+<section id="figure-s.5-confirming-linear-regression-is-a-good-fit-for-our-models" class="level3" data-number="8.2.5">
+<h3 data-number="8.2.5" class="anchored" data-anchor-id="figure-s.5-confirming-linear-regression-is-a-good-fit-for-our-models"><span class="header-section-number">8.2.5</span> Figure S.5: Confirming linear regression is a good fit for our models</h3>
 <div>
 
 </div>
@@ -2552,6 +2574,9 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </div>
 </div>
 </div>
+</section>
+<section id="figure-s.6-more-km-curves-from-significant-variables" class="level3" data-number="8.2.6">
+<h3 data-number="8.2.6" class="anchored" data-anchor-id="figure-s.6-more-km-curves-from-significant-variables"><span class="header-section-number">8.2.6</span> Figure S.6: More KM Curves from significant variables</h3>
 <div>
 
 </div>
@@ -2603,6 +2628,7 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </div>
 
 
+</section>
 </section>
 </section>
 
@@ -3172,7 +3198,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
