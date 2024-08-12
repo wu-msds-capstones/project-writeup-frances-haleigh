@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-08-11">
+<meta name="dcterms.date" content="2024-08-12">
 
-<title>Healthcare access in the United States</title>
+<title>Healthcare Access in the United States</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Healthcare access in the United States</h1>
+      <h1 class="title">Healthcare Access in the United States</h1>
             <p class="subtitle lead">How does access to care and other basic needs impact standard health metrics?</p>
                       </div>
   </div>
@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 11, 2024</p>
+        <p class="date">August 12, 2024</p>
       </div>
     </div>
     
@@ -167,12 +167,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">4</span> Methods</a>
   <ul class="collapse">
-  <li><a href="#goal-1-engineer-an-overall-health-metric-to-detect-what-variables-influence-health-as-a-whole." id="toc-goal-1-engineer-an-overall-health-metric-to-detect-what-variables-influence-health-as-a-whole." class="nav-link" data-scroll-target="#goal-1-engineer-an-overall-health-metric-to-detect-what-variables-influence-health-as-a-whole."><span class="header-section-number">4.1</span> Goal 1: Engineer an “overall” health metric to detect what variables influence health as a whole.</a>
+  <li><a href="#creating-an-overall-health-quality-variable" id="toc-creating-an-overall-health-quality-variable" class="nav-link" data-scroll-target="#creating-an-overall-health-quality-variable"><span class="header-section-number">4.1</span> Creating an Overall Health Quality Variable</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">4.1.1</span> Overview</a></li>
+  <li><a href="#flowchart" id="toc-flowchart" class="nav-link" data-scroll-target="#flowchart"><span class="header-section-number">4.1.1</span> Flowchart</a></li>
   <li><a href="#sec-goal1-details" id="toc-sec-goal1-details" class="nav-link" data-scroll-target="#sec-goal1-details"><span class="header-section-number">4.1.2</span> More detailed explanation</a></li>
   </ul></li>
-  <li><a href="#goal-2-discover-how-access-to-care-impacts-life-expectancy-infant-mortality-and-mortality." id="toc-goal-2-discover-how-access-to-care-impacts-life-expectancy-infant-mortality-and-mortality." class="nav-link" data-scroll-target="#goal-2-discover-how-access-to-care-impacts-life-expectancy-infant-mortality-and-mortality."><span class="header-section-number">4.2</span> Goal 2: Discover how access to care impacts life expectancy, infant mortality, and mortality.</a>
+  <li><a href="#analyzing-impact-of-access-to-care-on-health-metrics" id="toc-analyzing-impact-of-access-to-care-on-health-metrics" class="nav-link" data-scroll-target="#analyzing-impact-of-access-to-care-on-health-metrics"><span class="header-section-number">4.2</span> Analyzing Impact of Access to Care on Health Metrics</a>
   <ul class="collapse">
   <li><a href="#statistics-in-r" id="toc-statistics-in-r" class="nav-link" data-scroll-target="#statistics-in-r"><span class="header-section-number">4.2.1</span> Statistics in R</a></li>
   <li><a href="#machine-learning-in-python" id="toc-machine-learning-in-python" class="nav-link" data-scroll-target="#machine-learning-in-python"><span class="header-section-number">4.2.2</span> Machine Learning in Python</a></li>
@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">5</span> Results</a>
   <ul class="collapse">
-  <li><a href="#creating-an-overall-health-quality-variable" id="toc-creating-an-overall-health-quality-variable" class="nav-link" data-scroll-target="#creating-an-overall-health-quality-variable"><span class="header-section-number">5.1</span> Creating an Overall Health Quality Variable</a></li>
+  <li><a href="#creating-an-overall-health-quality-variable-1" id="toc-creating-an-overall-health-quality-variable-1" class="nav-link" data-scroll-target="#creating-an-overall-health-quality-variable-1"><span class="header-section-number">5.1</span> Creating an Overall Health Quality Variable</a></li>
   <li><a href="#sec-goal2" id="toc-sec-goal2" class="nav-link" data-scroll-target="#sec-goal2"><span class="header-section-number">5.2</span> Analyzing Impact of Access to Care on Health Metrics</a>
   <ul class="collapse">
   <li><a href="#life-expectancy" id="toc-life-expectancy" class="nav-link" data-scroll-target="#life-expectancy"><span class="header-section-number">5.2.1</span> Life Expectancy</a></li>
@@ -201,14 +201,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-s_table_3" id="toc-sec-s_table_3" class="nav-link" data-scroll-target="#sec-s_table_3"><span class="header-section-number">8.1.3</span> S. Table 3: Coefficient Table of Life Expectancy Linear Model</a></li>
   <li><a href="#sec-s_table_4" id="toc-sec-s_table_4" class="nav-link" data-scroll-target="#sec-s_table_4"><span class="header-section-number">8.1.4</span> S. Table 4: Coefficient Table of Infant Mortality Rate Linear Model</a></li>
   <li><a href="#sec-s_table_5" id="toc-sec-s_table_5" class="nav-link" data-scroll-target="#sec-s_table_5"><span class="header-section-number">8.1.5</span> S. Table 5: Coefficient Table of Mortality Rate Linear Model</a></li>
-  <li><a href="#s.-table-6a-log-rank-test-results-for-food-insecurity-km-curve" id="toc-s.-table-6a-log-rank-test-results-for-food-insecurity-km-curve" class="nav-link" data-scroll-target="#s.-table-6a-log-rank-test-results-for-food-insecurity-km-curve"><span class="header-section-number">8.1.6</span> S. Table 6a: Log Rank Test Results for Food Insecurity KM Curve</a></li>
-  <li><a href="#s.-table-6b-log-rank-test-results-for-pcp-ratio-km-curve" id="toc-s.-table-6b-log-rank-test-results-for-pcp-ratio-km-curve" class="nav-link" data-scroll-target="#s.-table-6b-log-rank-test-results-for-pcp-ratio-km-curve"><span class="header-section-number">8.1.7</span> S. Table 6b: Log Rank Test Results for PCP Ratio KM Curve</a></li>
-  <li><a href="#s.-table-6c-log-rank-test-results-segregation-index-km-curve" id="toc-s.-table-6c-log-rank-test-results-segregation-index-km-curve" class="nav-link" data-scroll-target="#s.-table-6c-log-rank-test-results-segregation-index-km-curve"><span class="header-section-number">8.1.8</span> S. Table 6C: Log Rank Test Results Segregation Index KM Curve</a></li>
-  <li><a href="#s.-table-6d-log-rank-test-results-broadband-access-km-curve" id="toc-s.-table-6d-log-rank-test-results-broadband-access-km-curve" class="nav-link" data-scroll-target="#s.-table-6d-log-rank-test-results-broadband-access-km-curve"><span class="header-section-number">8.1.9</span> S. Table 6D: Log Rank Test Results Broadband Access KM Curve</a></li>
-  <li><a href="#s.-table-6e-log-rank-test-results-household-income-hispanic-km-curve" id="toc-s.-table-6e-log-rank-test-results-household-income-hispanic-km-curve" class="nav-link" data-scroll-target="#s.-table-6e-log-rank-test-results-household-income-hispanic-km-curve"><span class="header-section-number">8.1.10</span> S. Table 6E: Log Rank Test Results Household Income (Hispanic) KM Curve</a></li>
-  <li><a href="#s.-table-6f-log-rank-test-results-median-household-income-km-curve" id="toc-s.-table-6f-log-rank-test-results-median-household-income-km-curve" class="nav-link" data-scroll-target="#s.-table-6f-log-rank-test-results-median-household-income-km-curve"><span class="header-section-number">8.1.11</span> S. Table 6F: Log Rank Test Results Median Household Income KM Curve</a></li>
-  <li><a href="#s.-table-6g-log-rank-test-results-percent-vaccination-km-curve" id="toc-s.-table-6g-log-rank-test-results-percent-vaccination-km-curve" class="nav-link" data-scroll-target="#s.-table-6g-log-rank-test-results-percent-vaccination-km-curve"><span class="header-section-number">8.1.12</span> S. Table 6G: Log Rank Test Results Percent Vaccination KM Curve</a></li>
-  <li><a href="#s.-table-6h-log-rank-test-results-severe-housing-issues-km-curve" id="toc-s.-table-6h-log-rank-test-results-severe-housing-issues-km-curve" class="nav-link" data-scroll-target="#s.-table-6h-log-rank-test-results-severe-housing-issues-km-curve"><span class="header-section-number">8.1.13</span> S. Table 6H: Log Rank Test Results Severe Housing Issues KM Curve</a></li>
+  <li><a href="#sec-s_table_6a" id="toc-sec-s_table_6a" class="nav-link" data-scroll-target="#sec-s_table_6a"><span class="header-section-number">8.1.6</span> S. Table 6a: Log Rank Test Results for Food Insecurity KM Curve</a></li>
+  <li><a href="#sec-s_table_6b" id="toc-sec-s_table_6b" class="nav-link" data-scroll-target="#sec-s_table_6b"><span class="header-section-number">8.1.7</span> S. Table 6b: Log Rank Test Results for PCP Ratio KM Curve</a></li>
+  <li><a href="#sec-s_table_6c" id="toc-sec-s_table_6c" class="nav-link" data-scroll-target="#sec-s_table_6c"><span class="header-section-number">8.1.8</span> S. Table 6C: Log Rank Test Results Segregation Index KM Curve</a></li>
+  <li><a href="#sec-s_table_6d" id="toc-sec-s_table_6d" class="nav-link" data-scroll-target="#sec-s_table_6d"><span class="header-section-number">8.1.9</span> S. Table 6D: Log Rank Test Results Broadband Access KM Curve</a></li>
+  <li><a href="#sec-s_table_6e" id="toc-sec-s_table_6e" class="nav-link" data-scroll-target="#sec-s_table_6e"><span class="header-section-number">8.1.10</span> S. Table 6E: Log Rank Test Results Household Income (Hispanic) KM Curve</a></li>
+  <li><a href="#sec-s_table_6f" id="toc-sec-s_table_6f" class="nav-link" data-scroll-target="#sec-s_table_6f"><span class="header-section-number">8.1.11</span> S. Table 6F: Log Rank Test Results Median Household Income KM Curve</a></li>
+  <li><a href="#sec-s_table_6g" id="toc-sec-s_table_6g" class="nav-link" data-scroll-target="#sec-s_table_6g"><span class="header-section-number">8.1.12</span> S. Table 6G: Log Rank Test Results Percent Vaccination KM Curve</a></li>
+  <li><a href="#sec-s_table_6h" id="toc-sec-s_table_6h" class="nav-link" data-scroll-target="#sec-s_table_6h"><span class="header-section-number">8.1.13</span> S. Table 6H: Log Rank Test Results Severe Housing Issues KM Curve</a></li>
   </ul></li>
   <li><a href="#supplemental-figures" id="toc-supplemental-figures" class="nav-link" data-scroll-target="#supplemental-figures"><span class="header-section-number">8.2</span> Supplemental Figures</a></li>
   </ul></li>
@@ -1021,10 +1021,10 @@ Cleaned CHRR Data
 <li>Discover how access to care impacts life expectancy, infant mortality, and mortality.</li>
 </ol>
 <p>See below for a thorough explanation of how we accomplished both goals.</p>
-<section id="goal-1-engineer-an-overall-health-metric-to-detect-what-variables-influence-health-as-a-whole." class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="goal-1-engineer-an-overall-health-metric-to-detect-what-variables-influence-health-as-a-whole."><span class="header-section-number">4.1</span> Goal 1: Engineer an “overall” health metric to detect what variables influence health as a whole.</h2>
-<section id="overview" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">4.1.1</span> Overview</h3>
+<section id="creating-an-overall-health-quality-variable" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="creating-an-overall-health-quality-variable"><span class="header-section-number">4.1</span> Creating an Overall Health Quality Variable</h2>
+<section id="flowchart" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="flowchart"><span class="header-section-number">4.1.1</span> Flowchart</h3>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -1199,8 +1199,8 @@ Further description on the tools and models used:
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<section id="data-preprocessing-tools" class="level4" data-number="4.1.2.1">
-<h4 data-number="4.1.2.1" class="anchored" data-anchor-id="data-preprocessing-tools"><span class="header-section-number">4.1.2.1</span> Data Preprocessing Tools</h4>
+<section id="data-preprocessing-tools" class="level4">
+<h4 class="anchored" data-anchor-id="data-preprocessing-tools">Data Preprocessing Tools</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -1224,8 +1224,8 @@ Further description on the tools and models used:
 </tbody>
 </table>
 </section>
-<section id="unsupervised-dimension-reduction-model" class="level4" data-number="4.1.2.2">
-<h4 data-number="4.1.2.2" class="anchored" data-anchor-id="unsupervised-dimension-reduction-model"><span class="header-section-number">4.1.2.2</span> Unsupervised Dimension Reduction Model</h4>
+<section id="unsupervised-dimension-reduction-model" class="level4">
+<h4 class="anchored" data-anchor-id="unsupervised-dimension-reduction-model">Unsupervised Dimension Reduction Model</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -1250,8 +1250,8 @@ Further description on the tools and models used:
 </div>
 </section>
 </section>
-<section id="goal-2-discover-how-access-to-care-impacts-life-expectancy-infant-mortality-and-mortality." class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="goal-2-discover-how-access-to-care-impacts-life-expectancy-infant-mortality-and-mortality."><span class="header-section-number">4.2</span> Goal 2: Discover how access to care impacts life expectancy, infant mortality, and mortality.</h2>
+<section id="analyzing-impact-of-access-to-care-on-health-metrics" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="analyzing-impact-of-access-to-care-on-health-metrics"><span class="header-section-number">4.2</span> Analyzing Impact of Access to Care on Health Metrics</h2>
 <p>We used both R and Python to analyze how access to care impacts important health metrics.</p>
 <section id="statistics-in-r" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="statistics-in-r"><span class="header-section-number">4.2.1</span> Statistics in R</h3>
@@ -1361,7 +1361,7 @@ Further description on the statistical tests used:
 <li>Drop NAs while optimizing data frame size via trial and error.</li>
 <li>Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.</li>
 </ol></li>
-<li>Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure 9">Figures 9</a>, and <a href="./Figures/kbest_mortality.png" title="Figure 17">17</a>). Combine these variables with significant variables from the linear regression models completed in R.</li>
+<li>Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure 9">Figures 9</a>, and <a href="./Figures/kbest_mortality.png" title="Figure 12">12</a>). Combine these variables with significant variables from the linear regression models completed in R.</li>
 <li>Continue preprocessing with the reduced dataset (using only variables from step 3)
 <ol type="i">
 <li>Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable. A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. B. For life expectancy, we dropped outliers first (ages below 60 and above 90, see <a href="./Figures/life_expectancy_bins.png" title="Figure S.1">Supplemental Figure 1</a>).</li>
@@ -1393,8 +1393,8 @@ Further description on the models and tools used:
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<section id="model-optimization-tools" class="level4" data-number="4.2.2.1">
-<h4 data-number="4.2.2.1" class="anchored" data-anchor-id="model-optimization-tools"><span class="header-section-number">4.2.2.1</span> Model Optimization Tools</h4>
+<section id="model-optimization-tools" class="level4">
+<h4 class="anchored" data-anchor-id="model-optimization-tools">Model Optimization Tools</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -1418,8 +1418,8 @@ Further description on the models and tools used:
 </tbody>
 </table>
 </section>
-<section id="supervised-classification-models" class="level4" data-number="4.2.2.2">
-<h4 data-number="4.2.2.2" class="anchored" data-anchor-id="supervised-classification-models"><span class="header-section-number">4.2.2.2</span> Supervised Classification Models</h4>
+<section id="supervised-classification-models" class="level4">
+<h4 class="anchored" data-anchor-id="supervised-classification-models">Supervised Classification Models</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -1455,8 +1455,8 @@ Further description on the models and tools used:
 </tbody>
 </table>
 </section>
-<section id="unsupervised-clustering-models" class="level4" data-number="4.2.2.3">
-<h4 data-number="4.2.2.3" class="anchored" data-anchor-id="unsupervised-clustering-models"><span class="header-section-number">4.2.2.3</span> Unsupervised Clustering Models</h4>
+<section id="unsupervised-clustering-models" class="level4">
+<h4 class="anchored" data-anchor-id="unsupervised-clustering-models">Unsupervised Clustering Models</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -1492,8 +1492,8 @@ Further description on the models and tools used:
 </section>
 <section id="results" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Results</h1>
-<section id="creating-an-overall-health-quality-variable" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="creating-an-overall-health-quality-variable"><span class="header-section-number">5.1</span> Creating an Overall Health Quality Variable</h2>
+<section id="creating-an-overall-health-quality-variable-1" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="creating-an-overall-health-quality-variable-1"><span class="header-section-number">5.1</span> Creating an Overall Health Quality Variable</h2>
 <p>As a novel way of assessing quality of health, we created a new variable to represent the overall health of a population. We knew that the following variables should be included in the creation of this new variable: <code>LIFE_EXPECTANCY</code>, <code>AGE_ADJUSTED_DEATH_RATE</code>, <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code>, <code>%_FREQUENT_PHYSICAL_DISTRESS</code>, and <code>%_FREQUENT_MENTAL_DISTRESS</code>. Reasons for choosing these variables is explained in <a href="#sec-goal1-details" class="quarto-xref">Section&nbsp;4.1.2</a>. A clear linear relationship is seen between each of these metrics was observed (see <a href="./Figures/pairplot.png" title="Figure 2">Figure 2</a>).</p>
 <p>We projected these variables onto the first eigenvalue and assessed the contribution of each onto the projection. This was necessary to better interpret later analyses. We found that <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> contributed to the projection by a large amount (see <a href="./Figures/first_pc_contributions.png" title="Figure 3">Figure 3</a>), which suggested that further analyses represented <code>YEARS_OF_POTENTIAL_LIFE_LOST_RATE</code> far more than the other four variables.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1519,7 +1519,7 @@ Further description on the models and tools used:
 </section>
 <section id="sec-goal2" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="sec-goal2"><span class="header-section-number">5.2</span> Analyzing Impact of Access to Care on Health Metrics</h2>
-<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.<a href="#ref8">⁸</a> In the following sections, we modeled each of these by a list of variables representing access to care (see <a href="#sec-s_table_2" class="quarto-xref">Section&nbsp;8.1.2</a>) and ensured there was not multicollinearity between the remaining variables and that model assumptions were met (see <a href="./images/LE_pairs.png" title="Figures S.4a">Figures S.4a</a> through <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a>). Our goal was to determine how access to care impacted each of these three health metrics.</p>
+<p>In order to evaluate the health status of a group of people, we turned to three common metrics for doing so: life expectancy, mortality, and infant mortality.<a href="#ref8">⁸</a> In the following sections, we modeled each of these by a list of variables representing access to care (see <a href="#sec-s_table_2" class="quarto-xref">Section&nbsp;8.1.2</a>) and ensured there was not multicollinearity between the remaining variables and that model assumptions were met (see <a href="./images/LE_pairs.png" title="Figures S.4A">Figures S.4A</a> through <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a>). Our goal was to determine how access to care impacted each of these three health metrics.</p>
 <section id="life-expectancy" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="life-expectancy"><span class="header-section-number">5.2.1</span> Life Expectancy</h3>
 <p>Before doing any regression analysis, we were curious about the relationship between median life expectancy and state. <a href="./images/life_expectancy_by_state.png" title="Figure 6">Figure 6</a> demonstrates this relationship and reveals a clear linear association.</p>
@@ -1612,7 +1612,7 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 </div>
 </figure>
 </div>
-<p>Additional Kaplan-Meier Curves for life expectancy were made for the following variables: <code>PCP Ratio</code>, <code>Segregation Index</code>, and <code>Percentage of Broadband Internet Access</code>. Log rank tests were performed for each, and all of the overall results were significant (see <strong>?@sec-s_table_5a</strong> through <strong>?@sec-s_table_5h</strong>). There were significant differences between each quartile in the <code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code> plots, but the fourth quartile from the <code>Segregation Index</code> was the only one that was significantly different from the rest. <a href="./images/KM_PCPratio.png" title="Figure 8">Figure 8</a> shows each of the KM curves. These results suggest that lower access to care (<code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code>) and the most segregated areas (fourth quartile of <code>Segregation Index</code>) have lower life expectancies. The rest of the KM curves can be found in section here: <a href="./images/KM_inc_hispanic.png" title="Figures S.6a">S.6a</a> through <a href="./images/KM_perc_vacc.png" title="Figure S.6E">S.6E</a>.</p>
+<p>Additional Kaplan-Meier Curves for life expectancy were made for the following variables: <code>PCP Ratio</code>, <code>Segregation Index</code>, and <code>Percentage of Broadband Internet Access</code>. Log rank tests were performed for each, and all of the overall results were significant (see <a href="#sec-s_table_6a" class="quarto-xref">Section&nbsp;8.1.6</a> through <a href="#sec-s_table_6h" class="quarto-xref">Section&nbsp;8.1.13</a>). There were significant differences between each quartile in the <code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code> plots, but the fourth quartile from the <code>Segregation Index</code> was the only one that was significantly different from the rest. <a href="./images/KM_PCPratio.png" title="Figure 8">Figure 8</a> shows each of the KM curves. These results suggest that lower access to care (<code>PCP Ratio</code> and <code>Percentage of Broadband Internet Access</code>) and the most segregated areas (fourth quartile of <code>Segregation Index</code>) have lower life expectancies. The rest of the KM curves can be found in section here: <a href="./images/KM_inc_hispanic.png" title="Figures S.6a">S.6a</a> through <a href="./images/KM_perc_vacc.png" title="Figure S.6E">S.6E</a>.</p>
 <div>
 
 </div>
@@ -1655,7 +1655,7 @@ Table&nbsp;1: The observed verses expected count for each Percent Food Insecure 
 </section>
 <section id="infant-mortality" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="infant-mortality"><span class="header-section-number">5.2.2</span> Infant Mortality</h3>
-<p><a href="./images/median_infant_mortality_by_state.png" title="Figure 10">Figure 10</a> shows the median infant mortality rates between states. Note that the chart appears to “stair-step” as infant mortality rates are represented as integers rather than continuous numbers. Because of the linear trend associated with each state, we included the variable in our linear model to determine which states were significantly correlated with infant mortality.</p>
+<p><a href="./images/median_infant_mortality_by_state.png" title="Figure 10">Figure 10</a> shows the median infant mortality rates between states. Note that the chart appears to “stair-step” as infant mortality rates are represented as integers rather than continuous numbers. Because of the observed positive associaiton, we included the variable in our linear model to determine which states were significantly correlated with infant mortality.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./images/median_infant_mortality_by_state.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 10: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."><img src="./images/median_infant_mortality_by_state.png" class="img-fluid figure-img" alt="Figure 10: Most states see an infant mortaliy rate of 6 deaths per 1,000 live births."></a></p>
@@ -1692,7 +1692,7 @@ Important&nbsp;2: Equation 2: Infant Mortality Rate Linear Model
 <figcaption>Figure 11: Most states have a median ade-adjusted mortality rate of 300-400 deaths per 100,000 people. Mississippi has both the highest median age-adjusted mortality and infant mortality rates (Fig. 10).</figcaption>
 </figure>
 </div>
-<p>In our statistical model of preventative healthcare measures and mortality (see [Equation@imp-mor] and <a href="#sec-s_table_5" class="quarto-xref">Section&nbsp;8.1.5</a>), we found that as food insecurity, segregation, and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.</p>
+<p>In our statistical model of preventative healthcare measures and mortality (see <a href="#imp-mor" class="quarto-xref">Equation&nbsp;3</a> and <a href="#sec-s_table_5" class="quarto-xref">Section&nbsp;8.1.5</a>), we found that as food insecurity, segregation, and school segregation increased, mortality rates increased as well. As broadband internet access, vaccination, and number of rural residents increased, mortality rates decreased.</p>
 <p>Looking at demographics, we noticed as income increased among white Americans, mortality rates decreased. This income trend was the opposite among Asian (not significant) and Hispanic Americans (significant). Looking closer at the income correlation plots, the trends for Asian and Hispanic Americans appear to have more data points that could be considered outliers. As the percentage of severe housing issues increased, the mortality rate decreased, but the correlation plot appears to have outliers that could be skewing this trend as well. (See <a href="./images/M_pairs.png" title="Figures S.4C">Figures S.4C</a> and <a href="./images/M_assumptions.png" title="Figure S.5C">S.5C</a> for our pairwise and assumption plots, which show that the variables we kept in our model were not correlated with each other.)</p>
 <div id="imp-mor" class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
@@ -1714,21 +1714,21 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </div>
 </div>
 </div>
-</section>
-<section id="state-congruence-for-all-health-measures" class="level3" data-number="5.2.4">
-<h3 data-number="5.2.4" class="anchored" data-anchor-id="state-congruence-for-all-health-measures"><span class="header-section-number">5.2.4</span> State Congruence for All Health Measures</h3>
-<p>When creating our individual linear mixed models, we ofund that some states had significant impacts on the health measures (life expectancy, infant mortality, mortaltiy). We were curious if states were showing congruent signficance. For example, if Oregon had significantly higher life expectancy, did it also have significantly lower infant mortality and mortality? To explore this we created <a href="./images/congruence_map.png" title="Figure 12">Figure 12</a>, which shows positive outcomes and green and negative outcomes in red, with color intensity indicating congruence. ‘Congruence’ means that the state was significant for all 3 variables.’More’ means that the state was negatively/positively significant for 2/3 variables, ‘Slight’ means the state was negatively/positively significant for 1/3, and ‘Neutral’ means the state was nit significant for any variables. Life expectancy was adjusted since it is considered positive while infant mortality and mortality are considered negative.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./images/congruence_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 12: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes."><img src="./images/congruence_map.png" class="img-fluid figure-img" alt="Figure 12: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes."></a></p>
-<figcaption>Figure 12: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes.</figcaption>
-</figure>
-</div>
 <p>Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 13: caption"><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure 13: caption"></a></p>
-<figcaption>Figure 13: caption</figcaption>
+<p><a href="./Figures/kbest_mortality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 12: Income, access to food, and internet summarize the top ten features influencing the mortality dataset."><img src="./Figures/kbest_mortality.png" class="img-fluid figure-img" alt="Figure 12: Income, access to food, and internet summarize the top ten features influencing the mortality dataset."></a></p>
+<figcaption>Figure 12: Income, access to food, and internet summarize the top ten features influencing the mortality dataset.</figcaption>
+</figure>
+</div>
+</section>
+<section id="state-congruence-for-all-health-measures" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="state-congruence-for-all-health-measures"><span class="header-section-number">5.2.4</span> State Congruence for All Health Measures</h3>
+<p>When creating our individual linear mixed models, we found that some states had significant impacts on the health measures (life expectancy, infant mortality, and mortaltiy). We were curious if states were showing congruent signficance. For example, if Oregon had significantly higher life expectancy, did it also have significantly lower infant mortality and mortality? To explore this we created <a href="./images/congruence_map.png" title="Figure 13">Figure 13</a>, which shows positive outcomes in green and negative outcomes in red, with color intensity indicating congruence. Life expectancy was adjusted since it is considered positive, while infant mortality and mortality are considered negative. “Congruence” means that the state was significant for all 3 variables.”More” means that the state was negatively/positively significant for 2/3 variables, “Slight” means the state was negatively/positively significant for 1/3, and “Neutral” means the state was nit significant for any variables. Once again, the northwestern states emerge as healthier across all metrics when compared to the southeastern states.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./images/congruence_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 13: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes."><img src="./images/congruence_map.png" class="img-fluid figure-img" alt="Figure 13: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes."></a></p>
+<figcaption>Figure 13: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes.</figcaption>
 </figure>
 </div>
 </section>
@@ -1741,7 +1741,6 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 <p>While we observed meaningful correlations, certain findings were limited by missing data, particularly regarding infant mortality rate. We were also limited by the low consistency in CHRR data across years, which led us to doubt we could find an accurate year-to-year comparison. KFF data was only available on the state-level, so further refining it by county would greatly improve the accuracy of our findings.</p>
 <p>Future analysis would benefit from comparing year over year with more consistent data, measuring across income groups to see which healthcare measures are most important for each socioeconomic group, and investigating how preventative care measures in particular impact health.</p>
 <p>Overall, our comprehensive analysis confirms the critical role of socioeconomic factors, healthcare availability, and basic need access in determining health outcomes.</p>
-<p>WRITE ABOUT LIMITATIONS, STATE SUMMARY, VARIABLE SUMMARY, AND FUTURE WORK THAT SHOULD BE DONE</p>
 </section>
 <section id="references" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> References</h1>
@@ -2044,8 +2043,8 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </tbody>
 </table>
 </section>
-<section id="s.-table-6a-log-rank-test-results-for-food-insecurity-km-curve" class="level3" data-number="8.1.6">
-<h3 data-number="8.1.6" class="anchored" data-anchor-id="s.-table-6a-log-rank-test-results-for-food-insecurity-km-curve"><span class="header-section-number">8.1.6</span> S. Table 6a: Log Rank Test Results for Food Insecurity KM Curve</h3>
+<section id="sec-s_table_6a" class="level3" data-number="8.1.6">
+<h3 data-number="8.1.6" class="anchored" data-anchor-id="sec-s_table_6a"><span class="header-section-number">8.1.6</span> S. Table 6a: Log Rank Test Results for Food Insecurity KM Curve</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2093,8 +2092,8 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </tbody>
 </table>
 </section>
-<section id="s.-table-6b-log-rank-test-results-for-pcp-ratio-km-curve" class="level3" data-number="8.1.7">
-<h3 data-number="8.1.7" class="anchored" data-anchor-id="s.-table-6b-log-rank-test-results-for-pcp-ratio-km-curve"><span class="header-section-number">8.1.7</span> S. Table 6b: Log Rank Test Results for PCP Ratio KM Curve</h3>
+<section id="sec-s_table_6b" class="level3" data-number="8.1.7">
+<h3 data-number="8.1.7" class="anchored" data-anchor-id="sec-s_table_6b"><span class="header-section-number">8.1.7</span> S. Table 6b: Log Rank Test Results for PCP Ratio KM Curve</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2142,8 +2141,8 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </tbody>
 </table>
 </section>
-<section id="s.-table-6c-log-rank-test-results-segregation-index-km-curve" class="level3" data-number="8.1.8">
-<h3 data-number="8.1.8" class="anchored" data-anchor-id="s.-table-6c-log-rank-test-results-segregation-index-km-curve"><span class="header-section-number">8.1.8</span> S. Table 6C: Log Rank Test Results Segregation Index KM Curve</h3>
+<section id="sec-s_table_6c" class="level3" data-number="8.1.8">
+<h3 data-number="8.1.8" class="anchored" data-anchor-id="sec-s_table_6c"><span class="header-section-number">8.1.8</span> S. Table 6C: Log Rank Test Results Segregation Index KM Curve</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2191,8 +2190,8 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </tbody>
 </table>
 </section>
-<section id="s.-table-6d-log-rank-test-results-broadband-access-km-curve" class="level3" data-number="8.1.9">
-<h3 data-number="8.1.9" class="anchored" data-anchor-id="s.-table-6d-log-rank-test-results-broadband-access-km-curve"><span class="header-section-number">8.1.9</span> S. Table 6D: Log Rank Test Results Broadband Access KM Curve</h3>
+<section id="sec-s_table_6d" class="level3" data-number="8.1.9">
+<h3 data-number="8.1.9" class="anchored" data-anchor-id="sec-s_table_6d"><span class="header-section-number">8.1.9</span> S. Table 6D: Log Rank Test Results Broadband Access KM Curve</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2240,8 +2239,8 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </tbody>
 </table>
 </section>
-<section id="s.-table-6e-log-rank-test-results-household-income-hispanic-km-curve" class="level3" data-number="8.1.10">
-<h3 data-number="8.1.10" class="anchored" data-anchor-id="s.-table-6e-log-rank-test-results-household-income-hispanic-km-curve"><span class="header-section-number">8.1.10</span> S. Table 6E: Log Rank Test Results Household Income (Hispanic) KM Curve</h3>
+<section id="sec-s_table_6e" class="level3" data-number="8.1.10">
+<h3 data-number="8.1.10" class="anchored" data-anchor-id="sec-s_table_6e"><span class="header-section-number">8.1.10</span> S. Table 6E: Log Rank Test Results Household Income (Hispanic) KM Curve</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2289,8 +2288,8 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </tbody>
 </table>
 </section>
-<section id="s.-table-6f-log-rank-test-results-median-household-income-km-curve" class="level3" data-number="8.1.11">
-<h3 data-number="8.1.11" class="anchored" data-anchor-id="s.-table-6f-log-rank-test-results-median-household-income-km-curve"><span class="header-section-number">8.1.11</span> S. Table 6F: Log Rank Test Results Median Household Income KM Curve</h3>
+<section id="sec-s_table_6f" class="level3" data-number="8.1.11">
+<h3 data-number="8.1.11" class="anchored" data-anchor-id="sec-s_table_6f"><span class="header-section-number">8.1.11</span> S. Table 6F: Log Rank Test Results Median Household Income KM Curve</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2338,8 +2337,8 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </tbody>
 </table>
 </section>
-<section id="s.-table-6g-log-rank-test-results-percent-vaccination-km-curve" class="level3" data-number="8.1.12">
-<h3 data-number="8.1.12" class="anchored" data-anchor-id="s.-table-6g-log-rank-test-results-percent-vaccination-km-curve"><span class="header-section-number">8.1.12</span> S. Table 6G: Log Rank Test Results Percent Vaccination KM Curve</h3>
+<section id="sec-s_table_6g" class="level3" data-number="8.1.12">
+<h3 data-number="8.1.12" class="anchored" data-anchor-id="sec-s_table_6g"><span class="header-section-number">8.1.12</span> S. Table 6G: Log Rank Test Results Percent Vaccination KM Curve</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2387,8 +2386,8 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </tbody>
 </table>
 </section>
-<section id="s.-table-6h-log-rank-test-results-severe-housing-issues-km-curve" class="level3" data-number="8.1.13">
-<h3 data-number="8.1.13" class="anchored" data-anchor-id="s.-table-6h-log-rank-test-results-severe-housing-issues-km-curve"><span class="header-section-number">8.1.13</span> S. Table 6H: Log Rank Test Results Severe Housing Issues KM Curve</h3>
+<section id="sec-s_table_6h" class="level3" data-number="8.1.13">
+<h3 data-number="8.1.13" class="anchored" data-anchor-id="sec-s_table_6h"><span class="header-section-number">8.1.13</span> S. Table 6H: Log Rank Test Results Severe Housing Issues KM Curve</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2844,7 +2843,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/project-writeup-frances-haleigh\/");
+      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/us_health_quality\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -3173,7 +3172,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
