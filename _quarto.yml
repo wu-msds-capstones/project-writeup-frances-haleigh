@@ -6,6 +6,7 @@ format:
   html:
     toc: true
     toc-location: left
+    page-layout: full
     theme:
       light: lightly
       dark: darkly
