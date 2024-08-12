@@ -1,5 +1,5 @@
 ---
-title: "Healthcare access in the United States"
+title: "Healthcare Access in the United States"
 subtitle: "How does access to care and other basic needs impact standard health metrics?"
 authors:
   - Frances Romero
@@ -7,6 +7,7 @@ authors:
 date: today
 title-block-banner: true
 number-sections: true
+number-depth: 3
 lightbox: true
 ---
 

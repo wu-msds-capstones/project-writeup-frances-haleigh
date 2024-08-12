@@ -6,8 +6,8 @@ Our project focused on two main goals:
 
 See below for a thorough explanation of how we accomplished both goals.
 
-## Goal 1: Engineer an “overall” health metric to detect what variables influence health as a whole.
-### Overview
+## Creating an Overall Health Quality Variable
+### Flowchart
 ```{mermaid}
 flowchart LR
   A(1. Create Dataset) --> B(2. Scale Dataset)
@@ -136,7 +136,7 @@ ggplot(aes(x,y,group=group)) +
 |*PCA*                       |Principle Component Analysis (PCA) is a method of reducing the number of variables in a model by combining them into the principle components that describe the most variance in a given dataset.|
 :::
 
-## Goal 2: Discover how access to care impacts life expectancy, infant mortality, and mortality.
+## Analyzing Impact of Access to Care on Health Metrics
 
 We used both R and Python to analyze how access to care impacts important health metrics.
 
@@ -187,7 +187,7 @@ flowchart TD
 2. Preprocess:
     i) Drop NAs while optimizing data frame size via trial and error.
     ii) Use StandardScaler and OneHotEncoder tools from sklearn to transform our numeric and categorical data, respectively.
-3. Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure 9">Figures 9</a>, and <a href="./Figures/kbest_mortality.png" title="Figure 17">17</a>). Combine these variables with significant variables from the linear regression models completed in R.
+3. Use KMeans to find the top 10 features from each model. (See <a href="./Figures/kbest_life_exp.png" title="Figure 9">Figures 9</a>, and <a href="./Figures/kbest_mortality.png" title="Figure 12">12</a>). Combine these variables with significant variables from the linear regression models completed in R.
 4. Continue preprocessing with the reduced dataset (using only variables from step 3) 
     i) Bin and modify data as necessary. This ensured equal representation across classes for each predicted y variable.
         A. In order to use classification tools such as RandomForestClassifier or GradientBoostingClassifier, we binned all our data by quartiles before running it through our models. 
