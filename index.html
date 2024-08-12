@@ -119,14 +119,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
+    <div class="quarto-title column-page-right">
       <h1 class="title">Healthcare Access in the United States</h1>
             <p class="subtitle lead">How does access to care and other basic needs impact standard health metrics?</p>
                       </div>
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-right">
 
       <div>
       <div class="quarto-title-meta-heading">Authors</div>
@@ -147,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
@@ -228,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-right" id="quarto-document-content">
 
 
 
@@ -1207,10 +1207,11 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 <section id="conclusions" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Conclusions</h1>
 <p>Our analysis showed significant correlations between various socio-economic factors and key health outcomes such as life expectancy, infant mortality, and age-adjusted death rate. When assessing overall health, years of potential life lost had the biggest impact, suggesting variations in this variable influenced our holistic view of health the most. This implies our data had a large differences in this mortality metric across communities, where some areas are dying earlier than would otherwise be predicted.</p>
-<p>Throughout our analysis, the southern states continually showed to have worse health outcomes than the northwestern states. Lower income areas, communities with greater segregation between races, and food deserts all had low health metrics. Future public health work should focus on builidng infrastructure and increasing access to care and other basic needs in these areas. Specifically, broadband internet access, food security, income, rate of PCPs, and exercise opportunities emerged as crucial necessities for improving health.</p>
+<p>Throughout our analysis, the southern states continually showed to have worse health outcomes than the northwestern states. Lower income areas, communities with greater segregation between races, and food deserts all had low health metrics. Future public health work should focus on builidng infrastructure and increasing access to care and other basic needs in these areas.</p>
+<p>Specifically, broadband internet access, food security, income, rate of PCPs, and exercise opportunities emerged as crucial necessities for improving health. Since reduced access to these items (particularly internet access, exercise opportunities, and available providers) are correlated with lower health metrics, it suggests a lower health literacy may also exist in these areas. Especially where internet access is low, increasing opportunities to learn about health and science through school and community programs may also provide benefits in improving the overall health of these communities.</p>
 <p>While we observed meaningful correlations, certain findings were limited by missing data, particularly regarding infant mortality rate. We were also limited by the low consistency in CHRR data across years, which led us to doubt we could find an accurate year-to-year comparison. KFF data was only available on the state-level, so further refining it by county would greatly improve the accuracy of our findings.</p>
 <p>Future analysis would benefit from comparing year over year with more consistent data, measuring across income groups to see which healthcare measures are most important for each socioeconomic group, and investigating how preventative care measures in particular impact health.</p>
-<p>Overall, our comprehensive analysis confirms the critical role of socioeconomic factors, healthcare availability, and basic need access in determining health outcomes.</p>
+<p>Overall, our comprehensive analysis confirms the critical role of socioeconomic factors, healthcare availability and literacy, and basic need access in determining health outcomes.</p>
 </section>
 <section id="references" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> References</h1>
@@ -2660,7 +2661,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
