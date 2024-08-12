@@ -142,7 +142,11 @@
 
 ## Supplemental Figures{#supplemental-figures}
 
+### Figure S.1: Balancing dataset 
+
 ![Figure S.1: We binned our life expectancy data by quartiles (after removing outliers) to ensure balanced weights given to each class.](./Figures/life_expectancy_bins.png)
+
+### Figure S.2: Confusion matrices to assess where our models were succeeding and failing to predict accurately 
 
 ::: {layout-ncol=2}
 
@@ -150,6 +154,8 @@
 
 ![S.Figure S.2B: As with our life expectancy model, binning our age-adjusted mortality rates allowed our model to balance both accuracy and fairness by not favoring one group over another.](./Figures/conf_matrix_mortality.png){group="conf_matrix_gallery"}
 :::
+
+### Figure S.3: Finding number of components necessary to explain variance in models
 
 ::: {layout-ncol=3}
 ![Figure S.3A: It takes about 25 components to explain 90% of the variance seen in our life expectancy model](./Figures/variance_life_exp.png){group="variance_gallery"}
@@ -159,6 +165,8 @@
 ![Figure S.3C: It takes about 25 components to explain 90% of the variance seen in our age-adjusted death rate model.](./Figures/variance_mortality.png){group="variance_gallery"}
 :::
 
+### Figure S.4: Pairwise plots of variables used in models to confirm absence of multicollinearity
+
 ::: {layout-ncol=3}
 ![Figure S.4A: Life Expectancy Model Pairwise Plot.](./images/LE_pairs.png){group="pairwise_gallery"}
 
@@ -167,6 +175,8 @@
 ![Figure S.4C: Mortality Model Pairwise Plot.](./images/M_pairs.png){group="pairwise_gallery"}
 :::
 
+### Figure S.5: Confirming linear regression is a good fit for our models
+
 ::: {layout-ncol=3}
 ![Figure S.5A: Life Expectancy Model Assumptions Plot.](./images/LE_assumptions.png){group="assumptions_gallery"}
 
@@ -174,6 +184,8 @@
 
 ![Figure S.5C: Mortality Model Assumptions Plot.](./images/M_assumptions.png){group="assumptions_gallery"}
 :::
+
+### Figure S.6: More KM Curves from significant variables
 
 ::: {layout-ncol=3}
 ![Figure S.6A: Life Expectancy and Hispanic Household Income.](./images/KM_inc_hispanic.png){group="KM_gallery"}

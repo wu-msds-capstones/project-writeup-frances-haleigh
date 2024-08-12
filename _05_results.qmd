@@ -64,7 +64,7 @@ We then used machine learning algorithms to predict life expectancy of individua
 
 ![Figure 9: Top 10 features in the life expectancy dataset. Note that a lot of features were found in both the linear regression model explained above and in this result. Income, food insecurity, and internet access seem to be most associated with differences in life expectancy.](./Figures/kbest_life_exp.png)
 
-Our model predicted life expectancy based only on the fifteen significant access-to-care-related variables with 56% accuracy. While this may at first appear unimpressive, it’s important to realize that 56% of life expectancy can be predicted or explained by only fifteen items- all of which relate to one’s access to care. Only the remaining 44% can be explained by all other factors in a person’s life. 
+Our model predicted life expectancy based only on the fifteen significant access-to-care-related variables with 68% accuracy! This means that 68% of an individual's life expectancy can be predicted or explained by only thirteen items- all of which relate to one’s access to care and basic needs. Only the remaining 32% can be explained by all other factors in a person’s life. This underscores the importance of having access to healthcare, healthy foods, and other basic necessities.
 
 ### Infant Mortality 
 <a href="./images/median_infant_mortality_by_state.png" title="Figure 10">Figure 10</a> shows the median infant mortality rates between states. Note that the chart appears to “stair-step” as infant mortality rates are represented as integers rather than continuous numbers. Because of the observed positive associaiton, we included the variable in our linear model to determine which states were significantly correlated with infant mortality. 
@@ -104,7 +104,7 @@ lm(formula = `AGE-ADJUSTED_DEATH_RATE` ~ `state_name` + `%_VACCINATED` +
 ```
 :::
 
-Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 62% of our test data. Just thirteen access-to-care-related covariates predicted mortality rate 62% of the time! This again emphasizes the importance of access to care in one’s overall health status.  
+Finally, we repeated our machine learning process to predict age-adjusted death rate based on our significant access to care covariates. Our model accurately predicted the binned death rate for 63% of our test data. Just sixteen access-to-care-related covariates predicted mortality rate 63% of the time! This again emphasizes the importance of access to care and basic needs in one’s overall health status.  
 
 ![Figure 12: Income, access to food, and internet summarize the top ten features influencing the mortality dataset.](./Figures/kbest_mortality.png)
 
