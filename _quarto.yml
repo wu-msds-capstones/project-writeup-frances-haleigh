@@ -1,2 +1,21 @@
 project:
+  type: website
   output-dir: _output
+
+format: 
+  html:
+    toc: true
+    toc-location: left
+    page-layout: full
+    theme:
+      light: lightly
+      dark: darkly
+    mermaid:
+      theme: forest
+    
+with:
+  target: gh-pages
+  path: capstone.qmd
+
+comments:
+  hypothesis: false
