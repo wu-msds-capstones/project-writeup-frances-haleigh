@@ -8,5 +8,3 @@ While we observed meaningful correlations, certain findings were limited by miss
 Future analysis would benefit from comparing year over year with more consistent data, measuring across income groups to see which healthcare measures are most important for each socioeconomic group, and investigating how preventative care measures in particular impact health.
 
 Overall, our comprehensive analysis confirms the critical role of socioeconomic factors, healthcare availability, and basic need access in determining health outcomes. 
-
-WRITE ABOUT LIMITATIONS, STATE SUMMARY, VARIABLE SUMMARY, AND FUTURE WORK THAT SHOULD BE DONE
