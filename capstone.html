@@ -1732,7 +1732,7 @@ Important&nbsp;3: Equation 3: Mortality Rate Linear Model
 </section>
 <section id="state-congruence-for-all-health-measures" class="level3" data-number="5.2.4">
 <h3 data-number="5.2.4" class="anchored" data-anchor-id="state-congruence-for-all-health-measures"><span class="header-section-number">5.2.4</span> State Congruence for All Health Measures</h3>
-<p>When creating our individual linear mixed models, we found that some states had significant impacts on the health measures (life expectancy, infant mortality, and mortaltiy). We were curious if states were showing congruent signficance. For example, if Oregon had significantly higher life expectancy, did it also have significantly lower infant mortality and mortality? To explore this we created <a href="./images/congruence_map.png" title="Figure 13">Figure 13</a>, which shows positive outcomes in green and negative outcomes in red, with color intensity indicating congruence. Life expectancy was adjusted since it is considered positive, while infant mortality and mortality are considered negative. “Congruence” means that the state was significant for all 3 variables.”More” means that the state was negatively/positively significant for 2/3 variables, “Slight” means the state was negatively/positively significant for 1/3, and “Neutral” means the state was nit significant for any variables. Once again, the northwestern states emerge as healthier across all metrics when compared to the southeastern states.</p>
+<p>When creating our individual linear mixed models, we found that some states had significant impacts on the health measures (life expectancy, infant mortality, and mortaltiy). We were curious if states were showing congruent signficance. For example, if Oregon had significantly higher life expectancy, did it also have significantly lower infant mortality and mortality? To explore this we created <a href="./images/congruence_map.png" title="Figure 13">Figure 13</a>, which shows positive outcomes in green and negative outcomes in red, with color intensity indicating congruence. Life expectancy was adjusted since it is considered positive, while infant mortality and mortality are considered negative. “Congruence” means that the state was significant for all 3 variables.”More” means that the state was negatively/positively significant for 2/3 variables, “Slight” means the state was negatively/positively significant for 1/3, and “Neutral” means the state was not significant for any variables. Once again, the northwestern states emerge as healthier across all metrics when compared to the southeastern states.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./images/congruence_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 13: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes."><img src="./images/congruence_map.png" class="img-fluid figure-img" alt="Figure 13: Northwestern States Have Best Life Expectancy, Infant Mortality, and Mortality Outcomes."></a></p>
@@ -2869,7 +2869,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/us_health_quality\/");
+      var filterRegex = new RegExp("https:\/\/wu-msds-capstones\.github\.io\/project-writeup-frances-haleigh\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -3198,7 +3198,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
